@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NinjaOne-Jira Integration Setup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">N</div>
+            <h1>NinjaOne → Jira Integration</h1>
+            <p class="subtitle">Configure device sync and asset mapping</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="credentials">1. Credentials</button>
+            <button class="tab" data-tab="schema">2. Schema</button>
+            <button class="tab" data-tab="mappings">3. Role Mappings</button>
+            <button class="tab" data-tab="review">4. Review</button>
+        </div>
+
+        <!-- Tab 1: Credentials -->
+        <section id="tab-credentials" class="tab-content active">
+            <div class="card">
+                <h2>
+                    <span class="icon">🌐</span>
+                    NinjaOne Credentials
+                </h2>
+                <div class="form-group">
+                    <label for="ninja-url">API Region</label>
+                    <select id="ninja-url">
+                        <option value="https://app.ninjarmm.com">US - app.ninjarmm.com</option>
+                        <option value="https://eu.ninjarmm.com">EU - eu.ninjarmm.com</option>
+                        <option value="https://oc.ninjarmm.com">OC - oc.ninjarmm.com</option>
+                        <option value="https://ca.ninjarmm.com">CA - ca.ninjarmm.com</option>
+                        <option value="https://us2.ninjarmm.com">US2 - us2.ninjarmm.com</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="ninja-client-id" class="required">Client ID</label>
+                        <input type="text" id="ninja-client-id" placeholder="OAuth2 Client ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="ninja-client-secret" class="required">Client Secret</label>
+                        <input type="password" id="ninja-client-secret" placeholder="OAuth2 Client Secret">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="testNinjaOne()">
+                        <span class="spinner" id="ninja-spinner"></span>
+                        Test Connection
+                    </button>
+                </div>
+                <div id="ninja-status" class="status"></div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <span class="icon">📋</span>
+                    Jira Credentials
+                </h2>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="jira-subdomain" class="required">Subdomain</label>
+                        <div class="input-group">
+                            <input type="text" id="jira-subdomain" placeholder="mycompany">
+                            <span class="input-suffix">.atlassian.net</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="jira-email" class="required">Email</label>
+                        <input type="email" id="jira-email" placeholder="user@example.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="jira-token" class="required">API Token</label>
+                    <input type="password" id="jira-token" placeholder="Jira API Token">
+                    <small><a href="https://id.atlassian.com/manage-profile/security/api-tokens" target="_blank">Create
+                            API Token ↗</a></small>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="testJira()">
+                        <span class="spinner" id="jira-spinner"></span>
+                        Test Connection
+                    </button>
+                </div>
+                <div id="jira-status" class="status"></div>
+            </div>
+
+            <div class="nav-buttons">
+                <span></span>
+                <button class="btn btn-primary" onclick="nextTab('schema')">Next: Schema Selection →</button>
+            </div>
+        </section>
+
+        <!-- Tab 2: Schema Selection -->
+        <section id="tab-schema" class="tab-content">
+            <div class="card">
+                <h2>
+                    <span class="icon">📦</span>
+                    Jira Assets Schema
+                </h2>
+                <p class="description">Select the schema where device assets will be created.</p>
+
+                <div class="form-group">
+                    <label for="jira-schema">Object Schema</label>
+                    <select id="jira-schema" onchange="loadObjectTypes()">
+                        <option value="">-- Test Jira connection first --</option>
+                    </select>
+                </div>
+
+                <div id="schema-types-preview"></div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="prevTab('credentials')">← Back</button>
+                <button class="btn btn-primary" onclick="nextTab('mappings')">Next: Role Mappings →</button>
+            </div>
+        </section>
+
+        <!-- Tab 3: Role Mappings -->
+        <section id="tab-mappings" class="tab-content">
+            <div class="alert alert-info">
+                <span class="alert-icon">💡</span>
+                <div class="alert-content">
+                    <strong>Role-based Mapping:</strong> Each NinjaOne device role (e.g., Workstation, Server) can map
+                    to a different Jira object type with its own attribute mappings.
+                </div>
+            </div>
+
+            <div id="object-type-mappings-container">
+                <!-- Mapping cards will be dynamically added here -->
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="addObjectTypeMapping()">
+                    + Add Role → Object Type Mapping
+                </button>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="prevTab('schema')">← Back</button>
+                <button class="btn btn-primary" onclick="nextTab('review')">Next: Review →</button>
+            </div>
+        </section>
+
+        <!-- Tab 4: Review & Save -->
+        <section id="tab-review" class="tab-content">
+            <div class="card">
+                <h2>
+                    <span class="icon">✅</span>
+                    Configuration Summary
+                </h2>
+                <div id="config-summary"></div>
+                <pre id="config-preview"></pre>
+            </div>
+
+            <div class="card warning">
+                <h2>⚠️ Security: Secrets</h2>
+                <p class="description">For security, secrets are <strong>not</strong> saved to the config file by
+                    default. Set these environment variables:</p>
+                <pre>NINJA_CLIENT_SECRET=your-secret
+JIRA_API_TOKEN=your-token</pre>
+                <label class="checkbox">
+                    <input type="checkbox" id="write-secrets">
+                    <span>Write secrets to config file (not recommended for production)</span>
+                </label>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="prevTab('mappings')">← Back</button>
+                <button class="btn btn-secondary" onclick="exportConfig()">Export JSON</button>
+                <button class="btn btn-success" onclick="saveConfig()">
+                    <span class="spinner" id="save-spinner"></span>
+                    Save Configuration
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Role Mapping Card Template (hidden) -->
+    <template id="role-mapping-template">
+        <div class="mapping-card" data-mapping-index="">
+            <div class="mapping-card-header">
+                <div class="mapping-card-title">
+                    <span class="role-name">New Mapping</span>
+                    <span class="badge badge-info">Unconfigured</span>
+                </div>
+                <div class="mapping-card-actions">
+                    <button class="btn btn-small btn-secondary" onclick="testMappingForRole(this)">
+                        Test
+                    </button>
+                    <button class="btn btn-small btn-danger" onclick="removeObjectTypeMapping(this)">
+                        Remove
+                    </button>
+                </div>
+            </div>
+
+            <div class="mapping-config-grid">
+                <div class="form-group">
+                    <label>NinjaOne Device Role</label>
+                    <select class="role-select" onchange="onRoleChange(this)">
+                        <option value="">-- Select Role --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Jira Object Type</label>
+                    <select class="object-type-select" onchange="onObjectTypeChange(this)">
+                        <option value="">-- Select Object Type --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Attribute Mappings -->
+            <h3 style="font-size: 14px; margin-bottom: 12px;">Attribute Mappings</h3>
+
+            <!-- Quick create button for NinjaOne Device ID attribute -->
+            <div style="margin-bottom: 12px;">
+                <button class="btn btn-small btn-secondary" onclick="createNinjaDeviceIdAttribute(this)">
+                    + Create NinjaOne Device ID Attribute
+                </button>
+                <small style="margin-left: 8px; color: var(--text-muted);">Creates an attribute for identity
+                    matching</small>
+            </div>
+
+            <div class="mapping-header">
+                <span>Jira Attribute</span>
+                <span>NinjaOne Field</span>
+                <span>Transform</span>
+                <span>Identity#</span>
+                <span></span>
+            </div>
+            <div class="attribute-mappings-list">
+                <!-- Attribute mapping rows will be added here -->
+            </div>
+
+            <button class="btn btn-small btn-secondary btn-add-row" onclick="addAttributeMapping(this)">
+                + Add Attribute Mapping
+            </button>
+
+            <div class="mapping-test-result" style="margin-top: 16px;"></div>
+        </div>
+    </template>
+
+    <!-- Attribute Mapping Row Template -->
+    <template id="attribute-mapping-template">
+        <div class="mapping-row">
+            <select class="jira-attr-select">
+                <option value="">-- Jira Attribute --</option>
+            </select>
+            <select class="ninja-field-select">
+                <option value="">-- NinjaOne Field --</option>
+                <optgroup label="System">
+                    <option value="id">Device ID</option>
+                    <option value="systemName">System Name</option>
+                    <option value="dnsName">DNS Name</option>
+                    <option value="netbiosName">NetBIOS Name</option>
+                </optgroup>
+                <optgroup label="Hardware">
+                    <option value="system.manufacturer">Manufacturer</option>
+                    <option value="system.model">Model</option>
+                    <option value="system.serialNumber">Serial Number</option>
+                    <option value="system.assetSerialNumber">Asset Serial Number</option>
+                    <option value="system.biosSerialNumber">BIOS Serial</option>
+                    <option value="system.chassisType">Chassis Type</option>
+                </optgroup>
+                <optgroup label="Operating System">
+                    <option value="os.name">OS Name</option>
+                    <option value="os.version">OS Version</option>
+                    <option value="os.architecture">Architecture</option>
+                </optgroup>
+                <optgroup label="Network">
+                    <option value="ipAddresses">IP Addresses</option>
+                    <option value="macAddresses">MAC Addresses</option>
+                    <option value="publicIP">Public IP</option>
+                </optgroup>
+                <optgroup label="Storage">
+                    <option value="system.memory.total">Total RAM</option>
+                    <option value="volumes.total">Total Disk</option>
+                </optgroup>
+                <optgroup label="Organization">
+                    <option value="organizationId">Organization ID</option>
+                    <option value="locationId">Location ID</option>
+                </optgroup>
+            </select>
+            <select class="transform-select">
+                <option value="">None</option>
+                <option value="upper">UPPERCASE</option>
+                <option value="lower">lowercase</option>
+                <option value="strip">Strip whitespace</option>
+                <option value="first_ip">First IP</option>
+                <option value="first_mac">First MAC</option>
+                <option value="bytes_to_gb">Bytes → GB</option>
+            </select>
+            <input type="number" class="identity-order-input" placeholder="-" min="1" max="10"
+                title="Identity order (1=first, 2=second, etc). Leave empty if not an identity field.">
+            <button class="btn-remove" onclick="removeAttributeMapping(this)">✕</button>
+        </div>
+    </template>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

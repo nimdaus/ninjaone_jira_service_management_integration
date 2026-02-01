@@ -1,0 +1,172 @@
+# NinjaOne to Jira Service Management Integration Configuration
+# ============================================================
+#
+# This is a sample configuration file. Copy to config.yaml and fill in your values.
+# Secrets should be provided via environment variables, not in this file.
+#
+# Environment variable precedence:
+#   CLI flags > Environment variables > .env file > config file > defaults
+
+# NinjaOne API Configuration
+ninjaone:
+  # API base URL - use region-specific URL if needed
+  # Regions: app.ninjarmm.com (US), eu.ninjarmm.com (EU), oc.ninjarmm.com (OC), ca.ninjarmm.com (CA)
+  base_url: "https://app.ninjarmm.com"
+  
+  # OAuth2 client credentials - set via NINJA_CLIENT_ID and NINJA_CLIENT_SECRET
+  client_id: ""
+  # client_secret: "" # Use NINJA_CLIENT_SECRET env var instead
+  
+  # OAuth2 scopes to request
+  scopes:
+    - monitoring
+    - management
+
+# Jira Configuration
+jira:
+  # Jira subdomain (e.g., 'mycompany' for mycompany.atlassian.net)
+  subdomain: ""
+  
+  # Jira account email
+  email: ""
+  
+  # Jira API token - set via JIRA_API_TOKEN env var
+  # api_token: "" # Use JIRA_API_TOKEN env var instead
+  
+  # Assets workspace ID (will be auto-discovered if not set)
+  workspace_id: ""
+
+# Jira Assets Configuration
+assets:
+  # Object schema ID in Jira Assets
+  object_schema_id: ""
+  
+  # Object type ID to create/update (e.g., "Computer", "Server")
+  object_type_id: ""
+  
+  # Attribute ID for serial number (used for matching)
+  serial_number_attribute_id: ""
+  
+  # Attribute mappings: NinjaOne fields -> Jira Assets attributes
+  attribute_mappings:
+    # Example: Map system name to Name attribute
+    - jira_attribute_id: "123"
+      jira_attribute_name: "Name"
+      jira_attribute_type: "Default"
+      source: "systemName"
+      required: true
+    
+    # Example: Map serial number
+    - jira_attribute_id: "124"
+      jira_attribute_name: "Serial Number"
+      jira_attribute_type: "Default"
+      source: "system.serialNumber"
+      required: false
+      transform: "normalize_serial"
+    
+    # Example: Map OS name
+    - jira_attribute_id: "125"
+      jira_attribute_name: "Operating System"
+      jira_attribute_type: "Default"
+      source: "os.name"
+      required: false
+    
+    # Example: Map IP address
+    - jira_attribute_id: "126"
+      jira_attribute_name: "IP Address"
+      jira_attribute_type: "Default"
+      source: "ipAddresses[0]"
+      required: false
+
+# Jira Issue Configuration (for alert -> issue workflow)
+issues:
+  # Project key for creating issues
+  project_key: ""
+  
+  # Issue type ID for alert issues
+  issue_type_id: ""
+  
+  # Custom field ID for linking assets to issues
+  asset_field_id: ""
+  
+  # Summary template - supports: {message}, {device_name}, {severity}, {condition}
+  summary_template: "[NinjaOne Alert] {severity}: {message}"
+  
+  # Minimum severity to create issues (NONE, MINOR, MODERATE, MAJOR, CRITICAL)
+  min_severity: "MODERATE"
+  
+  # NinjaOne source types to create issues for (empty = all)
+  source_types: []
+  
+  # Labels to add to created issues
+  default_labels:
+    - "ninjaone"
+    - "auto-created"
+  
+  # Severity to Jira priority mapping (severity -> priority ID)
+  severity_to_priority_mapping:
+    CRITICAL: "1"
+    MAJOR: "2"
+    MODERATE: "3"
+    MINOR: "4"
+  
+  # Field mappings: Alert fields -> Jira issue fields
+  field_mappings: []
+
+# Database Configuration
+database:
+  # SQLite database path
+  path: "data/integration.db"
+  
+  # Enable WAL mode for better concurrency
+  wal_mode: true
+
+# HTTP Server Configuration
+server:
+  host: "0.0.0.0"
+  port: 8080
+  
+  # Webhook verification
+  webhook:
+    enabled: true
+    # secret: "" # Use WEBHOOK_SECRET env var instead
+
+# Concurrency Configuration
+concurrency:
+  # Maximum concurrent API requests to Jira
+  max_jira_requests: 2
+  
+  # Maximum background workers
+  max_workers: 4
+  
+  # Rate limit: requests per minute (0 = unlimited)
+  jira_rate_limit_per_minute: 0
+
+# Retry Configuration
+retry:
+  # Maximum retry attempts
+  max_retries: 8
+  
+  # Base delay for exponential backoff (seconds)
+  base_delay: 1.0
+  
+  # Maximum delay between retries (seconds)
+  max_delay: 300.0
+  
+  # Add random jitter to delays
+  jitter: true
+
+# Heartbeat Configuration (for monitoring)
+heartbeat:
+  enabled: false
+  url: ""  # e.g., https://uptime-kuma.example.com/api/push/xxx
+  method: "GET"
+  interval_seconds: 60
+  include_status: true
+  # token: "" # Use HEARTBEAT_TOKEN env var if needed
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  json_format: true
+  log_file: ""  # Optional log file path

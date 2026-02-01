@@ -1,0 +1,45 @@
+services:
+  integration:
+    build: .
+    container_name: ninjaone-jira-integration
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+      - ./config.yaml:/app/config.yaml:ro
+    environment:
+      # Required: NinjaOne credentials
+      - NINJA_CLIENT_ID=${NINJA_CLIENT_ID}
+      - NINJA_CLIENT_SECRET=${NINJA_CLIENT_SECRET}
+      
+      # Required: Jira credentials  
+      - JIRA_API_TOKEN=${JIRA_API_TOKEN}
+      
+      # Optional: Webhook secret
+      - WEBHOOK_SECRET=${WEBHOOK_SECRET:-}
+      
+      # Optional: Log level
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import httpx; r = httpx.get('http://localhost:8080/healthz'); r.raise_for_status()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# Optional: Add a reverse proxy for TLS
+#  nginx:
+#    image: nginx:alpine
+#    ports:
+#      - "443:443"
+#    volumes:
+#      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+#      - ./certs:/etc/nginx/certs:ro
+#    depends_on:
+#      - integration
