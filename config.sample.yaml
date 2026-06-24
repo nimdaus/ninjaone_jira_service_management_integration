@@ -39,44 +39,44 @@ jira:
 # Jira Assets Configuration
 assets:
   # Object schema ID in Jira Assets
-  object_schema_id: ""
-  
-  # Object type ID to create/update (e.g., "Computer", "Server")
-  object_type_id: ""
-  
-  # Attribute ID for serial number (used for matching)
-  serial_number_attribute_id: ""
-  
-  # Attribute mappings: NinjaOne fields -> Jira Assets attributes
-  attribute_mappings:
-    # Example: Map system name to Name attribute
-    - jira_attribute_id: "123"
-      jira_attribute_name: "Name"
-      jira_attribute_type: "Default"
-      source: "systemName"
-      required: true
-    
-    # Example: Map serial number
-    - jira_attribute_id: "124"
-      jira_attribute_name: "Serial Number"
-      jira_attribute_type: "Default"
-      source: "system.serialNumber"
-      required: false
-      transform: "normalize_serial"
-    
-    # Example: Map OS name
-    - jira_attribute_id: "125"
-      jira_attribute_name: "Operating System"
-      jira_attribute_type: "Default"
-      source: "os.name"
-      required: false
-    
-    # Example: Map IP address
-    - jira_attribute_id: "126"
-      jira_attribute_name: "IP Address"
-      jira_attribute_type: "Default"
-      source: "ipAddresses[0]"
-      required: false
+  schema_id: ""
+
+  # Role-based mappings: each NinjaOne device role → Jira object type with its own attribute mappings.
+  # Use 'ninja-jira init --ui' to configure these interactively.
+  object_type_mappings: []
+  # Example:
+  # object_type_mappings:
+    # Example mapping for Windows Workstations
+    # - ninja_role_id: 101
+    #   ninja_role_name: "Windows Workstation"
+    #   jira_object_type_id: "200"
+    #   jira_object_type_name: "Workstation"
+    #   attribute_mappings:
+    #     - jira_attribute_id: "123"
+    #       jira_attribute_name: "Name"
+    #       jira_attribute_type: "Default"
+    #       source: "systemName"
+    #       required: true
+    #       identity_order: 1
+    #     - jira_attribute_id: "124"
+    #       jira_attribute_name: "Serial Number"
+    #       jira_attribute_type: "Default"
+    #       source: "system.serialNumber"
+    #       transforms:
+    #         - normalize_serial
+    #       identity_order: 2
+    #     - jira_attribute_id: "125"
+    #       jira_attribute_name: "OS"
+    #       source: "os.name"
+    #     - jira_attribute_id: "126"
+    #       jira_attribute_name: "IP Address"
+    #       source: "ipAddresses"
+    #       transforms:
+    #         - first_ip
+
+  # Legacy single-type config (kept for backward compatibility; prefer object_type_mappings above)
+  # object_type_id: ""
+  # attribute_mappings: []
 
 # Jira Issue Configuration (for alert -> issue workflow)
 issues:
@@ -133,26 +133,26 @@ server:
 
 # Concurrency Configuration
 concurrency:
-  # Maximum concurrent API requests to Jira
-  max_jira_requests: 2
-  
+  # Maximum concurrent Jira API requests in flight
+  max_in_flight_jira_requests: 2
+
   # Maximum background workers
   max_workers: 4
-  
-  # Rate limit: requests per minute (0 = unlimited)
-  jira_rate_limit_per_minute: 0
+
+  # Rate limit: Jira requests per minute (null = unlimited)
+  jira_requests_per_minute: ~
 
 # Retry Configuration
 retry:
   # Maximum retry attempts
   max_retries: 8
-  
+
   # Base delay for exponential backoff (seconds)
-  base_delay: 1.0
-  
+  base_delay_seconds: 1.0
+
   # Maximum delay between retries (seconds)
-  max_delay: 300.0
-  
+  max_delay_seconds: 300.0
+
   # Add random jitter to delays
   jitter: true
 
@@ -165,8 +165,28 @@ heartbeat:
   include_status: true
   # token: "" # Use HEARTBEAT_TOKEN env var if needed
 
+# Scheduled Device Sync Configuration
+# Polls all NinjaOne devices on a configurable interval.
+# Eliminates the need for a public-facing server to receive webhooks.
+schedule:
+  enabled: true
+  # Hours between full device syncs (0.1 to 168)
+  interval_hours: 6
+
+# Scheduled Alert Polling Configuration
+# Polls NinjaOne /v2/alerts on a separate, faster interval.
+# Creates Jira issues for active alerts that don't already have one.
+# If a device has no Jira asset yet, a targeted device sync runs first.
+alert_schedule:
+  enabled: true
+  # Minutes between alert polls (1 to 1440)
+  interval_minutes: 5
+
 # Logging Configuration
 logging:
   level: "INFO"
-  json_format: true
-  log_file: ""  # Optional log file path
+  # Log format: "json" (structured) or "text" (human-readable)
+  format: "json"
+  # Optional: write JSON logs to a file in addition to the console.
+  # Can also be set via --log-file CLI flag or NINJA_JIRA_LOG_FILE env var.
+  file: ""  # e.g., "logs/integration.log"

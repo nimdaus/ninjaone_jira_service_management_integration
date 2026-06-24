@@ -1,0 +1,6423 @@
+[
+  {
+    "id": 3,
+    "uid": "b99746bc-efe7-49fc-85ff-9d9833d3082a",
+    "assignedOwnerUid": "2433ca56-e390-4d96-b943-2360f79a7592",
+    "organizationId": 1,
+    "locationId": 9,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 42,
+    "policyId": 2,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Austin's Workstation (Dual Monitors)",
+    "systemName": "MSPDEMO-W10-01",
+    "dnsName": "MSPDEMO-W10-01.MSPDEMO.local",
+    "created": 1744382020.296463,
+    "lastContact": 1782331988.312,
+    "lastUpdate": 1782331988.312,
+    "tags": [
+      "Needs-Onboarding",
+      "💲Billable Device",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.69"
+    ],
+    "macAddresses": [
+      "00:50:56:97:69:58"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967396,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-01",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 c4 15 eb ef 53 d7-ae 7b 0e fe 96 e0 74 2f",
+      "serialNumber": "None",
+      "assetSerialNumber": "AXKDLT",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 3,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 4583649280,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 4,
+    "uid": "00d94e1f-a645-4a8b-8cae-47d1b6bab6c7",
+    "assignedOwnerUid": "2d3ab179-50cd-4076-b761-a5ca0df0f779",
+    "organizationId": 6,
+    "locationId": 6,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 38,
+    "policyId": 38,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Spencer's Workstation",
+    "systemName": "MSPDEMO-W10-02",
+    "dnsName": "MSPDEMO-W10-02.MSPDEMO.local",
+    "created": 1744382130.97649,
+    "lastContact": 1782331961.987,
+    "lastUpdate": 1782331961.987,
+    "tags": [
+      "Needs-Patching",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.62"
+    ],
+    "macAddresses": [
+      "00:50:56:97:C7:DE"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781019723,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-02",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 45 82 f3 65 a2 9e-c3 3b df 19 df 8b 11 3e",
+      "serialNumber": "None",
+      "assetSerialNumber": "VBCHKO",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 4,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 2667757568,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 5,
+    "uid": "a1869c2e-c02e-4463-b4be-b62edcf8b93f",
+    "assignedOwnerUid": "94536d04-69bc-41e7-804f-9163f8c416b5",
+    "organizationId": 1,
+    "locationId": 8,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 42,
+    "policyId": 42,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Grant's Workstation",
+    "systemName": "MSPDEMO-W10-03",
+    "dnsName": "MSPDEMO-W10-03.MSPDEMO.local",
+    "created": 1744382211.653322,
+    "lastContact": 1782331962.621,
+    "lastUpdate": 1782331962.621,
+    "tags": [
+      "Needs-Patching",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.34"
+    ],
+    "macAddresses": [
+      "00:50:56:97:5A:B9"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781019275,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-03",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 42 36 b2 0b ea 9e-97 c7 ab 5f e6 9c a1 da",
+      "serialNumber": "None",
+      "assetSerialNumber": "GLEGIA",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 5,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 6269775872,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 7,
+    "uid": "ad1ef54d-d95c-4cf8-a89b-2bd1b0cb4a6d",
+    "assignedOwnerUid": "8b62001e-161c-4e53-9d11-9fe7b044c46a",
+    "organizationId": 2,
+    "locationId": 2,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 34,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Nick's Workstation",
+    "systemName": "MSPDEMO-W10-05",
+    "dnsName": "MSPDEMO-W10-05.MSPDEMO.local",
+    "created": 1744382451.170047,
+    "lastContact": 1782331979.691,
+    "lastUpdate": 1782331933.016,
+    "tags": [
+      "Needs-Patching",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.38"
+    ],
+    "macAddresses": [
+      "00:50:56:97:2D:13"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967411,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-05",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 5e 61 d8 56 5f 88-ee 3e 88 e9 9d 82 c0 07",
+      "serialNumber": "None",
+      "assetSerialNumber": "WDJZCN",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 7,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 2691727360,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 8,
+    "uid": "c13e6a10-d98b-450e-828e-be4acd8e7e38",
+    "assignedOwnerUid": "cc31d6a7-17cc-441e-b41c-8661ec1b6847",
+    "organizationId": 2,
+    "locationId": 11,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 34,
+    "policyId": 34,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Caroline's Workstation",
+    "systemName": "MSPDEMO-W10-06",
+    "dnsName": "MSPDEMO-W10-06",
+    "created": 1744383043.5076,
+    "lastContact": 1782331997.263,
+    "lastUpdate": 1782331997.263,
+    "tags": [
+      "Needs-Onboarding",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.39"
+    ],
+    "macAddresses": [
+      "00:50:56:97:47:54"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781018103,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-06",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 f3 5a 23 af 17 a0-ab ef 28 58 75 fa 0e ca",
+      "serialNumber": "None",
+      "assetSerialNumber": "FAAQOU",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 8,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 3818778624,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO-W10-06\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 9,
+    "uid": "0508955f-b048-4ef9-844e-3125a19bdb06",
+    "assignedOwnerUid": "4bd38321-2cd8-4762-9883-14e19b127778",
+    "organizationId": 2,
+    "locationId": 11,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 34,
+    "policyId": 76,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "John's Workstation",
+    "systemName": "MSPDEMO-W10-07",
+    "dnsName": "MSPDEMO-W10-07.MSPDEMO.local",
+    "created": 1744383245.932535,
+    "lastContact": 1782331961.369,
+    "lastUpdate": 1782331958.015,
+    "tags": [
+      "Needs-Patching",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.42"
+    ],
+    "macAddresses": [
+      "00:50:56:97:DD:F6"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781020138,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-07",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 c0 e1 ec 2b d6 e5-fb e6 a5 23 59 d7 c4 fe",
+      "serialNumber": "None",
+      "assetSerialNumber": "GTFAPA",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 9,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 4536672256,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 10,
+    "uid": "51ea139b-9103-41d7-bcf8-b325204e1e1b",
+    "assignedOwnerUid": "c04f8423-57c2-4415-973c-eb261c4eab56",
+    "organizationId": 5,
+    "locationId": 15,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 37,
+    "policyId": 37,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Andy's Laptop (NAS Backup + Bitlocker)",
+    "systemName": "MSPDEMO-W11-01",
+    "dnsName": "MSPDEMO-W11-01",
+    "created": 1744383734.573538,
+    "lastContact": 1782331973.678,
+    "lastUpdate": 1782331973.678,
+    "tags": [
+      "Needs-Onboarding",
+      "Network Share Backup",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.36",
+      "fe80::389:7da3:e3ee:9439"
+    ],
+    "macAddresses": [
+      "00:50:56:97:B0:7F"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781698987,
+      "buildNumber": "22000",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W11-01",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 01 e7 cf cc 6d 77-59 3c da 98 51 74 f3 1f",
+      "serialNumber": "None",
+      "assetSerialNumber": "QEDDIL",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 2,
+      "totalPhysicalMemory": 4293787648,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293787648
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 10,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 95890173952,
+        "freeSpace": 21408374784,
+        "serialNumber": "EE98096E"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO-W11-01\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 11,
+    "uid": "3ff720a3-2925-4037-8c50-f8e3671c783d",
+    "assignedOwnerUid": "83fa1458-39bc-447b-9c3f-19fe81adf441",
+    "organizationId": 5,
+    "locationId": 15,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 37,
+    "policyId": 37,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Luke's Workstation",
+    "systemName": "MSPDEMO-W11-02",
+    "dnsName": "MSPDEMO-W11-02.MSPDEMO.local",
+    "created": 1744384535.093709,
+    "lastContact": 1782331960.152,
+    "lastUpdate": 1782331960.152,
+    "tags": [
+      "Needs-Onboarding",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.43"
+    ],
+    "macAddresses": [
+      "00:50:56:97:FD:43"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967488,
+      "buildNumber": "22000",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W11-02",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 21 51 11 81 be 3c-56 49 73 a6 1c 5b d6 da",
+      "serialNumber": "None",
+      "assetSerialNumber": "YSBCSV",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 2,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 11,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 95890173952,
+        "freeSpace": 30628659200,
+        "serialNumber": "EE98096E"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 12,
+    "uid": "cab6dc10-4085-407f-93c7-2e7651b0d25f",
+    "assignedOwnerUid": "2bea3ba5-ec5f-4233-81a1-adcf3e6fa0da",
+    "organizationId": 5,
+    "locationId": 5,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 42,
+    "policyId": 42,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Stanske's Laptop",
+    "systemName": "MSPDEMO-W11-03",
+    "dnsName": "MSPDEMO-W11-03.MSPDEMO.local",
+    "created": 1744384599.425137,
+    "lastContact": 1782331997.031,
+    "lastUpdate": 1782331997.031,
+    "tags": [
+      "Needs-Patching",
+      "Chrome",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.45",
+      "fe80::c1fb:2:e419:a22f"
+    ],
+    "macAddresses": [
+      "00:50:56:97:63:8E"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967491,
+      "buildNumber": "22000",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W11-03",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 30 2f 31 86 55 ca-de f9 fe b0 79 fc 4b 37",
+      "serialNumber": "None",
+      "assetSerialNumber": "JQZRTE",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 2,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 12,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 95890173952,
+        "freeSpace": 27194085376,
+        "serialNumber": "EE98096E"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 13,
+    "uid": "1174077e-dd53-4a20-bda4-431f0d2aa414",
+    "assignedOwnerUid": "07ba5a90-0cec-4eec-901d-4047d2147672",
+    "organizationId": 1,
+    "locationId": 1,
+    "nodeClass": "WINDOWS_SERVER",
+    "nodeRoleId": 1003,
+    "rolePolicyId": 1,
+    "policyId": 59,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "AD Server (Boot Verify)",
+    "systemName": "MSPDEMOCA-WS22-",
+    "dnsName": "MSPDEMOCA-WS22-01.MSPDEMO.local",
+    "created": 1744384771.094648,
+    "lastContact": 1782331961.414,
+    "lastUpdate": 1782331961.414,
+    "tags": [
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.44"
+    ],
+    "macAddresses": [
+      "00:50:56:97:9A:DC"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows Server 2022 Standard Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780966113,
+      "buildNumber": "20348",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMOCA-WS22-",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "biosSerialNumber": "VMware-42 17 62 ef 93 45 92 50-5c e8 34 bc 30 e7 d0 76",
+      "serialNumber": "None",
+      "assetSerialNumber": "FTPHEL",
+      "domain": "MSPDEMO",
+      "domainRole": "Primary Domain Controller",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4294430720,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4294430720
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 1,
+        "numLogicalCores": 1
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 13,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63768096768,
+        "freeSpace": 33427243008,
+        "serialNumber": "9E5763B1"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 15,
+    "uid": "c989745e-6e6b-4d48-9d28-3471ca6def71",
+    "assignedOwnerUid": "89d2d3b2-bd7c-46ab-94db-59d6516cd6bf",
+    "organizationId": 5,
+    "locationId": 15,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 37,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Matt's Laptop",
+    "systemName": "MSPDEMO-W11-04",
+    "dnsName": "MSPDEMO-W11-04",
+    "created": 1744385736.687979,
+    "lastContact": 1782331975.332,
+    "lastUpdate": 1782331975.332,
+    "tags": [
+      "Needs-Patching",
+      "Chrome",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.41",
+      "fe80::c89d:17e1:e61b:2d3c"
+    ],
+    "macAddresses": [
+      "00:50:56:97:8C:0D"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967372,
+      "buildNumber": "22000",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W11-04",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 1e df b2 9d a2 af-f8 06 53 5d f0 ac d5 23",
+      "serialNumber": "None",
+      "assetSerialNumber": "GYHXKA",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 2,
+      "totalPhysicalMemory": 4293787648,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293787648
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 15,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 95890173952,
+        "freeSpace": 30328643584,
+        "serialNumber": "EE98096E"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO-W11-04\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 30,
+    "uid": "0ba62626-9e3c-4a16-87c4-13035763bf62",
+    "organizationId": 1,
+    "locationId": 1,
+    "nodeClass": "CLOUD_MONITOR_TARGET",
+    "nodeRoleId": 31,
+    "rolePolicyId": 26,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "NinjaOne Website",
+    "created": 1746018368.804447,
+    "lastContact": 1782331522.809,
+    "lastUpdate": 1782331522.809,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "enabled": true,
+    "interval": 900,
+    "timeout": 15,
+    "target": "www.ninjaone.com",
+    "deviceType": "CloudMonitorHTTP"
+  },
+  {
+    "id": 33,
+    "uid": "5583e7ed-49da-4acc-a6a8-f852689d52ed",
+    "assignedOwnerUid": "3fed6419-973c-4b2f-8c25-fdaae2398f9f",
+    "organizationId": 1,
+    "locationId": 1,
+    "nodeClass": "LINUX_SERVER",
+    "nodeRoleId": 21,
+    "rolePolicyId": 24,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Alex's Server",
+    "systemName": "mspdemo-ubu22-01",
+    "dnsName": "mspdemo-ubu22-01",
+    "created": 1746049544.515766,
+    "lastContact": 1782331995.769,
+    "lastUpdate": 1782331998.929,
+    "tags": [],
+    "ipAddresses": [
+      "10.6.2.171",
+      "fe80::250:56ff:fe97:189b"
+    ],
+    "macAddresses": [
+      "00:50:56:97:18:9B"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "name": "Ubuntu 22.04.5 LTS",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967298.928,
+      "buildNumber": "5.15.0-181-generic",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "",
+      "language": "",
+      "needsReboot": false
+    },
+    "system": {
+      "manufacturer": "Phoenix Technologies LTD",
+      "model": "VMware Virtual Platform",
+      "biosSerialNumber": "",
+      "serialNumber": "VMware-42 17 5a e7 67 fb 57 60-ef 34 9f 62 34 71 93 6c",
+      "assetSerialNumber": "GKKQCP",
+      "domain": "",
+      "domainRole": "",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 2058973184,
+      "virtualMachine": false,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 2058973184
+    },
+    "processors": [
+      {
+        "architecture": "x86_64",
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 33,
+        "name": "/",
+        "label": "",
+        "deviceType": "lvm",
+        "fileSystem": "ext4",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 15740116992,
+        "freeSpace": 5718990848
+      },
+      {
+        "nodeId": 33,
+        "name": "LVM2_member",
+        "label": "",
+        "deviceType": "part",
+        "fileSystem": "unknown",
+        "autoMount": false,
+        "compressed": false
+      },
+      {
+        "nodeId": 33,
+        "name": "/boot",
+        "label": "",
+        "deviceType": "part",
+        "fileSystem": "ext4",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 2040373248,
+        "freeSpace": 1645047808
+      }
+    ],
+    "lastLoggedInUser": "root (pts/0)",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 34,
+    "uid": "fec57761-bada-4251-a36c-d84038beab83",
+    "assignedOwnerUid": "01e6c706-9ad7-4e8e-a905-8266f028e26f",
+    "organizationId": 6,
+    "locationId": 6,
+    "nodeClass": "WINDOWS_SERVER",
+    "nodeRoleId": 1,
+    "rolePolicyId": 1,
+    "policyId": 60,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Mainframe Server (OSD)",
+    "systemName": "MSPDEMO-HYP-01",
+    "dnsName": "MSPDEMO-HYP-01",
+    "created": 1746108862.756428,
+    "lastContact": 1782331988.494,
+    "lastUpdate": 1782331908.404,
+    "tags": [
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.92",
+      "fe80::27d:b962:d9c4:2da9",
+      "192.168.100.1",
+      "fe80::6e9c:24cc:7721:2f30"
+    ],
+    "macAddresses": [
+      "00:15:5D:65:03:02",
+      "00:50:56:97:E2:78"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows Server 2022 Datacenter Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781613752,
+      "buildNumber": "20348",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-HYP-01",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 07 24 78 2e 47 bf-0d b8 ca 53 93 51 79 86",
+      "serialNumber": "None",
+      "assetSerialNumber": "KTWYSL",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Server",
+      "numberOfProcessors": 6,
+      "totalPhysicalMemory": 17178853376,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 17178853376
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 6,
+        "numLogicalCores": 6
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 34,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63750270976,
+        "freeSpace": 27126321152,
+        "serialNumber": "2AB32DEF"
+      },
+      {
+        "nodeId": 34,
+        "name": "E:",
+        "label": "New Volume",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 322119397376,
+        "freeSpace": 65808392192,
+        "serialNumber": "E427349C"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO-HYP-01\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 35,
+    "uid": "58323b35-e0dd-4595-8f8f-61a470d86e95",
+    "parentDeviceId": 34,
+    "organizationId": 6,
+    "locationId": 6,
+    "nodeClass": "HYPERV_VMM_HOST",
+    "nodeRoleId": 11,
+    "rolePolicyId": 27,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "MSPDEMO-HYP-01",
+    "systemName": "MSPDEMO-HYP-01",
+    "dnsName": "MSPDEMO-HYP-01",
+    "created": 1746109883.64048,
+    "lastContact": 1782332002.073,
+    "lastUpdate": 1782332002.073,
+    "tags": [],
+    "ipAddresses": [
+      "fe80::27d:b962:d9c4:2da9",
+      "192.168.100.1",
+      "fe80::6e9c:24cc:7721:2f30",
+      "10.6.3.92"
+    ],
+    "macAddresses": [
+      "B0:B7:20:52:41:53",
+      "00:50:56:97:E2:78",
+      "C2:C1:20:52:41:53",
+      "00:15:5D:65:03:02",
+      "A6:2D:20:52:41:53"
+    ],
+    "cpuMhz": 2900,
+    "cpuModel": "Intel(R) Xeon(R) Gold 5415+",
+    "htActive": false,
+    "htAvailable": false,
+    "lastBootTime": 1781613752,
+    "memorySize": 17178853376,
+    "model": "VMware7,1",
+    "name": "MSPDEMO-HYP-01",
+    "cpuPackages": 6,
+    "cpuThreads": 0,
+    "serviceTag": "VMware-42 17 07 24 78 2e 47 bf-0d b8 ca 53 93 51 79 86",
+    "vendor": "VMware, Inc.",
+    "releaseName": "Microsoft Windows Server 2022 Datacenter",
+    "version": "10.0.20348",
+    "buildNumber": "20348",
+    "deviceType": "VMHost"
+  },
+  {
+    "id": 37,
+    "uid": "2865e7e2-5a1b-4d0d-9d90-56e92f158f24",
+    "parentDeviceId": 140,
+    "organizationId": 6,
+    "locationId": 6,
+    "nodeClass": "VMWARE_VM_HOST",
+    "nodeRoleId": 9,
+    "rolePolicyId": 5,
+    "policyId": 5,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "aus-esx80-02.ad.ninjarmm.net",
+    "systemName": "aus-esx80-02.ad.ninjarmm.net",
+    "dnsName": "aus-esx80-02.ad.ninjarmm.net",
+    "created": 1746113743.658797,
+    "lastContact": 1778383930.48,
+    "lastUpdate": 1778383930.48,
+    "tags": [],
+    "ipAddresses": [
+      "172.20.41.62",
+      "fe80::250:56ff:fe68:cd7"
+    ],
+    "macAddresses": [
+      "00:50:56:68:0c:d7",
+      "00:50:56:b2:db:ab"
+    ],
+    "cpuMhz": 2295,
+    "cpuModel": "Intel(R) Xeon(R) Gold 6140 CPU @ 2.30GHz",
+    "htActive": false,
+    "htAvailable": false,
+    "lastBootTime": 1762358312,
+    "memorySize": 17175076864,
+    "model": "VMware Virtual Platform",
+    "name": "aus-esx80-02.ad.ninjarmm.net",
+    "cpuPackages": 4,
+    "cpuThreads": 4,
+    "serviceTag": "VMware-42 32 5d b0 05 f5 de 57-7d d2 34 a5 e0 59 29 40",
+    "vendor": "VMware, Inc.",
+    "releaseName": "VMware ESXi 8.0.0 build-20513097",
+    "version": "8.0.0",
+    "buildNumber": "20513097",
+    "deviceType": "VMHost"
+  },
+  {
+    "id": 43,
+    "uid": "ea9b778e-c25a-4652-969d-5990a79b030c",
+    "assignedOwnerUid": "3de8a644-709a-41db-aee0-104dd2fd33cc",
+    "organizationId": 2,
+    "locationId": 2,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1007,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Hector's Microphone",
+    "created": 1749768573.9775,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 44,
+    "uid": "377cd6f2-48a9-4525-8e82-ed0e5d563f42",
+    "assignedOwnerUid": "daa3f5d7-0e43-49ca-a8d1-f2ee88ef80e7",
+    "organizationId": 3,
+    "locationId": 3,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1008,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Snowboarding Gear",
+    "created": 1749769044.161394,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 46,
+    "uid": "12259193-592a-4c00-963e-ea17f61a1b87",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "APPLE_IOS",
+    "nodeRoleId": 6,
+    "rolePolicyId": 30,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "iPhone_FK1ZVDTPN72N (Location Tracking)",
+    "systemName": "iPhone_FK1ZVDTPN72N",
+    "created": 1749841108.340648,
+    "lastContact": 1777662797.169,
+    "lastUpdate": 1777662797.169,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [
+      "94:0c:98:a9:cd:28"
+    ],
+    "system": {
+      "name": "iOS 18.4",
+      "manufacturer": "Apple",
+      "model": "MWK52LL",
+      "serialNumber": "FK1ZVDTPN72N",
+      "build": "22E239"
+    },
+    "memory": {},
+    "network": [
+      {
+        "imei": "356559101293467",
+        "eid": "89049032005008882600039605050264",
+        "meid": "35655910144166",
+        "phoneNumber": null,
+        "carrier": null,
+        "iccId": null
+      },
+      {
+        "imei": "356559101441660",
+        "eid": null,
+        "meid": "35655910144166",
+        "phoneNumber": null,
+        "carrier": null,
+        "iccId": null
+      }
+    ],
+    "volumes": [
+      {
+        "deviceType": "INTERNAL_STORAGE_MEASURED",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 64000000000
+      }
+    ],
+    "deviceType": "MdmDevice"
+  },
+  {
+    "id": 57,
+    "uid": "ff0338f7-7e41-4588-acf6-5e5e04d5a3f2",
+    "assignedOwnerUid": "c1f40f12-54e9-4c14-a860-00dd3ecab0bb",
+    "organizationId": 5,
+    "locationId": 15,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1007,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Bill's Microphone",
+    "created": 1753472634.990126,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 58,
+    "uid": "438731aa-4a05-4433-82b9-948f66950686",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "ANDROID",
+    "nodeRoleId": 5,
+    "rolePolicyId": 29,
+    "policyId": 29,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Pixel 7",
+    "systemName": "Pixel 7_BDMG-S5CQ-DS2L-DGPQN-SZLW-LFI4-S",
+    "created": 1753711589.34554,
+    "lastContact": 1774966024.612,
+    "lastUpdate": 1774966024.612,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "system": {
+      "name": "Android 16",
+      "manufacturer": "Google",
+      "model": "Pixel 7",
+      "serialNumber": "BDMG-S5CQ-DS2L-DGPQN-SZLW-LFI4-S",
+      "build": "BP4A.251205.006"
+    },
+    "memory": {
+      "capacity": 7842570240
+    },
+    "network": [
+      {
+        "imei": null,
+        "eid": null,
+        "meid": null,
+        "phoneNumber": null,
+        "carrier": null,
+        "iccId": null
+      }
+    ],
+    "volumes": [
+      {
+        "deviceType": "EXTERNAL_STORAGE_MEASURED",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 118015217664
+      }
+    ],
+    "deviceType": "MdmDevice"
+  },
+  {
+    "id": 59,
+    "uid": "bc6451a2-bdb3-4e17-9b4f-48c8346df525",
+    "assignedOwnerUid": "8860e6be-665e-4466-9366-b21e2bca1382",
+    "organizationId": 3,
+    "locationId": 14,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1008,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Capita Snowboard",
+    "created": 1753910630.325332,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 73,
+    "uid": "1258180d-f294-41a3-9edc-19dbe19c4297",
+    "assignedOwnerUid": "83dd4ace-c6c1-499a-bb12-b56f01e0a39d",
+    "organizationId": 1,
+    "locationId": 8,
+    "nodeClass": "WINDOWS_SERVER",
+    "nodeRoleId": 1,
+    "rolePolicyId": 1,
+    "policyId": 59,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Tori's Workstation",
+    "systemName": "MSPDEMO-WS25-01",
+    "dnsName": "MSPDEMO-WS25-01",
+    "created": 1757435359.332945,
+    "lastContact": 1782331955.076,
+    "lastUpdate": 1782331955.076,
+    "tags": [
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "192.168.200.129",
+      "",
+      "10.6.2.154",
+      "fe80::d98a:246b:f2f7:8a13"
+    ],
+    "macAddresses": [
+      "00:50:56:97:FA:D8",
+      "00:50:56:97:9A:7C"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows Server 2025 Standard Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781023290,
+      "buildNumber": "26100",
+      "releaseId": "24H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-WS25-01",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 54 e7 82 e1 33 57-ca cd a3 f8 c1 de 16 ed",
+      "serialNumber": "None",
+      "assetSerialNumber": "YYREGM",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Server",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 8588918784,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 8588918784
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 4,
+        "numLogicalCores": 4
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 73,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 95851376640,
+        "freeSpace": 37928562688,
+        "serialNumber": "B01710F5"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO-WS25-01\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 82,
+    "uid": "726895d8-eb33-4618-9459-271e52480dc6",
+    "parentDeviceId": 73,
+    "organizationId": 1,
+    "locationId": 1,
+    "nodeClass": "NMS_SWITCH",
+    "nodeRoleId": 101,
+    "rolePolicyId": 7,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "HT-SF-AP02",
+    "systemName": "LON-Aruba-AP-225-36-192.168.200.86",
+    "dnsName": "LON-Aruba-AP-225-36-192.168.200.86_192.168.200.86",
+    "netbiosName": "LON-Aruba-AP-225-36-192.168.200.86",
+    "created": 1757520903.744852,
+    "lastContact": 1780330542.309,
+    "lastUpdate": 1780330542.309,
+    "tags": [
+      "MIMIC"
+    ],
+    "ipAddresses": [
+      "192.168.200.86",
+      "192.168.200.86"
+    ],
+    "macAddresses": [
+      "B4:5D:50:06:00:24",
+      "B4:5D:50:05:00:24",
+      "B4:5D:50:03:00:24",
+      "B4:5D:50:08:00:24",
+      "B4:5D:50:01:00:24",
+      "B4:5D:50:04:00:24",
+      "B4:5D:50:09:00:24"
+    ],
+    "deviceType": "NMSTarget"
+  },
+  {
+    "id": 83,
+    "uid": "650641bb-087f-454b-bafb-000fbdb84f73",
+    "parentDeviceId": 73,
+    "organizationId": 1,
+    "locationId": 9,
+    "nodeClass": "NMS_ROUTER",
+    "nodeRoleId": 102,
+    "rolePolicyId": 8,
+    "policyId": 8,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "HT-TAM-FIREWALL03",
+    "systemName": "NYC-Fortigate100D-Firewall-44-192.168.200.94",
+    "dnsName": "NYC-Fortigate100D-Firewall-44-192.168.200.94_192.168.200.94",
+    "netbiosName": "NYC-Fortigate100D-Firewall-44-192.168.200.94",
+    "created": 1757520903.753591,
+    "lastContact": 1780490563.974,
+    "lastUpdate": 1780490563.974,
+    "tags": [
+      "MIMIC"
+    ],
+    "ipAddresses": [
+      "192.168.200.94",
+      "192.168.200.94"
+    ],
+    "macAddresses": [
+      "08:5B:0E:02:00:2C",
+      "08:5B:0E:08:00:2C",
+      "08:5B:0E:06:00:2C",
+      "08:5B:0E:07:00:2C",
+      "08:5B:0E:01:00:2C",
+      "08:5B:0E:03:00:2C",
+      "08:5B:0E:09:00:2C"
+    ],
+    "deviceType": "NMSTarget"
+  },
+  {
+    "id": 84,
+    "uid": "afe53b7c-000f-457c-9d8c-2fd5fde35299",
+    "parentDeviceId": 73,
+    "organizationId": 1,
+    "locationId": 9,
+    "nodeClass": "NMS_SWITCH",
+    "nodeRoleId": 101,
+    "rolePolicyId": 7,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "HT-TAM-SWITCH03",
+    "systemName": "LON-Juniper-EX4500-Switch-48-192.168.200.103",
+    "dnsName": "SNMP-QA-01",
+    "created": 1757520903.757932,
+    "lastContact": 1780330572.318,
+    "lastUpdate": 1780330572.318,
+    "tags": [
+      "MIMIC"
+    ],
+    "ipAddresses": [
+      "192.168.200.103",
+      "192.168.200.103"
+    ],
+    "macAddresses": [
+      ""
+    ],
+    "deviceType": "NMSTarget"
+  },
+  {
+    "id": 85,
+    "uid": "b1a9f26a-2545-4586-9d56-d65a131f563d",
+    "parentDeviceId": 73,
+    "organizationId": 1,
+    "locationId": 8,
+    "nodeClass": "NMS_SWITCH",
+    "nodeRoleId": 101,
+    "rolePolicyId": 7,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "HT-AUS-WC01",
+    "systemName": "LON-Aruba-WLC-7210-35-192.168.200.85",
+    "dnsName": "LON-Aruba-WLC-7210-35-192.168.200.85_192.168.200.85",
+    "netbiosName": "LON-Aruba-WLC-7210-35-192.168.200.85",
+    "created": 1757520903.760728,
+    "lastContact": 1780330542.309,
+    "lastUpdate": 1780330542.309,
+    "tags": [
+      "MIMIC"
+    ],
+    "ipAddresses": [
+      "15.15.16.2",
+      "192.168.200.85"
+    ],
+    "macAddresses": [
+      "00:1A:1E:08:00:23",
+      "00:00:00:07:00:23",
+      "00:1A:1E:01:00:23"
+    ],
+    "deviceType": "NMSTarget"
+  },
+  {
+    "id": 86,
+    "uid": "a2658722-659b-4076-8814-e63ec2e1b1be",
+    "parentDeviceId": 73,
+    "organizationId": 1,
+    "locationId": 8,
+    "nodeClass": "NMS_APPLIANCE",
+    "nodeRoleId": 112,
+    "rolePolicyId": 18,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "HT-AUS-NETAPP02",
+    "systemName": "NYC-NetApp-R9-Storage-39-136-192.168.200.240",
+    "created": 1757520903.7648,
+    "lastContact": 1780490533.96,
+    "lastUpdate": 1780490533.96,
+    "tags": [
+      "MIMIC"
+    ],
+    "ipAddresses": [
+      "192.168.200.240",
+      "192.168.200.240"
+    ],
+    "macAddresses": [
+      ""
+    ],
+    "deviceType": "NMSTarget"
+  },
+  {
+    "id": 89,
+    "uid": "b3fe5599-38a6-4918-a7ef-03e990df155e",
+    "parentDeviceId": 37,
+    "organizationId": 6,
+    "locationId": 6,
+    "nodeClass": "VMWARE_VM_GUEST",
+    "nodeRoleId": 10,
+    "rolePolicyId": 6,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "netbiosName": "/vmfs/volumes/636c2f02-cbdfc349-00cb-005056b2dbab/MHTest-W11-80/MHTest-W11-80.vmx",
+    "created": 1759861908.085905,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "memorySize": 0,
+    "coresPerSocket": 0,
+    "cpuCores": 0,
+    "snapshotCount": 0,
+    "snapshotTotalSize": 0,
+    "deviceType": "VMGuest"
+  },
+  {
+    "id": 90,
+    "uid": "d504de59-19c2-43fc-a95b-9dcb87fc2591",
+    "parentDeviceId": 37,
+    "organizationId": 6,
+    "locationId": 6,
+    "nodeClass": "VMWARE_VM_GUEST",
+    "nodeRoleId": 10,
+    "rolePolicyId": 6,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "netbiosName": "/vmfs/volumes/636c2f02-cbdfc349-00cb-005056b2dbab/SamP-VM-for-test/SamP-VM-for-test.vmx",
+    "created": 1759861908.860965,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "memorySize": 0,
+    "coresPerSocket": 0,
+    "cpuCores": 0,
+    "snapshotCount": 0,
+    "snapshotTotalSize": 0,
+    "deviceType": "VMGuest"
+  },
+  {
+    "id": 91,
+    "uid": "42a82176-1a2e-4644-b5a4-f704aa88ced7",
+    "parentDeviceId": 37,
+    "organizationId": 6,
+    "locationId": 6,
+    "nodeClass": "VMWARE_VM_GUEST",
+    "nodeRoleId": 10,
+    "rolePolicyId": 6,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "netbiosName": "/vmfs/volumes/636c2f02-cbdfc349-00cb-005056b2dbab/Aus-AUTOMATION-JR1/Aus-AUTOMATION-JR1.vmx",
+    "created": 1759861909.917001,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "memorySize": 0,
+    "coresPerSocket": 0,
+    "cpuCores": 0,
+    "snapshotCount": 0,
+    "snapshotTotalSize": 0,
+    "deviceType": "VMGuest"
+  },
+  {
+    "id": 95,
+    "uid": "050cb8c6-14cf-4e0a-b622-3a1006708fa2",
+    "organizationId": 19,
+    "locationId": 29,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 2,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "WIN11-WK-1003",
+    "systemName": "MSPDEMOCALAB03V",
+    "dnsName": "MSPDEMOCALab03V",
+    "created": 1761228339.703999,
+    "lastContact": 1770845697.433,
+    "lastUpdate": 1770845697.433,
+    "tags": [
+      "Secondary VM"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1769021410,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "192.168.2.104",
+      "fe80::d87d:4961:4383:9c69"
+    ],
+    "macAddresses": [
+      "00:17:FB:00:00:0B"
+    ],
+    "publicIP": "65.35.16.244",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Enterprise Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1769018903,
+      "buildNumber": "26100",
+      "releaseId": "24H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMOCALAB03V",
+      "manufacturer": "Microsoft Corporation",
+      "model": "Virtual Machine",
+      "biosSerialNumber": "1697-5738-7055-5512-3187-1240-55",
+      "serialNumber": "1697-5738-7055-5512-3187-1240-55",
+      "assetSerialNumber": "1697-5738-7055-5512-3187-1240-55",
+      "domain": "NET",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293816320,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 4293816320
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2594000000,
+        "clockSpeed": 2594000000,
+        "name": "Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz",
+        "numCores": 1,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 95,
+        "name": "C:",
+        "label": "System",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 96064237568,
+        "freeSpace": 38682730496,
+        "serialNumber": "326D6D6C"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMOCALAB03V\\Administrator",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 97,
+    "uid": "9def66d8-4c11-4812-92dd-374c46638bcb",
+    "organizationId": 3,
+    "locationId": 14,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1011,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "MSPDEMOCALabQCV",
+    "created": 1761658122.591818,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 101,
+    "uid": "8f3f1225-ece0-4bdf-970c-b20804d96395",
+    "organizationId": 2,
+    "locationId": 2,
+    "nodeClass": "MAC",
+    "nodeRoleId": 206,
+    "rolePolicyId": 4,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Sal's Mac Mini (MacOS MDM, FileVault, Remote Access)",
+    "systemName": "MSPDEMO-SEQ-01.local",
+    "dnsName": "MSPDEMO-SEQ-01.local",
+    "created": 1763573649.638822,
+    "lastContact": 1782331993.968,
+    "lastUpdate": 1782331999.186,
+    "tags": [
+      "Primary VM"
+    ],
+    "ipAddresses": [],
+    "macAddresses": [
+      "d0:11:e5:e5:b6:4c"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Apple Inc.",
+      "name": "macOS 26.0.1 (25A362)",
+      "architecture": "arm64",
+      "lastBootTime": 1780677900.001,
+      "buildNumber": "25A362",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "",
+      "language": "",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-SEQ-01.local",
+      "manufacturer": "Apple Inc.",
+      "model": "Mac mini, Apple M4, 2024",
+      "biosSerialNumber": "",
+      "serialNumber": "J4232050HQ",
+      "assetSerialNumber": "J4232050HQ",
+      "domain": "",
+      "domainRole": "",
+      "totalPhysicalMemory": 17179869184,
+      "virtualMachine": false,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 17179869184
+    },
+    "processors": [
+      {
+        "architecture": "",
+        "name": "Apple M4",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 101,
+        "name": "/",
+        "label": "",
+        "deviceType": "",
+        "fileSystem": "",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 245107195904,
+        "freeSpace": 233070321664,
+        "serialNumber": ""
+      },
+      {
+        "nodeId": 101,
+        "name": "/System/Volumes/Data",
+        "label": "",
+        "deviceType": "",
+        "fileSystem": "",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 245107195904,
+        "freeSpace": 89712791552,
+        "serialNumber": ""
+      }
+    ],
+    "lastLoggedInUser": "ninja (console)",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 102,
+    "uid": "10748c47-fd17-47ff-ac96-e1c1b1b66fe4",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1024,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "IT Storage Closet",
+    "created": 1763757008.266105,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 103,
+    "uid": "7afb345b-10c7-463a-87cd-740eb71edaca",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1016,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Keycron K4v2",
+    "created": 1763758261.744512,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 109,
+    "uid": "83e5923b-5203-4278-b3af-c7b2949b5c78",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1016,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Keycron K4v2",
+    "created": 1763758307.98868,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 110,
+    "uid": "4254bcca-77ac-4dd3-9204-27edf5e3875c",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1016,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "LogiTech MX Master v4",
+    "created": 1763758829.136357,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 116,
+    "uid": "d7a71bc2-8db6-491b-b199-541f2fb9bfab",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1016,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "LogiTech MX Master v4",
+    "created": 1763758844.952662,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 117,
+    "uid": "c80e491d-1e12-4be1-85c1-4c3957f0dfa5",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1016,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "LogiTech MX Master v4",
+    "created": 1763758890.869114,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 118,
+    "uid": "295b0ccf-1e22-41b6-a713-0f5b9d6f2490",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1017,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Dell Pro Thunderbolt 4 Smart Dock",
+    "created": 1763760250.62573,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 122,
+    "uid": "3d188b8f-2378-4c6e-9915-c5bfda841bbd",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1017,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Dell Pro Thunderbolt 4 Smart Dock",
+    "created": 1763760264.372243,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 123,
+    "uid": "577cb114-cb96-4b7e-bc58-bd7c927a07cc",
+    "assignedOwnerUid": "0e164044-ccdc-4b26-bf98-5fd413ff6e96",
+    "organizationId": 1,
+    "locationId": 8,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1018,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "CAD Addon Dongle",
+    "created": 1763760413.329463,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 124,
+    "uid": "fe6256af-dc06-4c44-8e3d-24db4eaff98c",
+    "organizationId": 3,
+    "locationId": 3,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1020,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Dymo Label Writer",
+    "created": 1763760682.90894,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 125,
+    "uid": "c8a81d36-e051-4c8f-8bd3-5ab39a52a838",
+    "organizationId": 5,
+    "locationId": 15,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1025,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Register 01",
+    "created": 1763760871.265855,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 126,
+    "uid": "e960706b-625a-4b67-a5b9-7dbb5ca03328",
+    "organizationId": 5,
+    "locationId": 5,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1025,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Register 02",
+    "created": 1763760906.662131,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 127,
+    "uid": "8a82c20b-84bb-41a5-861c-da3127cab58d",
+    "organizationId": 5,
+    "locationId": 15,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1020,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Reciept Printer 01",
+    "created": 1763760951.642619,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 128,
+    "uid": "303ef1ff-7d76-4903-8834-d6ee573beea3",
+    "organizationId": 5,
+    "locationId": 5,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1020,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Reciept Printer 02",
+    "created": 1763760966.81298,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 129,
+    "uid": "13728912-7380-411f-a262-3ccfbc161547",
+    "organizationId": 5,
+    "locationId": 15,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1021,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Registers, Registers, and Registers.com",
+    "created": 1763761080.507577,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 130,
+    "uid": "fec62e87-4276-415d-a56d-5f7c6addac92",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1021,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "LexisNexis",
+    "created": 1763761799.171901,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 131,
+    "uid": "1702ac87-4c99-4006-8f3c-aeae64151eb4",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1021,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Bookings Unlimited",
+    "created": 1763761945.659213,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 132,
+    "uid": "c8cf2405-4a12-42ff-a898-84dc5a566ebf",
+    "organizationId": 3,
+    "locationId": 3,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1022,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "SkiFree Rental Management",
+    "created": 1763762216.387638,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 133,
+    "uid": "195e6fd2-d5f6-4241-ad1e-3b6a0f9f585f",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1021,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Network Documents (NetDocs)",
+    "created": 1763988161.327328,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 134,
+    "uid": "ace7dfc5-ec54-4e8a-b037-319a51f96abe",
+    "organizationId": 3,
+    "locationId": 3,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 35,
+    "policyId": 35,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "WIN-WK-01 (CIPP)",
+    "systemName": "MIGRATIONVM01VM",
+    "dnsName": "MigrationVM01VM",
+    "created": 1764797210.442703,
+    "lastContact": 1775150485.798,
+    "lastUpdate": 1775150233.029,
+    "tags": [
+      "Secondary VM"
+    ],
+    "ipAddresses": [
+      "192.168.2.137",
+      "fe80::96ca:184d:5f43:95c6"
+    ],
+    "macAddresses": [
+      "00:17:FB:00:00:2C"
+    ],
+    "publicIP": "65.35.16.244",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Enterprise Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1775146862,
+      "buildNumber": "26100",
+      "releaseId": "24H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MIGRATIONVM01VM",
+      "manufacturer": "Microsoft Corporation",
+      "model": "Virtual Machine",
+      "biosSerialNumber": "6533-8337-9542-8311-6797-9638-10",
+      "serialNumber": "6533-8337-9542-8311-6797-9638-10",
+      "assetSerialNumber": "6533-8337-9542-8311-6797-9638-10",
+      "domain": "NET",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293816320,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 4293816320
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2594000000,
+        "clockSpeed": 2594000000,
+        "name": "Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz",
+        "numCores": 1,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 134,
+        "name": "C:",
+        "label": "System",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 96064237568,
+        "freeSpace": 38788616192,
+        "serialNumber": "326D6D6C"
+      }
+    ],
+    "lastLoggedInUser": "AzureAD\\DiegoSiciliani",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 136,
+    "uid": "329057f6-231c-4391-9d24-7661164146f3",
+    "organizationId": 1,
+    "locationId": 8,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1011,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "WIN11",
+    "created": 1764865146.690831,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 137,
+    "uid": "0ec289cb-c700-4f66-8307-f2f22374e17d",
+    "organizationId": 3,
+    "locationId": 3,
+    "nodeClass": "APPLE_IOS",
+    "nodeRoleId": 6,
+    "rolePolicyId": 30,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "iPhone_RY4N2754G2 (Location Tracking)",
+    "systemName": "iPhone_RY4N2754G2",
+    "created": 1764946918.482547,
+    "lastContact": 1782330940.04,
+    "lastUpdate": 1782330940.04,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [
+      "28:8f:f6:7b:8c:f6"
+    ],
+    "system": {
+      "name": "iOS 18.6.2",
+      "manufacturer": "Apple",
+      "model": "MPUX3LL",
+      "serialNumber": "RY4N2754G2",
+      "build": "22G100"
+    },
+    "memory": {},
+    "network": [
+      {
+        "imei": "358832596038871",
+        "eid": "89049032007108888100136850220494",
+        "meid": null,
+        "phoneNumber": null,
+        "carrier": null,
+        "iccId": null
+      },
+      {
+        "imei": "358832596889679",
+        "eid": "89049032007108888100136850220494",
+        "meid": null,
+        "phoneNumber": null,
+        "carrier": null,
+        "iccId": "8901 3802 2974 0632 0407"
+      }
+    ],
+    "volumes": [
+      {
+        "deviceType": "INTERNAL_STORAGE_MEASURED",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 128000000000
+      }
+    ],
+    "deviceType": "MdmDevice"
+  },
+  {
+    "id": 138,
+    "uid": "aa1bc170-e95f-45be-a855-b6feaa615014",
+    "organizationId": 3,
+    "locationId": 14,
+    "nodeClass": "ANDROID",
+    "nodeRoleId": 5,
+    "rolePolicyId": 29,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Pixel 8a_44021JEKB00769 (Location Tracking)",
+    "systemName": "Pixel 8a_44021JEKB00769",
+    "created": 1764947027.867605,
+    "lastContact": 1782331809.698,
+    "lastUpdate": 1782331809.698,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [
+      "e8:d5:2b:44:88:03"
+    ],
+    "system": {
+      "name": "Android 16",
+      "manufacturer": "Google",
+      "model": "Pixel 8a",
+      "serialNumber": "44021JEKB00769",
+      "build": "CP1A.260505.005"
+    },
+    "memory": {
+      "capacity": 7968382976
+    },
+    "network": [
+      {
+        "imei": "356001550715385",
+        "eid": null,
+        "meid": null,
+        "phoneNumber": null,
+        "carrier": null,
+        "iccId": null
+      }
+    ],
+    "volumes": [
+      {
+        "deviceType": "RAM_MEASURED",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 7968382976
+      }
+    ],
+    "deviceType": "MdmDevice"
+  },
+  {
+    "id": 139,
+    "uid": "aa024fc2-598f-463a-8e67-f6831f7cc7b6",
+    "organizationId": 2,
+    "locationId": 2,
+    "nodeClass": "MAC",
+    "nodeRoleId": 206,
+    "rolePolicyId": 4,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Danial's Mac Mini",
+    "systemName": "MSPDemo-Seq-03.local",
+    "dnsName": "MSPDemo-Seq-03.local",
+    "created": 1765382096.59023,
+    "lastContact": 1782331986.522,
+    "lastUpdate": 1782331986.522,
+    "tags": [
+      "Primary VM"
+    ],
+    "ipAddresses": [],
+    "macAddresses": [
+      "1c:f6:4c:32:23:d6"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Apple Inc.",
+      "name": "macOS 26.1 (25B78)",
+      "architecture": "arm64",
+      "lastBootTime": 1770648360.001,
+      "buildNumber": "25B78",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "",
+      "language": "",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDemo-Seq-03.local",
+      "manufacturer": "Apple Inc.",
+      "model": "Mac mini, Apple M4, 2024",
+      "biosSerialNumber": "",
+      "serialNumber": "YJ7QY3JQQK",
+      "assetSerialNumber": "YJ7QY3JQQK",
+      "domain": "",
+      "domainRole": "",
+      "totalPhysicalMemory": 17179869184,
+      "virtualMachine": false,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 17179869184
+    },
+    "processors": [
+      {
+        "architecture": "",
+        "name": "Apple M4",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 139,
+        "name": "/Volumes/1TB Ext",
+        "label": "",
+        "deviceType": "",
+        "fileSystem": "",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 999995129856,
+        "freeSpace": 999994150912,
+        "serialNumber": ""
+      },
+      {
+        "nodeId": 139,
+        "name": "/",
+        "label": "",
+        "deviceType": "",
+        "fileSystem": "",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 245107195904,
+        "freeSpace": 232919408640,
+        "serialNumber": ""
+      },
+      {
+        "nodeId": 139,
+        "name": "/System/Volumes/Data",
+        "label": "",
+        "deviceType": "",
+        "fileSystem": "",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 245107195904,
+        "freeSpace": 145957572608,
+        "serialNumber": ""
+      }
+    ],
+    "lastLoggedInUser": "ninja (ttys000 / 172.20.47.49)",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 140,
+    "uid": "be7ecc12-99d0-4563-80e5-f18bc5c82e15",
+    "assignedOwnerUid": "368b67b9-a1fc-4842-b922-50a81dd2e24a",
+    "organizationId": 6,
+    "locationId": 13,
+    "nodeClass": "WINDOWS_SERVER",
+    "nodeRoleId": 1,
+    "rolePolicyId": 1,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Estefany's Server",
+    "systemName": "MSPDEMOCA-WS22-",
+    "dnsName": "MSPDEMOCA-WS22-",
+    "created": 1765402539.64909,
+    "lastContact": 1782331958.519,
+    "lastUpdate": 1782331957.171,
+    "tags": [
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.2.203",
+      "fe80::b850:41e2:75c6:9b6c"
+    ],
+    "macAddresses": [
+      "00:50:56:97:5B:79"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows Server 2022 Standard Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781017813,
+      "buildNumber": "20348",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMOCA-WS22-",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 06 ba 80 d3 cc de-86 17 0e 3b 03 f2 00 b8",
+      "serialNumber": "None",
+      "assetSerialNumber": "ENSNDC",
+      "domain": "NINJARMM",
+      "domainRole": "Standalone Server",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 140,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 95963574272,
+        "freeSpace": 67606884352,
+        "serialNumber": "96277B09"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMOCA-WS22-\\Administrator",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 142,
+    "uid": "feeb75dd-0f5f-4960-b7b5-9476f27b0afa",
+    "assignedOwnerUid": "749a6383-5b06-408d-8f55-4e2e740c79fc",
+    "organizationId": 19,
+    "locationId": 29,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 2,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "WIN11-WK-1004",
+    "systemName": "MSPDEMOCALAB02V",
+    "dnsName": "MSPDEMOCALab02V",
+    "created": 1766074647.709748,
+    "lastContact": 1770845697.433,
+    "lastUpdate": 1770845697.433,
+    "tags": [
+      "Secondary VM"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1769020539,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "192.168.2.103",
+      "fe80::4172:fbec:cfec:5bd0"
+    ],
+    "macAddresses": [
+      "00:17:FB:00:00:0A"
+    ],
+    "publicIP": "65.35.16.244",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Enterprise Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1769020392,
+      "buildNumber": "26100",
+      "releaseId": "24H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMOCALAB02V",
+      "manufacturer": "Microsoft Corporation",
+      "model": "Virtual Machine",
+      "biosSerialNumber": "2838-6497-2930-3907-3279-7080-50",
+      "serialNumber": "2838-6497-2930-3907-3279-7080-50",
+      "assetSerialNumber": "2838-6497-2930-3907-3279-7080-50",
+      "domain": "NET",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293816320,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 4293816320
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2594000000,
+        "clockSpeed": 2594000000,
+        "name": "Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz",
+        "numCores": 1,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 142,
+        "name": "C:",
+        "label": "System",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 96064237568,
+        "freeSpace": 42574401536,
+        "serialNumber": "326D6D6C"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMOCALAB02V\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 143,
+    "uid": "d326cf3c-f3a9-479f-8a57-0527342be285",
+    "parentDeviceId": 73,
+    "organizationId": 1,
+    "locationId": 8,
+    "nodeClass": "NMS_APPLIANCE",
+    "nodeRoleId": 112,
+    "rolePolicyId": 18,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "HT-AUS-VPN01 (Netflow SSH)",
+    "systemName": "sales-snmp-ssh",
+    "dnsName": "sales-snmp-ssh_192.168.200.130",
+    "netbiosName": "sales-snmp-ssh",
+    "created": 1766782283.762278,
+    "lastContact": 1782331905.33,
+    "lastUpdate": 1782331905.33,
+    "tags": [],
+    "ipAddresses": [
+      "192.168.200.130",
+      "10.6.100.12",
+      "192.168.200.130"
+    ],
+    "macAddresses": [
+      "00:50:56:97:15:D5",
+      "00:50:56:97:25:7E",
+      "00:50:56:97:74:A1"
+    ],
+    "deviceType": "NMSTarget"
+  },
+  {
+    "id": 144,
+    "uid": "8fe2d717-e16e-4caa-a955-e0459962275c",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "MAC",
+    "nodeRoleId": 205,
+    "rolePolicyId": 4,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Kyle's Mac Mini (Mac MDM, FileVault, Remote Access)",
+    "systemName": "MSPDemo-Seq-02.local",
+    "dnsName": "MSPDemo-Seq-02.local",
+    "created": 1767188596.441571,
+    "lastContact": 1782332007.898,
+    "lastUpdate": 1782332007.898,
+    "tags": [
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "172.20.45.105"
+    ],
+    "macAddresses": [
+      "0e:72:54:db:28:e8"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Apple Inc.",
+      "name": "macOS 15.6.1 (24G90)",
+      "architecture": "arm64",
+      "lastBootTime": 1768596480.001,
+      "buildNumber": "24G90",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "",
+      "language": "",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDemo-Seq-02.local",
+      "manufacturer": "Apple Inc.",
+      "model": "Apple Virtual Machine 1, Apple M4 (Virtual)",
+      "biosSerialNumber": "",
+      "serialNumber": "Z2V2GQYKM9",
+      "assetSerialNumber": "Z2V2GQYKM9",
+      "domain": "",
+      "domainRole": "",
+      "totalPhysicalMemory": 4294967296,
+      "virtualMachine": false,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 4294967296
+    },
+    "processors": [
+      {
+        "architecture": "",
+        "name": "Apple M4 (Virtual)",
+        "numCores": 4,
+        "numLogicalCores": 4
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 144,
+        "name": "/",
+        "label": "",
+        "deviceType": "",
+        "fileSystem": "",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 62826479616,
+        "freeSpace": 51563560960,
+        "serialNumber": ""
+      },
+      {
+        "nodeId": 144,
+        "name": "/System/Volumes/Data",
+        "label": "",
+        "deviceType": "",
+        "fileSystem": "",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 62826479616,
+        "freeSpace": 51367952384,
+        "serialNumber": ""
+      }
+    ],
+    "lastLoggedInUser": "ninja (ttys000 / 172.20.47.49)",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 145,
+    "uid": "0c0730a9-ca27-4d29-a91a-6fb8da9eebef",
+    "organizationId": 3,
+    "locationId": 14,
+    "nodeClass": "CLOUD_MONITOR_TARGET",
+    "nodeRoleId": 31,
+    "rolePolicyId": 26,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "Bookings Unlimited Service Status",
+    "created": 1767965674.574309,
+    "lastContact": 1782331522.809,
+    "lastUpdate": 1782331522.809,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "enabled": true,
+    "interval": 900,
+    "timeout": 15,
+    "target": "https://google.com",
+    "deviceType": "CloudMonitorHTTP"
+  },
+  {
+    "id": 148,
+    "uid": "7f9747eb-b8a7-4997-ba00-ffad322fecbc",
+    "parentDeviceId": 73,
+    "organizationId": 1,
+    "locationId": 8,
+    "nodeClass": "NMS_SWITCH",
+    "nodeRoleId": 101,
+    "rolePolicyId": 7,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "HT-AUS-SWITCH01 (Custom SNMP)",
+    "systemName": "DUMSYS-64",
+    "dnsName": "DUMSYS-64_192.168.200.131",
+    "netbiosName": "DUMSYS-64",
+    "created": 1768341681.183407,
+    "lastContact": 1782331875.331,
+    "lastUpdate": 1782331875.331,
+    "tags": [
+      "SNMPSim"
+    ],
+    "ipAddresses": [
+      "222.24.210.177",
+      "192.168.200.131"
+    ],
+    "macAddresses": [
+      "AC:16:2D:92:7D:3C",
+      "AC:16:2D:92:7D:3B",
+      "AC:16:2D:92:7D:2F",
+      "AC:16:2D:92:7D:3F",
+      "AC:16:2D:92:7D:3E",
+      "AC:16:2D:92:7D:3D",
+      "AC:16:2D:92:7D:33",
+      "AC:16:2D:92:7D:21",
+      "AC:16:2D:92:7D:31",
+      "AC:16:2D:92:7D:20",
+      "AC:16:2D:92:7D:30",
+      "AC:16:2D:92:7D:37",
+      "AC:16:2D:92:7D:36",
+      "AC:16:2D:92:7D:35",
+      "AC:16:2D:92:7D:34",
+      "AC:16:2D:92:7D:38"
+    ],
+    "deviceType": "NMSTarget"
+  },
+  {
+    "id": 149,
+    "uid": "8c113030-431c-4a2f-9dc9-44cf8dbb7fb4",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-4",
+    "dnsName": "WIN11-WK-4",
+    "created": 1768406377.737362,
+    "lastContact": 1768406378.058,
+    "lastUpdate": 1768406378.071,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.152.233.42",
+      "20:RT:358a:bd1a:d171:c0db:40ff:3962"
+    ],
+    "macAddresses": [
+      "92:28:45:2B:B4:FA"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406377,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-4",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "b96bab4c-52e7-4699-9491-7b4be4137fa9",
+      "serialNumber": "83b85f8d-0d86-42b6-a107-7941dce58b24",
+      "assetSerialNumber": "b96bab4c-52e7-4699-9491-7b4be4137fa9",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 3193000000,
+        "clockSpeed": 3193000000,
+        "name": "Intel(R) Core(TM) i7-10750H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 149,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 560000000000,
+        "freeSpace": 22400000000,
+        "serialNumber": "DE48CF12"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 150,
+    "uid": "43474004-d604-428f-ab72-21b079cfdd62",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-7",
+    "dnsName": "WIN11-WK-7",
+    "created": 1768406377.737368,
+    "lastContact": 1768406378.065,
+    "lastUpdate": 1768406378.071,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.92.181.144",
+      "20:RT:939:8dfb:6bf1:f66d:58c9:e0f4"
+    ],
+    "macAddresses": [
+      "18:A7:60:83:BA:20"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406377,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-7",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "3ba42e86-af72-447b-9bea-d756ccd418f1",
+      "serialNumber": "f86a5379-981d-4bae-8390-d0f5c48d624a",
+      "assetSerialNumber": "3ba42e86-af72-447b-9bea-d756ccd418f1",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 5000000000,
+        "clockSpeed": 4300000000,
+        "name": "AMD Ryzen 5 PRO 7640HS",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 150,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 560000000000,
+        "freeSpace": 341600000000,
+        "serialNumber": "DE48CF12"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 151,
+    "uid": "0415a211-951f-4907-af45-1d9e35c19d87",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-6",
+    "dnsName": "WIN11-WK-6",
+    "created": 1768406377.745955,
+    "lastContact": 1768406378.058,
+    "lastUpdate": 1768406378.069,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.253.180.169",
+      "20:RT:15a2:826e:7322:3188:8b8:8a0b"
+    ],
+    "macAddresses": [
+      "6E:1B:98:01:68:33"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406377,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-6",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "4cc89e7e-9cbe-471e-a973-ca50dbaea78b",
+      "serialNumber": "064b471a-5e19-4eaf-a07a-7c50d13d0d89",
+      "assetSerialNumber": "4cc89e7e-9cbe-471e-a973-ca50dbaea78b",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 5000000000,
+        "clockSpeed": 2600000000,
+        "name": "Intel(R) Core(TM) i9-11950H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 151,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 19200000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 151,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 7200000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 152,
+    "uid": "c371cf2a-4f73-440b-a709-95c54b78f18b",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-1",
+    "dnsName": "WIN11-WK-1",
+    "created": 1768406377.750499,
+    "lastContact": 1768406378.065,
+    "lastUpdate": 1768406378.071,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.147.53.124",
+      "20:RT:4e52:5e2c:e4ba:564:e98a:d999"
+    ],
+    "macAddresses": [
+      "8E:DF:29:16:93:86"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406377,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-1",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "cb2bd537-2626-43c3-a7db-fb6829c03dec",
+      "serialNumber": "cbe479fa-e228-453b-afce-9d3a71bc95da",
+      "assetSerialNumber": "cb2bd537-2626-43c3-a7db-fb6829c03dec",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 3193000000,
+        "clockSpeed": 3193000000,
+        "name": "Intel(R) Core(TM) i7-10750H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 152,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 560000000000,
+        "freeSpace": 252000000000,
+        "serialNumber": "DE48CF12"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 153,
+    "uid": "dd9e6613-916d-4b3a-8e12-10c3b3074962",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-5",
+    "dnsName": "WIN11-WK-5",
+    "created": 1768406377.753489,
+    "lastContact": 1768406378.076,
+    "lastUpdate": 1768406378.081,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.49.30.26",
+      "20:RT:9f7a:e199:4a43:19e3:3182:9aa8"
+    ],
+    "macAddresses": [
+      "DE:1C:5A:A0:15:13"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406377,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-5",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "65dc9c8a-39ce-42bd-a379-c7b45e6c8b2c",
+      "serialNumber": "9d83e399-bf5c-47a4-939e-4e40a7c6271f",
+      "assetSerialNumber": "65dc9c8a-39ce-42bd-a379-c7b45e6c8b2c",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 5000000000,
+        "clockSpeed": 2600000000,
+        "name": "Intel(R) Core(TM) i9-11950H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 153,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 187200000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 153,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 132000000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 154,
+    "uid": "fcb99bb8-aa32-4cf8-b5f8-97dfec8377cb",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-2",
+    "dnsName": "WIN11-WK-2",
+    "created": 1768406377.754186,
+    "lastContact": 1768406378.065,
+    "lastUpdate": 1768406378.072,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.96.58.243",
+      "20:RT:226c:2f28:722b:e9d8:18de:3de2"
+    ],
+    "macAddresses": [
+      "A4:BB:03:19:03:93"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406377,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-2",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "67dc6347-921f-4efc-936b-949756712245",
+      "serialNumber": "afd3e67c-4c5d-490a-905b-bfe4b33c4cb3",
+      "assetSerialNumber": "67dc6347-921f-4efc-936b-949756712245",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3200000000,
+        "name": "AMD Ryzen 7 5800H",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 154,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 105600000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 154,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 67200000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 155,
+    "uid": "2f0eb9c4-7193-49ad-a64c-c3ea5e4ff4b9",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-8",
+    "dnsName": "WIN11-WK-8",
+    "created": 1768406377.764602,
+    "lastContact": 1768406378.081,
+    "lastUpdate": 1768406378.086,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.33.255.170",
+      "20:RT:1f59:bed3:84b6:b81e:7b1a:b187"
+    ],
+    "macAddresses": [
+      "8A:F7:D9:72:C0:CF"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406377,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-8",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "9dbca31c-729d-4096-b4a2-fa074b7b819d",
+      "serialNumber": "8640c57d-3fb8-4e44-8095-2e879edc7776",
+      "assetSerialNumber": "9dbca31c-729d-4096-b4a2-fa074b7b819d",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 4593000000,
+        "clockSpeed": 2793000000,
+        "name": "Intel(R) Core(TM) i5-11400H",
+        "numCores": 6,
+        "numLogicalCores": 12
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 155,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 180000000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 155,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 163200000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 156,
+    "uid": "d2cbd6c2-8ae4-4aaf-86d5-9b5bd12b0879",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-3",
+    "dnsName": "WIN11-WK-3",
+    "created": 1768406377.76589,
+    "lastContact": 1768406378.029,
+    "lastUpdate": 1768406378.032,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.214.241.177",
+      "20:RT:6819:9c87:4382:4d30:a2b7:2263"
+    ],
+    "macAddresses": [
+      "42:27:3D:FA:73:F4"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406377,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-3",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "bc070fbf-e464-4627-b7cf-f5d5c6209110",
+      "serialNumber": "8d43b40e-8906-4c25-a0a6-6facfeb70ef1",
+      "assetSerialNumber": "bc070fbf-e464-4627-b7cf-f5d5c6209110",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 4593000000,
+        "clockSpeed": 2793000000,
+        "name": "Intel(R) Core(TM) i5-11400H",
+        "numCores": 6,
+        "numLogicalCores": 12
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 156,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 560000000000,
+        "freeSpace": 84000000000,
+        "serialNumber": "DE48CF12"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 157,
+    "uid": "2439f4c0-5b4f-4f4c-a0cc-2ff73eb395a7",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-9",
+    "dnsName": "WIN11-WK-9",
+    "created": 1768406378.302313,
+    "lastContact": 1768406378.562,
+    "lastUpdate": 1768406378.567,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.35.63.178",
+      "20:RT:1f90:8aaf:d026:f7a7:de2d:410"
+    ],
+    "macAddresses": [
+      "42:27:3D:FA:73:F4"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-9",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "7420d001-c785-4099-aff4-4da8967ef6bb",
+      "serialNumber": "ca58815f-7116-4960-8fc3-23080f77ddfb",
+      "assetSerialNumber": "7420d001-c785-4099-aff4-4da8967ef6bb",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3300000000,
+        "name": "AMD Ryzen 9 4900H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 157,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 156000000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 157,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 98400000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 158,
+    "uid": "42b5d8b8-6bf8-4546-8541-c732e6f32cf2",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-14",
+    "dnsName": "WIN11-WK-14",
+    "created": 1768406378.325654,
+    "lastContact": 1768406378.636,
+    "lastUpdate": 1768406378.641,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.96.0.226",
+      "20:RT:41fa:fbf4:fd5:24df:267:d114"
+    ],
+    "macAddresses": [
+      "6E:1B:98:01:68:33"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-14",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "5bafcf32-eebe-4c30-a5e4-15c050a14439",
+      "serialNumber": "d8cbc3fe-2f9b-4742-9915-ede04cc47441",
+      "assetSerialNumber": "5bafcf32-eebe-4c30-a5e4-15c050a14439",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 4593000000,
+        "clockSpeed": 2793000000,
+        "name": "Intel(R) Core(TM) i5-11400H",
+        "numCores": 6,
+        "numLogicalCores": 12
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 158,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 64800000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 158,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 28800000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 159,
+    "uid": "c7454ee5-6fd1-4745-bab7-426449ee3605",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-15",
+    "dnsName": "WIN11-WK-15",
+    "created": 1768406378.326895,
+    "lastContact": 1768406378.646,
+    "lastUpdate": 1768406378.65,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.150.206.24",
+      "20:RT:c26a:2e8a:8c71:c0af:c9ab:9fd2"
+    ],
+    "macAddresses": [
+      "DE:1C:5A:A0:15:13"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-15",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "3c6e05c2-3111-4325-b42a-930c210ba9e3",
+      "serialNumber": "b0e06800-0422-4cfd-8fa4-f6885031d80d",
+      "assetSerialNumber": "3c6e05c2-3111-4325-b42a-930c210ba9e3",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 3193000000,
+        "clockSpeed": 3193000000,
+        "name": "Intel(R) Core(TM) i7-10750H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 159,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 57600000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 159,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 28800000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 160,
+    "uid": "9def872c-f766-4b81-aabc-337a82039d12",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-11",
+    "dnsName": "WIN11-WK-11",
+    "created": 1768406378.328231,
+    "lastContact": 1768406378.76,
+    "lastUpdate": 1768406378.764,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.62.147.128",
+      "20:RT:9143:5ce:e262:a01b:ac68:945"
+    ],
+    "macAddresses": [
+      "92:28:45:2B:B4:FA"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-11",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "4f8c1233-e8e2-415a-a8c7-dc0d83ff90d8",
+      "serialNumber": "a17bc973-c639-4c67-a6d7-45dbb98d2c09",
+      "assetSerialNumber": "4f8c1233-e8e2-415a-a8c7-dc0d83ff90d8",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 5000000000,
+        "clockSpeed": 4300000000,
+        "name": "AMD Ryzen 5 PRO 7640HS",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 160,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 127200000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 160,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 120000000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 161,
+    "uid": "d011ff3b-9008-43c9-ba36-e89157d0f5e7",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-12",
+    "dnsName": "WIN11-WK-12",
+    "created": 1768406378.328625,
+    "lastContact": 1768406378.654,
+    "lastUpdate": 1768406378.658,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.141.115.44",
+      "20:RT:5aee:5091:2ce8:a19f:3e9:c31d"
+    ],
+    "macAddresses": [
+      "8E:DF:29:16:93:86"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-12",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "5846898d-bf62-4706-9d61-9cdbe354bfd8",
+      "serialNumber": "94eb7b92-dc31-4236-9e66-6baf00ab966c",
+      "assetSerialNumber": "5846898d-bf62-4706-9d61-9cdbe354bfd8",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3300000000,
+        "name": "AMD Ryzen 9 4900H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 161,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 560000000000,
+        "freeSpace": 61600000000,
+        "serialNumber": "DE48CF12"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 162,
+    "uid": "9e63790b-40ce-48bb-8840-2bc3103edb5b",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-10",
+    "dnsName": "WIN11-WK-10",
+    "created": 1768406378.32989,
+    "lastContact": 1768406378.654,
+    "lastUpdate": 1768406378.658,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.118.255.57",
+      "20:RT:a775:ca78:8237:9774:9083:f906"
+    ],
+    "macAddresses": [
+      "18:A7:60:83:BA:20"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-10",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "28f976ac-a562-4203-b353-7e3de54a05de",
+      "serialNumber": "7dabd417-8699-4bc6-9f4c-e8a65144fac5",
+      "assetSerialNumber": "28f976ac-a562-4203-b353-7e3de54a05de",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3200000000,
+        "name": "AMD Ryzen 7 5800H",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 162,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 67200000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 162,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 64800000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 163,
+    "uid": "7aea6e2f-0792-4897-b044-db1ce5779a86",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-16",
+    "dnsName": "WIN11-WK-16",
+    "created": 1768406378.332342,
+    "lastContact": 1768406378.653,
+    "lastUpdate": 1768406378.656,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.75.163.31",
+      "20:RT:3de0:de8a:42e8:123d:6782:3e3e"
+    ],
+    "macAddresses": [
+      "8A:F7:D9:72:C0:CF"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-16",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "7fca6af7-f20b-4e58-a831-0dbbcdf2e128",
+      "serialNumber": "e8a42093-98d4-4702-ac5b-fb89de95fd9f",
+      "assetSerialNumber": "7fca6af7-f20b-4e58-a831-0dbbcdf2e128",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 5000000000,
+        "clockSpeed": 2600000000,
+        "name": "Intel(R) Core(TM) i9-11950H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 163,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 560000000000,
+        "freeSpace": 481600000000,
+        "serialNumber": "DE48CF12"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 165,
+    "uid": "06076f9a-7f41-4b2d-8c5a-b24e9cdb570e",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-17",
+    "dnsName": "WIN11-WK-17",
+    "created": 1768406378.816338,
+    "lastContact": 1768406379.138,
+    "lastUpdate": 1768406379.141,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.56.230.41",
+      "20:RT:2781:b2d2:3e76:9c6f:60b9:1e65"
+    ],
+    "macAddresses": [
+      "42:27:3D:FA:73:F4"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-17",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "e96a1977-969f-4acd-803f-1090a896132c",
+      "serialNumber": "281cd111-cfcd-44ff-9011-277da045d536",
+      "assetSerialNumber": "e96a1977-969f-4acd-803f-1090a896132c",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 4593000000,
+        "clockSpeed": 2793000000,
+        "name": "Intel(R) Core(TM) i5-11400H",
+        "numCores": 6,
+        "numLogicalCores": 12
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 165,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 216000000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 165,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 7200000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 166,
+    "uid": "c978841b-0f8a-4ca3-8bba-a0f5f044e193",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-20",
+    "dnsName": "WIN11-WK-20",
+    "created": 1768406378.874429,
+    "lastContact": 1768406379.137,
+    "lastUpdate": 1768406379.14,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.68.121.218",
+      "20:RT:da83:e24:e849:143:cd13:4f99"
+    ],
+    "macAddresses": [
+      "DE:1C:5A:A0:15:13"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-20",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "a0976371-eb70-4e3f-b160-29fd2012a0aa",
+      "serialNumber": "465cccb8-7da3-4cc7-b004-4d7ea76ef358",
+      "assetSerialNumber": "a0976371-eb70-4e3f-b160-29fd2012a0aa",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3300000000,
+        "name": "AMD Ryzen 9 4900H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 166,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 108000000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 166,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 100800000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 167,
+    "uid": "2e0820ee-4c08-4b63-8233-21651175146c",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-19",
+    "dnsName": "WIN11-WK-19",
+    "created": 1768406378.888361,
+    "lastContact": 1768406379.213,
+    "lastUpdate": 1768406379.217,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.105.29.63",
+      "20:RT:348e:77c0:60ef:3e4e:626d:dacd"
+    ],
+    "macAddresses": [
+      "A4:BB:03:19:03:93"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-19",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "82c04f82-e48c-4bcf-88bd-268e4edcc7f6",
+      "serialNumber": "1df428c5-1ca7-4a8c-bb70-48d603076b27",
+      "assetSerialNumber": "82c04f82-e48c-4bcf-88bd-268e4edcc7f6",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3200000000,
+        "name": "AMD Ryzen 7 5800H",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 167,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 64800000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 167,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 160800000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 168,
+    "uid": "52a49239-b87f-45ff-9be1-3a472b2fb351",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-21",
+    "dnsName": "WIN11-WK-21",
+    "created": 1768406378.892825,
+    "lastContact": 1768406379.237,
+    "lastUpdate": 1768406379.24,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.12.188.42",
+      "20:RT:eb1:76a5:b29c:fee3:9d7f:c0d3"
+    ],
+    "macAddresses": [
+      "8A:F7:D9:72:C0:CF"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-21",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "ab9df728-d04e-4353-8bc2-5be4977dd3d5",
+      "serialNumber": "f938eea0-e8c1-4132-9cb5-40ce01d81d4a",
+      "assetSerialNumber": "ab9df728-d04e-4353-8bc2-5be4977dd3d5",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3300000000,
+        "name": "AMD Ryzen 9 4900H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 168,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 16800000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 168,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 96000000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 169,
+    "uid": "fd7d10f4-8cf1-4468-80f5-fc35fc8364ee",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-18",
+    "dnsName": "WIN11-WK-18",
+    "created": 1768406378.893504,
+    "lastContact": 1768406379.236,
+    "lastUpdate": 1768406379.239,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.138.112.38",
+      "20:RT:fcf2:7719:d060:b1a9:3c6a:edea"
+    ],
+    "macAddresses": [
+      "6E:1B:98:01:68:33"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-18",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "c46636ba-1cd4-4f84-b2e2-15b547b8e951",
+      "serialNumber": "704b6072-02aa-4541-8930-1820ddb6fbe8",
+      "assetSerialNumber": "c46636ba-1cd4-4f84-b2e2-15b547b8e951",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 3193000000,
+        "clockSpeed": 3193000000,
+        "name": "Intel(R) Core(TM) i7-10750H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 169,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 19200000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 169,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 43200000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 170,
+    "uid": "4a8e7eb5-3648-421d-95c5-ab906e8c045d",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-23",
+    "dnsName": "WIN11-WK-23",
+    "created": 1768406378.893935,
+    "lastContact": 1768406379.212,
+    "lastUpdate": 1768406379.216,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.61.15.202",
+      "20:RT:dba8:aea3:6fbb:3a4d:b1de:e5bd"
+    ],
+    "macAddresses": [
+      "18:A7:60:83:BA:20"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-23",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "fe646557-db6f-41c6-8a87-040303999fdc",
+      "serialNumber": "84972c99-fe8a-4821-bf28-712f665fdc95",
+      "assetSerialNumber": "fe646557-db6f-41c6-8a87-040303999fdc",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3200000000,
+        "name": "AMD Ryzen 7 5800H",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 170,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 132000000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 170,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 127200000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 171,
+    "uid": "94e69531-263c-478f-b332-e7ac00907dc4",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-22",
+    "dnsName": "WIN11-WK-22",
+    "created": 1768406378.906418,
+    "lastContact": 1768406379.212,
+    "lastUpdate": 1768406379.216,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.188.84.249",
+      "20:RT:fd07:626:1189:de97:90a4:1874"
+    ],
+    "macAddresses": [
+      "8E:DF:29:16:93:86"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-22",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "e025c89c-fb0e-4fda-9d30-f425362cafb6",
+      "serialNumber": "47da7759-9f41-43ec-ab0c-6424f36ba32f",
+      "assetSerialNumber": "e025c89c-fb0e-4fda-9d30-f425362cafb6",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3200000000,
+        "name": "AMD Ryzen 7 5800H",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 171,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 163200000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 171,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 120000000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 172,
+    "uid": "30d707ff-c567-4a6c-9b44-56d658a3c4a6",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-24",
+    "dnsName": "WIN11-WK-24",
+    "created": 1768406379.029154,
+    "lastContact": 1768406379.352,
+    "lastUpdate": 1768406379.356,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.17.64.194",
+      "20:RT:76a7:571c:3d1b:874b:5d0f:24be"
+    ],
+    "macAddresses": [
+      "92:28:45:2B:B4:FA"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406378,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-24",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "94c321b1-adc1-4afd-bc86-7aa17f2a225c",
+      "serialNumber": "1c6f86e4-5476-479d-9381-7e4ec6e9b126",
+      "assetSerialNumber": "94c321b1-adc1-4afd-bc86-7aa17f2a225c",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 3193000000,
+        "clockSpeed": 3193000000,
+        "name": "Intel(R) Core(TM) i7-10750H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 172,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 9600000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 172,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 69600000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 173,
+    "uid": "e2f666fd-7b2e-4878-a9a6-79bc026c924f",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-26",
+    "dnsName": "WIN11-WK-26",
+    "created": 1768406379.394912,
+    "lastContact": 1768406379.666,
+    "lastUpdate": 1768406379.669,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.130.54.31",
+      "20:RT:cf6d:3d63:e3:539c:52ea:b8ad"
+    ],
+    "macAddresses": [
+      "42:27:3D:FA:73:F4"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-26",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "9215d3ec-2cc0-4494-9f61-d1d235229bc5",
+      "serialNumber": "21a571dd-8c4e-449e-9870-753abdcd7f59",
+      "assetSerialNumber": "9215d3ec-2cc0-4494-9f61-d1d235229bc5",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3300000000,
+        "name": "AMD Ryzen 9 4900H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 173,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 144000000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 173,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 36000000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 174,
+    "uid": "3dcee540-5b27-4b21-bb97-bb3b711f1f11",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-25",
+    "dnsName": "WIN11-WK-25",
+    "created": 1768406379.404119,
+    "lastContact": 1768406379.738,
+    "lastUpdate": 1768406379.742,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.36.182.211",
+      "20:RT:9cff:892d:b4a2:e85e:110d:4097"
+    ],
+    "macAddresses": [
+      "DE:1C:5A:A0:15:13"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-25",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "1667b858-4ad1-407e-9840-c1104596eb24",
+      "serialNumber": "c531cdb7-7fe6-40c3-84a6-d0a309d1b75a",
+      "assetSerialNumber": "1667b858-4ad1-407e-9840-c1104596eb24",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3300000000,
+        "name": "AMD Ryzen 9 4900H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 174,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 21600000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 174,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 50400000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 175,
+    "uid": "e8ca8503-5953-4fc9-a543-e51c1846f354",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-28",
+    "dnsName": "WIN11-WK-28",
+    "created": 1768406379.455898,
+    "lastContact": 1768406379.782,
+    "lastUpdate": 1768406379.786,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.63.158.240",
+      "20:RT:809f:bfce:9cc9:dc78:ded3:821"
+    ],
+    "macAddresses": [
+      "8E:DF:29:16:93:86"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-28",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "6a549085-670f-4174-8a99-a7a306d134c5",
+      "serialNumber": "22760e04-7e94-4135-870f-816c9f191bb2",
+      "assetSerialNumber": "6a549085-670f-4174-8a99-a7a306d134c5",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 5000000000,
+        "clockSpeed": 2600000000,
+        "name": "Intel(R) Core(TM) i9-11950H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 175,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 560000000000,
+        "freeSpace": 123200000000,
+        "serialNumber": "DE48CF12"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 176,
+    "uid": "b20236ed-0b68-4f6b-bf1b-1d1c077e31a4",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-27",
+    "dnsName": "WIN11-WK-27",
+    "created": 1768406379.459061,
+    "lastContact": 1768406379.762,
+    "lastUpdate": 1768406379.766,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.98.197.91",
+      "20:RT:e672:2443:3f76:a9d0:7d1f:529"
+    ],
+    "macAddresses": [
+      "18:A7:60:83:BA:20"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-27",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "c0d28ccc-6177-47b4-8eed-e2a6c3dd2fac",
+      "serialNumber": "afe1626a-a553-48e9-9147-713992c71dd8",
+      "assetSerialNumber": "c0d28ccc-6177-47b4-8eed-e2a6c3dd2fac",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3200000000,
+        "name": "AMD Ryzen 7 5800H",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 176,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 45600000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 176,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 16800000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 177,
+    "uid": "6822b268-c9a5-4a74-8760-01d43d951f3e",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-29",
+    "dnsName": "WIN11-WK-29",
+    "created": 1768406379.463962,
+    "lastContact": 1768406379.724,
+    "lastUpdate": 1768406379.728,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.161.6.79",
+      "20:RT:a222:db55:fd14:4fe6:31d5:ef9a"
+    ],
+    "macAddresses": [
+      "A4:BB:03:19:03:93"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-29",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "d35e0601-4990-4019-b21a-441c7d933610",
+      "serialNumber": "5e95ac18-d1f0-4120-b6f3-46201304dd3a",
+      "assetSerialNumber": "d35e0601-4990-4019-b21a-441c7d933610",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3300000000,
+        "name": "AMD Ryzen 9 4900H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 177,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 560000000000,
+        "freeSpace": 117600000000,
+        "serialNumber": "DE48CF12"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 178,
+    "uid": "af1253cf-f5d7-4769-a10c-5c4d0cad88cd",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-30",
+    "dnsName": "WIN11-WK-30",
+    "created": 1768406379.485042,
+    "lastContact": 1768406379.782,
+    "lastUpdate": 1768406379.786,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.214.226.218",
+      "20:RT:dea6:b149:db55:1afc:4e62:3eac"
+    ],
+    "macAddresses": [
+      "8A:F7:D9:72:C0:CF"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-30",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "a258eed8-b320-49b9-8d15-c435817536aa",
+      "serialNumber": "3ff7a908-58c8-438a-be88-c4b63b4a5923",
+      "assetSerialNumber": "a258eed8-b320-49b9-8d15-c435817536aa",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3200000000,
+        "name": "AMD Ryzen 7 5800H",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 178,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 129600000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 178,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 81600000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 179,
+    "uid": "55e9b76d-2f40-42bc-9874-c40f89b4bbcd",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-31",
+    "dnsName": "WIN11-WK-31",
+    "created": 1768406379.492491,
+    "lastContact": 1768406379.804,
+    "lastUpdate": 1768406379.808,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.97.237.108",
+      "20:RT:e524:d31d:7995:5c03:5904:d025"
+    ],
+    "macAddresses": [
+      "6E:1B:98:01:68:33"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-31",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "b1800881-177c-4586-895e-ae55541c5d96",
+      "serialNumber": "242ed4fe-93de-4fb4-84cb-f69347622305",
+      "assetSerialNumber": "b1800881-177c-4586-895e-ae55541c5d96",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 4593000000,
+        "clockSpeed": 2793000000,
+        "name": "Intel(R) Core(TM) i5-11400H",
+        "numCores": 6,
+        "numLogicalCores": 12
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 179,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 560000000000,
+        "freeSpace": 308000000000,
+        "serialNumber": "DE48CF12"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 180,
+    "uid": "4eff500d-be39-4b80-a075-c1d3b5dc6bde",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-32",
+    "dnsName": "WIN11-WK-32",
+    "created": 1768406379.598435,
+    "lastContact": 1768406379.914,
+    "lastUpdate": 1768406379.918,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.54.49.86",
+      "20:RT:556d:33c2:6505:f62c:6662:6c1c"
+    ],
+    "macAddresses": [
+      "92:28:45:2B:B4:FA"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-32",
+      "manufacturer": "Gigabyte Technology Co., Ltd.",
+      "model": "B650 GAMING X (rev. 1.5)",
+      "biosSerialNumber": "73331454-055d-4738-8272-909cd771b51c",
+      "serialNumber": "2d0051e6-b303-4843-be2b-1848a91ab3fc",
+      "assetSerialNumber": "73331454-055d-4738-8272-909cd771b51c",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 3193000000,
+        "clockSpeed": 3193000000,
+        "name": "Intel(R) Core(TM) i7-10750H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 180,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 12000000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 180,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 196800000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 181,
+    "uid": "21ca6f35-8f93-48d8-b708-f8326b8329f4",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-33",
+    "dnsName": "WIN11-WK-33",
+    "created": 1768406379.924427,
+    "lastContact": 1768406380.184,
+    "lastUpdate": 1768406380.188,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.236.184.89",
+      "20:RT:61fd:33a1:5387:c843:16f2:d817"
+    ],
+    "macAddresses": [
+      "42:27:3D:FA:73:F4"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-33",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "2f1fe328-8af3-44ba-8dab-45c2890d2521",
+      "serialNumber": "c91bbe0f-51e1-40b5-93bd-c4576613b692",
+      "assetSerialNumber": "2f1fe328-8af3-44ba-8dab-45c2890d2521",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 5000000000,
+        "clockSpeed": 2600000000,
+        "name": "Intel(R) Core(TM) i9-11950H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 181,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 12000000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 181,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 206400000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 182,
+    "uid": "84b25fcf-efec-4c6e-980a-b425790f2fb8",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-34",
+    "dnsName": "WIN11-WK-34",
+    "created": 1768406379.965793,
+    "lastContact": 1768406380.285,
+    "lastUpdate": 1768406380.289,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.225.187.224",
+      "20:RT:fb2b:17d8:17e2:e6bd:12c9:26c2"
+    ],
+    "macAddresses": [
+      "A4:BB:03:19:03:93"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-34",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "bea867e9-2d79-4e70-bea7-ec43c237c662",
+      "serialNumber": "794fd2b4-3e2f-4983-8433-3e6d8661ba06",
+      "assetSerialNumber": "bea867e9-2d79-4e70-bea7-ec43c237c662",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3300000000,
+        "name": "AMD Ryzen 9 4900H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 182,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 4800000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 182,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 86400000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 183,
+    "uid": "1a15aa1b-5a72-4747-b519-199500082736",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-35",
+    "dnsName": "WIN11-WK-35",
+    "created": 1768406379.971111,
+    "lastContact": 1768406380.285,
+    "lastUpdate": 1768406380.287,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.76.93.219",
+      "20:RT:f2c4:2e33:c802:f83b:4804:d947"
+    ],
+    "macAddresses": [
+      "DE:1C:5A:A0:15:13"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-35",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "6ad9c8db-2bfe-4109-8380-9bb3df5c9df4",
+      "serialNumber": "10f048b5-d477-4ad1-acc0-73a2802b7165",
+      "assetSerialNumber": "6ad9c8db-2bfe-4109-8380-9bb3df5c9df4",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3300000000,
+        "name": "AMD Ryzen 9 4900H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 183,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 12000000000,
+        "serialNumber": "CE48CB01"
+      },
+      {
+        "nodeId": 183,
+        "name": "F:",
+        "label": "F",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 240000000000,
+        "freeSpace": 67200000000,
+        "serialNumber": "CE48CB02"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 184,
+    "uid": "efea5aa4-e095-4db4-b4cd-05c5d4a7c245",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-36",
+    "dnsName": "WIN11-WK-36",
+    "created": 1768406380.000379,
+    "lastContact": 1768406380.255,
+    "lastUpdate": 1768406380.258,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.247.108.129",
+      "20:RT:3a4a:caba:c71f:5363:614f:61f6"
+    ],
+    "macAddresses": [
+      "18:A7:60:83:BA:20"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-36",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "f850efea-2dcb-4283-8d52-bf6125e74020",
+      "serialNumber": "79171998-0916-44fd-b401-69f31a742f20",
+      "assetSerialNumber": "f850efea-2dcb-4283-8d52-bf6125e74020",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 68719476736,
+      "virtualMachine": true,
+      "chassisType": "LAPTOP"
+    },
+    "memory": {
+      "capacity": 68719476736
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3300000000,
+        "name": "AMD Ryzen 9 4900H",
+        "numCores": 8,
+        "numLogicalCores": 16
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 184,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 560000000000,
+        "freeSpace": 492800000000,
+        "serialNumber": "DE48CF12"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 185,
+    "uid": "8014a49e-1847-43ef-97d9-0d7546839f54",
+    "organizationId": 4,
+    "locationId": 4,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 1026,
+    "rolePolicyId": 74,
+    "policyId": 74,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "WIN11-WK-37",
+    "dnsName": "WIN11-WK-37",
+    "created": 1768406380.034996,
+    "lastContact": 1768406380.351,
+    "lastUpdate": 1768406380.356,
+    "tags": [
+      "Database Created"
+    ],
+    "maintenance": {
+      "status": "IN_MAINTENANCE",
+      "start": 1768410870.484554,
+      "reasonMessage": ""
+    },
+    "ipAddresses": [
+      "10.96.192.28",
+      "20:RT:a4d6:e0b7:4960:cc4:b3a2:bf8"
+    ],
+    "macAddresses": [
+      "8A:F7:D9:72:C0:CF"
+    ],
+    "publicIP": "47.203.128.161",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1768406379,
+      "buildNumber": "22621",
+      "releaseId": "1803",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "WIN11-WK-37",
+      "manufacturer": "American Megatrends Inc.",
+      "model": "THREADMONSTER",
+      "biosSerialNumber": "22e9606d-c855-4c4c-9fb1-c822a5a44519",
+      "serialNumber": "c796c687-b650-49bd-9615-fb379dcc77c5",
+      "assetSerialNumber": "22e9606d-c855-4c4c-9fb1-c822a5a44519",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 34359738368,
+      "virtualMachine": true,
+      "chassisType": "DESKTOP"
+    },
+    "memory": {
+      "capacity": 34359738368
+    },
+    "processors": [
+      {
+        "architecture": "x86",
+        "maxClockSpeed": 4400000000,
+        "clockSpeed": 3200000000,
+        "name": "AMD Ryzen 7 5800H",
+        "numCores": 10,
+        "numLogicalCores": 10
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 185,
+        "name": "C:",
+        "label": "C",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTSC",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 560000000000,
+        "freeSpace": 196000000000,
+        "serialNumber": "DE48CF12"
+      }
+    ],
+    "deviceType": "AgentDevice"
+  }
+]

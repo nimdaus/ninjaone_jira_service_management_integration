@@ -234,9 +234,9 @@ JIRA_API_TOKEN=your-token</pre>
             </div>
 
             <div class="mapping-header">
-                <span>Jira Attribute</span>
                 <span>NinjaOne Field</span>
-                <span>Transform</span>
+                <span>Jira Attribute</span>
+                <span>Transforms</span>
                 <span>Identity#</span>
                 <span></span>
             </div>
@@ -255,9 +255,6 @@ JIRA_API_TOKEN=your-token</pre>
     <!-- Attribute Mapping Row Template -->
     <template id="attribute-mapping-template">
         <div class="mapping-row">
-            <select class="jira-attr-select">
-                <option value="">-- Jira Attribute --</option>
-            </select>
             <select class="ninja-field-select">
                 <option value="">-- NinjaOne Field --</option>
                 <optgroup label="System">
@@ -293,18 +290,43 @@ JIRA_API_TOKEN=your-token</pre>
                     <option value="locationId">Location ID</option>
                 </optgroup>
             </select>
-            <select class="transform-select">
-                <option value="">None</option>
-                <option value="upper">UPPERCASE</option>
-                <option value="lower">lowercase</option>
-                <option value="strip">Strip whitespace</option>
-                <option value="first_ip">First IP</option>
-                <option value="first_mac">First MAC</option>
-                <option value="bytes_to_gb">Bytes → GB</option>
+            <select class="jira-attr-select">
+                <option value="">-- Jira Attribute --</option>
             </select>
+            <div class="transforms-container">
+                <div class="transforms-list"></div>
+                <button class="btn-add-transform" type="button" onclick="addTransformItem(this)">+ Transform</button>
+            </div>
             <input type="number" class="identity-order-input" placeholder="-" min="1" max="10"
                 title="Identity order (1=first, 2=second, etc). Leave empty if not an identity field.">
             <button class="btn-remove" onclick="removeAttributeMapping(this)">✕</button>
+        </div>
+    </template>
+
+    <!-- Single Transform Item Template -->
+    <template id="transform-item-template">
+        <div class="transform-item">
+            <select class="transform-item-select">
+                <option value="">-- Select --</option>
+                <optgroup label="String">
+                    <option value="upper">UPPERCASE</option>
+                    <option value="lower">lowercase</option>
+                    <option value="strip">Strip whitespace</option>
+                    <option value="normalize_serial">Normalize serial</option>
+                </optgroup>
+                <optgroup label="Type conversion">
+                    <option value="to_string">To string</option>
+                    <option value="to_integer">To integer</option>
+                    <option value="to_float">To float</option>
+                    <option value="to_boolean">To boolean</option>
+                </optgroup>
+                <optgroup label="Extract">
+                    <option value="first_ip">First IP</option>
+                    <option value="first_mac">First MAC</option>
+                    <option value="bytes_to_gb">Bytes → GB</option>
+                </optgroup>
+            </select>
+            <button class="btn-remove-transform" type="button" onclick="removeTransformItem(this)">✕</button>
         </div>
     </template>
 

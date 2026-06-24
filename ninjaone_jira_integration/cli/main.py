@@ -31,18 +31,34 @@ from ninjaone_jira_integration.config import AppConfig, load_config, save_config
 console = Console()
 
 
-def setup_logging(level: str = "INFO") -> None:
-    """Configure logging with rich handler.
-    
+def setup_logging(level: str = "INFO", log_file: str | None = None) -> None:
+    """Configure logging.
+
+    Uses structured logging (JSON to file, colorized text to console) when
+    a log_file is specified; otherwise falls back to Rich console logging.
+
     Args:
         level: Log level (DEBUG, INFO, WARNING, ERROR).
+        log_file: Optional path to write JSON log file.
     """
-    logging.basicConfig(
+    from ninjaone_jira_integration.observability.logging import setup_structured_logging
+
+    setup_structured_logging(
         level=level.upper(),
-        format="%(message)s",
-        datefmt="[%X]",
-        handlers=[RichHandler(console=console, rich_tracebacks=True)],
+        json_format=bool(log_file),  # JSON only when writing to a file
+        log_file=log_file,
     )
+
+    # When not writing to a file, attach Rich handler for nicer console output
+    if not log_file:
+        root = logging.getLogger()
+        root.handlers = []
+        logging.basicConfig(
+            level=level.upper(),
+            format="%(message)s",
+            datefmt="[%X]",
+            handlers=[RichHandler(console=console, rich_tracebacks=True)],
+        )
 
 
 @click.group()
@@ -58,14 +74,22 @@ def setup_logging(level: str = "INFO") -> None:
     is_flag=True,
     help="Enable verbose output",
 )
+@click.option(
+    "--log-file",
+    "log_file",
+    envvar="NINJA_JIRA_LOG_FILE",
+    default=None,
+    help="Write JSON logs to this file path (in addition to console)",
+)
 @click.pass_context
-def cli(ctx: click.Context, config_path: str | None, verbose: bool) -> None:
+def cli(ctx: click.Context, config_path: str | None, verbose: bool, log_file: str | None) -> None:
     """NinjaOne to Jira Service Management integration CLI."""
     ctx.ensure_object(dict)
     ctx.obj["config_path"] = config_path
     ctx.obj["verbose"] = verbose
-    
-    setup_logging("DEBUG" if verbose else "INFO")
+    ctx.obj["log_file"] = log_file
+
+    setup_logging("DEBUG" if verbose else "INFO", log_file=log_file)
 
 
 @cli.command()
@@ -220,7 +244,7 @@ async def _init_interactive(ctx: click.Context, write_secrets: bool) -> None:
         console.print(f"  JIRA_API_TOKEN={jira_api_token[:4]}***")
     
     # Save config
-    save_config(config_data, config_path)
+    save_config(AppConfig.model_validate(config_data), Path(config_path))
     console.print()
     console.print(f"[green]Configuration saved to {config_path}[/green]")
     console.print()
@@ -246,10 +270,11 @@ def mapping_test(ctx: click.Context, device_id: int | None) -> None:
 async def _mapping_test(ctx: click.Context, device_id: int | None) -> None:
     """Run mapping test."""
     config = load_config(ctx.obj.get("config_path"))
-    
-    if not config.assets.attribute_mappings:
+
+    has_mappings = config.assets.attribute_mappings or config.assets.has_role_mappings()
+    if not has_mappings:
         console.print("[yellow]No attribute mappings configured.[/yellow]")
-        console.print("Add mappings to the 'assets.attribute_mappings' section of your config.")
+        console.print("Use 'ninja-jira init --ui' to configure mappings, or add them to config.yaml.")
         return
     
     from pydantic import SecretStr
@@ -308,8 +333,11 @@ async def _mapping_test(ctx: click.Context, device_id: int | None) -> None:
         
         # Validate mappings
         from ninjaone_jira_integration.config.validation import validate_all_mappings
-        
-        errors = validate_all_mappings(config.assets.attribute_mappings, device)
+
+        role_id = device.get("nodeRoleId")
+        role_mapping = config.assets.get_mapping_for_role(role_id) if role_id else None
+        active_mappings = role_mapping.attribute_mappings if role_mapping else config.assets.attribute_mappings
+        errors = validate_all_mappings(active_mappings, device)
         
         if errors:
             console.print()
@@ -468,6 +496,74 @@ async def _sync_device(ctx: click.Context, device_id: int, dry_run: bool) -> Non
         finally:
             await ninja_client.close()
             await jira_client.close()
+
+
+@cli.command("run")
+@click.option(
+    "--dry-run",
+    is_flag=True,
+    help="Preview changes without making them",
+)
+@click.option(
+    "--once",
+    is_flag=True,
+    help="Run a single sync then exit (useful for cron jobs)",
+)
+@click.pass_context
+def run(ctx: click.Context, dry_run: bool, once: bool) -> None:
+    """Start scheduled device sync and alert polling (no public-facing server required).
+
+    Runs two independent schedulers:
+    - Device sync: every schedule.interval_hours (default 6h)
+    - Alert polling: every alert_schedule.interval_minutes (default 5m)
+
+    Use --once to run both immediately and exit (useful for cron jobs).
+    Use --dry-run to preview changes without writing to Jira.
+    """
+    asyncio.run(_run(ctx, dry_run, once))
+
+
+async def _run(ctx: click.Context, dry_run: bool, once: bool) -> None:
+    """Run the scheduled sync and alert polling."""
+    config = load_config(ctx.obj.get("config_path"))
+
+    from ninjaone_jira_integration.alerts.scheduler import AlertScheduler
+    from ninjaone_jira_integration.store.db import DatabaseManager
+    from ninjaone_jira_integration.sync.scheduler import SyncScheduler
+
+    if dry_run:
+        console.print("[bold yellow]DRY RUN MODE - No changes will be made[/bold yellow]")
+        console.print()
+
+    if once:
+        console.print("[bold]Running single device sync and alert poll...[/bold]")
+    else:
+        console.print(
+            f"[bold]Starting scheduled sync (devices every {config.schedule.interval_hours:.1f}h,"
+            f" alerts every {config.alert_schedule.interval_minutes:.1f}m).[/bold]"
+        )
+        console.print("Press Ctrl+C to stop.")
+        console.print()
+
+    async with DatabaseManager(config.database.path) as db:
+        sync_scheduler = SyncScheduler(config, db)
+        alert_scheduler = AlertScheduler(config, db)
+
+        if once:
+            await sync_scheduler.run_once(dry_run=dry_run)
+            await alert_scheduler.run_once(dry_run=dry_run)
+            console.print("[green]Sync and alert poll complete.[/green]")
+        else:
+            await sync_scheduler.start()
+            await alert_scheduler.start()
+            try:
+                # Block until interrupted
+                await asyncio.Event().wait()
+            except (KeyboardInterrupt, asyncio.CancelledError):
+                pass
+            finally:
+                await alert_scheduler.stop()
+                await sync_scheduler.stop()
 
 
 @cli.command("run-server")

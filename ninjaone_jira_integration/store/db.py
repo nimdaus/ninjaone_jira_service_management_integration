@@ -33,9 +33,9 @@ CREATE INDEX IF NOT EXISTS idx_device_mappings_jira_asset
 CREATE INDEX IF NOT EXISTS idx_device_mappings_serial 
     ON device_mappings(serial_number);
 
--- Alert mappings: NinjaOne alert ID to Jira issue key
+-- Alert mappings: NinjaOne alert UID (UUID string) to Jira issue key
 CREATE TABLE IF NOT EXISTS alert_mappings (
-    ninja_alert_id INTEGER PRIMARY KEY,
+    ninja_alert_id TEXT PRIMARY KEY,
     jira_issue_key TEXT NOT NULL,
     jira_issue_id TEXT,
     ninja_device_id INTEGER,

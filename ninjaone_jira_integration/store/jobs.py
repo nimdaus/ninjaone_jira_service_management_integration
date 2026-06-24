@@ -194,16 +194,17 @@ class JobStore:
             Claimed Job or None.
         """
         async with self.db.transaction() as conn:
+            conn.row_factory = aiosqlite.Row
             # Atomically claim the next queued job
             cursor = await conn.execute(
                 """
-                UPDATE jobs 
+                UPDATE jobs
                 SET status = 'processing',
                     attempts = attempts + 1,
                     started_at = datetime('now'),
                     updated_at = datetime('now')
                 WHERE id = (
-                    SELECT id FROM jobs 
+                    SELECT id FROM jobs
                     WHERE status = 'queued'
                     ORDER BY created_at ASC
                     LIMIT 1
@@ -211,14 +212,12 @@ class JobStore:
                 RETURNING *
                 """,
             )
-            
+
             row = await cursor.fetchone()
-            
+
             if not row:
                 return None
-            
-            # Need to get column names
-            conn.row_factory = aiosqlite.Row
+
             return Job.from_row(row)
     
     async def complete(self, job_id: int) -> None:

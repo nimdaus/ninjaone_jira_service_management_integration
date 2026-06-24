@@ -60,6 +60,13 @@ ENV_VAR_MAPPING = {
     # Logging
     "logging.level": "LOG_LEVEL",
     "logging.format": "LOG_FORMAT",
+    "logging.file": "LOG_FILE",
+    # Schedule (device sync)
+    "schedule.enabled": "SCHEDULE_ENABLED",
+    "schedule.interval_hours": "SCHEDULE_INTERVAL_HOURS",
+    # Alert polling schedule
+    "alert_schedule.enabled": "ALERT_SCHEDULE_ENABLED",
+    "alert_schedule.interval_minutes": "ALERT_SCHEDULE_INTERVAL_MINUTES",
 }
 
 # Known secret paths (never write to config file)
@@ -81,10 +88,16 @@ DEFAULT_CONFIG_PATHS = [
 
 def find_config_file(config_path: str | Path | None = None) -> Path | None:
     """Find configuration file.
-    
+
+    Search order:
+    1. Explicit path (if provided)
+    2. NINJA_JIRA_CONFIG environment variable
+    3. CWD and parent directories (walking up to a .git/pyproject.toml root)
+    4. ~/.config/ninja-jira/config.yaml
+
     Args:
         config_path: Explicit config file path, or None to search defaults.
-        
+
     Returns:
         Path to config file if found, None otherwise.
     """
@@ -93,11 +106,35 @@ def find_config_file(config_path: str | Path | None = None) -> Path | None:
         if path.exists():
             return path
         return None
-    
-    for path in DEFAULT_CONFIG_PATHS:
+
+    # Check environment variable override
+    env_path = os.environ.get("NINJA_JIRA_CONFIG")
+    if env_path:
+        path = Path(env_path)
         if path.exists():
             return path
-    
+
+    # Walk up from CWD looking for config.yaml / config.yml / config.json
+    cwd = Path.cwd()
+    candidate = cwd
+    while True:
+        for name in ("config.yaml", "config.yml", "config.json"):
+            p = candidate / name
+            if p.exists():
+                return p
+        # Stop at a project root marker or filesystem root
+        if (candidate / ".git").exists() or (candidate / "pyproject.toml").exists():
+            break
+        parent = candidate.parent
+        if parent == candidate:
+            break
+        candidate = parent
+
+    # Home directory fallback
+    home_config = Path.home() / ".config" / "ninja-jira" / "config.yaml"
+    if home_config.exists():
+        return home_config
+
     return None
 
 
@@ -209,9 +246,14 @@ def apply_env_overrides(config_data: dict[str, Any]) -> dict[str, Any]:
                     value = int(value)
                 except ValueError:
                     pass
-            elif config_path == "server.port":
+            elif config_path in ("server.port",):
                 try:
                     value = int(value)
+                except ValueError:
+                    pass
+            elif config_path.endswith("_hours") or config_path.endswith("_minutes"):
+                try:
+                    value = float(value)
                 except ValueError:
                     pass
             elif value.lower() in ("true", "false"):

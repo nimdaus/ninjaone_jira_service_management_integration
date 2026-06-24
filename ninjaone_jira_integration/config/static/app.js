@@ -332,11 +332,15 @@ function createAttributeMappingRow(mappingIndex, attrIndex, attrMapping, availab
     row.dataset.mappingIndex = mappingIndex;
     row.dataset.attrIndex = attrIndex;
 
-    // Populate Jira attribute dropdown
+    // Set NinjaOne field selection (now first column)
+    const ninjaSelect = row.querySelector('.ninja-field-select');
+    ninjaSelect.value = attrMapping.source || '';
+    ninjaSelect.onchange = () => updateAttributeMapping(mappingIndex, attrIndex, 'source', ninjaSelect.value);
+
+    // Populate Jira attribute dropdown (now second column)
     const jiraSelect = row.querySelector('.jira-attr-select');
 
     if (availableAttrs.length === 0) {
-        // No attributes loaded yet - disable dropdown
         jiraSelect.innerHTML = '<option value="">Select Object Type first</option>';
         jiraSelect.disabled = true;
     } else {
@@ -349,15 +353,13 @@ function createAttributeMappingRow(mappingIndex, attrIndex, attrMapping, availab
     }
     jiraSelect.onchange = () => updateAttributeMapping(mappingIndex, attrIndex, 'jiraAttributeId', jiraSelect.value, jiraSelect);
 
-    // Set NinjaOne field selection
-    const ninjaSelect = row.querySelector('.ninja-field-select');
-    ninjaSelect.value = attrMapping.source || '';
-    ninjaSelect.onchange = () => updateAttributeMapping(mappingIndex, attrIndex, 'source', ninjaSelect.value);
-
-    // Set transform selection
-    const transformSelect = row.querySelector('.transform-select');
-    transformSelect.value = attrMapping.transform || '';
-    transformSelect.onchange = () => updateAttributeMapping(mappingIndex, attrIndex, 'transform', transformSelect.value);
+    // Populate transforms list
+    const transformsList = row.querySelector('.transforms-list');
+    const transforms = attrMapping.transforms || (attrMapping.transform ? [attrMapping.transform] : []);
+    for (const t of transforms) {
+        const item = createTransformItemElement(t);
+        transformsList.appendChild(item);
+    }
 
     // Set identity order
     const identityInput = row.querySelector('.identity-order-input');
@@ -368,6 +370,33 @@ function createAttributeMappingRow(mappingIndex, attrIndex, attrMapping, availab
     };
 
     return row;
+}
+
+function createTransformItemElement(value) {
+    const template = document.getElementById('transform-item-template');
+    const clone = template.content.cloneNode(true);
+    const item = clone.querySelector('.transform-item');
+    const select = item.querySelector('.transform-item-select');
+    if (value) {
+        select.value = value;
+    }
+    return item;
+}
+
+function addTransformItem(button) {
+    const transformsList = button.closest('.transforms-container').querySelector('.transforms-list');
+    const item = createTransformItemElement('');
+    transformsList.appendChild(item);
+}
+
+function removeTransformItem(button) {
+    button.closest('.transform-item').remove();
+}
+
+function getTransformsFromRow(row) {
+    return Array.from(row.querySelectorAll('.transform-item-select'))
+        .map(s => s.value)
+        .filter(v => v !== '');
 }
 
 function addAttributeMapping(button) {
@@ -382,7 +411,7 @@ function addAttributeMapping(button) {
         jiraAttributeId: '',
         jiraAttributeName: '',
         source: '',
-        transform: '',
+        transforms: [],
         identityOrder: null,
     });
 
@@ -483,7 +512,7 @@ async function createNinjaDeviceIdAttribute(button) {
                 jiraAttributeId: result.id,
                 jiraAttributeName: result.name || 'NinjaOne Device ID',
                 source: 'id',
-                transform: '',
+                transforms: [],
                 identityOrder: 2,
             });
 
@@ -599,22 +628,29 @@ function buildConfig() {
             schema_name: schema ? schema.name : '',
             object_type_mappings: state.objectTypeMappings
                 .filter(m => m.roleId && m.objectTypeId)
-                .map(m => ({
+                .map((m, mIdx) => ({
                     ninja_role_id: m.roleId,
                     ninja_role_name: m.roleName,
                     jira_object_type_id: m.objectTypeId,
                     jira_object_type_name: m.objectTypeName,
                     attribute_mappings: (m.attributeMappings || [])
                         .filter(a => a.jiraAttributeId && a.source)
-                        .map(a => ({
-                            jira_attribute_id: a.jiraAttributeId,
-                            jira_attribute_name: a.jiraAttributeName,
-                            jira_attribute_type: 'Default',
-                            source: a.source,
-                            required: false,
-                            transform: a.transform || null,
-                            identity_order: a.identityOrder || null,
-                        })),
+                        .map((a, aIdx) => {
+                            // Read transforms from rendered DOM (user may have added/removed items)
+                            const row = document.querySelector(
+                                `.mapping-row[data-mapping-index="${mIdx}"][data-attr-index="${aIdx}"]`
+                            );
+                            const transforms = row ? getTransformsFromRow(row) : (a.transforms || []);
+                            return {
+                                jira_attribute_id: a.jiraAttributeId,
+                                jira_attribute_name: a.jiraAttributeName,
+                                jira_attribute_type: 'Default',
+                                source: a.source,
+                                required: false,
+                                transforms: transforms,
+                                identity_order: a.identityOrder || null,
+                            };
+                        }),
                 })),
         },
         database: {
@@ -694,7 +730,7 @@ async function loadExistingConfig() {
                     jiraAttributeId: a.jira_attribute_id,
                     jiraAttributeName: a.jira_attribute_name,
                     source: a.source,
-                    transform: a.transform || '',
+                    transforms: a.transforms || (a.transform ? [a.transform] : []),
                     identityOrder: a.identity_order || null,
                 })),
             }));

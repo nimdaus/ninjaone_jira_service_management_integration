@@ -37,7 +37,7 @@ class AlertAction(str, Enum):
 class AlertResult:
     """Result of processing a single alert."""
     
-    alert_id: int
+    alert_id: str
     device_id: int | None
     action: AlertAction
     jira_issue_key: str | None = None
@@ -79,14 +79,14 @@ class AlertProcessor:
     
     async def process_alert(
         self,
-        alert_id: int,
+        alert_id: str,
         alert: dict[str, Any] | None = None,
         dry_run: bool = False,
     ) -> AlertResult:
         """Process a single alert.
-        
+
         Args:
-            alert_id: NinjaOne alert ID.
+            alert_id: NinjaOne alert UID (UUID string).
             alert: Optional alert data (will be fetched if not provided).
             dry_run: If True, don't actually create issue.
             
@@ -98,7 +98,7 @@ class AlertProcessor:
             existing = await self.mapping_store.get_alert_mapping(alert_id)
             if existing:
                 logger.debug(
-                    "Alert %d already has issue %s",
+                    "Alert %s already has issue %s",
                     alert_id,
                     existing.jira_issue_key,
                 )
@@ -118,7 +118,7 @@ class AlertProcessor:
             
             # Check if this alert type should create issues
             if not self._should_create_issue(alert):
-                logger.debug("Alert %d type not configured for issue creation", alert_id)
+                logger.debug("Alert %s type not configured for issue creation", alert_id)
                 return AlertResult(
                     alert_id=alert_id,
                     device_id=device_id,
@@ -129,7 +129,7 @@ class AlertProcessor:
             return await self._create_issue(alert_id, alert, device_id, dry_run)
             
         except Exception as e:
-            logger.error("Failed to process alert %d: %s", alert_id, str(e))
+            logger.error("Failed to process alert %s: %s", alert_id, str(e))
             return AlertResult(
                 alert_id=alert_id,
                 device_id=None,
@@ -152,7 +152,7 @@ class AlertProcessor:
             True if an issue should be created.
         """
         # If severity filter is configured, check it
-        severity = alert.get("severity", "").upper()
+        severity = (alert.get("severity") or "").upper()
         min_severity = self.config.issues.min_severity
         
         if min_severity:
@@ -176,15 +176,15 @@ class AlertProcessor:
     
     async def _create_issue(
         self,
-        alert_id: int,
+        alert_id: str,
         alert: dict[str, Any],
         device_id: int | None,
         dry_run: bool,
     ) -> AlertResult:
         """Create a Jira issue for an alert.
-        
+
         Args:
-            alert_id: NinjaOne alert ID.
+            alert_id: NinjaOne alert UID (UUID string).
             alert: Alert data.
             device_id: Associated device ID.
             dry_run: If True, don't actually create.
@@ -206,7 +206,7 @@ class AlertProcessor:
         
         if dry_run:
             logger.info(
-                "[DRY RUN] Would create issue for alert %d: %s",
+                "[DRY RUN] Would create issue for alert %s: %s",
                 alert_id,
                 summary,
             )
@@ -231,7 +231,7 @@ class AlertProcessor:
             issue_id = str(issue.get("id", ""))
             
             logger.info(
-                "Created issue %s for alert %d",
+                "Created issue %s for alert %s",
                 issue_key,
                 alert_id,
             )
@@ -271,7 +271,7 @@ class AlertProcessor:
             )
             
         except Exception as e:
-            logger.error("Failed to create issue for alert %d: %s", alert_id, str(e))
+            logger.error("Failed to create issue for alert %s: %s", alert_id, str(e))
             return AlertResult(
                 alert_id=alert_id,
                 device_id=device_id,
@@ -293,7 +293,7 @@ class AlertProcessor:
         # Available template variables
         variables = {
             "message": alert.get("message", "Unknown Alert"),
-            "device_name": alert.get("deviceName", alert.get("device", {}).get("systemName", "Unknown")),
+            "device_name": alert.get("deviceName") or (alert.get("device") or {}).get("systemName", "Unknown"),
             "severity": alert.get("severity", "Unknown"),
             "source_type": alert.get("sourceType", "Unknown"),
             "condition": alert.get("conditionName", alert.get("message", "")),
@@ -327,11 +327,11 @@ class AlertProcessor:
         parts.append("")
         
         # Device info
-        device_name = alert.get("deviceName", alert.get("device", {}).get("systemName"))
+        device_name = alert.get("deviceName") or (alert.get("device") or {}).get("systemName")
         if device_name:
             parts.append(f"*Device:* {device_name}")
-        
-        org_name = alert.get("organizationName", alert.get("device", {}).get("organizationName"))
+
+        org_name = alert.get("organizationName") or (alert.get("device") or {}).get("organizationName")
         if org_name:
             parts.append(f"*Organization:* {org_name}")
         
@@ -340,11 +340,16 @@ class AlertProcessor:
         # Timestamps
         created_time = alert.get("createTime", alert.get("timestamp"))
         if created_time:
-            parts.append(f"*Alert Created:* {created_time}")
-        
+            try:
+                from datetime import datetime, timezone
+                dt = datetime.fromtimestamp(float(created_time), tz=timezone.utc)
+                parts.append(f"*Alert Created:* {dt.strftime('%Y-%m-%d %H:%M:%S UTC')}")
+            except (ValueError, TypeError, OSError):
+                parts.append(f"*Alert Created:* {created_time}")
+
         # NinjaOne Reference
         parts.append("")
-        parts.append(f"*NinjaOne Alert ID:* {alert.get('id', 'N/A')}")
+        parts.append(f"*NinjaOne Alert UID:* {alert.get('uid', 'N/A')}")
         parts.append(f"*NinjaOne Device ID:* {alert.get('deviceId', 'N/A')}")
         
         return "\n".join(parts)
@@ -375,7 +380,7 @@ class AlertProcessor:
         
         # Set priority based on severity if configured
         if self.config.issues.severity_to_priority_mapping:
-            severity = alert.get("severity", "").upper()
+            severity = (alert.get("severity") or "").upper()
             priority_id = self.config.issues.severity_to_priority_mapping.get(severity)
             if priority_id:
                 fields["priority"] = {"id": priority_id}

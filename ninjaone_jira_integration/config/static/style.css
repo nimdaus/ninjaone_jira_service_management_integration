@@ -517,7 +517,56 @@ small a:hover {
     grid-template-columns: 2fr 2fr 1fr 60px 40px;
     gap: 8px;
     padding: 8px 0;
+    align-items: start;
+}
+
+.transforms-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.transform-item {
+    display: flex;
+    gap: 4px;
     align-items: center;
+}
+
+.transform-item select {
+    flex: 1;
+    min-width: 0;
+}
+
+.btn-add-transform {
+    background: none;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-size: 11px;
+    padding: 2px 6px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.btn-add-transform:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-remove-transform {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 11px;
+    padding: 2px 4px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.btn-remove-transform:hover {
+    color: var(--error);
 }
 
 .mapping-row select,

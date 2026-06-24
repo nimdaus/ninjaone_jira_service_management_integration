@@ -352,24 +352,29 @@ class IdentityResolver:
         Returns:
             Tuple of (asset_id, asset_data) or (None, None) on failure.
         """
-        # Map device to attributes
+        # Map device to attributes (role-aware via DeviceMapper)
         attributes = self.mapper.map_device(device)
-        
+
         if not attributes:
             logger.warning(
                 "No attributes mapped for device %d, cannot create asset",
                 device_id,
             )
             return None, None
-        
+
         if dry_run:
             logger.info("[DRY RUN] Would create asset for device %d", device_id)
             return None, None
-        
+
+        # Resolve the correct object type for this device's role
+        role_id = device.get("nodeRoleId")
+        role_mapping = self.config.get_mapping_for_role(role_id) if role_id is not None else None
+        object_type_id = role_mapping.jira_object_type_id if role_mapping else self.config.object_type_id
+
         try:
             # Create the asset
             asset = await self.jira_client.create_object(
-                object_type_id=self.config.object_type_id,
+                object_type_id=object_type_id,
                 attributes=attributes,
             )
             

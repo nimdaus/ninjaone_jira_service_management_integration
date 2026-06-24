@@ -57,7 +57,7 @@ class DeviceMapping:
 class AlertMapping:
     """Represents an alert-to-issue mapping."""
     
-    ninja_alert_id: int
+    ninja_alert_id: str
     jira_issue_key: str
     jira_issue_id: str | None = None
     ninja_device_id: int | None = None
@@ -272,7 +272,7 @@ class MappingStore:
     
     async def get_alert_mapping(
         self,
-        ninja_alert_id: int,
+        ninja_alert_id: str,
     ) -> AlertMapping | None:
         """Get alert mapping by NinjaOne alert ID.
         
@@ -347,7 +347,7 @@ class MappingStore:
             )
         
         logger.debug(
-            "Upserted alert mapping: %d -> %s",
+            "Upserted alert mapping: %s -> %s",
             mapping.ninja_alert_id,
             mapping.jira_issue_key,
         )
@@ -356,7 +356,7 @@ class MappingStore:
     
     async def delete_alert_mapping(
         self,
-        ninja_alert_id: int,
+        ninja_alert_id: str,
     ) -> bool:
         """Delete an alert mapping.
         

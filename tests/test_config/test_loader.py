@@ -94,49 +94,31 @@ NINJA_CLIENT_SECRET=dotenv-secret
 class TestConfigSaver:
     """Tests for configuration saving."""
     
-    def test_save_config(self, temp_dir: Path):
+    def test_save_config(self, temp_dir: Path, sample_config):
         """Test saving configuration to file."""
         config_path = temp_dir / "output.yaml"
-        config_data = {
-            "ninjaone": {
-                "base_url": "https://app.ninjarmm.com",
-                "client_id": "my-client-id",
-            },
-            "jira": {
-                "subdomain": "mycompany",
-            },
-        }
-        
-        save_config(config_data, config_path)
-        
+
+        save_config(sample_config, config_path)
+
         assert config_path.exists()
-        
+
         with open(config_path) as f:
             loaded = yaml.safe_load(f)
-        
-        assert loaded["ninjaone"]["client_id"] == "my-client-id"
-    
-    def test_save_without_secrets(self, temp_dir: Path):
-        """Test that secrets are excluded by default."""
+
+        assert loaded["ninjaone"]["client_id"] == "test-client-id"
+
+    def test_save_without_secrets(self, temp_dir: Path, sample_config):
+        """Test that secrets are excluded by default (write_secrets=False)."""
         config_path = temp_dir / "output.yaml"
-        config_data = {
-            "ninjaone": {
-                "client_id": "my-id",
-                "client_secret": "super-secret",
-            },
-            "jira": {
-                "api_token": "my-token",
-            },
-        }
-        
-        save_config(config_data, config_path, include_secrets=False)
-        
+
+        save_config(sample_config, config_path, write_secrets=False)
+
         with open(config_path) as f:
             content = f.read()
-        
-        # Secrets should not be in the file
-        assert "super-secret" not in content
-        assert "my-token" not in content
+
+        # Secret values should not appear in plain text
+        assert "test-client-secret" not in content
+        assert "test-api-token" not in content
 
 
 class TestEnvVarMapping:
