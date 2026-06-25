@@ -1,0 +1,1604 @@
+[
+  {
+    "id": 3,
+    "uid": "b99746bc-efe7-49fc-85ff-9d9833d3082a",
+    "assignedOwnerUid": "2433ca56-e390-4d96-b943-2360f79a7592",
+    "organizationId": 1,
+    "locationId": 9,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 42,
+    "policyId": 2,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Austin's Workstation (Dual Monitors)",
+    "systemName": "MSPDEMO-W10-01",
+    "dnsName": "MSPDEMO-W10-01.MSPDEMO.local",
+    "created": 1744382020.296463,
+    "lastContact": 1782362322.011,
+    "lastUpdate": 1782362322.011,
+    "tags": [
+      "Needs-Onboarding",
+      "\ud83d\udcb2Billable Device",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.69"
+    ],
+    "macAddresses": [
+      "00:50:56:97:69:58"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967396.0,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-01",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 c4 15 eb ef 53 d7-ae 7b 0e fe 96 e0 74 2f",
+      "serialNumber": "None",
+      "assetSerialNumber": "AXKDLT",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 3,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 4271841280,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 4,
+    "uid": "00d94e1f-a645-4a8b-8cae-47d1b6bab6c7",
+    "assignedOwnerUid": "2d3ab179-50cd-4076-b761-a5ca0df0f779",
+    "organizationId": 6,
+    "locationId": 6,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 38,
+    "policyId": 38,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Spencer's Workstation",
+    "systemName": "MSPDEMO-W10-02",
+    "dnsName": "MSPDEMO-W10-02.MSPDEMO.local",
+    "created": 1744382130.97649,
+    "lastContact": 1782362312.524,
+    "lastUpdate": 1782362312.524,
+    "tags": [
+      "Needs-Patching",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.62"
+    ],
+    "macAddresses": [
+      "00:50:56:97:C7:DE"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781019723.0,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-02",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 45 82 f3 65 a2 9e-c3 3b df 19 df 8b 11 3e",
+      "serialNumber": "None",
+      "assetSerialNumber": "VBCHKO",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 4,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 2785001472,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 5,
+    "uid": "a1869c2e-c02e-4463-b4be-b62edcf8b93f",
+    "assignedOwnerUid": "94536d04-69bc-41e7-804f-9163f8c416b5",
+    "organizationId": 1,
+    "locationId": 8,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 42,
+    "policyId": 42,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Grant's Workstation",
+    "systemName": "MSPDEMO-W10-03",
+    "dnsName": "MSPDEMO-W10-03.MSPDEMO.local",
+    "created": 1744382211.653322,
+    "lastContact": 1782362351.572,
+    "lastUpdate": 1782362351.795,
+    "tags": [
+      "Needs-Patching",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.34"
+    ],
+    "macAddresses": [
+      "00:50:56:97:5A:B9"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781019275.0,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-03",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 42 36 b2 0b ea 9e-97 c7 ab 5f e6 9c a1 da",
+      "serialNumber": "None",
+      "assetSerialNumber": "GLEGIA",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 5,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 5737652224,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 7,
+    "uid": "ad1ef54d-d95c-4cf8-a89b-2bd1b0cb4a6d",
+    "assignedOwnerUid": "8b62001e-161c-4e53-9d11-9fe7b044c46a",
+    "organizationId": 2,
+    "locationId": 2,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 34,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Nick's Workstation",
+    "systemName": "MSPDEMO-W10-05",
+    "dnsName": "MSPDEMO-W10-05.MSPDEMO.local",
+    "created": 1744382451.170047,
+    "lastContact": 1782362330.91,
+    "lastUpdate": 1782362330.91,
+    "tags": [
+      "Needs-Patching",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.38"
+    ],
+    "macAddresses": [
+      "00:50:56:97:2D:13"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967411.0,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-05",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 5e 61 d8 56 5f 88-ee 3e 88 e9 9d 82 c0 07",
+      "serialNumber": "None",
+      "assetSerialNumber": "WDJZCN",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 7,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 3327160320,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 8,
+    "uid": "c13e6a10-d98b-450e-828e-be4acd8e7e38",
+    "assignedOwnerUid": "cc31d6a7-17cc-441e-b41c-8661ec1b6847",
+    "organizationId": 2,
+    "locationId": 11,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 34,
+    "policyId": 34,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Caroline's Workstation",
+    "systemName": "MSPDEMO-W10-06",
+    "dnsName": "MSPDEMO-W10-06",
+    "created": 1744383043.5076,
+    "lastContact": 1782362364.405,
+    "lastUpdate": 1782362364.405,
+    "tags": [
+      "Needs-Onboarding",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.39"
+    ],
+    "macAddresses": [
+      "00:50:56:97:47:54"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781018103.0,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-06",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 f3 5a 23 af 17 a0-ab ef 28 58 75 fa 0e ca",
+      "serialNumber": "None",
+      "assetSerialNumber": "FAAQOU",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 8,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 2949308416,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO-W10-06\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 9,
+    "uid": "0508955f-b048-4ef9-844e-3125a19bdb06",
+    "assignedOwnerUid": "4bd38321-2cd8-4762-9883-14e19b127778",
+    "organizationId": 2,
+    "locationId": 11,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 34,
+    "policyId": 76,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "John's Workstation",
+    "systemName": "MSPDEMO-W10-07",
+    "dnsName": "MSPDEMO-W10-07.MSPDEMO.local",
+    "created": 1744383245.932535,
+    "lastContact": 1782362354.719,
+    "lastUpdate": 1782362347.667,
+    "tags": [
+      "Needs-Patching",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.42"
+    ],
+    "macAddresses": [
+      "00:50:56:97:DD:F6"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 10 Pro for Workstations Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781020138.0,
+      "buildNumber": "19045",
+      "releaseId": "22H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W10-07",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 c0 e1 ec 2b d6 e5-fb e6 a5 23 59 d7 c4 fe",
+      "serialNumber": "None",
+      "assetSerialNumber": "GTFAPA",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 9,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63766056960,
+        "freeSpace": 3933859840,
+        "serialNumber": "18B5F967"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 10,
+    "uid": "51ea139b-9103-41d7-bcf8-b325204e1e1b",
+    "assignedOwnerUid": "c04f8423-57c2-4415-973c-eb261c4eab56",
+    "organizationId": 5,
+    "locationId": 15,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 37,
+    "policyId": 37,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Andy's Laptop (NAS Backup + Bitlocker)",
+    "systemName": "MSPDEMO-W11-01",
+    "dnsName": "MSPDEMO-W11-01",
+    "created": 1744383734.573538,
+    "lastContact": 1782362347.883,
+    "lastUpdate": 1782362347.883,
+    "tags": [
+      "Needs-Onboarding",
+      "Network Share Backup",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.36",
+      "fe80::389:7da3:e3ee:9439"
+    ],
+    "macAddresses": [
+      "00:50:56:97:B0:7F"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781698987.0,
+      "buildNumber": "22000",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W11-01",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 01 e7 cf cc 6d 77-59 3c da 98 51 74 f3 1f",
+      "serialNumber": "None",
+      "assetSerialNumber": "QEDDIL",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 2,
+      "totalPhysicalMemory": 4293787648,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293787648
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 10,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 95890173952,
+        "freeSpace": 21053734912,
+        "serialNumber": "EE98096E"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO-W11-01\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 11,
+    "uid": "3ff720a3-2925-4037-8c50-f8e3671c783d",
+    "assignedOwnerUid": "83fa1458-39bc-447b-9c3f-19fe81adf441",
+    "organizationId": 5,
+    "locationId": 15,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 37,
+    "policyId": 37,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Luke's Workstation",
+    "systemName": "MSPDEMO-W11-02",
+    "dnsName": "MSPDEMO-W11-02.MSPDEMO.local",
+    "created": 1744384535.093709,
+    "lastContact": 1782362366.036,
+    "lastUpdate": 1782362364.581,
+    "tags": [
+      "Needs-Onboarding",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.43"
+    ],
+    "macAddresses": [
+      "00:50:56:97:FD:43"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967488.0,
+      "buildNumber": "22000",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W11-02",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 21 51 11 81 be 3c-56 49 73 a6 1c 5b d6 da",
+      "serialNumber": "None",
+      "assetSerialNumber": "YSBCSV",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 2,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 11,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 95890173952,
+        "freeSpace": 30664794112,
+        "serialNumber": "EE98096E"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 12,
+    "uid": "cab6dc10-4085-407f-93c7-2e7651b0d25f",
+    "assignedOwnerUid": "2bea3ba5-ec5f-4233-81a1-adcf3e6fa0da",
+    "organizationId": 5,
+    "locationId": 5,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 42,
+    "policyId": 42,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Stanske's Laptop",
+    "systemName": "MSPDEMO-W11-03",
+    "dnsName": "MSPDEMO-W11-03.MSPDEMO.local",
+    "created": 1744384599.425137,
+    "lastContact": 1782362357.243,
+    "lastUpdate": 1782362357.243,
+    "tags": [
+      "Needs-Patching",
+      "Chrome",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.45",
+      "fe80::c1fb:2:e419:a22f"
+    ],
+    "macAddresses": [
+      "00:50:56:97:63:8E"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967491.0,
+      "buildNumber": "22000",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W11-03",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 30 2f 31 86 55 ca-de f9 fe b0 79 fc 4b 37",
+      "serialNumber": "None",
+      "assetSerialNumber": "JQZRTE",
+      "domain": "MSPDEMO",
+      "domainRole": "Member Workstation",
+      "numberOfProcessors": 2,
+      "totalPhysicalMemory": 4293951488,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293951488
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 12,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 95890173952,
+        "freeSpace": 28626862080,
+        "serialNumber": "EE98096E"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 13,
+    "uid": "1174077e-dd53-4a20-bda4-431f0d2aa414",
+    "assignedOwnerUid": "07ba5a90-0cec-4eec-901d-4047d2147672",
+    "organizationId": 1,
+    "locationId": 1,
+    "nodeClass": "WINDOWS_SERVER",
+    "nodeRoleId": 1003,
+    "rolePolicyId": 1,
+    "policyId": 59,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "AD Server (Boot Verify)",
+    "systemName": "MSPDEMOCA-WS22-",
+    "dnsName": "MSPDEMOCA-WS22-01.MSPDEMO.local",
+    "created": 1744384771.094648,
+    "lastContact": 1782362359.539,
+    "lastUpdate": 1782362359.539,
+    "tags": [
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.44"
+    ],
+    "macAddresses": [
+      "00:50:56:97:9A:DC"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows Server 2022 Standard Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780966113.0,
+      "buildNumber": "20348",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMOCA-WS22-",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware Virtual Platform",
+      "biosSerialNumber": "VMware-42 17 62 ef 93 45 92 50-5c e8 34 bc 30 e7 d0 76",
+      "serialNumber": "None",
+      "assetSerialNumber": "FTPHEL",
+      "domain": "MSPDEMO",
+      "domainRole": "Primary Domain Controller",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 4294430720,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4294430720
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 1,
+        "numLogicalCores": 1
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 13,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63768096768,
+        "freeSpace": 33582153728,
+        "serialNumber": "9E5763B1"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 15,
+    "uid": "c989745e-6e6b-4d48-9d28-3471ca6def71",
+    "assignedOwnerUid": "89d2d3b2-bd7c-46ab-94db-59d6516cd6bf",
+    "organizationId": 5,
+    "locationId": 15,
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "nodeRoleId": 201,
+    "rolePolicyId": 37,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Matt's Laptop",
+    "systemName": "MSPDEMO-W11-04",
+    "dnsName": "MSPDEMO-W11-04",
+    "created": 1744385736.687979,
+    "lastContact": 1782362332.74,
+    "lastUpdate": 1782362332.74,
+    "tags": [
+      "Needs-Patching",
+      "Chrome",
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.41",
+      "fe80::c89d:17e1:e61b:2d3c"
+    ],
+    "macAddresses": [
+      "00:50:56:97:8C:0D"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows 11 Professional Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967372.0,
+      "buildNumber": "22000",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-W11-04",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 1e df b2 9d a2 af-f8 06 53 5d f0 ac d5 23",
+      "serialNumber": "None",
+      "assetSerialNumber": "GYHXKA",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Workstation",
+      "numberOfProcessors": 2,
+      "totalPhysicalMemory": 4293787648,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 4293787648
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 15,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 95890173952,
+        "freeSpace": 29901983744,
+        "serialNumber": "EE98096E"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO-W11-04\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 30,
+    "uid": "0ba62626-9e3c-4a16-87c4-13035763bf62",
+    "organizationId": 1,
+    "locationId": 1,
+    "nodeClass": "CLOUD_MONITOR_TARGET",
+    "nodeRoleId": 31,
+    "rolePolicyId": 26,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "systemName": "NinjaOne Website",
+    "created": 1746018368.804447,
+    "lastContact": 1782362198.073,
+    "lastUpdate": 1782362198.073,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "enabled": true,
+    "interval": 900,
+    "timeout": 15,
+    "target": "www.ninjaone.com",
+    "deviceType": "CloudMonitorHTTP"
+  },
+  {
+    "id": 33,
+    "uid": "5583e7ed-49da-4acc-a6a8-f852689d52ed",
+    "assignedOwnerUid": "3fed6419-973c-4b2f-8c25-fdaae2398f9f",
+    "organizationId": 1,
+    "locationId": 1,
+    "nodeClass": "LINUX_SERVER",
+    "nodeRoleId": 21,
+    "rolePolicyId": 24,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Alex's Server",
+    "systemName": "mspdemo-ubu22-01",
+    "dnsName": "mspdemo-ubu22-01",
+    "created": 1746049544.515766,
+    "lastContact": 1782362354.54,
+    "lastUpdate": 1782362359.019,
+    "tags": [],
+    "ipAddresses": [
+      "10.6.2.171",
+      "fe80::250:56ff:fe97:189b"
+    ],
+    "macAddresses": [
+      "00:50:56:97:18:9B"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "name": "Ubuntu 22.04.5 LTS",
+      "architecture": "64-bit",
+      "lastBootTime": 1780967298.928,
+      "buildNumber": "5.15.0-181-generic",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "",
+      "language": "",
+      "needsReboot": false
+    },
+    "system": {
+      "manufacturer": "Phoenix Technologies LTD",
+      "model": "VMware Virtual Platform",
+      "biosSerialNumber": "",
+      "serialNumber": "VMware-42 17 5a e7 67 fb 57 60-ef 34 9f 62 34 71 93 6c",
+      "assetSerialNumber": "GKKQCP",
+      "domain": "",
+      "domainRole": "",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 2058973184,
+      "virtualMachine": false,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 2058973184
+    },
+    "processors": [
+      {
+        "architecture": "x86_64",
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 2,
+        "numLogicalCores": 2
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 33,
+        "name": "/",
+        "label": "",
+        "deviceType": "lvm",
+        "fileSystem": "ext4",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 15740116992,
+        "freeSpace": 5829947392
+      },
+      {
+        "nodeId": 33,
+        "name": "LVM2_member",
+        "label": "",
+        "deviceType": "part",
+        "fileSystem": "unknown",
+        "autoMount": false,
+        "compressed": false
+      },
+      {
+        "nodeId": 33,
+        "name": "/boot",
+        "label": "",
+        "deviceType": "part",
+        "fileSystem": "ext4",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 2040373248,
+        "freeSpace": 1645047808
+      }
+    ],
+    "lastLoggedInUser": "root (pts/0)",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 34,
+    "uid": "fec57761-bada-4251-a36c-d84038beab83",
+    "assignedOwnerUid": "01e6c706-9ad7-4e8e-a905-8266f028e26f",
+    "organizationId": 6,
+    "locationId": 6,
+    "nodeClass": "WINDOWS_SERVER",
+    "nodeRoleId": 1,
+    "rolePolicyId": 1,
+    "policyId": 60,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Mainframe Server (OSD)",
+    "systemName": "MSPDEMO-HYP-01",
+    "dnsName": "MSPDEMO-HYP-01",
+    "created": 1746108862.756428,
+    "lastContact": 1782362293.407,
+    "lastUpdate": 1782362293.407,
+    "tags": [
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "10.6.3.92",
+      "fe80::27d:b962:d9c4:2da9",
+      "192.168.100.1",
+      "fe80::6e9c:24cc:7721:2f30"
+    ],
+    "macAddresses": [
+      "00:15:5D:65:03:02",
+      "00:50:56:97:E2:78"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows Server 2022 Datacenter Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781613752.0,
+      "buildNumber": "20348",
+      "releaseId": "21H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-HYP-01",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 07 24 78 2e 47 bf-0d b8 ca 53 93 51 79 86",
+      "serialNumber": "None",
+      "assetSerialNumber": "KTWYSL",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Server",
+      "numberOfProcessors": 6,
+      "totalPhysicalMemory": 17178853376,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 17178853376
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 6,
+        "numLogicalCores": 6
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 34,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 63750270976,
+        "freeSpace": 26908397568,
+        "serialNumber": "2AB32DEF"
+      },
+      {
+        "nodeId": 34,
+        "name": "E:",
+        "label": "New Volume",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 322119397376,
+        "freeSpace": 64399106048,
+        "serialNumber": "E427349C"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO-HYP-01\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 35,
+    "uid": "58323b35-e0dd-4595-8f8f-61a470d86e95",
+    "parentDeviceId": 34,
+    "organizationId": 6,
+    "locationId": 6,
+    "nodeClass": "HYPERV_VMM_HOST",
+    "nodeRoleId": 11,
+    "rolePolicyId": 27,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "MSPDEMO-HYP-01",
+    "systemName": "MSPDEMO-HYP-01",
+    "dnsName": "MSPDEMO-HYP-01",
+    "created": 1746109883.64048,
+    "lastContact": 1782362313.089,
+    "lastUpdate": 1782362313.089,
+    "tags": [],
+    "ipAddresses": [
+      "fe80::27d:b962:d9c4:2da9",
+      "192.168.100.1",
+      "fe80::6e9c:24cc:7721:2f30",
+      "10.6.3.92"
+    ],
+    "macAddresses": [
+      "B0:B7:20:52:41:53",
+      "00:50:56:97:E2:78",
+      "C2:C1:20:52:41:53",
+      "00:15:5D:65:03:02",
+      "A6:2D:20:52:41:53"
+    ],
+    "cpuMhz": 2900,
+    "cpuModel": "Intel(R) Xeon(R) Gold 5415+",
+    "htActive": false,
+    "htAvailable": false,
+    "lastBootTime": 1781613752.0,
+    "memorySize": 17178853376,
+    "model": "VMware7,1",
+    "name": "MSPDEMO-HYP-01",
+    "cpuPackages": 6,
+    "cpuThreads": 0,
+    "serviceTag": "VMware-42 17 07 24 78 2e 47 bf-0d b8 ca 53 93 51 79 86",
+    "vendor": "VMware, Inc.",
+    "releaseName": "Microsoft Windows Server 2022 Datacenter",
+    "version": "10.0.20348",
+    "buildNumber": "20348",
+    "deviceType": "VMHost"
+  },
+  {
+    "id": 37,
+    "uid": "2865e7e2-5a1b-4d0d-9d90-56e92f158f24",
+    "parentDeviceId": 140,
+    "organizationId": 6,
+    "locationId": 6,
+    "nodeClass": "VMWARE_VM_HOST",
+    "nodeRoleId": 9,
+    "rolePolicyId": 5,
+    "policyId": 5,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "aus-esx80-02.ad.ninjarmm.net",
+    "systemName": "aus-esx80-02.ad.ninjarmm.net",
+    "dnsName": "aus-esx80-02.ad.ninjarmm.net",
+    "created": 1746113743.658797,
+    "lastContact": 1778383930.48,
+    "lastUpdate": 1778383930.48,
+    "tags": [],
+    "ipAddresses": [
+      "172.20.41.62",
+      "fe80::250:56ff:fe68:cd7"
+    ],
+    "macAddresses": [
+      "00:50:56:68:0c:d7",
+      "00:50:56:b2:db:ab"
+    ],
+    "cpuMhz": 2295,
+    "cpuModel": "Intel(R) Xeon(R) Gold 6140 CPU @ 2.30GHz",
+    "htActive": false,
+    "htAvailable": false,
+    "lastBootTime": 1762358312.0,
+    "memorySize": 17175076864,
+    "model": "VMware Virtual Platform",
+    "name": "aus-esx80-02.ad.ninjarmm.net",
+    "cpuPackages": 4,
+    "cpuThreads": 4,
+    "serviceTag": "VMware-42 32 5d b0 05 f5 de 57-7d d2 34 a5 e0 59 29 40",
+    "vendor": "VMware, Inc.",
+    "releaseName": "VMware ESXi 8.0.0 build-20513097",
+    "version": "8.0.0",
+    "buildNumber": "20513097",
+    "deviceType": "VMHost"
+  },
+  {
+    "id": 43,
+    "uid": "ea9b778e-c25a-4652-969d-5990a79b030c",
+    "assignedOwnerUid": "3de8a644-709a-41db-aee0-104dd2fd33cc",
+    "organizationId": 2,
+    "locationId": 2,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1007,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Hector's Microphone",
+    "created": 1749768573.9775,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 44,
+    "uid": "377cd6f2-48a9-4525-8e82-ed0e5d563f42",
+    "assignedOwnerUid": "daa3f5d7-0e43-49ca-a8d1-f2ee88ef80e7",
+    "organizationId": 3,
+    "locationId": 3,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1008,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Snowboarding Gear",
+    "created": 1749769044.161394,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 46,
+    "uid": "12259193-592a-4c00-963e-ea17f61a1b87",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "APPLE_IOS",
+    "nodeRoleId": 6,
+    "rolePolicyId": 30,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "iPhone_FK1ZVDTPN72N (Location Tracking)",
+    "systemName": "iPhone_FK1ZVDTPN72N",
+    "created": 1749841108.340648,
+    "lastContact": 1777662797.169,
+    "lastUpdate": 1777662797.169,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [
+      "94:0c:98:a9:cd:28"
+    ],
+    "system": {
+      "name": "iOS 18.4",
+      "manufacturer": "Apple",
+      "model": "MWK52LL",
+      "serialNumber": "FK1ZVDTPN72N",
+      "build": "22E239"
+    },
+    "memory": {},
+    "network": [
+      {
+        "imei": "356559101293467",
+        "eid": "89049032005008882600039605050264",
+        "meid": "35655910144166",
+        "phoneNumber": null,
+        "carrier": null,
+        "iccId": null
+      },
+      {
+        "imei": "356559101441660",
+        "eid": null,
+        "meid": "35655910144166",
+        "phoneNumber": null,
+        "carrier": null,
+        "iccId": null
+      }
+    ],
+    "volumes": [
+      {
+        "deviceType": "INTERNAL_STORAGE_MEASURED",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 64000000000
+      }
+    ],
+    "deviceType": "MdmDevice"
+  },
+  {
+    "id": 57,
+    "uid": "ff0338f7-7e41-4588-acf6-5e5e04d5a3f2",
+    "assignedOwnerUid": "c1f40f12-54e9-4c14-a860-00dd3ecab0bb",
+    "organizationId": 5,
+    "locationId": 15,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1007,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Bill's Microphone",
+    "created": 1753472634.990126,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 58,
+    "uid": "438731aa-4a05-4433-82b9-948f66950686",
+    "organizationId": 6,
+    "locationId": 12,
+    "nodeClass": "ANDROID",
+    "nodeRoleId": 5,
+    "rolePolicyId": 29,
+    "policyId": 29,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Pixel 7",
+    "systemName": "Pixel 7_BDMG-S5CQ-DS2L-DGPQN-SZLW-LFI4-S",
+    "created": 1753711589.34554,
+    "lastContact": 1774966024.612,
+    "lastUpdate": 1774966024.612,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "system": {
+      "name": "Android 16",
+      "manufacturer": "Google",
+      "model": "Pixel 7",
+      "serialNumber": "BDMG-S5CQ-DS2L-DGPQN-SZLW-LFI4-S",
+      "build": "BP4A.251205.006"
+    },
+    "memory": {
+      "capacity": 7842570240
+    },
+    "network": [
+      {
+        "imei": null,
+        "eid": null,
+        "meid": null,
+        "phoneNumber": null,
+        "carrier": null,
+        "iccId": null
+      }
+    ],
+    "volumes": [
+      {
+        "deviceType": "EXTERNAL_STORAGE_MEASURED",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 118015217664
+      }
+    ],
+    "deviceType": "MdmDevice"
+  },
+  {
+    "id": 59,
+    "uid": "bc6451a2-bdb3-4e17-9b4f-48c8346df525",
+    "assignedOwnerUid": "8860e6be-665e-4466-9366-b21e2bca1382",
+    "organizationId": 3,
+    "locationId": 14,
+    "nodeClass": "UNMANAGED_DEVICE",
+    "nodeRoleId": 1008,
+    "rolePolicyId": 43,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "Capita Snowboard",
+    "created": 1753910630.325332,
+    "tags": [],
+    "ipAddresses": [],
+    "macAddresses": [],
+    "deviceType": "UnmanagedDevice"
+  },
+  {
+    "id": 73,
+    "uid": "1258180d-f294-41a3-9edc-19dbe19c4297",
+    "assignedOwnerUid": "83dd4ace-c6c1-499a-bb12-b56f01e0a39d",
+    "organizationId": 1,
+    "locationId": 8,
+    "nodeClass": "WINDOWS_SERVER",
+    "nodeRoleId": 1,
+    "rolePolicyId": 1,
+    "policyId": 59,
+    "approvalStatus": "APPROVED",
+    "offline": false,
+    "displayName": "Tori's Workstation",
+    "systemName": "MSPDEMO-WS25-01",
+    "dnsName": "MSPDEMO-WS25-01",
+    "created": 1757435359.332945,
+    "lastContact": 1782362363.372,
+    "lastUpdate": 1782362363.372,
+    "tags": [
+      "Primary VM"
+    ],
+    "ipAddresses": [
+      "192.168.200.129",
+      "",
+      "10.6.2.154",
+      "fe80::d98a:246b:f2f7:8a13"
+    ],
+    "macAddresses": [
+      "00:50:56:97:FA:D8",
+      "00:50:56:97:9A:7C"
+    ],
+    "publicIP": "130.250.7.197",
+    "os": {
+      "manufacturer": "Microsoft Corporation",
+      "name": "Windows Server 2025 Standard Edition",
+      "architecture": "64-bit",
+      "lastBootTime": 1781023290.0,
+      "buildNumber": "26100",
+      "releaseId": "24H2",
+      "servicePackMajorVersion": 0,
+      "servicePackMinorVersion": 0,
+      "locale": "en-US",
+      "language": "English",
+      "needsReboot": false
+    },
+    "system": {
+      "name": "MSPDEMO-WS25-01",
+      "manufacturer": "VMware, Inc.",
+      "model": "VMware7,1",
+      "biosSerialNumber": "VMware-42 17 54 e7 82 e1 33 57-ca cd a3 f8 c1 de 16 ed",
+      "serialNumber": "None",
+      "assetSerialNumber": "YYREGM",
+      "domain": "WORKGROUP",
+      "domainRole": "Standalone Server",
+      "numberOfProcessors": 1,
+      "totalPhysicalMemory": 8588918784,
+      "virtualMachine": true,
+      "chassisType": "UNKNOWN"
+    },
+    "memory": {
+      "capacity": 8588918784
+    },
+    "processors": [
+      {
+        "architecture": "x64",
+        "maxClockSpeed": 2900000000,
+        "clockSpeed": 2900000000,
+        "name": "Intel(R) Xeon(R) Gold 5415+",
+        "numCores": 4,
+        "numLogicalCores": 4
+      }
+    ],
+    "volumes": [
+      {
+        "nodeId": 73,
+        "name": "C:",
+        "label": "",
+        "deviceType": "Local Disk",
+        "fileSystem": "NTFS",
+        "autoMount": false,
+        "compressed": false,
+        "capacity": 95851376640,
+        "freeSpace": 47446597632,
+        "serialNumber": "B01710F5"
+      }
+    ],
+    "lastLoggedInUser": "MSPDEMO-WS25-01\\Ninja",
+    "deviceType": "AgentDevice"
+  },
+  {
+    "id": 82,
+    "uid": "726895d8-eb33-4618-9459-271e52480dc6",
+    "parentDeviceId": 73,
+    "organizationId": 1,
+    "locationId": 1,
+    "nodeClass": "NMS_SWITCH",
+    "nodeRoleId": 101,
+    "rolePolicyId": 7,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "HT-SF-AP02",
+    "systemName": "LON-Aruba-AP-225-36-192.168.200.86",
+    "dnsName": "LON-Aruba-AP-225-36-192.168.200.86_192.168.200.86",
+    "netbiosName": "LON-Aruba-AP-225-36-192.168.200.86",
+    "created": 1757520903.744852,
+    "lastContact": 1780330542.309,
+    "lastUpdate": 1780330542.309,
+    "tags": [
+      "MIMIC"
+    ],
+    "ipAddresses": [
+      "192.168.200.86",
+      "192.168.200.86"
+    ],
+    "macAddresses": [
+      "B4:5D:50:06:00:24",
+      "B4:5D:50:05:00:24",
+      "B4:5D:50:03:00:24",
+      "B4:5D:50:08:00:24",
+      "B4:5D:50:01:00:24",
+      "B4:5D:50:04:00:24",
+      "B4:5D:50:09:00:24"
+    ],
+    "deviceType": "NMSTarget"
+  },
+  {
+    "id": 83,
+    "uid": "650641bb-087f-454b-bafb-000fbdb84f73",
+    "parentDeviceId": 73,
+    "organizationId": 1,
+    "locationId": 9,
+    "nodeClass": "NMS_ROUTER",
+    "nodeRoleId": 102,
+    "rolePolicyId": 8,
+    "policyId": 8,
+    "approvalStatus": "APPROVED",
+    "offline": true,
+    "displayName": "HT-TAM-FIREWALL03",
+    "systemName": "NYC-Fortigate100D-Firewall-44-192.168.200.94",
+    "dnsName": "NYC-Fortigate100D-Firewall-44-192.168.200.94_192.168.200.94",
+    "netbiosName": "NYC-Fortigate100D-Firewall-44-192.168.200.94",
+    "created": 1757520903.753591,
+    "lastContact": 1780490563.974,
+    "lastUpdate": 1780490563.974,
+    "tags": [
+      "MIMIC"
+    ],
+    "ipAddresses": [
+      "192.168.200.94",
+      "192.168.200.94"
+    ],
+    "macAddresses": [
+      "08:5B:0E:02:00:2C",
+      "08:5B:0E:08:00:2C",
+      "08:5B:0E:06:00:2C",
+      "08:5B:0E:07:00:2C",
+      "08:5B:0E:01:00:2C",
+      "08:5B:0E:03:00:2C",
+      "08:5B:0E:09:00:2C"
+    ],
+    "deviceType": "NMSTarget"
+  }
+]

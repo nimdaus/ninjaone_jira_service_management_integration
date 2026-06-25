@@ -1,0 +1,349 @@
+{
+  "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+  "globalId": "666362be-0866-459a-925b-f5eae075844a:1",
+  "id": "1",
+  "label": "MSPDEMO-HYP-01",
+  "objectKey": "ITAM-1",
+  "avatar": {
+    "url16": "https://assets-media.atlassian.com/assets/icons/icons16/Windows.png",
+    "url48": "https://assets-media.atlassian.com/assets/icons/icons48/Windows.png",
+    "url72": "https://assets-media.atlassian.com/assets/icons/icons48/Windows.png",
+    "url144": "https://assets-media.atlassian.com/assets/icons/icons48/Windows.png",
+    "url288": "https://assets-media.atlassian.com/assets/icons/icons48/Windows.png",
+    "objectId": "1",
+    "workspaceId": "666362be-0866-459a-925b-f5eae075844a"
+  },
+  "objectType": {
+    "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+    "globalId": "666362be-0866-459a-925b-f5eae075844a:17",
+    "id": "17",
+    "name": "Windows Server",
+    "type": 0,
+    "icon": {
+      "id": "e978d027-22b9-4f97-a65d-b7782ae98749",
+      "name": "Windows",
+      "url16": "https://assets-media.atlassian.com/assets/icons/icons16/Windows.png",
+      "url48": "https://assets-media.atlassian.com/assets/icons/icons48/Windows.png"
+    },
+    "position": 1,
+    "created": "2026-06-24T21:07:15.101Z",
+    "updated": "2026-06-24T21:07:15.101Z",
+    "objectCount": 0,
+    "parentObjectTypeId": "15",
+    "objectSchemaId": "3",
+    "inherited": true,
+    "abstractObjectType": false,
+    "parentObjectTypeInherited": true,
+    "schemaLabel": "ITAM"
+  },
+  "created": "2026-06-25T01:05:13.938Z",
+  "updated": "2026-06-25T01:22:25.181Z",
+  "hasAvatar": false,
+  "timestamp": 1782350545181,
+  "attributes": [
+    {
+      "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+      "globalId": "666362be-0866-459a-925b-f5eae075844a:74",
+      "id": "74",
+      "objectTypeAttribute": {
+        "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+        "globalId": "666362be-0866-459a-925b-f5eae075844a:74",
+        "id": "74",
+        "defaultType": {
+          "id": 0,
+          "name": "Text"
+        },
+        "description": "The name of the object",
+        "editable": true,
+        "hidden": false,
+        "includeChildObjectTypes": false,
+        "indexed": true,
+        "label": true,
+        "maximumCardinality": 1,
+        "minimumCardinality": 1,
+        "name": "Name",
+        "options": "",
+        "pendingCreation": false,
+        "position": 3,
+        "removable": false,
+        "sortable": true,
+        "summable": false,
+        "system": false,
+        "type": 0,
+        "uniqueAttribute": false,
+        "lockedConfiguration": false
+      },
+      "objectTypeAttributeId": "74",
+      "objectAttributeValues": [
+        {
+          "displayValue": "MSPDEMO-HYP-01",
+          "searchValue": "MSPDEMO-HYP-01",
+          "referencedType": false,
+          "value": "MSPDEMO-HYP-01"
+        }
+      ],
+      "objectId": "1"
+    },
+    {
+      "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+      "globalId": "666362be-0866-459a-925b-f5eae075844a:76",
+      "id": "76",
+      "objectTypeAttribute": {
+        "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+        "globalId": "666362be-0866-459a-925b-f5eae075844a:76",
+        "id": "76",
+        "defaultType": {
+          "id": 0,
+          "name": "Text"
+        },
+        "editable": true,
+        "hidden": false,
+        "includeChildObjectTypes": false,
+        "indexed": true,
+        "label": false,
+        "maximumCardinality": 1,
+        "minimumCardinality": 0,
+        "name": "Serial Number",
+        "options": "",
+        "pendingCreation": false,
+        "position": 5,
+        "removable": true,
+        "sortable": true,
+        "summable": false,
+        "system": false,
+        "type": 0,
+        "uniqueAttribute": false,
+        "lockedConfiguration": false
+      },
+      "objectTypeAttributeId": "76",
+      "objectAttributeValues": [
+        {
+          "displayValue": "KTWYSL",
+          "searchValue": "KTWYSL",
+          "referencedType": false,
+          "value": "KTWYSL"
+        }
+      ],
+      "objectId": "1"
+    },
+    {
+      "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+      "globalId": "666362be-0866-459a-925b-f5eae075844a:89",
+      "id": "89",
+      "objectTypeAttribute": {
+        "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+        "globalId": "666362be-0866-459a-925b-f5eae075844a:89",
+        "id": "89",
+        "defaultType": {
+          "id": 0,
+          "name": "Text"
+        },
+        "editable": true,
+        "hidden": false,
+        "includeChildObjectTypes": false,
+        "indexed": true,
+        "label": false,
+        "maximumCardinality": 1,
+        "minimumCardinality": 0,
+        "name": "OS Version",
+        "options": "",
+        "pendingCreation": false,
+        "position": 18,
+        "removable": true,
+        "sortable": true,
+        "summable": false,
+        "system": false,
+        "type": 0,
+        "uniqueAttribute": false,
+        "lockedConfiguration": false
+      },
+      "objectTypeAttributeId": "89",
+      "objectAttributeValues": [
+        {
+          "displayValue": "Windows Server 2022 Datacenter Edition",
+          "searchValue": "Windows Server 2022 Datacenter Edition",
+          "referencedType": false,
+          "value": "Windows Server 2022 Datacenter Edition"
+        }
+      ],
+      "objectId": "1"
+    },
+    {
+      "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+      "globalId": "666362be-0866-459a-925b-f5eae075844a:97",
+      "id": "97",
+      "objectTypeAttribute": {
+        "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+        "globalId": "666362be-0866-459a-925b-f5eae075844a:97",
+        "id": "97",
+        "defaultType": {
+          "id": 0,
+          "name": "Text"
+        },
+        "description": "NinjaOne device ID for integration matching",
+        "editable": true,
+        "hidden": false,
+        "includeChildObjectTypes": false,
+        "indexed": true,
+        "label": false,
+        "maximumCardinality": 1,
+        "minimumCardinality": 0,
+        "name": "NinjaOne Device ID",
+        "options": "",
+        "pendingCreation": false,
+        "position": 0,
+        "removable": true,
+        "sortable": true,
+        "summable": false,
+        "system": false,
+        "type": 0,
+        "uniqueAttribute": false,
+        "lockedConfiguration": false
+      },
+      "objectTypeAttributeId": "97",
+      "objectAttributeValues": [
+        {
+          "displayValue": "34",
+          "searchValue": "34",
+          "referencedType": false,
+          "value": "34"
+        }
+      ],
+      "objectId": "1"
+    },
+    {
+      "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+      "globalId": "666362be-0866-459a-925b-f5eae075844a:71",
+      "id": "71",
+      "objectTypeAttribute": {
+        "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+        "globalId": "666362be-0866-459a-925b-f5eae075844a:71",
+        "id": "71",
+        "defaultType": {
+          "id": 0,
+          "name": "Text"
+        },
+        "editable": false,
+        "hidden": false,
+        "includeChildObjectTypes": false,
+        "indexed": true,
+        "label": false,
+        "maximumCardinality": 1,
+        "minimumCardinality": 1,
+        "name": "Key",
+        "options": "",
+        "pendingCreation": false,
+        "position": 0,
+        "removable": false,
+        "sortable": true,
+        "summable": false,
+        "system": true,
+        "type": 0,
+        "uniqueAttribute": false,
+        "lockedConfiguration": false
+      },
+      "objectTypeAttributeId": "71",
+      "objectAttributeValues": [
+        {
+          "displayValue": "ITAM-1",
+          "searchValue": "ITAM-1",
+          "referencedType": false,
+          "value": "ITAM-1"
+        }
+      ],
+      "objectId": "1"
+    },
+    {
+      "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+      "globalId": "666362be-0866-459a-925b-f5eae075844a:72",
+      "id": "72",
+      "objectTypeAttribute": {
+        "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+        "globalId": "666362be-0866-459a-925b-f5eae075844a:72",
+        "id": "72",
+        "defaultType": {
+          "id": 6,
+          "name": "DateTime"
+        },
+        "editable": false,
+        "hidden": false,
+        "includeChildObjectTypes": false,
+        "indexed": true,
+        "label": false,
+        "maximumCardinality": 1,
+        "minimumCardinality": 1,
+        "name": "Created",
+        "options": "",
+        "pendingCreation": false,
+        "position": 1,
+        "removable": false,
+        "sortable": true,
+        "summable": false,
+        "system": true,
+        "type": 0,
+        "uniqueAttribute": false,
+        "lockedConfiguration": false
+      },
+      "objectTypeAttributeId": "72",
+      "objectAttributeValues": [
+        {
+          "displayValue": "25/Jun/26 1:05 AM",
+          "searchValue": "2026-06-25T01:05:13.938Z",
+          "referencedType": false,
+          "value": "2026-06-25T01:05:13.938Z"
+        }
+      ],
+      "objectId": "1"
+    },
+    {
+      "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+      "globalId": "666362be-0866-459a-925b-f5eae075844a:73",
+      "id": "73",
+      "objectTypeAttribute": {
+        "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+        "globalId": "666362be-0866-459a-925b-f5eae075844a:73",
+        "id": "73",
+        "defaultType": {
+          "id": 6,
+          "name": "DateTime"
+        },
+        "editable": false,
+        "hidden": false,
+        "includeChildObjectTypes": false,
+        "indexed": true,
+        "label": false,
+        "maximumCardinality": 1,
+        "minimumCardinality": 1,
+        "name": "Updated",
+        "options": "",
+        "pendingCreation": false,
+        "position": 2,
+        "removable": false,
+        "sortable": true,
+        "summable": false,
+        "system": true,
+        "type": 0,
+        "uniqueAttribute": false,
+        "lockedConfiguration": false
+      },
+      "objectTypeAttributeId": "73",
+      "objectAttributeValues": [
+        {
+          "displayValue": "25/Jun/26 1:22 AM",
+          "searchValue": "2026-06-25T01:22:25.181Z",
+          "referencedType": false,
+          "value": "2026-06-25T01:22:25.181Z"
+        }
+      ],
+      "objectId": "1"
+    }
+  ],
+  "extendedInfo": {
+    "openIssuesExists": false,
+    "attachmentsExists": false
+  },
+  "_links": {
+    "self": "https://api.atlassian.com/jsm/assets/workspace/666362be-0866-459a-925b-f5eae075844a/v1/object/1"
+  },
+  "name": "MSPDEMO-HYP-01"
+}

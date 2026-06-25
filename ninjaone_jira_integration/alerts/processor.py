@@ -80,16 +80,16 @@ class AlertProcessor:
     async def process_alert(
         self,
         alert_id: int,
-        alert: dict[str, Any] | None = None,
+        alert: dict[str, Any],
         dry_run: bool = False,
     ) -> AlertResult:
         """Process a single alert.
-        
+
         Args:
             alert_id: NinjaOne alert ID.
-            alert: Optional alert data (will be fetched if not provided).
+            alert: Alert data from the /v2/alerts list endpoint.
             dry_run: If True, don't actually create issue.
-            
+
         Returns:
             AlertResult with action taken.
         """
@@ -98,7 +98,7 @@ class AlertProcessor:
             existing = await self.mapping_store.get_alert_mapping(alert_id)
             if existing:
                 logger.debug(
-                    "Alert %d already has issue %s",
+                    "Alert %s already has issue %s",
                     alert_id,
                     existing.jira_issue_key,
                 )
@@ -109,11 +109,7 @@ class AlertProcessor:
                     jira_issue_key=existing.jira_issue_key,
                     jira_issue_id=existing.jira_issue_id,
                 )
-            
-            # Fetch alert if not provided
-            if alert is None:
-                alert = await self.ninja_client.get_alert(alert_id)
-            
+
             device_id = alert.get("deviceId")
             
             # Check if this alert type should create issues

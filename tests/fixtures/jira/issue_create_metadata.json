@@ -1,0 +1,3208 @@
+{
+  "expand": "projects",
+  "projects": [
+    {
+      "expand": "issuetypes",
+      "self": "https://ninjatwo.atlassian.net/rest/api/3/project/10001",
+      "id": "10001",
+      "key": "NJT",
+      "name": "NinjaTwo",
+      "avatarUrls": {
+        "48x48": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416",
+        "24x24": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=small",
+        "16x16": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=xsmall",
+        "32x32": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=medium"
+      },
+      "issuetypes": [
+        {
+          "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10001",
+          "id": "10001",
+          "description": "A request that follows ITSM workflows.",
+          "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10300?size=medium",
+          "name": "[System] Service request",
+          "untranslatedName": "[System] Service request",
+          "subtask": false,
+          "hierarchyLevel": 0,
+          "expand": "fields",
+          "fields": {
+            "issuetype": {
+              "required": false,
+              "schema": {
+                "type": "issuetype",
+                "system": "issuetype"
+              },
+              "name": "Issue Type",
+              "key": "issuetype",
+              "hasDefaultValue": false,
+              "operations": [],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10001",
+                  "id": "10001",
+                  "description": "A request that follows ITSM workflows.",
+                  "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10300?size=medium",
+                  "name": "[System] Service request",
+                  "subtask": false,
+                  "avatarId": 10300,
+                  "hierarchyLevel": 0
+                }
+              ]
+            },
+            "parent": {
+              "required": false,
+              "schema": {
+                "type": "issuelink",
+                "system": "parent"
+              },
+              "name": "Parent",
+              "key": "parent",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "components": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "component",
+                "system": "components"
+              },
+              "name": "Components",
+              "key": "components",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10016",
+                  "id": "10016",
+                  "name": "Active Directory",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10017",
+                  "id": "10017",
+                  "name": "Analytics and Reporting Service",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10018",
+                  "id": "10018",
+                  "name": "Billing Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10019",
+                  "id": "10019",
+                  "name": "Cloud Storage Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10020",
+                  "id": "10020",
+                  "name": "Data Center Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10021",
+                  "id": "10021",
+                  "name": "Email and Collaboration Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10022",
+                  "id": "10022",
+                  "name": "Financial Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10023",
+                  "id": "10023",
+                  "name": "HR Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10024",
+                  "id": "10024",
+                  "name": "Intranet",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10025",
+                  "id": "10025",
+                  "name": "Jira",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10026",
+                  "id": "10026",
+                  "name": "Office Network",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10027",
+                  "id": "10027",
+                  "name": "Payroll Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10028",
+                  "id": "10028",
+                  "name": "Printers",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10029",
+                  "id": "10029",
+                  "name": "Public Website",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10030",
+                  "id": "10030",
+                  "name": "VPN Server",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10031",
+                  "id": "10031",
+                  "name": "Webstore Purchasing Services",
+                  "description": "Created by Jira Service Management"
+                }
+              ]
+            },
+            "description": {
+              "required": false,
+              "schema": {
+                "type": "string",
+                "system": "description"
+              },
+              "name": "Description",
+              "key": "description",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "project": {
+              "required": true,
+              "schema": {
+                "type": "project",
+                "system": "project"
+              },
+              "name": "Project",
+              "key": "project",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/project/10001",
+                  "id": "10001",
+                  "key": "NJT",
+                  "name": "NinjaTwo",
+                  "projectTypeKey": "service_desk",
+                  "simplified": false,
+                  "avatarUrls": {
+                    "48x48": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416",
+                    "24x24": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=small",
+                    "16x16": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=xsmall",
+                    "32x32": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=medium"
+                  }
+                }
+              ]
+            },
+            "customfield_10010": {
+              "required": false,
+              "schema": {
+                "type": "sd-customerrequesttype",
+                "custom": "com.atlassian.servicedesk:vp-origin",
+                "customId": 10010
+              },
+              "name": "Request Type",
+              "key": "customfield_10010",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10035": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "user",
+                "custom": "com.atlassian.servicedesk:sd-request-participants",
+                "customId": 10035
+              },
+              "name": "Request participants",
+              "key": "customfield_10035",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/servicedesk/1/servicedesk/sd-user-search/participants?issueKey=null&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10036": {
+              "required": false,
+              "schema": {
+                "type": "sd-feedback",
+                "custom": "com.atlassian.servicedesk:sd-request-feedback",
+                "customId": 10036
+              },
+              "name": "Satisfaction",
+              "key": "customfield_10036",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "timetracking": {
+              "required": false,
+              "schema": {
+                "type": "timetracking",
+                "system": "timetracking"
+              },
+              "name": "Time tracking",
+              "key": "timetracking",
+              "hasDefaultValue": false,
+              "operations": [
+                "set",
+                "edit"
+              ]
+            },
+            "attachment": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "attachment",
+                "system": "attachment"
+              },
+              "name": "Attachment",
+              "key": "attachment",
+              "hasDefaultValue": false,
+              "operations": [
+                "set",
+                "copy"
+              ]
+            },
+            "summary": {
+              "required": true,
+              "schema": {
+                "type": "string",
+                "system": "summary"
+              },
+              "name": "Summary",
+              "key": "summary",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10040": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "group",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:multigrouppicker",
+                "customId": 10040
+              },
+              "name": "Approver groups",
+              "key": "customfield_10040",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10041": {
+              "required": false,
+              "schema": {
+                "type": "sd-request-lang",
+                "custom": "com.atlassian.servicedesk.servicedesk-lingo-integration-plugin:sd-request-language",
+                "customId": 10041
+              },
+              "name": "Request language",
+              "key": "customfield_10041",
+              "hasDefaultValue": false,
+              "operations": [],
+              "allowedValues": [
+                {
+                  "languageCode": "en",
+                  "displayName": "English"
+                }
+              ]
+            },
+            "reporter": {
+              "required": false,
+              "schema": {
+                "type": "user",
+                "system": "reporter"
+              },
+              "name": "Reporter",
+              "key": "reporter",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/user/recommend?context=Reporter&issueKey=",
+              "hasDefaultValue": true,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10044": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10044
+              },
+              "name": "Urgency",
+              "key": "customfield_10044",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10020",
+                  "value": "Critical",
+                  "id": "10020"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10021",
+                  "value": "High",
+                  "id": "10021"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10022",
+                  "value": "Medium",
+                  "id": "10022"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10023",
+                  "value": "Low",
+                  "id": "10023"
+                }
+              ]
+            },
+            "priority": {
+              "required": false,
+              "schema": {
+                "type": "priority",
+                "system": "priority"
+              },
+              "name": "Priority",
+              "key": "priority",
+              "hasDefaultValue": true,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/1",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/highest_new.svg",
+                  "name": "Highest",
+                  "id": "1"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/2",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/high_new.svg",
+                  "name": "High",
+                  "id": "2"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/3",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/medium_new.svg",
+                  "name": "Medium",
+                  "id": "3"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/4",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/low_new.svg",
+                  "name": "Low",
+                  "id": "4"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/5",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/lowest_new.svg",
+                  "name": "Lowest",
+                  "id": "5"
+                }
+              ],
+              "defaultValue": {
+                "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              }
+            },
+            "customfield_10001": {
+              "required": false,
+              "schema": {
+                "type": "team",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team",
+                "customId": 10001,
+                "configuration": {
+                  "com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team": true
+                }
+              },
+              "name": "Team",
+              "key": "customfield_10001",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/gateway/api/v1/recommendations",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10002": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "sd-customerorganization",
+                "custom": "com.atlassian.servicedesk:sd-customer-organizations",
+                "customId": 10002
+              },
+              "name": "Organizations",
+              "key": "customfield_10002",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/servicedesk/1/organisations/project/10001/search?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10047": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10047
+              },
+              "name": "Pending reason",
+              "key": "customfield_10047",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10028",
+                  "value": "More info required",
+                  "id": "10028"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10029",
+                  "value": "Awaiting approval",
+                  "id": "10029"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10030",
+                  "value": "Waiting on vendor",
+                  "id": "10030"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10031",
+                  "value": "Pending on change request",
+                  "id": "10031"
+                }
+              ]
+            },
+            "customfield_10003": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "user",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker",
+                "customId": 10003
+              },
+              "name": "Approvers",
+              "key": "customfield_10003",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/1.0/users/picker?fieldName=customfield_10003&showAvatar=true&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "labels": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "string",
+                "system": "labels"
+              },
+              "name": "Labels",
+              "key": "labels",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/1.0/labels/suggest?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10004": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10004
+              },
+              "name": "Impact",
+              "key": "customfield_10004",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10000",
+                  "value": "Extensive / Widespread",
+                  "id": "10000"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10001",
+                  "value": "Significant / Large",
+                  "id": "10001"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10002",
+                  "value": "Moderate / Limited",
+                  "id": "10002"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10003",
+                  "value": "Minor / Localized",
+                  "id": "10003"
+                }
+              ]
+            },
+            "customfield_10039": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "service-entity-field",
+                "custom": "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype",
+                "customId": 10039
+              },
+              "name": "Affected services",
+              "key": "customfield_10039",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/service-registry-api/service?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "duedate": {
+              "required": false,
+              "schema": {
+                "type": "date",
+                "system": "duedate"
+              },
+              "name": "Due date",
+              "key": "duedate",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "issuelinks": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "issuelinks",
+                "system": "issuelinks"
+              },
+              "name": "Linked Issues",
+              "key": "issuelinks",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/issue/picker?currentProjectId=&showSubTaskParent=true&showSubTasks=true&currentIssueKey=null&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "copy"
+              ]
+            },
+            "assignee": {
+              "required": false,
+              "schema": {
+                "type": "user",
+                "system": "assignee"
+              },
+              "name": "Assignee",
+              "key": "assignee",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/user/assignable/search?project=NJT&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            }
+          }
+        },
+        {
+          "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10002",
+          "id": "10002",
+          "description": "A request that follows ITSM workflows.",
+          "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10313?size=medium",
+          "name": "[System] Service request with approvals",
+          "untranslatedName": "[System] Service request with approvals",
+          "subtask": false,
+          "hierarchyLevel": 0,
+          "expand": "fields",
+          "fields": {
+            "issuetype": {
+              "required": false,
+              "schema": {
+                "type": "issuetype",
+                "system": "issuetype"
+              },
+              "name": "Issue Type",
+              "key": "issuetype",
+              "hasDefaultValue": false,
+              "operations": [],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10002",
+                  "id": "10002",
+                  "description": "A request that follows ITSM workflows.",
+                  "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10313?size=medium",
+                  "name": "[System] Service request with approvals",
+                  "subtask": false,
+                  "avatarId": 10313,
+                  "hierarchyLevel": 0
+                }
+              ]
+            },
+            "parent": {
+              "required": false,
+              "schema": {
+                "type": "issuelink",
+                "system": "parent"
+              },
+              "name": "Parent",
+              "key": "parent",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "components": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "component",
+                "system": "components"
+              },
+              "name": "Components",
+              "key": "components",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10016",
+                  "id": "10016",
+                  "name": "Active Directory",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10017",
+                  "id": "10017",
+                  "name": "Analytics and Reporting Service",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10018",
+                  "id": "10018",
+                  "name": "Billing Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10019",
+                  "id": "10019",
+                  "name": "Cloud Storage Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10020",
+                  "id": "10020",
+                  "name": "Data Center Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10021",
+                  "id": "10021",
+                  "name": "Email and Collaboration Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10022",
+                  "id": "10022",
+                  "name": "Financial Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10023",
+                  "id": "10023",
+                  "name": "HR Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10024",
+                  "id": "10024",
+                  "name": "Intranet",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10025",
+                  "id": "10025",
+                  "name": "Jira",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10026",
+                  "id": "10026",
+                  "name": "Office Network",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10027",
+                  "id": "10027",
+                  "name": "Payroll Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10028",
+                  "id": "10028",
+                  "name": "Printers",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10029",
+                  "id": "10029",
+                  "name": "Public Website",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10030",
+                  "id": "10030",
+                  "name": "VPN Server",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10031",
+                  "id": "10031",
+                  "name": "Webstore Purchasing Services",
+                  "description": "Created by Jira Service Management"
+                }
+              ]
+            },
+            "description": {
+              "required": false,
+              "schema": {
+                "type": "string",
+                "system": "description"
+              },
+              "name": "Description",
+              "key": "description",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "project": {
+              "required": true,
+              "schema": {
+                "type": "project",
+                "system": "project"
+              },
+              "name": "Project",
+              "key": "project",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/project/10001",
+                  "id": "10001",
+                  "key": "NJT",
+                  "name": "NinjaTwo",
+                  "projectTypeKey": "service_desk",
+                  "simplified": false,
+                  "avatarUrls": {
+                    "48x48": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416",
+                    "24x24": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=small",
+                    "16x16": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=xsmall",
+                    "32x32": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=medium"
+                  }
+                }
+              ]
+            },
+            "customfield_10010": {
+              "required": false,
+              "schema": {
+                "type": "sd-customerrequesttype",
+                "custom": "com.atlassian.servicedesk:vp-origin",
+                "customId": 10010
+              },
+              "name": "Request Type",
+              "key": "customfield_10010",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10035": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "user",
+                "custom": "com.atlassian.servicedesk:sd-request-participants",
+                "customId": 10035
+              },
+              "name": "Request participants",
+              "key": "customfield_10035",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/servicedesk/1/servicedesk/sd-user-search/participants?issueKey=null&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10036": {
+              "required": false,
+              "schema": {
+                "type": "sd-feedback",
+                "custom": "com.atlassian.servicedesk:sd-request-feedback",
+                "customId": 10036
+              },
+              "name": "Satisfaction",
+              "key": "customfield_10036",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "timetracking": {
+              "required": false,
+              "schema": {
+                "type": "timetracking",
+                "system": "timetracking"
+              },
+              "name": "Time tracking",
+              "key": "timetracking",
+              "hasDefaultValue": false,
+              "operations": [
+                "set",
+                "edit"
+              ]
+            },
+            "attachment": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "attachment",
+                "system": "attachment"
+              },
+              "name": "Attachment",
+              "key": "attachment",
+              "hasDefaultValue": false,
+              "operations": [
+                "set",
+                "copy"
+              ]
+            },
+            "summary": {
+              "required": true,
+              "schema": {
+                "type": "string",
+                "system": "summary"
+              },
+              "name": "Summary",
+              "key": "summary",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10040": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "group",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:multigrouppicker",
+                "customId": 10040
+              },
+              "name": "Approver groups",
+              "key": "customfield_10040",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10041": {
+              "required": false,
+              "schema": {
+                "type": "sd-request-lang",
+                "custom": "com.atlassian.servicedesk.servicedesk-lingo-integration-plugin:sd-request-language",
+                "customId": 10041
+              },
+              "name": "Request language",
+              "key": "customfield_10041",
+              "hasDefaultValue": false,
+              "operations": [],
+              "allowedValues": [
+                {
+                  "languageCode": "en",
+                  "displayName": "English"
+                }
+              ]
+            },
+            "reporter": {
+              "required": false,
+              "schema": {
+                "type": "user",
+                "system": "reporter"
+              },
+              "name": "Reporter",
+              "key": "reporter",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/user/recommend?context=Reporter&issueKey=",
+              "hasDefaultValue": true,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10044": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10044
+              },
+              "name": "Urgency",
+              "key": "customfield_10044",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10020",
+                  "value": "Critical",
+                  "id": "10020"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10021",
+                  "value": "High",
+                  "id": "10021"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10022",
+                  "value": "Medium",
+                  "id": "10022"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10023",
+                  "value": "Low",
+                  "id": "10023"
+                }
+              ]
+            },
+            "priority": {
+              "required": false,
+              "schema": {
+                "type": "priority",
+                "system": "priority"
+              },
+              "name": "Priority",
+              "key": "priority",
+              "hasDefaultValue": true,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/1",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/highest_new.svg",
+                  "name": "Highest",
+                  "id": "1"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/2",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/high_new.svg",
+                  "name": "High",
+                  "id": "2"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/3",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/medium_new.svg",
+                  "name": "Medium",
+                  "id": "3"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/4",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/low_new.svg",
+                  "name": "Low",
+                  "id": "4"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/5",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/lowest_new.svg",
+                  "name": "Lowest",
+                  "id": "5"
+                }
+              ],
+              "defaultValue": {
+                "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              }
+            },
+            "customfield_10001": {
+              "required": false,
+              "schema": {
+                "type": "team",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team",
+                "customId": 10001,
+                "configuration": {
+                  "com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team": true
+                }
+              },
+              "name": "Team",
+              "key": "customfield_10001",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/gateway/api/v1/recommendations",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10002": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "sd-customerorganization",
+                "custom": "com.atlassian.servicedesk:sd-customer-organizations",
+                "customId": 10002
+              },
+              "name": "Organizations",
+              "key": "customfield_10002",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/servicedesk/1/organisations/project/10001/search?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10047": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10047
+              },
+              "name": "Pending reason",
+              "key": "customfield_10047",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10028",
+                  "value": "More info required",
+                  "id": "10028"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10029",
+                  "value": "Awaiting approval",
+                  "id": "10029"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10030",
+                  "value": "Waiting on vendor",
+                  "id": "10030"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10031",
+                  "value": "Pending on change request",
+                  "id": "10031"
+                }
+              ]
+            },
+            "customfield_10003": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "user",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker",
+                "customId": 10003
+              },
+              "name": "Approvers",
+              "key": "customfield_10003",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/1.0/users/picker?fieldName=customfield_10003&showAvatar=true&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "labels": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "string",
+                "system": "labels"
+              },
+              "name": "Labels",
+              "key": "labels",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/1.0/labels/suggest?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10004": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10004
+              },
+              "name": "Impact",
+              "key": "customfield_10004",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10000",
+                  "value": "Extensive / Widespread",
+                  "id": "10000"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10001",
+                  "value": "Significant / Large",
+                  "id": "10001"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10002",
+                  "value": "Moderate / Limited",
+                  "id": "10002"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10003",
+                  "value": "Minor / Localized",
+                  "id": "10003"
+                }
+              ]
+            },
+            "customfield_10039": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "service-entity-field",
+                "custom": "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype",
+                "customId": 10039
+              },
+              "name": "Affected services",
+              "key": "customfield_10039",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/service-registry-api/service?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "duedate": {
+              "required": false,
+              "schema": {
+                "type": "date",
+                "system": "duedate"
+              },
+              "name": "Due date",
+              "key": "duedate",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "issuelinks": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "issuelinks",
+                "system": "issuelinks"
+              },
+              "name": "Linked Issues",
+              "key": "issuelinks",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/issue/picker?currentProjectId=&showSubTaskParent=true&showSubTasks=true&currentIssueKey=null&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "copy"
+              ]
+            },
+            "assignee": {
+              "required": false,
+              "schema": {
+                "type": "user",
+                "system": "assignee"
+              },
+              "name": "Assignee",
+              "key": "assignee",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/user/assignable/search?project=NJT&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            }
+          }
+        },
+        {
+          "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10003",
+          "id": "10003",
+          "description": "For system outages or incidents. Created by Jira Service Management.",
+          "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10304?size=medium",
+          "name": "[System] Incident",
+          "untranslatedName": "[System] Incident",
+          "subtask": false,
+          "hierarchyLevel": 0,
+          "expand": "fields",
+          "fields": {
+            "issuetype": {
+              "required": false,
+              "schema": {
+                "type": "issuetype",
+                "system": "issuetype"
+              },
+              "name": "Issue Type",
+              "key": "issuetype",
+              "hasDefaultValue": false,
+              "operations": [],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10003",
+                  "id": "10003",
+                  "description": "For system outages or incidents. Created by Jira Service Management.",
+                  "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10304?size=medium",
+                  "name": "[System] Incident",
+                  "subtask": false,
+                  "avatarId": 10304,
+                  "hierarchyLevel": 0
+                }
+              ]
+            },
+            "parent": {
+              "required": false,
+              "schema": {
+                "type": "issuelink",
+                "system": "parent"
+              },
+              "name": "Parent",
+              "key": "parent",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "components": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "component",
+                "system": "components"
+              },
+              "name": "Components",
+              "key": "components",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10016",
+                  "id": "10016",
+                  "name": "Active Directory",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10017",
+                  "id": "10017",
+                  "name": "Analytics and Reporting Service",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10018",
+                  "id": "10018",
+                  "name": "Billing Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10019",
+                  "id": "10019",
+                  "name": "Cloud Storage Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10020",
+                  "id": "10020",
+                  "name": "Data Center Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10021",
+                  "id": "10021",
+                  "name": "Email and Collaboration Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10022",
+                  "id": "10022",
+                  "name": "Financial Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10023",
+                  "id": "10023",
+                  "name": "HR Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10024",
+                  "id": "10024",
+                  "name": "Intranet",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10025",
+                  "id": "10025",
+                  "name": "Jira",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10026",
+                  "id": "10026",
+                  "name": "Office Network",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10027",
+                  "id": "10027",
+                  "name": "Payroll Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10028",
+                  "id": "10028",
+                  "name": "Printers",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10029",
+                  "id": "10029",
+                  "name": "Public Website",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10030",
+                  "id": "10030",
+                  "name": "VPN Server",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10031",
+                  "id": "10031",
+                  "name": "Webstore Purchasing Services",
+                  "description": "Created by Jira Service Management"
+                }
+              ]
+            },
+            "description": {
+              "required": false,
+              "schema": {
+                "type": "string",
+                "system": "description"
+              },
+              "name": "Description",
+              "key": "description",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "project": {
+              "required": true,
+              "schema": {
+                "type": "project",
+                "system": "project"
+              },
+              "name": "Project",
+              "key": "project",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/project/10001",
+                  "id": "10001",
+                  "key": "NJT",
+                  "name": "NinjaTwo",
+                  "projectTypeKey": "service_desk",
+                  "simplified": false,
+                  "avatarUrls": {
+                    "48x48": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416",
+                    "24x24": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=small",
+                    "16x16": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=xsmall",
+                    "32x32": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=medium"
+                  }
+                }
+              ]
+            },
+            "customfield_10010": {
+              "required": false,
+              "schema": {
+                "type": "sd-customerrequesttype",
+                "custom": "com.atlassian.servicedesk:vp-origin",
+                "customId": 10010
+              },
+              "name": "Request Type",
+              "key": "customfield_10010",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10035": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "user",
+                "custom": "com.atlassian.servicedesk:sd-request-participants",
+                "customId": 10035
+              },
+              "name": "Request participants",
+              "key": "customfield_10035",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/servicedesk/1/servicedesk/sd-user-search/participants?issueKey=null&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10036": {
+              "required": false,
+              "schema": {
+                "type": "sd-feedback",
+                "custom": "com.atlassian.servicedesk:sd-request-feedback",
+                "customId": 10036
+              },
+              "name": "Satisfaction",
+              "key": "customfield_10036",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "timetracking": {
+              "required": false,
+              "schema": {
+                "type": "timetracking",
+                "system": "timetracking"
+              },
+              "name": "Time tracking",
+              "key": "timetracking",
+              "hasDefaultValue": false,
+              "operations": [
+                "set",
+                "edit"
+              ]
+            },
+            "attachment": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "attachment",
+                "system": "attachment"
+              },
+              "name": "Attachment",
+              "key": "attachment",
+              "hasDefaultValue": false,
+              "operations": [
+                "set",
+                "copy"
+              ]
+            },
+            "summary": {
+              "required": true,
+              "schema": {
+                "type": "string",
+                "system": "summary"
+              },
+              "name": "Summary",
+              "key": "summary",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10040": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "group",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:multigrouppicker",
+                "customId": 10040
+              },
+              "name": "Approver groups",
+              "key": "customfield_10040",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10041": {
+              "required": false,
+              "schema": {
+                "type": "sd-request-lang",
+                "custom": "com.atlassian.servicedesk.servicedesk-lingo-integration-plugin:sd-request-language",
+                "customId": 10041
+              },
+              "name": "Request language",
+              "key": "customfield_10041",
+              "hasDefaultValue": false,
+              "operations": [],
+              "allowedValues": [
+                {
+                  "languageCode": "en",
+                  "displayName": "English"
+                }
+              ]
+            },
+            "reporter": {
+              "required": false,
+              "schema": {
+                "type": "user",
+                "system": "reporter"
+              },
+              "name": "Reporter",
+              "key": "reporter",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/user/recommend?context=Reporter&issueKey=",
+              "hasDefaultValue": true,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10044": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10044
+              },
+              "name": "Urgency",
+              "key": "customfield_10044",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10020",
+                  "value": "Critical",
+                  "id": "10020"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10021",
+                  "value": "High",
+                  "id": "10021"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10022",
+                  "value": "Medium",
+                  "id": "10022"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10023",
+                  "value": "Low",
+                  "id": "10023"
+                }
+              ]
+            },
+            "priority": {
+              "required": false,
+              "schema": {
+                "type": "priority",
+                "system": "priority"
+              },
+              "name": "Priority",
+              "key": "priority",
+              "hasDefaultValue": true,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/1",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/highest_new.svg",
+                  "name": "Highest",
+                  "id": "1"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/2",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/high_new.svg",
+                  "name": "High",
+                  "id": "2"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/3",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/medium_new.svg",
+                  "name": "Medium",
+                  "id": "3"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/4",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/low_new.svg",
+                  "name": "Low",
+                  "id": "4"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/5",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/lowest_new.svg",
+                  "name": "Lowest",
+                  "id": "5"
+                }
+              ],
+              "defaultValue": {
+                "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              }
+            },
+            "customfield_10001": {
+              "required": false,
+              "schema": {
+                "type": "team",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team",
+                "customId": 10001,
+                "configuration": {
+                  "com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team": true
+                }
+              },
+              "name": "Team",
+              "key": "customfield_10001",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/gateway/api/v1/recommendations",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10045": {
+              "required": false,
+              "schema": {
+                "type": "string",
+                "custom": "com.atlassian.jira.modules.servicemanagement.major-incident-entity:major-incident-entity-field-cftype",
+                "customId": 10045
+              },
+              "name": "Major incident",
+              "key": "customfield_10045",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10046": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10046
+              },
+              "name": "Severity",
+              "key": "customfield_10046",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10024",
+                  "value": "Sev-0",
+                  "id": "10024"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10025",
+                  "value": "Sev-1",
+                  "id": "10025"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10026",
+                  "value": "Sev-2",
+                  "id": "10026"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10027",
+                  "value": "Sev-3",
+                  "id": "10027"
+                }
+              ]
+            },
+            "customfield_10002": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "sd-customerorganization",
+                "custom": "com.atlassian.servicedesk:sd-customer-organizations",
+                "customId": 10002
+              },
+              "name": "Organizations",
+              "key": "customfield_10002",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/servicedesk/1/organisations/project/10001/search?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10003": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "user",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker",
+                "customId": 10003
+              },
+              "name": "Approvers",
+              "key": "customfield_10003",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/1.0/users/picker?fieldName=customfield_10003&showAvatar=true&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "labels": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "string",
+                "system": "labels"
+              },
+              "name": "Labels",
+              "key": "labels",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/1.0/labels/suggest?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10004": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10004
+              },
+              "name": "Impact",
+              "key": "customfield_10004",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10000",
+                  "value": "Extensive / Widespread",
+                  "id": "10000"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10001",
+                  "value": "Significant / Large",
+                  "id": "10001"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10002",
+                  "value": "Moderate / Limited",
+                  "id": "10002"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10003",
+                  "value": "Minor / Localized",
+                  "id": "10003"
+                }
+              ]
+            },
+            "customfield_10048": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "string",
+                "custom": "com.atlassian.jira.modules.servicemanagement.responders-entity:responders-entity-field-cftype",
+                "customId": 10048
+              },
+              "name": "Responders",
+              "key": "customfield_10048",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/gateway/api/jsd/escalator/ac9bdf7e-575e-4593-9270-70ba6ff724e7/api/responders/search?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "set",
+                "add",
+                "remove"
+              ]
+            },
+            "customfield_10038": {
+              "required": false,
+              "schema": {
+                "type": "string",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:textfield",
+                "customId": 10038
+              },
+              "name": "Affected hardware",
+              "key": "customfield_10038",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10039": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "service-entity-field",
+                "custom": "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype",
+                "customId": 10039
+              },
+              "name": "Affected services",
+              "key": "customfield_10039",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/service-registry-api/service?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "issuelinks": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "issuelinks",
+                "system": "issuelinks"
+              },
+              "name": "Linked Issues",
+              "key": "issuelinks",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/issue/picker?currentProjectId=&showSubTaskParent=true&showSubTasks=true&currentIssueKey=null&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "copy"
+              ]
+            },
+            "assignee": {
+              "required": false,
+              "schema": {
+                "type": "user",
+                "system": "assignee"
+              },
+              "name": "Assignee",
+              "key": "assignee",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/user/assignable/search?project=NJT&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            }
+          }
+        },
+        {
+          "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10004",
+          "id": "10004",
+          "description": "A small, distinct piece of work.",
+          "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+          "name": "Task",
+          "untranslatedName": "Task",
+          "subtask": false,
+          "hierarchyLevel": 0,
+          "expand": "fields",
+          "fields": {
+            "issuetype": {
+              "required": false,
+              "schema": {
+                "type": "issuetype",
+                "system": "issuetype"
+              },
+              "name": "Issue Type",
+              "key": "issuetype",
+              "hasDefaultValue": false,
+              "operations": [],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10004",
+                  "id": "10004",
+                  "description": "A small, distinct piece of work.",
+                  "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                  "name": "Task",
+                  "subtask": false,
+                  "avatarId": 10318,
+                  "hierarchyLevel": 0
+                }
+              ]
+            },
+            "parent": {
+              "required": false,
+              "schema": {
+                "type": "issuelink",
+                "system": "parent"
+              },
+              "name": "Parent",
+              "key": "parent",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "components": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "component",
+                "system": "components"
+              },
+              "name": "Components",
+              "key": "components",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10016",
+                  "id": "10016",
+                  "name": "Active Directory",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10017",
+                  "id": "10017",
+                  "name": "Analytics and Reporting Service",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10018",
+                  "id": "10018",
+                  "name": "Billing Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10019",
+                  "id": "10019",
+                  "name": "Cloud Storage Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10020",
+                  "id": "10020",
+                  "name": "Data Center Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10021",
+                  "id": "10021",
+                  "name": "Email and Collaboration Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10022",
+                  "id": "10022",
+                  "name": "Financial Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10023",
+                  "id": "10023",
+                  "name": "HR Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10024",
+                  "id": "10024",
+                  "name": "Intranet",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10025",
+                  "id": "10025",
+                  "name": "Jira",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10026",
+                  "id": "10026",
+                  "name": "Office Network",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10027",
+                  "id": "10027",
+                  "name": "Payroll Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10028",
+                  "id": "10028",
+                  "name": "Printers",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10029",
+                  "id": "10029",
+                  "name": "Public Website",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10030",
+                  "id": "10030",
+                  "name": "VPN Server",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10031",
+                  "id": "10031",
+                  "name": "Webstore Purchasing Services",
+                  "description": "Created by Jira Service Management"
+                }
+              ]
+            },
+            "description": {
+              "required": false,
+              "schema": {
+                "type": "string",
+                "system": "description"
+              },
+              "name": "Description",
+              "key": "description",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "project": {
+              "required": true,
+              "schema": {
+                "type": "project",
+                "system": "project"
+              },
+              "name": "Project",
+              "key": "project",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/project/10001",
+                  "id": "10001",
+                  "key": "NJT",
+                  "name": "NinjaTwo",
+                  "projectTypeKey": "service_desk",
+                  "simplified": false,
+                  "avatarUrls": {
+                    "48x48": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416",
+                    "24x24": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=small",
+                    "16x16": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=xsmall",
+                    "32x32": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=medium"
+                  }
+                }
+              ]
+            },
+            "customfield_10010": {
+              "required": false,
+              "schema": {
+                "type": "sd-customerrequesttype",
+                "custom": "com.atlassian.servicedesk:vp-origin",
+                "customId": 10010
+              },
+              "name": "Request Type",
+              "key": "customfield_10010",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10035": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "user",
+                "custom": "com.atlassian.servicedesk:sd-request-participants",
+                "customId": 10035
+              },
+              "name": "Request participants",
+              "key": "customfield_10035",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/servicedesk/1/servicedesk/sd-user-search/participants?issueKey=null&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10036": {
+              "required": false,
+              "schema": {
+                "type": "sd-feedback",
+                "custom": "com.atlassian.servicedesk:sd-request-feedback",
+                "customId": 10036
+              },
+              "name": "Satisfaction",
+              "key": "customfield_10036",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "timetracking": {
+              "required": false,
+              "schema": {
+                "type": "timetracking",
+                "system": "timetracking"
+              },
+              "name": "Time tracking",
+              "key": "timetracking",
+              "hasDefaultValue": false,
+              "operations": [
+                "set",
+                "edit"
+              ]
+            },
+            "attachment": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "attachment",
+                "system": "attachment"
+              },
+              "name": "Attachment",
+              "key": "attachment",
+              "hasDefaultValue": false,
+              "operations": [
+                "set",
+                "copy"
+              ]
+            },
+            "summary": {
+              "required": true,
+              "schema": {
+                "type": "string",
+                "system": "summary"
+              },
+              "name": "Summary",
+              "key": "summary",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10040": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "group",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:multigrouppicker",
+                "customId": 10040
+              },
+              "name": "Approver groups",
+              "key": "customfield_10040",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10041": {
+              "required": false,
+              "schema": {
+                "type": "sd-request-lang",
+                "custom": "com.atlassian.servicedesk.servicedesk-lingo-integration-plugin:sd-request-language",
+                "customId": 10041
+              },
+              "name": "Request language",
+              "key": "customfield_10041",
+              "hasDefaultValue": false,
+              "operations": [],
+              "allowedValues": [
+                {
+                  "languageCode": "en",
+                  "displayName": "English"
+                }
+              ]
+            },
+            "reporter": {
+              "required": false,
+              "schema": {
+                "type": "user",
+                "system": "reporter"
+              },
+              "name": "Reporter",
+              "key": "reporter",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/user/recommend?context=Reporter&issueKey=",
+              "hasDefaultValue": true,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10044": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10044
+              },
+              "name": "Urgency",
+              "key": "customfield_10044",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10020",
+                  "value": "Critical",
+                  "id": "10020"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10021",
+                  "value": "High",
+                  "id": "10021"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10022",
+                  "value": "Medium",
+                  "id": "10022"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10023",
+                  "value": "Low",
+                  "id": "10023"
+                }
+              ]
+            },
+            "priority": {
+              "required": false,
+              "schema": {
+                "type": "priority",
+                "system": "priority"
+              },
+              "name": "Priority",
+              "key": "priority",
+              "hasDefaultValue": true,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/1",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/highest_new.svg",
+                  "name": "Highest",
+                  "id": "1"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/2",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/high_new.svg",
+                  "name": "High",
+                  "id": "2"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/3",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/medium_new.svg",
+                  "name": "Medium",
+                  "id": "3"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/4",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/low_new.svg",
+                  "name": "Low",
+                  "id": "4"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/5",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/lowest_new.svg",
+                  "name": "Lowest",
+                  "id": "5"
+                }
+              ],
+              "defaultValue": {
+                "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              }
+            },
+            "customfield_10001": {
+              "required": false,
+              "schema": {
+                "type": "team",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team",
+                "customId": 10001,
+                "configuration": {
+                  "com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team": true
+                }
+              },
+              "name": "Team",
+              "key": "customfield_10001",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/gateway/api/v1/recommendations",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10002": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "sd-customerorganization",
+                "custom": "com.atlassian.servicedesk:sd-customer-organizations",
+                "customId": 10002
+              },
+              "name": "Organizations",
+              "key": "customfield_10002",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/servicedesk/1/organisations/project/10001/search?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10047": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10047
+              },
+              "name": "Pending reason",
+              "key": "customfield_10047",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10028",
+                  "value": "More info required",
+                  "id": "10028"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10029",
+                  "value": "Awaiting approval",
+                  "id": "10029"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10030",
+                  "value": "Waiting on vendor",
+                  "id": "10030"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10031",
+                  "value": "Pending on change request",
+                  "id": "10031"
+                }
+              ]
+            },
+            "customfield_10003": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "user",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker",
+                "customId": 10003
+              },
+              "name": "Approvers",
+              "key": "customfield_10003",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/1.0/users/picker?fieldName=customfield_10003&showAvatar=true&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "labels": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "string",
+                "system": "labels"
+              },
+              "name": "Labels",
+              "key": "labels",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/1.0/labels/suggest?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10004": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10004
+              },
+              "name": "Impact",
+              "key": "customfield_10004",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10000",
+                  "value": "Extensive / Widespread",
+                  "id": "10000"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10001",
+                  "value": "Significant / Large",
+                  "id": "10001"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10002",
+                  "value": "Moderate / Limited",
+                  "id": "10002"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10003",
+                  "value": "Minor / Localized",
+                  "id": "10003"
+                }
+              ]
+            },
+            "customfield_10039": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "service-entity-field",
+                "custom": "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype",
+                "customId": 10039
+              },
+              "name": "Affected services",
+              "key": "customfield_10039",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/service-registry-api/service?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "duedate": {
+              "required": false,
+              "schema": {
+                "type": "date",
+                "system": "duedate"
+              },
+              "name": "Due date",
+              "key": "duedate",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "issuelinks": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "issuelinks",
+                "system": "issuelinks"
+              },
+              "name": "Linked Issues",
+              "key": "issuelinks",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/issue/picker?currentProjectId=&showSubTaskParent=true&showSubTasks=true&currentIssueKey=null&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "copy"
+              ]
+            },
+            "assignee": {
+              "required": false,
+              "schema": {
+                "type": "user",
+                "system": "assignee"
+              },
+              "name": "Assignee",
+              "key": "assignee",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/user/assignable/search?project=NJT&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            }
+          }
+        },
+        {
+          "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10005",
+          "id": "10005",
+          "description": "A small piece of work that's part of a larger task.",
+          "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+          "name": "Sub-task",
+          "untranslatedName": "Sub-task",
+          "subtask": true,
+          "hierarchyLevel": -1,
+          "expand": "fields",
+          "fields": {
+            "issuetype": {
+              "required": false,
+              "schema": {
+                "type": "issuetype",
+                "system": "issuetype"
+              },
+              "name": "Issue Type",
+              "key": "issuetype",
+              "hasDefaultValue": false,
+              "operations": [],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10005",
+                  "id": "10005",
+                  "description": "A small piece of work that's part of a larger task.",
+                  "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+                  "name": "Sub-task",
+                  "subtask": true,
+                  "avatarId": 10316,
+                  "hierarchyLevel": -1
+                }
+              ]
+            },
+            "parent": {
+              "required": true,
+              "schema": {
+                "type": "issuelink",
+                "system": "parent"
+              },
+              "name": "Parent",
+              "key": "parent",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "components": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "component",
+                "system": "components"
+              },
+              "name": "Components",
+              "key": "components",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10016",
+                  "id": "10016",
+                  "name": "Active Directory",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10017",
+                  "id": "10017",
+                  "name": "Analytics and Reporting Service",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10018",
+                  "id": "10018",
+                  "name": "Billing Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10019",
+                  "id": "10019",
+                  "name": "Cloud Storage Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10020",
+                  "id": "10020",
+                  "name": "Data Center Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10021",
+                  "id": "10021",
+                  "name": "Email and Collaboration Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10022",
+                  "id": "10022",
+                  "name": "Financial Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10023",
+                  "id": "10023",
+                  "name": "HR Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10024",
+                  "id": "10024",
+                  "name": "Intranet",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10025",
+                  "id": "10025",
+                  "name": "Jira",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10026",
+                  "id": "10026",
+                  "name": "Office Network",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10027",
+                  "id": "10027",
+                  "name": "Payroll Services",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10028",
+                  "id": "10028",
+                  "name": "Printers",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10029",
+                  "id": "10029",
+                  "name": "Public Website",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10030",
+                  "id": "10030",
+                  "name": "VPN Server",
+                  "description": "Created by Jira Service Management"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/component/10031",
+                  "id": "10031",
+                  "name": "Webstore Purchasing Services",
+                  "description": "Created by Jira Service Management"
+                }
+              ]
+            },
+            "description": {
+              "required": false,
+              "schema": {
+                "type": "string",
+                "system": "description"
+              },
+              "name": "Description",
+              "key": "description",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "project": {
+              "required": true,
+              "schema": {
+                "type": "project",
+                "system": "project"
+              },
+              "name": "Project",
+              "key": "project",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/project/10001",
+                  "id": "10001",
+                  "key": "NJT",
+                  "name": "NinjaTwo",
+                  "projectTypeKey": "service_desk",
+                  "simplified": false,
+                  "avatarUrls": {
+                    "48x48": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416",
+                    "24x24": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=small",
+                    "16x16": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=xsmall",
+                    "32x32": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=medium"
+                  }
+                }
+              ]
+            },
+            "customfield_10010": {
+              "required": false,
+              "schema": {
+                "type": "sd-customerrequesttype",
+                "custom": "com.atlassian.servicedesk:vp-origin",
+                "customId": 10010
+              },
+              "name": "Request Type",
+              "key": "customfield_10010",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10035": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "user",
+                "custom": "com.atlassian.servicedesk:sd-request-participants",
+                "customId": 10035
+              },
+              "name": "Request participants",
+              "key": "customfield_10035",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/servicedesk/1/servicedesk/sd-user-search/participants?issueKey=null&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10036": {
+              "required": false,
+              "schema": {
+                "type": "sd-feedback",
+                "custom": "com.atlassian.servicedesk:sd-request-feedback",
+                "customId": 10036
+              },
+              "name": "Satisfaction",
+              "key": "customfield_10036",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "timetracking": {
+              "required": false,
+              "schema": {
+                "type": "timetracking",
+                "system": "timetracking"
+              },
+              "name": "Time tracking",
+              "key": "timetracking",
+              "hasDefaultValue": false,
+              "operations": [
+                "set",
+                "edit"
+              ]
+            },
+            "attachment": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "attachment",
+                "system": "attachment"
+              },
+              "name": "Attachment",
+              "key": "attachment",
+              "hasDefaultValue": false,
+              "operations": [
+                "set",
+                "copy"
+              ]
+            },
+            "summary": {
+              "required": true,
+              "schema": {
+                "type": "string",
+                "system": "summary"
+              },
+              "name": "Summary",
+              "key": "summary",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10040": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "group",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:multigrouppicker",
+                "customId": 10040
+              },
+              "name": "Approver groups",
+              "key": "customfield_10040",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10041": {
+              "required": false,
+              "schema": {
+                "type": "sd-request-lang",
+                "custom": "com.atlassian.servicedesk.servicedesk-lingo-integration-plugin:sd-request-language",
+                "customId": 10041
+              },
+              "name": "Request language",
+              "key": "customfield_10041",
+              "hasDefaultValue": false,
+              "operations": [],
+              "allowedValues": [
+                {
+                  "languageCode": "en",
+                  "displayName": "English"
+                }
+              ]
+            },
+            "reporter": {
+              "required": false,
+              "schema": {
+                "type": "user",
+                "system": "reporter"
+              },
+              "name": "Reporter",
+              "key": "reporter",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/user/recommend?context=Reporter&issueKey=",
+              "hasDefaultValue": true,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10044": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10044
+              },
+              "name": "Urgency",
+              "key": "customfield_10044",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10020",
+                  "value": "Critical",
+                  "id": "10020"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10021",
+                  "value": "High",
+                  "id": "10021"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10022",
+                  "value": "Medium",
+                  "id": "10022"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10023",
+                  "value": "Low",
+                  "id": "10023"
+                }
+              ]
+            },
+            "priority": {
+              "required": false,
+              "schema": {
+                "type": "priority",
+                "system": "priority"
+              },
+              "name": "Priority",
+              "key": "priority",
+              "hasDefaultValue": true,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/1",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/highest_new.svg",
+                  "name": "Highest",
+                  "id": "1"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/2",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/high_new.svg",
+                  "name": "High",
+                  "id": "2"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/3",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/medium_new.svg",
+                  "name": "Medium",
+                  "id": "3"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/4",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/low_new.svg",
+                  "name": "Low",
+                  "id": "4"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/5",
+                  "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/lowest_new.svg",
+                  "name": "Lowest",
+                  "id": "5"
+                }
+              ],
+              "defaultValue": {
+                "self": "https://ninjatwo.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://ninjatwo.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              }
+            },
+            "customfield_10001": {
+              "required": false,
+              "schema": {
+                "type": "team",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team",
+                "customId": 10001,
+                "configuration": {
+                  "com.atlassian.jira.plugin.system.customfieldtypes:atlassian-team": true
+                }
+              },
+              "name": "Team",
+              "key": "customfield_10001",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/gateway/api/v1/recommendations",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "customfield_10002": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "sd-customerorganization",
+                "custom": "com.atlassian.servicedesk:sd-customer-organizations",
+                "customId": 10002
+              },
+              "name": "Organizations",
+              "key": "customfield_10002",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/servicedesk/1/organisations/project/10001/search?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10047": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10047
+              },
+              "name": "Pending reason",
+              "key": "customfield_10047",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10028",
+                  "value": "More info required",
+                  "id": "10028"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10029",
+                  "value": "Awaiting approval",
+                  "id": "10029"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10030",
+                  "value": "Waiting on vendor",
+                  "id": "10030"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10031",
+                  "value": "Pending on change request",
+                  "id": "10031"
+                }
+              ]
+            },
+            "customfield_10003": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "user",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker",
+                "customId": 10003
+              },
+              "name": "Approvers",
+              "key": "customfield_10003",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/1.0/users/picker?fieldName=customfield_10003&showAvatar=true&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "labels": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "string",
+                "system": "labels"
+              },
+              "name": "Labels",
+              "key": "labels",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/1.0/labels/suggest?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "set",
+                "remove"
+              ]
+            },
+            "customfield_10004": {
+              "required": false,
+              "schema": {
+                "type": "option",
+                "custom": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+                "customId": 10004
+              },
+              "name": "Impact",
+              "key": "customfield_10004",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ],
+              "allowedValues": [
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10000",
+                  "value": "Extensive / Widespread",
+                  "id": "10000"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10001",
+                  "value": "Significant / Large",
+                  "id": "10001"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10002",
+                  "value": "Moderate / Limited",
+                  "id": "10002"
+                },
+                {
+                  "self": "https://ninjatwo.atlassian.net/rest/api/3/customFieldOption/10003",
+                  "value": "Minor / Localized",
+                  "id": "10003"
+                }
+              ]
+            },
+            "customfield_10039": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "service-entity-field",
+                "custom": "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype",
+                "customId": 10039
+              },
+              "name": "Affected services",
+              "key": "customfield_10039",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/service-registry-api/service?query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "duedate": {
+              "required": false,
+              "schema": {
+                "type": "date",
+                "system": "duedate"
+              },
+              "name": "Due date",
+              "key": "duedate",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            },
+            "issuelinks": {
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": "issuelinks",
+                "system": "issuelinks"
+              },
+              "name": "Linked Issues",
+              "key": "issuelinks",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/issue/picker?currentProjectId=&showSubTaskParent=true&showSubTasks=true&currentIssueKey=null&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "add",
+                "copy"
+              ]
+            },
+            "assignee": {
+              "required": false,
+              "schema": {
+                "type": "user",
+                "system": "assignee"
+              },
+              "name": "Assignee",
+              "key": "assignee",
+              "autoCompleteUrl": "https://ninjatwo.atlassian.net/rest/api/3/user/assignable/search?project=NJT&query=",
+              "hasDefaultValue": false,
+              "operations": [
+                "set"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

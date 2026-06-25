@@ -1,0 +1,23 @@
+{
+  "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+  "globalId": "666362be-0866-459a-925b-f5eae075844a:17",
+  "id": "17",
+  "name": "Windows Server",
+  "type": 0,
+  "icon": {
+    "id": "e978d027-22b9-4f97-a65d-b7782ae98749",
+    "name": "Windows",
+    "url16": "https://assets-media.atlassian.com/assets/icons/icons16/Windows.png",
+    "url48": "https://assets-media.atlassian.com/assets/icons/icons48/Windows.png"
+  },
+  "position": 1,
+  "created": "2026-06-24T21:07:15.101Z",
+  "updated": "2026-06-24T21:07:15.101Z",
+  "objectCount": 0,
+  "parentObjectTypeId": "15",
+  "objectSchemaId": "3",
+  "inherited": true,
+  "abstractObjectType": false,
+  "parentObjectTypeInherited": true,
+  "schemaLabel": "ITAM"
+}

@@ -1,0 +1,998 @@
+[
+  {
+    "id": 1052,
+    "name": "Projectors",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1778016340.010196,
+    "nodeRoleParentId": 901,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 1053,
+    "name": "5K Monitor",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1779291307.404206,
+    "nodeRoleParentId": 901,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 1054,
+    "name": "HP Printer",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1780323982.8356,
+    "nodeRoleParentId": 901,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 1055,
+    "name": "XP HP Printer",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1780324005.867853,
+    "nodeRoleParentId": 1054,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 1056,
+    "name": "Marketing Folks - No Patching",
+    "description": "",
+    "nodeClass": "MAC",
+    "custom": true,
+    "chassisType": "DESKTOP",
+    "created": 1780329383.025295,
+    "nodeRoleParentId": 4
+  },
+  {
+    "id": 1057,
+    "name": "Austin 5K Monitors",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1780597120.78073,
+    "nodeRoleParentId": 1053,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 1058,
+    "name": "HP Printers",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1780679769.012444,
+    "nodeRoleParentId": 901,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 1059,
+    "name": "Testing Machines",
+    "description": "",
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "custom": true,
+    "chassisType": "DESKTOP",
+    "created": 1780928182.322312,
+    "nodeRoleParentId": 2
+  },
+  {
+    "id": 1062,
+    "name": "ProLink Docking",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1781885902.213219,
+    "nodeRoleParentId": 901,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 8,
+    "name": "AOSP",
+    "nodeClass": "AOSP",
+    "custom": false,
+    "chassisType": "MOBILE",
+    "created": 1782264587.316808,
+    "nodeRoleParentId": 306
+  },
+  {
+    "id": 1011,
+    "name": "Unmanaged Computer",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1761658081.481127,
+    "nodeRoleParentId": 901,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 1012,
+    "name": "POS",
+    "description": "",
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "custom": true,
+    "chassisType": "DESKTOP",
+    "created": 1761750885.064498,
+    "nodeRoleParentId": 2
+  },
+  {
+    "id": 1013,
+    "name": "Computer Peripheral",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763754490.491701,
+    "nodeRoleParentId": 901,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 1014,
+    "name": "Monitor",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763754502.999715,
+    "nodeRoleParentId": 1013,
+    "icon": "faTv"
+  },
+  {
+    "id": 1015,
+    "name": "Mouse",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763754511.622039,
+    "nodeRoleParentId": 1013,
+    "icon": "faMouse"
+  },
+  {
+    "id": 1016,
+    "name": "Keyboard",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763754523.967399,
+    "nodeRoleParentId": 1013,
+    "icon": "faKeyboard"
+  },
+  {
+    "id": 1017,
+    "name": "Dock",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763754540.280588,
+    "nodeRoleParentId": 1013,
+    "icon": "faUpload"
+  },
+  {
+    "id": 1028,
+    "name": "Printing & Imaging",
+    "description": "Printing & Imaging",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771531642.789685,
+    "nodeRoleParentId": 1011,
+    "icon": "faPrint"
+  },
+  {
+    "id": 902,
+    "name": "MANAGED_DEVICE",
+    "nodeClass": "MANAGED_DEVICE",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1749000119.416497,
+    "nodeRoleParentId": 0
+  },
+  {
+    "id": 31,
+    "name": "CLOUD_MONITOR_TARGET",
+    "nodeClass": "CLOUD_MONITOR_TARGET",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 902
+  },
+  {
+    "id": 201,
+    "name": "WINDOWS_DESKTOP",
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "custom": false,
+    "chassisType": "DESKTOP",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 2
+  },
+  {
+    "id": 203,
+    "name": "LINUX_DESKTOP",
+    "nodeClass": "LINUX_WORKSTATION",
+    "custom": false,
+    "chassisType": "DESKTOP",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 3
+  },
+  {
+    "id": 205,
+    "name": "MAC_DESKTOP",
+    "nodeClass": "MAC",
+    "custom": false,
+    "chassisType": "DESKTOP",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 4
+  },
+  {
+    "id": 202,
+    "name": "WINDOWS_LAPTOP",
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "custom": false,
+    "chassisType": "LAPTOP",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 2
+  },
+  {
+    "id": 204,
+    "name": "LINUX_LAPTOP",
+    "nodeClass": "LINUX_WORKSTATION",
+    "custom": false,
+    "chassisType": "LAPTOP",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 3
+  },
+  {
+    "id": 206,
+    "name": "MAC_LAPTOP",
+    "nodeClass": "MAC",
+    "custom": false,
+    "chassisType": "LAPTOP",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 4
+  },
+  {
+    "id": 1001,
+    "name": "API Server",
+    "description": "",
+    "nodeClass": "WINDOWS_SERVER",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1745271623.482145,
+    "nodeRoleParentId": 1
+  },
+  {
+    "id": 1002,
+    "name": "HR Desktops",
+    "description": "",
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "custom": true,
+    "chassisType": "DESKTOP",
+    "created": 1745335025.891551,
+    "nodeRoleParentId": 2
+  },
+  {
+    "id": 1003,
+    "name": "AD Server",
+    "description": "",
+    "nodeClass": "WINDOWS_SERVER",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1746019928.206609,
+    "nodeRoleParentId": 1
+  },
+  {
+    "id": 1029,
+    "name": "Copier",
+    "description": "Copier",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771531642.853563,
+    "nodeRoleParentId": 1028,
+    "icon": "faShredder"
+  },
+  {
+    "id": 1005,
+    "name": "Patch Group B",
+    "description": "",
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "custom": true,
+    "chassisType": "DESKTOP",
+    "created": 1747255391.665231,
+    "nodeRoleParentId": 2
+  },
+  {
+    "id": 1006,
+    "name": "Patch Group C",
+    "description": "",
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "custom": true,
+    "chassisType": "DESKTOP",
+    "created": 1747255398.503297,
+    "nodeRoleParentId": 2
+  },
+  {
+    "id": 901,
+    "name": "UNMANAGED_DEVICE",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1749000119.371349,
+    "nodeRoleParentId": 0,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 1007,
+    "name": "Microphone",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1749768483.408111,
+    "nodeRoleParentId": 901,
+    "icon": "faMicrophoneStand"
+  },
+  {
+    "id": 1008,
+    "name": "Snowboarding Gear",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1749769021.284716,
+    "nodeRoleParentId": 901,
+    "icon": "faBackpack"
+  },
+  {
+    "id": 1026,
+    "name": "Offline VM",
+    "description": "",
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "custom": true,
+    "chassisType": "DESKTOP",
+    "created": 1768411061.971126,
+    "nodeRoleParentId": 2
+  },
+  {
+    "id": 1018,
+    "name": "License Dongle",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763754558.790969,
+    "nodeRoleParentId": 1013,
+    "icon": "faUsbDrive"
+  },
+  {
+    "id": 1027,
+    "name": "Temp Down Server",
+    "description": "",
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "custom": true,
+    "chassisType": "DESKTOP",
+    "created": 1769704034.088896,
+    "nodeRoleParentId": 2
+  },
+  {
+    "id": 1020,
+    "name": "Printer",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763754644.02872,
+    "nodeRoleParentId": 1013,
+    "icon": "faPrint"
+  },
+  {
+    "id": 1021,
+    "name": "Cloud Service",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763754707.383821,
+    "nodeRoleParentId": 901,
+    "icon": "faCloud"
+  },
+  {
+    "id": 1022,
+    "name": "Line of Business Software",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763754738.740808,
+    "nodeRoleParentId": 901,
+    "icon": "faServer"
+  },
+  {
+    "id": 1023,
+    "name": "Manufacturing Machine",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763754885.161653,
+    "nodeRoleParentId": 901,
+    "icon": "faOven"
+  },
+  {
+    "id": 1024,
+    "name": "Room",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763756110.28403,
+    "nodeRoleParentId": 901,
+    "icon": "faBriefcase"
+  },
+  {
+    "id": 1025,
+    "name": "Cash Register",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1763760793.788055,
+    "nodeRoleParentId": 901,
+    "icon": "faCashRegister"
+  },
+  {
+    "id": 1004,
+    "name": "Windows desktop group b",
+    "description": "",
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "custom": true,
+    "chassisType": "DESKTOP",
+    "created": 1747255383.025327,
+    "nodeRoleParentId": 2
+  },
+  {
+    "id": 1030,
+    "name": "Multifunction Printer",
+    "description": "Multifunction Printer",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771531642.872695,
+    "nodeRoleParentId": 1028,
+    "icon": "faBoxBallot"
+  },
+  {
+    "id": 1031,
+    "name": "Printer copy",
+    "description": "Printer",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771531642.895717,
+    "nodeRoleParentId": 1028,
+    "icon": "faPrint"
+  },
+  {
+    "id": 1032,
+    "name": "Scanner",
+    "description": "Scanner",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771531642.913664,
+    "nodeRoleParentId": 1028,
+    "icon": "faScannerImage"
+  },
+  {
+    "id": 1033,
+    "name": "Audiovisual",
+    "description": "Audiovisual",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771531676.694919,
+    "nodeRoleParentId": 1021,
+    "icon": "faCameraMovie"
+  },
+  {
+    "id": 1034,
+    "name": "Camera",
+    "description": "Camera",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771531676.745661,
+    "nodeRoleParentId": 1033,
+    "icon": "faVideo"
+  },
+  {
+    "id": 1035,
+    "name": "Microphone copy",
+    "description": "Microphone",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771531676.799025,
+    "nodeRoleParentId": 1033,
+    "icon": "faMicrophoneStand"
+  },
+  {
+    "id": 1036,
+    "name": "Projector",
+    "description": "Projector",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771531676.82779,
+    "nodeRoleParentId": 1033,
+    "icon": "faProjector"
+  },
+  {
+    "id": 1037,
+    "name": "Speaker",
+    "description": "Speaker",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771531676.860224,
+    "nodeRoleParentId": 1033,
+    "icon": "faVolume"
+  },
+  {
+    "id": 1038,
+    "name": "Television",
+    "description": "Television",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771531676.887665,
+    "nodeRoleParentId": 1033,
+    "icon": "faTvRetro"
+  },
+  {
+    "id": 1039,
+    "name": "b",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771615518.640608,
+    "nodeRoleParentId": 1025,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 1040,
+    "name": "Printing & Imaging copy",
+    "description": "Printing & Imaging",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771861898.945074,
+    "nodeRoleParentId": 1025,
+    "icon": "faPrint"
+  },
+  {
+    "id": 1041,
+    "name": "Copier copy",
+    "description": "Copier",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771861898.976702,
+    "nodeRoleParentId": 1040,
+    "icon": "faShredder"
+  },
+  {
+    "id": 1042,
+    "name": "Multifunction Printer copy",
+    "description": "Multifunction Printer",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771861898.997637,
+    "nodeRoleParentId": 1040,
+    "icon": "faBoxBallot"
+  },
+  {
+    "id": 1043,
+    "name": "Printer copy 2",
+    "description": "Printer",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771861899.015977,
+    "nodeRoleParentId": 1040,
+    "icon": "faPrint"
+  },
+  {
+    "id": 1044,
+    "name": "Scanner copy",
+    "description": "Scanner",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1771861899.03476,
+    "nodeRoleParentId": 1040,
+    "icon": "faScannerImage"
+  },
+  {
+    "id": 1045,
+    "name": "Office Equipment",
+    "description": "Office Equipment",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1772051014.872139,
+    "nodeRoleParentId": 1021,
+    "icon": "faBriefcase"
+  },
+  {
+    "id": 1046,
+    "name": "Chair",
+    "description": "Chair",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1772051014.926218,
+    "nodeRoleParentId": 1045,
+    "icon": "faChairOffice"
+  },
+  {
+    "id": 1047,
+    "name": "Desk",
+    "description": "Desk",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1772051014.945838,
+    "nodeRoleParentId": 1045,
+    "icon": "faPen"
+  },
+  {
+    "id": 1048,
+    "name": "Filing Cabinet",
+    "description": "Filing Cabinet",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1772051014.964185,
+    "nodeRoleParentId": 1045,
+    "icon": "faSimCard"
+  },
+  {
+    "id": 1049,
+    "name": "Monitor Arm",
+    "description": "Monitor Arm",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1772051014.981894,
+    "nodeRoleParentId": 1045,
+    "icon": "faWrench"
+  },
+  {
+    "id": 1051,
+    "name": "Test",
+    "nodeClass": "UNMANAGED_DEVICE",
+    "custom": true,
+    "chassisType": "UNKNOWN",
+    "created": 1773089023.535911,
+    "nodeRoleParentId": 1014,
+    "icon": "faComputerSpeaker"
+  },
+  {
+    "id": 301,
+    "name": "WINDOWS_OS",
+    "nodeClass": "MANAGED_DEVICE",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1775009044.050625,
+    "nodeRoleParentId": 902
+  },
+  {
+    "id": 302,
+    "name": "LINUX_OS",
+    "nodeClass": "MANAGED_DEVICE",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1775009044.050625,
+    "nodeRoleParentId": 902
+  },
+  {
+    "id": 303,
+    "name": "MAC_OS",
+    "nodeClass": "MANAGED_DEVICE",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1775009044.050625,
+    "nodeRoleParentId": 902
+  },
+  {
+    "id": 304,
+    "name": "NMS",
+    "nodeClass": "MANAGED_DEVICE",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1775009044.050625,
+    "nodeRoleParentId": 902
+  },
+  {
+    "id": 305,
+    "name": "VIRTUALIZATION",
+    "nodeClass": "MANAGED_DEVICE",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1775009044.050625,
+    "nodeRoleParentId": 902
+  },
+  {
+    "id": 306,
+    "name": "MDM",
+    "nodeClass": "MANAGED_DEVICE",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1775009044.050625,
+    "nodeRoleParentId": 902
+  },
+  {
+    "id": 1,
+    "name": "WINDOWS_SERVER",
+    "nodeClass": "WINDOWS_SERVER",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 301
+  },
+  {
+    "id": 2,
+    "name": "WINDOWS_WORKSTATION",
+    "nodeClass": "WINDOWS_WORKSTATION",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 301
+  },
+  {
+    "id": 3,
+    "name": "LINUX",
+    "nodeClass": "LINUX_WORKSTATION",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 302
+  },
+  {
+    "id": 21,
+    "name": "LINUX_SERVER",
+    "nodeClass": "LINUX_SERVER",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 302
+  },
+  {
+    "id": 4,
+    "name": "MAC",
+    "nodeClass": "MAC",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 303
+  },
+  {
+    "id": 22,
+    "name": "MAC_SERVER",
+    "nodeClass": "MAC_SERVER",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 303
+  },
+  {
+    "id": 101,
+    "name": "NMS_SWITCH",
+    "nodeClass": "NMS_SWITCH",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 102,
+    "name": "NMS_ROUTER",
+    "nodeClass": "NMS_ROUTER",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 103,
+    "name": "NMS_FIREWALL",
+    "nodeClass": "NMS_FIREWALL",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 104,
+    "name": "NMS_PRIVATE_NETWORK_GATEWAY",
+    "nodeClass": "NMS_PRIVATE_NETWORK_GATEWAY",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 105,
+    "name": "NMS_PRINTER",
+    "nodeClass": "NMS_PRINTER",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 106,
+    "name": "NMS_SCANNER",
+    "nodeClass": "NMS_SCANNER",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 107,
+    "name": "NMS_DIAL_MANAGER",
+    "nodeClass": "NMS_DIAL_MANAGER",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 108,
+    "name": "NMS_WAP",
+    "nodeClass": "NMS_WAP",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 109,
+    "name": "NMS_IPSLA",
+    "nodeClass": "NMS_IPSLA",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 110,
+    "name": "NMS_COMPUTER",
+    "nodeClass": "NMS_COMPUTER",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 111,
+    "name": "NMS_VM_HOST",
+    "nodeClass": "NMS_VM_HOST",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 112,
+    "name": "NMS_APPLIANCE",
+    "nodeClass": "NMS_APPLIANCE",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 113,
+    "name": "NMS_OTHER",
+    "nodeClass": "NMS_OTHER",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 114,
+    "name": "NMS_SERVER",
+    "nodeClass": "NMS_SERVER",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 115,
+    "name": "NMS_PHONE",
+    "nodeClass": "NMS_PHONE",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 116,
+    "name": "NMS_VIRTUAL_MACHINE",
+    "nodeClass": "NMS_VIRTUAL_MACHINE",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 117,
+    "name": "NMS_NETWORK_MANAGEMENT_AGENT",
+    "nodeClass": "NMS_NETWORK_MANAGEMENT_AGENT",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 304
+  },
+  {
+    "id": 9,
+    "name": "VMWARE_VM_HOST",
+    "nodeClass": "VMWARE_VM_HOST",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 305
+  },
+  {
+    "id": 10,
+    "name": "VMWARE_VM_GUEST",
+    "nodeClass": "VMWARE_VM_GUEST",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886603.334338,
+    "nodeRoleParentId": 305
+  },
+  {
+    "id": 11,
+    "name": "HYPERV_VMM_HOST",
+    "nodeClass": "HYPERV_VMM_HOST",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886604.008999,
+    "nodeRoleParentId": 305
+  },
+  {
+    "id": 12,
+    "name": "HYPERV_VMM_GUEST",
+    "nodeClass": "HYPERV_VMM_GUEST",
+    "custom": false,
+    "chassisType": "UNKNOWN",
+    "created": 1739886604.008999,
+    "nodeRoleParentId": 305
+  },
+  {
+    "id": 5,
+    "name": "ANDROID",
+    "nodeClass": "ANDROID",
+    "custom": false,
+    "chassisType": "MOBILE",
+    "created": 1739886605.614273,
+    "nodeRoleParentId": 306
+  },
+  {
+    "id": 6,
+    "name": "APPLE_IOS",
+    "nodeClass": "APPLE_IOS",
+    "custom": false,
+    "chassisType": "MOBILE",
+    "created": 1739886606.123504,
+    "nodeRoleParentId": 306
+  },
+  {
+    "id": 7,
+    "name": "APPLE_IPADOS",
+    "nodeClass": "APPLE_IPADOS",
+    "custom": false,
+    "chassisType": "MOBILE",
+    "created": 1739886610.015846,
+    "nodeRoleParentId": 306
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "expand": "description,lead,issueTypes,url,projectKeys,permissions,insight",
+    "self": "https://ninjatwo.atlassian.net/rest/api/3/project/10001",
+    "id": "10001",
+    "key": "NJT",
+    "name": "NinjaTwo",
+    "avatarUrls": {
+      "48x48": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416",
+      "24x24": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=small",
+      "16x16": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=xsmall",
+      "32x32": "https://ninjatwo.atlassian.net/rest/api/3/universal_avatar/view/type/project/avatar/10416?size=medium"
+    },
+    "projectTypeKey": "service_desk",
+    "simplified": false,
+    "style": "classic",
+    "isPrivate": false,
+    "properties": {},
+    "entityId": "76f6a39f-6dee-479d-b48b-ea129a54071e",
+    "uuid": "76f6a39f-6dee-479d-b48b-ea129a54071e"
+  }
+]

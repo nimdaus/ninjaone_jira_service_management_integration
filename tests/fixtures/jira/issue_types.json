@@ -1,0 +1,52 @@
+[
+  {
+    "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10001",
+    "id": "10001",
+    "description": "A request that follows ITSM workflows.",
+    "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10300?size=medium",
+    "name": "[System] Service request",
+    "subtask": false,
+    "avatarId": 10300,
+    "hierarchyLevel": 0
+  },
+  {
+    "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10002",
+    "id": "10002",
+    "description": "A request that follows ITSM workflows.",
+    "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10313?size=medium",
+    "name": "[System] Service request with approvals",
+    "subtask": false,
+    "avatarId": 10313,
+    "hierarchyLevel": 0
+  },
+  {
+    "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10003",
+    "id": "10003",
+    "description": "For system outages or incidents. Created by Jira Service Management.",
+    "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10304?size=medium",
+    "name": "[System] Incident",
+    "subtask": false,
+    "avatarId": 10304,
+    "hierarchyLevel": 0
+  },
+  {
+    "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10004",
+    "id": "10004",
+    "description": "A small, distinct piece of work.",
+    "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+    "name": "Task",
+    "subtask": false,
+    "avatarId": 10318,
+    "hierarchyLevel": 0
+  },
+  {
+    "self": "https://ninjatwo.atlassian.net/rest/api/3/issuetype/10005",
+    "id": "10005",
+    "description": "A small piece of work that's part of a larger task.",
+    "iconUrl": "https://ninjatwo.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+    "name": "Sub-task",
+    "subtask": true,
+    "avatarId": 10316,
+    "hierarchyLevel": -1
+  }
+]

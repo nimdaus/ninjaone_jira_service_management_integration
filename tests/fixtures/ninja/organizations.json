@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Herrera Technologies",
+    "nodeApprovalMode": "AUTOMATIC",
+    "id": 1
+  },
+  {
+    "name": "KMSP Radio Station",
+    "nodeApprovalMode": "AUTOMATIC",
+    "id": 2
+  },
+  {
+    "name": "Steve's Snowboard Rentals (CIPP)",
+    "nodeApprovalMode": "AUTOMATIC",
+    "id": 3
+  },
+  {
+    "name": "Murillo Ventures",
+    "nodeApprovalMode": "AUTOMATIC",
+    "id": 4
+  },
+  {
+    "name": "Bill's Maple Leaf Diner",
+    "nodeApprovalMode": "AUTOMATIC",
+    "id": 5
+  },
+  {
+    "name": "Law offices of Delassen-Wills",
+    "description": "Test ",
+    "nodeApprovalMode": "AUTOMATIC",
+    "id": 6
+  },
+  {
+    "name": "SaaS Backup Archiver Org",
+    "nodeApprovalMode": "AUTOMATIC",
+    "id": 19
+  }
+]

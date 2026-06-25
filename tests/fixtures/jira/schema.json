@@ -1,0 +1,16 @@
+{
+  "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+  "globalId": "666362be-0866-459a-925b-f5eae075844a:3",
+  "id": "3",
+  "name": "ITAM",
+  "objectSchemaKey": "ITAM",
+  "created": "2026-06-24T21:07:04.162Z",
+  "updated": "2026-06-24T21:07:04.162Z",
+  "objectCount": 19,
+  "objectTypeCount": 11,
+  "description": "",
+  "status": "Ok",
+  "canManage": false,
+  "atlassianTemplateId": "it_assets_management",
+  "crossSchemaReferencingAllowed": false
+}

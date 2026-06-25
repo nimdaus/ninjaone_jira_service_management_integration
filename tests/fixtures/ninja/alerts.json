@@ -1,0 +1,542 @@
+[
+  {
+    "uid": "2c38a77c-50f9-47dd-9963-e89f830d2210",
+    "deviceId": 10,
+    "message": "'USER - Check for Unauthorized Administrators', evaluation script 'Check for Unauthorized Adminstrators' with output 'Warning: No device-specific admins found.\nDanger! Unauthorized admins found: admin'",
+    "createTime": 1781023410.099173,
+    "updateTime": 1781023410.099173,
+    "sourceType": "CONDITION_SCRIPT_RESULT",
+    "sourceConfigUid": "8c0af78e-b59a-49cc-9435-a12ca9af41d5",
+    "sourceName": "",
+    "subject": "6bdd6bc5-64fc-4058-9aeb-46ebd1efbf3d@8c0af78e-b59a-49cc-9435-a12ca9af41d5@ZDBiM2Y1NTFjYTBmNzFjN2UyM2E4NzUyYTA5NTM0OGRkYzNiYmY1MjkxNzdkMDBjYjVhNWM3MDczN2I0NTMzZg==@NONE@0",
+    "data": {
+      "message": {
+        "code": "agent_cond_script_result",
+        "params": {
+          "conditionConfigUid": "8c0af78e-b59a-49cc-9435-a12ca9af41d5",
+          "condition_name": "USER - Check for Unauthorized Administrators",
+          "script_name": "Check for Unauthorized Adminstrators",
+          "action_name": "Check for Unauthorized Adminstrators",
+          "rc": "0",
+          "output_message": "Warning: No device-specific admins found.\nDanger! Unauthorized admins found: admin",
+          "condition_status": "triggered"
+        }
+      }
+    },
+    "priority": "MEDIUM",
+    "severity": "MAJOR",
+    "conditionName": "Script result condition with input script 'Run Check for Unauthorized Adminstrators' with frequency '0 hour(s) 5 minute(s)', timeout '0 hour(s) 5 minute(s)', result code 'ANY 0', with the following output 'Danger!'",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "8f1533a4-f589-43b3-b612-9f50a784f9fd",
+    "deviceId": 8,
+    "message": "'USER - Check for Unauthorized Administrators', evaluation script 'Check for Unauthorized Adminstrators' with output 'Warning: No device-specific admins found.\nDanger! Unauthorized admins found: AzureAD\\DiegoSiciliani, AzureAD\\LidiaHolloway'",
+    "createTime": 1781023495.267446,
+    "updateTime": 1781023495.267446,
+    "sourceType": "CONDITION_SCRIPT_RESULT",
+    "sourceConfigUid": "8c0af78e-b59a-49cc-9435-a12ca9af41d5",
+    "sourceName": "",
+    "subject": "6bdd6bc5-64fc-4058-9aeb-46ebd1efbf3d@8c0af78e-b59a-49cc-9435-a12ca9af41d5@ZDBiM2Y1NTFjYTBmNzFjN2UyM2E4NzUyYTA5NTM0OGRkYzNiYmY1MjkxNzdkMDBjYjVhNWM3MDczN2I0NTMzZg==@NONE@0",
+    "data": {
+      "message": {
+        "code": "agent_cond_script_result",
+        "params": {
+          "conditionConfigUid": "8c0af78e-b59a-49cc-9435-a12ca9af41d5",
+          "condition_name": "USER - Check for Unauthorized Administrators",
+          "script_name": "Check for Unauthorized Adminstrators",
+          "action_name": "Check for Unauthorized Adminstrators",
+          "rc": "0",
+          "output_message": "Warning: No device-specific admins found.\nDanger! Unauthorized admins found: AzureAD\\DiegoSiciliani, AzureAD\\LidiaHolloway",
+          "condition_status": "triggered"
+        }
+      }
+    },
+    "priority": "MEDIUM",
+    "severity": "MAJOR",
+    "conditionName": "Script result condition with input script 'Run Check for Unauthorized Adminstrators' with frequency '0 hour(s) 5 minute(s)', timeout '0 hour(s) 5 minute(s)', result code 'ANY 0', with the following output 'Danger!'",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "635f3584-fc7d-4e3c-a2fe-be23e9b45263",
+    "deviceId": 8,
+    "message": "Disk Volume Free space for 'C:' is less than or equal to 15% from 2026-06-09T16:54:27Z to 2026-06-09T16:54:27Z",
+    "createTime": 1781024106.243235,
+    "updateTime": 1781024106.243235,
+    "sourceType": "CONDITION_AGENT_DISK_FREE_SPACE",
+    "sourceConfigUid": "189dd6ff-5f8f-4f2c-ad42-86104bd5927f",
+    "sourceName": "",
+    "subject": "C:",
+    "data": {
+      "message": {
+        "code": "agent_win_cond_disk_free_le",
+        "params": {
+          "volume": "C:",
+          "unit": "%",
+          "threshold": "15",
+          "start_date": "2026-06-09T16:54:27Z",
+          "end_date": "2026-06-09T16:54:27Z"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Disk free space is less than or equal to 15 % for 15 minutes  Exclude recovery volume for window device(s) Exclude removable disk for window device(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "e9eac42c-8c55-4a9d-9b52-10201e90a77b",
+    "deviceId": 9,
+    "message": "Disk Volume Free space for 'C:' is less than or equal to 15% from 2026-06-09T16:55:04Z to 2026-06-09T16:55:04Z",
+    "createTime": 1781024145.042693,
+    "updateTime": 1781024145.042693,
+    "sourceType": "CONDITION_AGENT_DISK_FREE_SPACE",
+    "sourceConfigUid": "189dd6ff-5f8f-4f2c-ad42-86104bd5927f",
+    "sourceName": "",
+    "subject": "C:",
+    "data": {
+      "message": {
+        "code": "agent_win_cond_disk_free_le",
+        "params": {
+          "volume": "C:",
+          "unit": "%",
+          "threshold": "15",
+          "start_date": "2026-06-09T16:55:04Z",
+          "end_date": "2026-06-09T16:55:04Z"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Disk free space is less than or equal to 15 % for 15 minutes  Exclude recovery volume for window device(s) Exclude removable disk for window device(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "acb0e206-6f03-40a3-9b1e-98416bae0036",
+    "deviceId": 1268,
+    "message": "Last Patch Condition: No OS patch installed in last 30 days",
+    "createTime": 1781197942.629211,
+    "updateTime": 1781197942.629211,
+    "sourceType": "CONDITION_AGENT_PATCH_LAST_INSTALLED",
+    "sourceConfigUid": "aa294b7a-8a74-45a4-9ee6-deed9e246cf6",
+    "sourceName": "",
+    "subject": "",
+    "data": {
+      "message": {
+        "code": "agent_cond_os_last_patch",
+        "params": {
+          "threshold": "30",
+          "name": "Last Patch Condition"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device has not installed an Operating System patch in 30 day(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "f9d2c07f-29e9-4012-9b2a-e293c72ebbda",
+    "deviceId": 1269,
+    "message": "Device 'DD-12-44' is offline for 121 minutes triggering condition 'Device Down for 2 hour(s)'",
+    "createTime": 1781205496.826085,
+    "updateTime": 1781205496.826085,
+    "sourceType": "AGENT_OFFLINE",
+    "sourceConfigUid": "20f84609-11ba-43c6-8143-83b0b9bdc8d4",
+    "sourceName": "agent offline condition",
+    "data": {
+      "message": {
+        "code": "conditions_device_offline_triggered_with_cond_name",
+        "params": {
+          "nodeDisplayName": "DD-12-44",
+          "conditionName": "Device Down for 2 hour(s)",
+          "nodeContactTime": "2026-06-11T17:17:13.259Z",
+          "durationOffline": "121"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device Down for 2 hour(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "fdd7ae0a-5e37-4f27-b7e1-047630c2b45b",
+    "deviceId": 1270,
+    "message": "Device 'WP11D-24H2-32' is offline for 121 minutes triggering condition 'VMs Offline - Do not delete'",
+    "createTime": 1781205571.811751,
+    "updateTime": 1781205571.811751,
+    "sourceType": "AGENT_OFFLINE",
+    "sourceConfigUid": "ec518c56-71e4-436b-8c67-f11df38694b3",
+    "sourceName": "agent offline condition",
+    "data": {
+      "message": {
+        "code": "conditions_device_offline_triggered_with_cond_name",
+        "params": {
+          "nodeDisplayName": "WP11D-24H2-32",
+          "conditionName": "VMs Offline - Do not delete",
+          "nodeContactTime": "2026-06-11T17:18:21.265Z",
+          "durationOffline": "121"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device Down for 2 hour(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "30cb4a44-f1ab-45dd-b47c-910fe2c6fb77",
+    "deviceId": 1268,
+    "message": "Device 'WP11D-24H2-1' is offline for 121 minutes triggering condition 'VMs Offline - Do not delete'",
+    "createTime": 1781205571.839371,
+    "updateTime": 1781205571.839371,
+    "sourceType": "AGENT_OFFLINE",
+    "sourceConfigUid": "ec518c56-71e4-436b-8c67-f11df38694b3",
+    "sourceName": "agent offline condition",
+    "data": {
+      "message": {
+        "code": "conditions_device_offline_triggered_with_cond_name",
+        "params": {
+          "nodeDisplayName": "WP11D-24H2-1",
+          "conditionName": "VMs Offline - Do not delete",
+          "nodeContactTime": "2026-06-11T17:18:24.099Z",
+          "durationOffline": "121"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device Down for 2 hour(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "4b074b76-9eab-41e2-9b87-4bee77afac10",
+    "deviceId": 1264,
+    "message": "At least one OS patch is available with a CVSS score greater than or equal to 9.0 for 3 day(s)",
+    "createTime": 1781531671.086856,
+    "updateTime": 1781531671.086856,
+    "sourceType": "CONDITION_AGENT_CVSS_SCORE",
+    "sourceConfigUid": "923a7ce2-2574-4a07-8863-6fbf92614269",
+    "sourceName": "",
+    "subject": "",
+    "data": {
+      "message": {
+        "code": "agent_win_cond_patch_cvss_ge_md",
+        "params": {
+          "cvss_score_threshold": "9.0",
+          "duration": "3"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "At least one patch is available with a CVSS score greater than or equal to 9.0 for 3 days",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": true
+  },
+  {
+    "uid": "878cfc05-676c-458e-9dc0-87bf4cf80092",
+    "deviceId": 1263,
+    "message": "Device 'BDGZ02' is offline for 121 minutes triggering condition 'VMs Offline - Do not delete'",
+    "createTime": 1781550646.832414,
+    "updateTime": 1781550646.832414,
+    "sourceType": "AGENT_OFFLINE",
+    "sourceConfigUid": "ec518c56-71e4-436b-8c67-f11df38694b3",
+    "sourceName": "agent offline condition",
+    "data": {
+      "message": {
+        "code": "conditions_device_offline_triggered_with_cond_name",
+        "params": {
+          "nodeDisplayName": "BDGZ02",
+          "conditionName": "VMs Offline - Do not delete",
+          "nodeContactTime": "2026-06-15T17:09:32.878Z",
+          "durationOffline": "121"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device Down for 2 hour(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "68aaedea-ffb5-49b7-bc5d-88fe2710e8eb",
+    "deviceId": 1264,
+    "message": "Device 'BDGZ03' is offline for 120 minutes triggering condition 'VMs Offline - Do not delete'",
+    "createTime": 1781550646.868785,
+    "updateTime": 1781550646.868785,
+    "sourceType": "AGENT_OFFLINE",
+    "sourceConfigUid": "ec518c56-71e4-436b-8c67-f11df38694b3",
+    "sourceName": "agent offline condition",
+    "data": {
+      "message": {
+        "code": "conditions_device_offline_triggered_with_cond_name",
+        "params": {
+          "nodeDisplayName": "BDGZ03",
+          "conditionName": "VMs Offline - Do not delete",
+          "nodeContactTime": "2026-06-15T17:10:44.087Z",
+          "durationOffline": "120"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device Down for 2 hour(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "35a27c4c-7805-4132-988a-6ffdd816921f",
+    "deviceId": 1262,
+    "message": "Device 'BDGZ01' is offline for 120 minutes triggering condition 'VMs Offline - Do not delete'",
+    "createTime": 1781550646.891445,
+    "updateTime": 1781550646.891445,
+    "sourceType": "AGENT_OFFLINE",
+    "sourceConfigUid": "ec518c56-71e4-436b-8c67-f11df38694b3",
+    "sourceName": "agent offline condition",
+    "data": {
+      "message": {
+        "code": "conditions_device_offline_triggered_with_cond_name",
+        "params": {
+          "nodeDisplayName": "BDGZ01",
+          "conditionName": "VMs Offline - Do not delete",
+          "nodeContactTime": "2026-06-15T17:10:23.390Z",
+          "durationOffline": "120"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device Down for 2 hour(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "c25c5107-bc72-40bf-901a-7b9b6a569b64",
+    "deviceId": 1255,
+    "message": "Disk Volume Free space for 'C:' is less than or equal to 15% from 2026-06-15T23:26:57Z to 2026-06-15T23:26:57Z",
+    "createTime": 1781566074.398034,
+    "updateTime": 1781566074.398034,
+    "sourceType": "CONDITION_AGENT_DISK_FREE_SPACE",
+    "sourceConfigUid": "189dd6ff-5f8f-4f2c-ad42-86104bd5927f",
+    "sourceName": "",
+    "subject": "C:",
+    "data": {
+      "message": {
+        "code": "agent_win_cond_disk_free_le",
+        "params": {
+          "volume": "C:",
+          "unit": "%",
+          "threshold": "15",
+          "start_date": "2026-06-15T23:26:57Z",
+          "end_date": "2026-06-15T23:26:57Z"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Disk free space is less than or equal to 15 % for 15 minutes  Exclude recovery volume for window device(s) Exclude removable disk for window device(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "a863f7a5-7be4-4ef5-982b-6d10649efa17",
+    "deviceId": 1255,
+    "message": "At least one OS patch is available with a CVSS score greater than or equal to 9.0 for 3 day(s)",
+    "createTime": 1781588309.113206,
+    "updateTime": 1781588309.113206,
+    "sourceType": "CONDITION_AGENT_CVSS_SCORE",
+    "sourceConfigUid": "923a7ce2-2574-4a07-8863-6fbf92614269",
+    "sourceName": "",
+    "subject": "",
+    "data": {
+      "message": {
+        "code": "agent_win_cond_patch_cvss_ge_md",
+        "params": {
+          "cvss_score_threshold": "9.0",
+          "duration": "3"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "At least one patch is available with a CVSS score greater than or equal to 9.0 for 3 days",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": true
+  },
+  {
+    "uid": "4b5bf1c5-f657-4c27-ba4c-d03e77567d06",
+    "deviceId": 1255,
+    "message": "Last Patch Condition: No OS patch installed in last 30 days",
+    "createTime": 1781590100.290524,
+    "updateTime": 1781590100.290524,
+    "sourceType": "CONDITION_AGENT_PATCH_LAST_INSTALLED",
+    "sourceConfigUid": "aa294b7a-8a74-45a4-9ee6-deed9e246cf6",
+    "sourceName": "",
+    "subject": "",
+    "data": {
+      "message": {
+        "code": "agent_cond_os_last_patch",
+        "params": {
+          "threshold": "30",
+          "name": "Last Patch Condition"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device has not installed an Operating System patch in 30 day(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "e8aeeab8-172b-4e44-9f62-126e742c2b2a",
+    "deviceId": 1255,
+    "message": "Device 'WINDOWS11GZVM (Gravityzone Threat)' is offline for 120 minutes triggering condition 'VMs Offline - Do not delete'",
+    "createTime": 1781607511.850589,
+    "updateTime": 1781607511.850589,
+    "sourceType": "AGENT_OFFLINE",
+    "sourceConfigUid": "ec518c56-71e4-436b-8c67-f11df38694b3",
+    "sourceName": "agent offline condition",
+    "data": {
+      "message": {
+        "code": "conditions_device_offline_triggered_with_cond_name",
+        "params": {
+          "nodeDisplayName": "WINDOWS11GZVM (Gravityzone Threat)",
+          "conditionName": "VMs Offline - Do not delete",
+          "nodeContactTime": "2026-06-16T08:58:13.587Z",
+          "durationOffline": "120"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device Down for 2 hour(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "55b7b864-dbf0-434e-9f2e-a67a37776d65",
+    "deviceId": 1276,
+    "message": "Device 'DEPLOY-DEMO-01' is offline for 120 minutes triggering condition 'VMs Offline - Do not delete'",
+    "createTime": 1781643121.858526,
+    "updateTime": 1781643121.858526,
+    "sourceType": "AGENT_OFFLINE",
+    "sourceConfigUid": "ec518c56-71e4-436b-8c67-f11df38694b3",
+    "sourceName": "agent offline condition",
+    "data": {
+      "message": {
+        "code": "conditions_device_offline_triggered_with_cond_name",
+        "params": {
+          "nodeDisplayName": "DEPLOY-DEMO-01",
+          "conditionName": "VMs Offline - Do not delete",
+          "nodeContactTime": "2026-06-16T18:51:30.368Z",
+          "durationOffline": "120"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device Down for 2 hour(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "0e6dab90-82ef-4d7a-99d4-09591b50523b",
+    "deviceId": 139,
+    "message": "System has not rebooted for more than 30 days. Last reboot time: 2026-02-09T14:46:00Z",
+    "createTime": 1781700219.0,
+    "updateTime": 1781700219.0,
+    "sourceType": "CONDITION_SYSTEM_UPTIME",
+    "sourceConfigUid": "249b3ab9-5c65-4765-b6f3-2c06b80d9df5",
+    "sourceName": "",
+    "subject": "",
+    "data": {
+      "message": {
+        "code": "agent_cond_sys_uptime",
+        "params": {
+          "end_date": "2026-06-17T12:43:39Z",
+          "operator": "",
+          "reboot_date": "2026-02-09T14:46:00Z",
+          "reboot_days": "30",
+          "start_date": "2026-06-17T12:43:39Z",
+          "threshold": "UNDEFINED_THRESHOLD",
+          "unit": "UNDEFINED_UNIT",
+          "unit_value": "UNDEFINED_UNIT_VALUE"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device has not rebooted in 30 day(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "bb5af1e6-1f9d-4983-b872-c290dab547f4",
+    "deviceId": 144,
+    "message": "System has not rebooted for more than 30 days. Last reboot time: 2026-01-16T20:48:00Z",
+    "createTime": 1781700288.0,
+    "updateTime": 1781700288.0,
+    "sourceType": "CONDITION_SYSTEM_UPTIME",
+    "sourceConfigUid": "249b3ab9-5c65-4765-b6f3-2c06b80d9df5",
+    "sourceName": "",
+    "subject": "",
+    "data": {
+      "message": {
+        "code": "agent_cond_sys_uptime",
+        "params": {
+          "end_date": "2026-06-17T12:44:48Z",
+          "operator": "",
+          "reboot_date": "2026-01-16T20:48:00Z",
+          "reboot_days": "30",
+          "start_date": "2026-06-17T12:44:48Z",
+          "threshold": "UNDEFINED_THRESHOLD",
+          "unit": "UNDEFINED_UNIT",
+          "unit_value": "UNDEFINED_UNIT_VALUE"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device has not rebooted in 30 day(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "4aa9ff8a-9522-40c2-9681-3bd9f34b569a",
+    "deviceId": 1270,
+    "message": "Device 'WP11D-24H2-32' is offline for 12805 minutes triggering condition 'DEVICE - Offline One Week'",
+    "createTime": 1781966635.146368,
+    "updateTime": 1781966635.146368,
+    "sourceType": "AGENT_OFFLINE",
+    "sourceConfigUid": "b350a4c6-084c-4fc8-b4e6-4cd1f74a4f4f",
+    "sourceName": "agent offline condition",
+    "data": {
+      "message": {
+        "code": "conditions_device_offline_triggered_with_cond_name",
+        "params": {
+          "nodeDisplayName": "WP11D-24H2-32",
+          "conditionName": "DEVICE - Offline One Week",
+          "nodeContactTime": "2026-06-11T17:18:21.265Z",
+          "durationOffline": "12805"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device Down for 7 day(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  }
+]

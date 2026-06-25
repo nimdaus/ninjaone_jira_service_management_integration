@@ -1,0 +1,85 @@
+{
+  "id": 3,
+  "uid": "b99746bc-efe7-49fc-85ff-9d9833d3082a",
+  "assignedOwnerUid": "2433ca56-e390-4d96-b943-2360f79a7592",
+  "organizationId": 1,
+  "locationId": 9,
+  "nodeClass": "WINDOWS_WORKSTATION",
+  "nodeRoleId": 201,
+  "rolePolicyId": 42,
+  "policyId": 2,
+  "approvalStatus": "APPROVED",
+  "offline": false,
+  "displayName": "Austin's Workstation (Dual Monitors)",
+  "systemName": "MSPDEMO-W10-01",
+  "dnsName": "MSPDEMO-W10-01.MSPDEMO.local",
+  "created": 1744382020.296463,
+  "lastContact": 1782361959.489,
+  "lastUpdate": 1782361959.489,
+  "ipAddresses": [
+    "10.6.3.69"
+  ],
+  "macAddresses": [
+    "00:50:56:97:69:58"
+  ],
+  "publicIP": "130.250.7.197",
+  "notes": [
+    {
+      "text": "hello!"
+    }
+  ],
+  "os": {
+    "manufacturer": "Microsoft Corporation",
+    "name": "Windows 10 Pro for Workstations Edition",
+    "architecture": "64-bit",
+    "lastBootTime": 1780967396.0,
+    "buildNumber": "19045",
+    "releaseId": "22H2",
+    "servicePackMajorVersion": 0,
+    "servicePackMinorVersion": 0,
+    "locale": "en-US",
+    "language": "English",
+    "needsReboot": false
+  },
+  "system": {
+    "name": "MSPDEMO-W10-01",
+    "manufacturer": "VMware, Inc.",
+    "model": "VMware7,1",
+    "biosSerialNumber": "VMware-42 17 c4 15 eb ef 53 d7-ae 7b 0e fe 96 e0 74 2f",
+    "serialNumber": "None",
+    "domain": "MSPDEMO",
+    "domainRole": "Member Workstation",
+    "numberOfProcessors": 1,
+    "totalPhysicalMemory": 4293951488,
+    "virtualMachine": true,
+    "chassisType": "UNKNOWN"
+  },
+  "memory": {
+    "capacity": 4293951488
+  },
+  "processors": [
+    {
+      "architecture": "x64",
+      "maxClockSpeed": 2900000000,
+      "clockSpeed": 2900000000,
+      "name": "Intel(R) Xeon(R) Gold 5415+",
+      "numCores": 2,
+      "numLogicalCores": 2
+    }
+  ],
+  "volumes": [
+    {
+      "name": "C:",
+      "label": "",
+      "deviceType": "Local Disk",
+      "fileSystem": "NTFS",
+      "autoMount": false,
+      "compressed": false,
+      "capacity": 63766056960,
+      "freeSpace": 4295749632,
+      "serialNumber": "18B5F967"
+    }
+  ],
+  "lastLoggedInUser": "MSPDEMO\\Ninja",
+  "deviceType": "AgentDevice"
+}
