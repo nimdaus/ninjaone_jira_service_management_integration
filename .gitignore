@@ -70,3 +70,5 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+
+config.yaml
