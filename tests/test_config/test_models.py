@@ -86,7 +86,7 @@ class TestAttributeMapping:
         assert mapping.jira_attribute_name == "Name"
         assert mapping.source == "systemName"
         assert mapping.required is False
-        assert mapping.transforms == []
+        assert mapping.transform is None
 
     def test_mapping_with_transform(self):
         """Test mapping with transformation (legacy single-string coerced to list)."""
@@ -97,7 +97,7 @@ class TestAttributeMapping:
             transform="normalize_serial",
         )
 
-        assert mapping.transforms == ["normalize_serial"]
+        assert mapping.transform == "normalize_serial"
     
     def test_mapping_with_default_value(self):
         """Test mapping with default value fallback."""

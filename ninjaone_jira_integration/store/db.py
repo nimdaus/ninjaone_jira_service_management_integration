@@ -36,7 +36,7 @@ CREATE INDEX IF NOT EXISTS idx_device_mappings_serial
 
 -- Alert mappings: NinjaOne alert ID to Jira issue key
 CREATE TABLE IF NOT EXISTS alert_mappings (
-    ninja_alert_id INTEGER PRIMARY KEY,
+    ninja_alert_id TEXT PRIMARY KEY,
     jira_issue_key TEXT NOT NULL,
     jira_issue_id TEXT,
     ninja_device_id INTEGER,
@@ -154,6 +154,33 @@ async def init_database(db_path: Path, wal_mode: bool = True) -> aiosqlite.Conne
             await conn.execute(_col_sql)
         except Exception:
             pass  # column already exists
+
+    # Migrate ninja_alert_id from INTEGER to TEXT to support UUID strings.
+    # SQLite can't ALTER COLUMN, so we recreate the table if it still has the old type.
+    row = await conn.execute(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND name='alert_mappings'"
+    )
+    ddl = (await row.fetchone() or ("",))[0]
+    if "ninja_alert_id INTEGER" in ddl:
+        await conn.executescript("""
+            ALTER TABLE alert_mappings RENAME TO _alert_mappings_old;
+            CREATE TABLE alert_mappings (
+                ninja_alert_id TEXT PRIMARY KEY,
+                jira_issue_key TEXT NOT NULL,
+                jira_issue_id TEXT,
+                ninja_device_id INTEGER,
+                ninja_update_time REAL,
+                resolved_at TEXT,
+                created_at TEXT NOT NULL DEFAULT (datetime('now')),
+                updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+            );
+            INSERT INTO alert_mappings SELECT
+                CAST(ninja_alert_id AS TEXT), jira_issue_key, jira_issue_id,
+                ninja_device_id, ninja_update_time, resolved_at, created_at, updated_at
+            FROM _alert_mappings_old;
+            DROP TABLE _alert_mappings_old;
+        """)
+
     await conn.commit()
 
     logger.info("Database initialized successfully")

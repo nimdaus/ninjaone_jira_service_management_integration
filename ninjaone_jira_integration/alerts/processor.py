@@ -401,7 +401,12 @@ class AlertProcessor:
         # Timestamps
         created_time = alert.get("createTime", alert.get("timestamp"))
         if created_time:
-            parts.append(f"*Alert Created:* {created_time}")
+            from datetime import datetime, timezone
+            try:
+                dt = datetime.fromtimestamp(float(created_time), tz=timezone.utc)
+                parts.append(f"*Alert Created:* {dt.strftime('%Y-%m-%d %H:%M:%S UTC')}")
+            except (ValueError, TypeError, OSError):
+                parts.append(f"*Alert Created:* {created_time}")
         
         # NinjaOne Reference
         parts.append("")
