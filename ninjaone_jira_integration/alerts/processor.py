@@ -165,7 +165,7 @@ class AlertProcessor:
         Returns:
             Skip reason string, or None if the alert should be processed.
         """
-        severity = alert.get("severity", "").upper()
+        severity = (alert.get("severity") or "").upper()
         min_severity = self.config.issues.min_severity
 
         if min_severity:
@@ -208,18 +208,20 @@ class AlertProcessor:
         Returns:
             AlertResult.
         """
-        # Build issue fields
-        summary = self._build_summary(alert)
-        description = self._build_description(alert)
-        additional_fields = self._map_alert_fields(alert)
-        
-        # Get linked asset if device is known
+        # Get linked asset and cached device name if device is known
         jira_asset_id: str | None = None
+        device_name: str | None = None
         if device_id:
             device_mapping = await self.mapping_store.get_device_mapping(device_id)
             if device_mapping:
                 jira_asset_id = device_mapping.jira_asset_id
-        
+                device_name = device_mapping.device_name
+
+        # Build issue fields
+        summary = self._build_summary(alert, device_name=device_name)
+        description = self._build_description(alert, device_name=device_name)
+        additional_fields = self._map_alert_fields(alert)
+
         if dry_run:
             logger.info(
                 "[DRY RUN] Would create issue for alert %d: %s",
@@ -340,21 +342,22 @@ class AlertProcessor:
         fields.update(additional_fields)
         return fields
 
-    def _build_summary(self, alert: dict[str, Any]) -> str:
+    def _build_summary(self, alert: dict[str, Any], device_name: str | None = None) -> str:
         """Build issue summary from alert data.
-        
+
         Args:
             alert: Alert data.
-            
+            device_name: Device name from cached mapping (avoids an API call).
+
         Returns:
             Issue summary string.
         """
         template = self.config.issues.summary_template or "[NinjaOne] {message}"
-        
+
         # Available template variables
         variables = {
             "message": alert.get("message", "Unknown Alert"),
-            "device_name": alert.get("deviceName", alert.get("device", {}).get("systemName", "Unknown")),
+            "device_name": device_name or alert.get("deviceName") or "Unknown",
             "severity": alert.get("severity", "Unknown"),
             "source_type": alert.get("sourceType", "Unknown"),
             "condition": alert.get("conditionName", alert.get("message", "")),
@@ -365,30 +368,31 @@ class AlertProcessor:
         except KeyError:
             return template.format_map(variables)
     
-    def _build_description(self, alert: dict[str, Any]) -> str:
+    def _build_description(self, alert: dict[str, Any], device_name: str | None = None) -> str:
         """Build issue description from alert data.
-        
+
         Args:
             alert: Alert data.
-            
+            device_name: Device name from cached mapping.
+
         Returns:
             Issue description string.
         """
         parts = []
-        
+
         # Header
         parts.append("h3. Alert Details")
         parts.append("")
-        
+
         # Alert info
         parts.append(f"*Message:* {alert.get('message', 'N/A')}")
         parts.append(f"*Severity:* {alert.get('severity', 'N/A')}")
         parts.append(f"*Source Type:* {alert.get('sourceType', 'N/A')}")
         parts.append(f"*Condition:* {alert.get('conditionName', 'N/A')}")
         parts.append("")
-        
+
         # Device info
-        device_name = alert.get("deviceName", alert.get("device", {}).get("systemName"))
+        device_name = device_name or alert.get("deviceName")
         if device_name:
             parts.append(f"*Device:* {device_name}")
         
@@ -405,7 +409,7 @@ class AlertProcessor:
         
         # NinjaOne Reference
         parts.append("")
-        parts.append(f"*NinjaOne Alert ID:* {alert.get('id', 'N/A')}")
+        parts.append(f"*NinjaOne Alert ID:* {alert.get('uid', alert.get('id', 'N/A'))}")
         parts.append(f"*NinjaOne Device ID:* {alert.get('deviceId', 'N/A')}")
         
         return "\n".join(parts)

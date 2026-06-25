@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS device_mappings (
     jira_asset_id TEXT NOT NULL,
     jira_asset_key TEXT,
     serial_number TEXT,
+    device_name TEXT,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
@@ -147,6 +148,7 @@ async def init_database(db_path: Path, wal_mode: bool = True) -> aiosqlite.Conne
     for _col_sql in [
         "ALTER TABLE alert_mappings ADD COLUMN ninja_update_time REAL",
         "ALTER TABLE alert_mappings ADD COLUMN resolved_at TEXT",
+        "ALTER TABLE device_mappings ADD COLUMN device_name TEXT",
     ]:
         try:
             await conn.execute(_col_sql)

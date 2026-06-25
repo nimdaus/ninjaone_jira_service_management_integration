@@ -30,16 +30,17 @@ class DeviceMapping:
     jira_asset_id: str
     jira_asset_key: str | None = None
     serial_number: str | None = None
+    device_name: str | None = None
     created_at: datetime | None = None
     updated_at: datetime | None = None
-    
+
     @classmethod
     def from_row(cls, row: aiosqlite.Row) -> "DeviceMapping":
         """Create from database row.
-        
+
         Args:
             row: Database row.
-            
+
         Returns:
             DeviceMapping instance.
         """
@@ -48,6 +49,7 @@ class DeviceMapping:
             jira_asset_id=row["jira_asset_id"],
             jira_asset_key=row["jira_asset_key"],
             serial_number=row["serial_number"],
+            device_name=row["device_name"] if "device_name" in row.keys() else None,
             created_at=datetime.fromisoformat(row["created_at"]) if row["created_at"] else None,
             updated_at=datetime.fromisoformat(row["updated_at"]) if row["updated_at"] else None,
         )
@@ -190,13 +192,14 @@ class MappingStore:
         async with self.db.transaction() as conn:
             await conn.execute(
                 """
-                INSERT INTO device_mappings 
-                    (ninja_device_id, jira_asset_id, jira_asset_key, serial_number, updated_at)
-                VALUES (?, ?, ?, ?, datetime('now'))
+                INSERT INTO device_mappings
+                    (ninja_device_id, jira_asset_id, jira_asset_key, serial_number, device_name, updated_at)
+                VALUES (?, ?, ?, ?, ?, datetime('now'))
                 ON CONFLICT(ninja_device_id) DO UPDATE SET
                     jira_asset_id = excluded.jira_asset_id,
                     jira_asset_key = excluded.jira_asset_key,
                     serial_number = excluded.serial_number,
+                    device_name = excluded.device_name,
                     updated_at = datetime('now')
                 """,
                 (
@@ -204,6 +207,7 @@ class MappingStore:
                     mapping.jira_asset_id,
                     mapping.jira_asset_key,
                     mapping.serial_number,
+                    mapping.device_name,
                 ),
             )
         

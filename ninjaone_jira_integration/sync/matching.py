@@ -394,6 +394,7 @@ class IdentityResolver:
                 jira_asset_id=asset_id,
                 jira_asset_key=asset_key,
                 serial_number=serial_number,
+                device_name=self.mapper.extract_device_name(device),
             )
             await self.mapping_store.upsert_device_mapping(mapping)
             
@@ -428,14 +429,15 @@ class IdentityResolver:
             jira_asset_key: Jira asset key.
         """
         serial_number = self.mapper.extract_serial_number(device)
-        
+
         mapping = DeviceMapping(
             ninja_device_id=device_id,
             jira_asset_id=jira_asset_id,
             jira_asset_key=jira_asset_key,
             serial_number=serial_number,
+            device_name=self.mapper.extract_device_name(device),
         )
-        
+
         await self.mapping_store.upsert_device_mapping(mapping)
         
         logger.debug(

@@ -26,7 +26,6 @@ classifiers = [
 dependencies = [
     "httpx>=0.25",
     "pydantic>=2.0",
-    "pydantic-settings>=2.0",
     "click>=8.0",
     "fastapi>=0.100",
     "uvicorn[standard]>=0.23",

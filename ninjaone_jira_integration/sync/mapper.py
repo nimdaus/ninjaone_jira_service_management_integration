@@ -18,6 +18,7 @@ from ninjaone_jira_integration.config.models import (
     JiraAssetsConfig,
     JiraAttributeType,
 )
+from ninjaone_jira_integration.utils import get_nested_value
 
 logger = logging.getLogger(__name__)
 
@@ -32,63 +33,6 @@ class MappedAttribute:
     source_field: str
     original_value: Any | None = None
     transformed: bool = False
-
-
-def get_nested_value(data: dict[str, Any], path: str) -> Any | None:
-    """Extract a nested value from a dictionary using dot notation.
-    
-    Supports:
-    - Dot notation: 'system.serialNumber'
-    - Array indexing: 'disks[0].size'
-    - Nested objects: 'os.name'
-    
-    Args:
-        data: Dictionary to search.
-        path: Dot-separated path.
-        
-    Returns:
-        Value at path, or None if not found.
-    """
-    if not path or not data:
-        return None
-    
-    current = data
-    
-    # Split by dots, but preserve array indices
-    segments = re.split(r'\.(?![^\[]*\])', path)
-    
-    for segment in segments:
-        if current is None:
-            return None
-        
-        # Check for array indexing: field[0]
-        match = re.match(r'^(\w+)\[(\d+)\]$', segment)
-        if match:
-            key, index = match.groups()
-            if isinstance(current, dict) and key in current:
-                arr = current[key]
-                if isinstance(arr, list) and int(index) < len(arr):
-                    current = arr[int(index)]
-                else:
-                    return None
-            else:
-                return None
-        else:
-            # Regular key access
-            if isinstance(current, dict) and segment in current:
-                current = current[segment]
-            else:
-                # Try case-insensitive match
-                found = False
-                for key in current.keys() if isinstance(current, dict) else []:
-                    if key.lower() == segment.lower():
-                        current = current[key]
-                        found = True
-                        break
-                if not found:
-                    return None
-    
-    return current
 
 
 def apply_transform(value: Any, transform: str | None) -> Any:
@@ -262,11 +206,8 @@ def map_device_to_attributes(
             else:
                 continue  # Skip optional empty fields
         
-        # Apply transform chain
-        for t in mapping.transforms:
-            value = apply_transform(value, t)
-            if value is None:
-                break
+        if mapping.transform:
+            value = apply_transform(value, mapping.transform)
         if value is None:
             continue
         
@@ -353,15 +294,11 @@ class DeviceMapper:
                     value = mapping.default_value
                     transformed = True
 
-            # Apply transform chain
-            if mapping.transforms and value is not None:
-                for t in mapping.transforms:
-                    new_value = apply_transform(value, t)
-                    if new_value != value:
-                        transformed = True
-                    value = new_value
-                    if value is None:
-                        break
+            if mapping.transform and value is not None:
+                new_value = apply_transform(value, mapping.transform)
+                if new_value != value:
+                    transformed = True
+                value = new_value
 
             # Convert type
             if value is not None:

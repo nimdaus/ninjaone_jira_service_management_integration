@@ -22,6 +22,7 @@ from dotenv import load_dotenv
 from pydantic import SecretStr
 
 from ninjaone_jira_integration.config.models import AppConfig
+from ninjaone_jira_integration.utils import get_nested_value
 
 # Environment variable prefix
 ENV_PREFIX = "NINJA_JIRA_"
@@ -161,27 +162,6 @@ def load_dotenv_files(config_file_dir: Path | None = None) -> None:
     if cwd_env.exists() and cwd_env not in loaded_paths:
         load_dotenv(cwd_env, override=True)
         loaded_paths.add(cwd_env)
-
-
-def get_nested_value(data: dict[str, Any], path: str) -> Any | None:
-    """Get a nested value from a dictionary using dot notation.
-    
-    Args:
-        data: Dictionary to search.
-        path: Dot-separated path (e.g., 'ninjaone.client_id').
-        
-    Returns:
-        Value at path, or None if not found.
-    """
-    keys = path.split(".")
-    current = data
-    
-    for key in keys:
-        if not isinstance(current, dict) or key not in current:
-            return None
-        current = current[key]
-    
-    return current
 
 
 def set_nested_value(data: dict[str, Any], path: str, value: Any) -> None:
@@ -369,41 +349,3 @@ def save_config(
     path.write_text(content, encoding="utf-8")
 
 
-def get_effective_config_display(config: AppConfig) -> dict[str, Any]:
-    """Get configuration for display with secrets redacted.
-    
-    Args:
-        config: Configuration to display.
-        
-    Returns:
-        Configuration dict with secrets replaced by '[REDACTED]'.
-    """
-    data = config.model_dump(mode="json")
-    
-    for secret_path in SECRET_PATHS:
-        current = data
-        keys = secret_path.split(".")
-        
-        for key in keys[:-1]:
-            if key in current:
-                current = current[key]
-            else:
-                break
-        else:
-            if keys[-1] in current and current[keys[-1]]:
-                current[keys[-1]] = "[REDACTED]"
-    
-    return data
-
-
-def config_from_env_only() -> AppConfig:
-    """Create configuration from environment variables only.
-    
-    Useful for CI/CD and container deployments where all config
-    comes from environment.
-    
-    Returns:
-        AppConfig populated from environment.
-    """
-    load_dotenv()
-    return load_config(config_path=None, cli_overrides=None)

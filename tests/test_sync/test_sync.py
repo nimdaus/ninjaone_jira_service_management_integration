@@ -11,12 +11,8 @@ from ninjaone_jira_integration.config.models import (
     AttributeMapping,
     JiraAssetsConfig,
 )
-from ninjaone_jira_integration.sync.mapper import (
-    DeviceMapper,
-    MappedAttribute,
-    apply_transform,
-    get_nested_value,
-)
+from ninjaone_jira_integration.sync.mapper import DeviceMapper, MappedAttribute, apply_transform
+from ninjaone_jira_integration.utils import get_nested_value
 
 
 class TestGetNestedValue:

@@ -353,7 +353,7 @@ class JiraIssueConfig(BaseModel):
 
     # Default templates for issue fields
     summary_template: str = Field(
-        default="[NinjaOne Alert] {alert.message} - {device.systemName}",
+        default="[NinjaOne Alert] {message} - {severity}",
         description="Template for issue summary",
     )
     description_template: str = Field(

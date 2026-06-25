@@ -65,8 +65,6 @@ class OutboundNotifier:
     async def send_sync_complete(self, summary: SyncSummary) -> None:
         if not self._cfg.url or not self._cfg.notify_on_changes:
             return
-        if summary.created == 0 and summary.updated == 0:
-            return
 
         changes: list[str] = []
         for r in summary.results:
@@ -99,8 +97,6 @@ class OutboundNotifier:
         no_asset_link: int = 0,
     ) -> None:
         if not self._cfg.url or not self._cfg.notify_on_changes:
-            return
-        if created == 0 and no_asset_link == 0:
             return
 
         summary: dict[str, Any] = {
