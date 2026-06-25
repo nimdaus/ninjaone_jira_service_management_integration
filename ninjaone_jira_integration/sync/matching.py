@@ -400,10 +400,12 @@ class IdentityResolver:
             return asset_id, asset
             
         except Exception as e:
+            detail = getattr(e, "response_body", None)
             logger.error(
-                "Failed to create asset for device %d: %s",
+                "Failed to create asset for device %d: %s%s",
                 device_id,
                 str(e),
+                f" — {detail}" if detail else "",
             )
             return None, None
     

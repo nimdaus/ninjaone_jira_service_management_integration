@@ -198,6 +198,25 @@ class SyncEngine:
             match = await self.resolver.resolve(device_id, device)
             
             if match.needs_create:
+                # Guard: if role mappings are configured but this device's role is absent,
+                # fail fast with a clear message rather than silently creating with no object type.
+                role_id = device.get("nodeRoleId")
+                if (
+                    role_id is not None
+                    and self.config.assets.has_role_mappings()
+                    and self.config.assets.get_mapping_for_role(role_id) is None
+                ):
+                    error = (
+                        f"NinjaOne role {role_id} has no entry in object_type_mappings — "
+                        "add a mapping for this role to create assets for these devices"
+                    )
+                    logger.warning("Device %d (%s): %s", device_id, device_name, error)
+                    return SyncResult(
+                        device_id=device_id,
+                        device_name=device_name,
+                        action=SyncAction.FAILED,
+                        error=error,
+                    )
                 # Create new asset
                 return await self._create_asset(
                     device_id, device, device_name, dry_run

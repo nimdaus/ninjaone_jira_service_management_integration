@@ -130,6 +130,9 @@ class SyncScheduler:
                 summary.skipped,
                 summary.failed,
             )
+            if not dry_run:
+                from ninjaone_jira_integration.notifications import OutboundNotifier
+                await OutboundNotifier(self.config.heartbeat).send_sync_complete(summary)
         except Exception as e:
             logger.exception("Scheduled sync failed: %s", e)
 

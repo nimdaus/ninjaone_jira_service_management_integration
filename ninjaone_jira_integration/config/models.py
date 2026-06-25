@@ -8,9 +8,9 @@ as SecretStr to prevent accidental logging.
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any
+from typing import Any, Literal
 
-from pydantic import BaseModel, Field, SecretStr, field_validator, model_validator
+from pydantic import BaseModel, Field, SecretStr, field_validator
 
 
 class NinjaOneRegion(str, Enum):
@@ -145,9 +145,9 @@ class AttributeMapping(BaseModel):
         default=None,
         description="Default value if source field is empty",
     )
-    transforms: list[str] = Field(
-        default_factory=list,
-        description="Ordered transforms to apply (e.g., ['strip', 'upper', 'to_integer'])",
+    transform: str | None = Field(
+        default=None,
+        description="Optional transform expression (e.g., 'upper', 'lower', 'strip')",
     )
     allowed_values: list[str] | None = Field(
         default=None,
@@ -159,16 +159,6 @@ class AttributeMapping(BaseModel):
                     "Lower numbers = higher priority (1 = try first, 2 = try second, etc.). "
                     "If None, attribute is synced but not used for matching.",
     )
-
-    @model_validator(mode="before")
-    @classmethod
-    def coerce_transform(cls, values: dict) -> dict:
-        """Backward compat: old 'transform' string field → 'transforms' list."""
-        if isinstance(values, dict):
-            old = values.pop("transform", None)
-            if old and not values.get("transforms"):
-                values["transforms"] = [old]
-        return values
 
 
 class ObjectTypeMapping(BaseModel):
@@ -285,24 +275,20 @@ class JiraAssetsConfig(BaseModel):
 
 class FieldMapping(BaseModel):
     """Mapping for Jira issue fields."""
-
+    
     jira_field_id: str = Field(
         description="Jira field ID (e.g., 'summary', 'description', 'customfield_10001')",
     )
     jira_field_name: str = Field(
         description="Jira field name (for display)",
     )
-    jira_field_type: str | None = Field(
-        default=None,
-        description="Jira field type (select, user, date, etc.) for value formatting",
-    )
     source: str | None = Field(
         default=None,
-        description="NinjaOne alert field path using dot notation, or None if using default_value",
+        description="NinjaOne alert field path, or None if using static value",
     )
-    default_value: Any | None = Field(
+    static_value: Any | None = Field(
         default=None,
-        description="Value to use when source is None or resolves to None",
+        description="Static value to use if source is None",
     )
     template: str | None = Field(
         default=None,
@@ -314,9 +300,24 @@ class FieldMapping(BaseModel):
     )
 
 
+class JsmFieldMapping(BaseModel):
+    """Maps NinjaOne severity or priority values to a Jira option field (Impact, Urgency, etc.)."""
+
+    jira_field_id: str = Field(description="Jira field ID (e.g. customfield_10040)")
+    jira_field_name: str = Field(default="", description="Field name for display")
+    ninja_source: Literal["severity", "priority"] = Field(
+        default="severity",
+        description="Which NinjaOne alert field to map from",
+    )
+    value_map: dict[str, str] = Field(
+        default_factory=dict,
+        description="NinjaOne value → Jira option value (e.g. {'CRITICAL': 'Extensive / Widespread'})",
+    )
+
+
 class JiraIssueConfig(BaseModel):
     """Jira issue configuration for alert processing."""
-
+    
     project_key: str = Field(
         default="",
         description="Jira project key",
@@ -335,11 +336,7 @@ class JiraIssueConfig(BaseModel):
     )
     asset_field_id: str = Field(
         default="",
-        description="Custom field ID for linking issues to their Jira asset",
-    )
-    summary_template: str = Field(
-        default="[NinjaOne Alert] {severity}: {message} - {device_name}",
-        description="Template for issue summary. Variables: {message}, {device_name}, {severity}, {source_type}, {condition}",
+        description="Custom field ID for linking to Assets (if applicable)",
     )
     min_severity: str | None = Field(
         default=None,
@@ -347,15 +344,58 @@ class JiraIssueConfig(BaseModel):
     )
     source_types: list[str] = Field(
         default_factory=list,
-        description="Alert source types to create issues for (empty = all types)",
+        description="Restrict issue creation to these NinjaOne sourceType values (empty = all)",
     )
-    default_labels: list[str] = Field(
+    jsm_field_mappings: list[JsmFieldMapping] = Field(
         default_factory=list,
-        description="Labels to add to every created issue",
+        description="Value mappings for JSM option fields (Impact, Urgency, Severity, Priority)",
     )
-    severity_to_priority_mapping: dict[str, str] = Field(
-        default_factory=dict,
-        description="Map alert severity to Jira priority ID (e.g., CRITICAL -> '1')",
+
+    # Default templates for issue fields
+    summary_template: str = Field(
+        default="[NinjaOne Alert] {alert.message} - {device.systemName}",
+        description="Template for issue summary",
+    )
+    description_template: str = Field(
+        default="""
+*NinjaOne Alert Details*
+
+||Property||Value||
+|Alert ID|{alert.id}|
+|Severity|{alert.severity}|
+|Message|{alert.message}|
+|Device|{device.systemName}|
+|Triggered At|{alert.createTime}|
+""",
+        description="Template for issue description",
+    )
+    resolve_transition_id: str | None = Field(
+        default=None,
+        description="Jira transition ID to apply when a NinjaOne alert is no longer active (resolved)",
+    )
+    resolve_comment: str = Field(
+        default="NinjaOne alert resolved — this issue was automatically transitioned.",
+        description="Comment to post on the Jira issue when the alert resolves",
+    )
+    retrigger_behavior: Literal["reopen", "new_issue"] = Field(
+        default="new_issue",
+        description="What to do when a resolved NinjaOne alert reappears: reopen the existing issue or create a new one",
+    )
+    reopen_transition_id: str | None = Field(
+        default=None,
+        description="Jira transition ID to apply when reopening an issue for a retriggered alert (retrigger_behavior=reopen)",
+    )
+    reopen_comment: str = Field(
+        default="NinjaOne alert retriggered — condition re-activated.",
+        description="Comment to post when an issue is reopened for a retriggered alert",
+    )
+    resolve_target_status: str | None = Field(
+        default=None,
+        description="Target Jira status name to walk to when an alert resolves (walks multi-hop workflows)",
+    )
+    reopen_target_status: str | None = Field(
+        default=None,
+        description="Target Jira status name to walk to when reopening a retriggered alert",
     )
 
 
@@ -412,6 +452,10 @@ class HeartbeatConfig(BaseModel):
     token: SecretStr | None = Field(
         default=None,
         description="Optional token sent as X-Heartbeat-Token header",
+    )
+    notify_on_changes: bool = Field(
+        default=True,
+        description="Send a webhook notification after each sync/alert-poll run completes",
     )
 
 
@@ -488,7 +532,7 @@ class RetryConfig(BaseModel):
 
 class LoggingConfig(BaseModel):
     """Logging configuration."""
-
+    
     level: str = Field(
         default="INFO",
         description="Log level (DEBUG, INFO, WARNING, ERROR)",
@@ -497,55 +541,8 @@ class LoggingConfig(BaseModel):
         default="json",
         description="Log format (json or text)",
     )
-    file: str | None = Field(
-        default=None,
-        description="Optional log file path (writes JSON logs in addition to console)",
-    )
     include_timestamp: bool = Field(
         default=True,
-    )
-
-    @model_validator(mode="before")
-    @classmethod
-    def coerce_log_format(cls, values: dict) -> dict:
-        """Backward compat: old 'json_format' bool → 'format' string."""
-        if isinstance(values, dict):
-            json_fmt = values.pop("json_format", None)
-            if json_fmt is not None and "format" not in values:
-                values["format"] = "json" if json_fmt else "text"
-            log_file = values.pop("log_file", None)
-            if log_file is not None and "file" not in values:
-                values["file"] = log_file or None
-        return values
-
-
-class ScheduleConfig(BaseModel):
-    """Scheduled device sync configuration."""
-
-    enabled: bool = Field(
-        default=True,
-        description="Whether scheduled polling is enabled",
-    )
-    interval_hours: float = Field(
-        default=6.0,
-        ge=0.1,
-        le=168.0,
-        description="Hours between full device syncs (0.1–168)",
-    )
-
-
-class AlertScheduleConfig(BaseModel):
-    """Scheduled alert polling configuration."""
-
-    enabled: bool = Field(
-        default=True,
-        description="Whether alert polling is enabled",
-    )
-    interval_minutes: float = Field(
-        default=5.0,
-        ge=1.0,
-        le=1440.0,
-        description="Minutes between alert polls (1–1440)",
     )
 
 
@@ -582,18 +579,12 @@ class AppConfig(BaseModel):
     logging: LoggingConfig = Field(
         default_factory=LoggingConfig,
     )
-    schedule: ScheduleConfig = Field(
-        default_factory=ScheduleConfig,
-    )
-    alert_schedule: AlertScheduleConfig = Field(
-        default_factory=AlertScheduleConfig,
-    )
-
+    
     def is_fully_configured(self) -> bool:
         """Check if all required configuration is present."""
         return (
             self.ninjaone.is_configured()
             and self.jira.is_configured()
             and self.assets.schema_id
-            and (self.assets.object_type_id or self.assets.has_role_mappings())
+            and self.assets.object_type_id
         )

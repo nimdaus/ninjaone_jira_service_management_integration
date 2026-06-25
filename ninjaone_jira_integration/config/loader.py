@@ -49,10 +49,12 @@ ENV_VAR_MAPPING = {
     "server.webhook.secret": "WEBHOOK_SECRET",
     # Database
     "database.path": "DATABASE_PATH",
-    # Heartbeat
+    # Heartbeat / outbound notifications
+    "heartbeat.enabled": "HEARTBEAT_ENABLED",
     "heartbeat.url": "HEARTBEAT_URL",
     "heartbeat.interval_seconds": "HEARTBEAT_INTERVAL_SECONDS",
     "heartbeat.token": "HEARTBEAT_TOKEN",
+    "heartbeat.notify_on_changes": "HEARTBEAT_NOTIFY_ON_CHANGES",
     # Concurrency
     "concurrency.max_workers": "MAX_WORKERS",
     "concurrency.max_in_flight_jira_requests": "MAX_IN_FLIGHT_JIRA_REQUESTS",

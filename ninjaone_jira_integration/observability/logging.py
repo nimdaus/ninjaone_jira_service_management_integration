@@ -190,6 +190,8 @@ def setup_structured_logging(
     
     # File handler if specified
     if log_file:
+        from pathlib import Path
+        Path(log_file).parent.mkdir(parents=True, exist_ok=True)
         file_handler = logging.FileHandler(log_file)
         file_handler.setLevel(level.upper())
         file_handler.setFormatter(StructuredLogFormatter())

@@ -33,12 +33,14 @@ CREATE INDEX IF NOT EXISTS idx_device_mappings_jira_asset
 CREATE INDEX IF NOT EXISTS idx_device_mappings_serial 
     ON device_mappings(serial_number);
 
--- Alert mappings: NinjaOne alert UID (UUID string) to Jira issue key
+-- Alert mappings: NinjaOne alert ID to Jira issue key
 CREATE TABLE IF NOT EXISTS alert_mappings (
-    ninja_alert_id TEXT PRIMARY KEY,
+    ninja_alert_id INTEGER PRIMARY KEY,
     jira_issue_key TEXT NOT NULL,
     jira_issue_id TEXT,
     ninja_device_id INTEGER,
+    ninja_update_time REAL,
+    resolved_at TEXT,
     created_at TEXT NOT NULL DEFAULT (datetime('now')),
     updated_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
@@ -140,8 +142,18 @@ async def init_database(db_path: Path, wal_mode: bool = True) -> aiosqlite.Conne
     
     # Create tables
     await conn.executescript(SCHEMA_SQL)
+
+    # Safe migrations for new columns (no-op if column already exists)
+    for _col_sql in [
+        "ALTER TABLE alert_mappings ADD COLUMN ninja_update_time REAL",
+        "ALTER TABLE alert_mappings ADD COLUMN resolved_at TEXT",
+    ]:
+        try:
+            await conn.execute(_col_sql)
+        except Exception:
+            pass  # column already exists
     await conn.commit()
-    
+
     logger.info("Database initialized successfully")
     return conn
 

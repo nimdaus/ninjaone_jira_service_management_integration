@@ -14,14 +14,15 @@ from __future__ import annotations
 
 import asyncio
 import logging
+from datetime import datetime, timezone
 
-from ninjaone_jira_integration.alerts.processor import AlertAction, AlertProcessor
+from ninjaone_jira_integration.alerts.processor import AlertProcessor
 from ninjaone_jira_integration.clients.jira_assets import JiraAssetsClient
 from ninjaone_jira_integration.clients.ninjaone import NinjaOneClient
 from ninjaone_jira_integration.config.models import AppConfig
 from ninjaone_jira_integration.store.db import DatabaseManager
-from ninjaone_jira_integration.store.mappings import MappingStore
-from ninjaone_jira_integration.sync.engine import SyncEngine
+from ninjaone_jira_integration.store.mappings import AlertMapping, MappingStore
+from ninjaone_jira_integration.sync.engine import SyncAction, SyncEngine, SyncResult
 
 logger = logging.getLogger(__name__)
 
@@ -128,57 +129,254 @@ class AlertScheduler:
             db=self.db,
         )
         mapping_store = MappingStore(self.db)
+        issues_cfg = self.config.issues
 
-        created = skipped = failed = exists = 0
+        created = skipped = failed = exists = no_asset_link = resolved = retriggered = 0
+        devices_without_asset: set[int] = set()
+        active_uids: set[str] = set()
 
+        # Per-pass collections
+        to_create: list[tuple[str, dict, int | None]] = []          # brand-new alerts
+        to_retrigger_new: list[tuple[str, dict, int | None]] = []   # retriggered, need new issue
+        to_retrigger_reopen: list[tuple[str, AlertMapping]] = []    # retriggered, try to reopen
+        to_update_comment: list[tuple[str, AlertMapping, float]] = []  # active alerts whose condition updated
+
+        # ── Pass 1: classify every active alert ──────────────────────────────────
         try:
             async for alert in self._ninja_client.get_alerts():
                 alert_id = alert.get("uid")
                 if alert_id is None:
                     continue
 
+                active_uids.add(alert_id)
                 device_id = alert.get("deviceId")
 
-                # If the device has no Jira asset yet, sync it first so the
-                # issue can be linked to the asset on creation.
+                # Sync device if it has no Jira asset yet
                 if device_id is not None:
-                    existing_mapping = await mapping_store.get_device_mapping(device_id)
-                    if not existing_mapping:
+                    existing_dm = await mapping_store.get_device_mapping(device_id)
+                    if not existing_dm:
                         logger.info(
                             "Alert %s: device %d has no asset mapping, syncing device first",
-                            alert_id,
-                            device_id,
+                            alert_id, device_id,
                         )
-                        await self._sync_device_for_alert(device_id, dry_run=dry_run)
+                        sync_result = await self._sync_device_for_alert(device_id, dry_run=dry_run)
+                        if sync_result is None or sync_result.action == SyncAction.FAILED:
+                            devices_without_asset.add(device_id)
 
-                result = await processor.process_alert(
-                    alert_id=alert_id,
-                    alert=alert,
-                    dry_run=dry_run,
-                )
+                existing_mapping = await mapping_store.get_alert_mapping(alert_id)
 
-                if result.action == AlertAction.CREATED:
-                    created += 1
-                elif result.action == AlertAction.EXISTS:
-                    exists += 1
-                elif result.action == AlertAction.SKIPPED:
-                    skipped += 1
-                elif result.action == AlertAction.FAILED:
-                    failed += 1
+                if existing_mapping is not None:
+                    if existing_mapping.resolved_at is not None:
+                        # RETRIGGERED: was marked resolved but has reappeared
+                        if (
+                            issues_cfg.retrigger_behavior == "reopen"
+                            and issues_cfg.reopen_transition_id
+                        ):
+                            to_retrigger_reopen.append((alert_id, existing_mapping))
+                        else:
+                            to_retrigger_new.append((alert_id, alert, device_id))
+                    else:
+                        # EXISTS: active, unresolved — check for condition update
+                        update_time = float(alert.get("updateTime") or 0)
+                        create_time = float(alert.get("createTime") or 0)
+                        if update_time > create_time:
+                            last_seen = existing_mapping.ninja_update_time or 0.0
+                            if update_time > last_seen:
+                                to_update_comment.append(
+                                    (existing_mapping.jira_issue_key, existing_mapping, update_time)
+                                )
+                        exists += 1
+                else:
+                    # NEW: apply filters
+                    skip_reason = processor._skip_reason(alert)
+                    if skip_reason:
+                        logger.info("Alert %s skipped: %s", alert_id, skip_reason)
+                        skipped += 1
+                        continue
+                    to_create.append((alert_id, alert, device_id))
 
         except Exception as e:
-            logger.exception("Alert poll failed: %s", e)
+            logger.exception("Alert poll failed during fetch: %s", e)
             return
 
-        logger.info(
-            "Alert poll complete: %d created, %d already exist, %d skipped, %d failed",
-            created,
-            exists,
-            skipped,
-            failed,
-        )
+        # ── Bulk create: new alerts ───────────────────────────────────────────────
+        if to_create:
+            if dry_run:
+                logger.info("[DRY RUN] Would create %d new issue(s) in bulk", len(to_create))
+                created += len(to_create)
+            else:
+                payloads_meta: list[tuple[str, dict, int | None]] = []
+                fields_list: list[dict] = []
+                for alert_id, alert, device_id in to_create:
+                    device_mapping = await mapping_store.get_device_mapping(device_id) if device_id else None
+                    payload = processor.build_create_payload(alert_id, alert, device_mapping)
+                    payloads_meta.append((alert_id, alert, device_id))
+                    fields_list.append(payload)
 
-    async def _sync_device_for_alert(self, device_id: int, dry_run: bool = False) -> None:
+                try:
+                    logger.info("Creating %d issue(s) in bulk", len(fields_list))
+                    results = await self._jira_client.create_issues_bulk(fields_list)
+                    for i, issue in enumerate(results):
+                        alert_id, alert, device_id = payloads_meta[i]
+                        if issue is None:
+                            logger.error("Bulk creation failed for alert %s", alert_id)
+                            failed += 1
+                            continue
+                        issue_key = issue.get("key", "")
+                        issue_id = str(issue.get("id", ""))
+                        new_mapping = AlertMapping(
+                            ninja_alert_id=alert_id,
+                            jira_issue_key=issue_key,
+                            jira_issue_id=issue_id,
+                            ninja_device_id=device_id,
+                        )
+                        await mapping_store.upsert_alert_mapping(new_mapping)
+                        created += 1
+                        if device_id in devices_without_asset:
+                            no_asset_link += 1
+                            logger.warning(
+                                "Alert %s: issue %s created WITHOUT asset reference — "
+                                "device %d could not be synced to a Jira asset",
+                                alert_id, issue_key, device_id,
+                            )
+                        else:
+                            logger.info("Created issue %s for alert %s", issue_key, alert_id)
+                except Exception as e:
+                    logger.error("Bulk issue creation failed: %s", e)
+                    failed += len(to_create)
+
+        # ── Bulk create: retriggered alerts that need a new issue ─────────────────
+        if to_retrigger_new:
+            if dry_run:
+                logger.info("[DRY RUN] Would create %d new issue(s) for retriggered alerts", len(to_retrigger_new))
+            else:
+                rt_payloads_meta: list[tuple[str, dict, int | None]] = []
+                rt_fields_list: list[dict] = []
+                for alert_id, alert, device_id in to_retrigger_new:
+                    device_mapping = await mapping_store.get_device_mapping(device_id) if device_id else None
+                    payload = processor.build_create_payload(alert_id, alert, device_mapping)
+                    rt_payloads_meta.append((alert_id, alert, device_id))
+                    rt_fields_list.append(payload)
+
+                try:
+                    logger.info("Creating %d issue(s) for retriggered alerts", len(rt_fields_list))
+                    rt_results = await self._jira_client.create_issues_bulk(rt_fields_list)
+                    for i, issue in enumerate(rt_results):
+                        alert_id, alert, device_id = rt_payloads_meta[i]
+                        if issue is None:
+                            logger.error("Bulk creation failed for retriggered alert %s", alert_id)
+                            failed += 1
+                            continue
+                        issue_key = issue.get("key", "")
+                        issue_id = str(issue.get("id", ""))
+                        old_mapping = await mapping_store.get_alert_mapping(alert_id)
+                        old_key = old_mapping.jira_issue_key if old_mapping else "?"
+                        updated_mapping = AlertMapping(
+                            ninja_alert_id=alert_id,
+                            jira_issue_key=issue_key,
+                            jira_issue_id=issue_id,
+                            ninja_device_id=device_id,
+                            ninja_update_time=None,
+                            resolved_at=None,
+                        )
+                        await mapping_store.upsert_alert_mapping(updated_mapping)
+                        logger.info(
+                            "Alert %s retriggered — new issue %s (previous: %s)", alert_id, issue_key, old_key
+                        )
+                        retriggered += 1
+                except Exception as e:
+                    logger.error("Bulk creation for retriggered alerts failed: %s", e)
+                    failed += len(to_retrigger_new)
+
+        # ── Retrigger reopen ──────────────────────────────────────────────────────
+        for alert_id, mapping in to_retrigger_reopen:
+            try:
+                # Comment before transitioning so business rules on the target state don't block it
+                if issues_cfg.reopen_comment:
+                    await self._jira_client.add_comment(mapping.jira_issue_key, issues_cfg.reopen_comment)
+                if issues_cfg.reopen_target_status:
+                    await self._jira_client.transition_to_status(
+                        mapping.jira_issue_key, issues_cfg.reopen_target_status
+                    )
+                elif issues_cfg.reopen_transition_id:
+                    await self._jira_client.do_transition(mapping.jira_issue_key, issues_cfg.reopen_transition_id)
+                mapping.resolved_at = None
+                mapping.ninja_update_time = None
+                await mapping_store.upsert_alert_mapping(mapping)
+                logger.info("Alert %s retriggered — reopened issue %s", alert_id, mapping.jira_issue_key)
+                retriggered += 1
+                exists += 1
+            except Exception as e:
+                logger.warning(
+                    "Failed to reopen %s for retriggered alert %s (%s) — will retry next poll",
+                    mapping.jira_issue_key, alert_id, e,
+                )
+                # Leave resolved_at set so next poll retries (or falls back if config changes)
+                failed += 1
+
+        # ── Update comments ───────────────────────────────────────────────────────
+        for issue_key, mapping, update_time in to_update_comment:
+            try:
+                await self._jira_client.add_comment(issue_key, "NinjaOne condition updated.")
+                mapping.ninja_update_time = update_time
+                await mapping_store.upsert_alert_mapping(mapping)
+                logger.debug("Alert %s condition updated — commented on %s", mapping.ninja_alert_id, issue_key)
+            except Exception as e:
+                logger.warning("Failed to add update comment to %s: %s", issue_key, e)
+
+        # ── Resolution detection ──────────────────────────────────────────────────
+        all_active_mappings = await mapping_store.list_active_alert_mappings()
+        for mapping in all_active_mappings:
+            if mapping.ninja_alert_id not in active_uids:
+                try:
+                    if not dry_run:
+                        # Comment first so business rules on the resolved state don't block it
+                        if issues_cfg.resolve_comment:
+                            await self._jira_client.add_comment(
+                                mapping.jira_issue_key, issues_cfg.resolve_comment
+                            )
+                        if issues_cfg.resolve_target_status:
+                            await self._jira_client.transition_to_status(
+                                mapping.jira_issue_key, issues_cfg.resolve_target_status
+                            )
+                        elif issues_cfg.resolve_transition_id:
+                            await self._jira_client.do_transition(
+                                mapping.jira_issue_key, issues_cfg.resolve_transition_id
+                            )
+                    mapping.resolved_at = datetime.now(timezone.utc)
+                    await mapping_store.upsert_alert_mapping(mapping)
+                    logger.info(
+                        "Alert %s resolved — transitioned issue %s",
+                        mapping.ninja_alert_id, mapping.jira_issue_key,
+                    )
+                    resolved += 1
+                except Exception as e:
+                    logger.warning(
+                        "Failed to process resolved alert %s (issue %s): %s",
+                        mapping.ninja_alert_id, mapping.jira_issue_key, e,
+                    )
+
+        # ── Summary ───────────────────────────────────────────────────────────────
+        logger.info(
+            "Alert poll complete: %d created, %d exist, %d skipped, %d failed, "
+            "%d resolved, %d retriggered",
+            created, exists, skipped, failed, resolved, retriggered,
+        )
+        if no_asset_link:
+            logger.warning(
+                "%d alert issue(s) created without an asset reference — "
+                "check object_type_mappings for unmapped device roles",
+                no_asset_link,
+            )
+        if not dry_run:
+            from ninjaone_jira_integration.notifications import OutboundNotifier
+            await OutboundNotifier(self.config.heartbeat).send_alert_poll_complete(
+                created, exists, skipped, failed, no_asset_link=no_asset_link
+            )
+
+    async def _sync_device_for_alert(
+        self, device_id: int, dry_run: bool = False
+    ) -> SyncResult | None:
         """Run a targeted device sync to create the asset mapping before alert processing."""
         try:
             engine = SyncEngine(
@@ -188,17 +386,28 @@ class AlertScheduler:
                 db=self.db,
             )
             result = await engine.sync_device(device_id, dry_run=dry_run)
-            logger.info(
-                "Alert-triggered device sync for device %d: %s",
-                device_id,
-                result.action,
-            )
+            if result.action == SyncAction.FAILED:
+                logger.warning(
+                    "Alert-triggered device sync for device %d failed: %s — "
+                    "Jira issue will be created without an asset reference",
+                    device_id,
+                    result.error or "unknown reason",
+                )
+            else:
+                logger.info(
+                    "Alert-triggered device sync for device %d: %s",
+                    device_id,
+                    result.action,
+                )
+            return result
         except Exception as e:
             logger.warning(
-                "Alert-triggered device sync for device %d failed: %s — will create issue without asset link",
+                "Alert-triggered device sync for device %d failed: %s — "
+                "Jira issue will be created without an asset reference",
                 device_id,
                 e,
             )
+            return None
 
     async def _loop(self) -> None:
         interval_secs = self.config.alert_schedule.interval_minutes * 60
