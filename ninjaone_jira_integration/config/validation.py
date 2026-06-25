@@ -18,14 +18,14 @@ from ninjaone_jira_integration.config.models import (
     FieldMapping,
     JiraAttributeType,
 )
+from ninjaone_jira_integration.utils import get_nested_value
 
 
 class MappingErrorSeverity(str, Enum):
     """Severity level for mapping errors."""
-    
-    ERROR = "error"  # Will prevent sync
-    WARNING = "warning"  # May cause issues
-    INFO = "info"  # For informational messages
+
+    ERROR = "error"
+    WARNING = "warning"
 
 
 @dataclass
@@ -41,7 +41,6 @@ class MappingError:
         prefix = {
             MappingErrorSeverity.ERROR: "❌",
             MappingErrorSeverity.WARNING: "⚠️",
-            MappingErrorSeverity.INFO: "ℹ️",
         }[self.severity]
         return f"{prefix} {self.path}: {self.message}"
 
@@ -229,79 +228,3 @@ def validate_all_mappings(
     return errors
 
 
-def check_required_coverage(
-    attribute_mappings: list[AttributeMapping],
-    jira_required_attributes: list[dict[str, Any]],
-) -> list[MappingError]:
-    """Check that all required Jira attributes are mapped.
-    
-    Args:
-        attribute_mappings: Configured attribute mappings.
-        jira_required_attributes: Jira attributes marked as required.
-        
-    Returns:
-        List of errors for unmapped required attributes.
-    """
-    errors: list[MappingError] = []
-    
-    mapped_ids = {m.jira_attribute_id for m in attribute_mappings}
-    
-    for attr in jira_required_attributes:
-        attr_id = str(attr.get("id"))
-        attr_name = attr.get("name", attr_id)
-        
-        if attr_id not in mapped_ids:
-            errors.append(MappingError(
-                path=f"attributes.{attr_name}",
-                message=f"Required Jira attribute '{attr_name}' is not mapped",
-                severity=MappingErrorSeverity.ERROR,
-                details={"jira_attribute_id": attr_id},
-            ))
-    
-    return errors
-
-
-def get_nested_value(data: dict[str, Any], path: str) -> Any | None:
-    """Extract a nested value from a dictionary using dot notation.
-    
-    Supports array indexing with [n] notation.
-    
-    Args:
-        data: Dictionary to search.
-        path: Dot-separated path (e.g., 'system.serialNumber', 'disks[0].size').
-        
-    Returns:
-        Value at path, or None if not found.
-    """
-    if not path:
-        return None
-    
-    current = data
-    
-    # Parse path segments
-    import re
-    segments = re.split(r'\.(?![^\[]*\])', path)
-    
-    for segment in segments:
-        if current is None:
-            return None
-        
-        # Check for array indexing
-        match = re.match(r'(\w+)\[(\d+)\]', segment)
-        if match:
-            key, index = match.groups()
-            if isinstance(current, dict) and key in current:
-                current = current[key]
-                if isinstance(current, list) and int(index) < len(current):
-                    current = current[int(index)]
-                else:
-                    return None
-            else:
-                return None
-        else:
-            if isinstance(current, dict) and segment in current:
-                current = current[segment]
-            else:
-                return None
-    
-    return current

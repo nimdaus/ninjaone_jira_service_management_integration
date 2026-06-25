@@ -1,0 +1,68 @@
+[
+  {
+    "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+    "globalId": "666362be-0866-459a-925b-f5eae075844a:2",
+    "id": "2",
+    "name": "a_business_portfolio",
+    "objectSchemaKey": "A_BP",
+    "created": "2026-06-24T20:53:24.018Z",
+    "updated": "2026-06-24T20:53:24.018Z",
+    "objectCount": 0,
+    "objectTypeCount": 2,
+    "description": "Schema for business services and organizational entities",
+    "status": "Ok",
+    "canManage": true,
+    "atlassianTemplateId": "00bf2e67-73d4-425e-a838-4aa3e55526b5",
+    "crossSchemaReferencingAllowed": true,
+    "cdmData": {
+      "types": [
+        {
+          "key": "ari:cloud:cdm::schema/business_portfolio/1",
+          "version": 1,
+          "opinionated": true
+        }
+      ]
+    }
+  },
+  {
+    "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+    "globalId": "666362be-0866-459a-925b-f5eae075844a:1",
+    "id": "1",
+    "name": "a_software_registry",
+    "objectSchemaKey": "A_SR",
+    "created": "2026-06-24T20:53:24.018Z",
+    "updated": "2026-06-24T20:53:24.018Z",
+    "objectCount": 0,
+    "objectTypeCount": 5,
+    "description": "Schema for software services, applications, and tools used in the organization",
+    "status": "Ok",
+    "canManage": true,
+    "atlassianTemplateId": "d6771a97-6e6c-4e5a-98bd-e663d918172f",
+    "crossSchemaReferencingAllowed": true,
+    "cdmData": {
+      "types": [
+        {
+          "key": "ari:cloud:cdm::schema/software_registry/1",
+          "version": 1,
+          "opinionated": true
+        }
+      ]
+    }
+  },
+  {
+    "workspaceId": "666362be-0866-459a-925b-f5eae075844a",
+    "globalId": "666362be-0866-459a-925b-f5eae075844a:3",
+    "id": "3",
+    "name": "ITAM",
+    "objectSchemaKey": "ITAM",
+    "created": "2026-06-24T21:07:04.162Z",
+    "updated": "2026-06-24T21:07:04.162Z",
+    "objectCount": 19,
+    "objectTypeCount": 11,
+    "description": "",
+    "status": "Ok",
+    "canManage": true,
+    "atlassianTemplateId": "it_assets_management",
+    "crossSchemaReferencingAllowed": false
+  }
+]

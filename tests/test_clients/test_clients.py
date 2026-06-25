@@ -4,37 +4,39 @@ import pytest
 from unittest.mock import AsyncMock, patch, MagicMock
 import httpx
 
-from ninjaone_jira_integration.clients.base import BaseClient, RateLimiter
+from ninjaone_jira_integration.clients.base import BaseClient
+from ninjaone_jira_integration.utils.concurrency import RateLimiter
 
 
 class TestRateLimiter:
     """Tests for rate limiter."""
-    
+
     @pytest.mark.asyncio
     async def test_acquire_within_limit(self):
-        """Test acquiring tokens within the limit."""
-        limiter = RateLimiter(rate=10, per_seconds=1)
-        
-        # Should be able to acquire immediately
-        acquired = await limiter.acquire()
-        
-        assert acquired is True
-    
+        """Test that acquire context manager works without error."""
+        limiter = RateLimiter(max_concurrent=2)
+        async with limiter.acquire():
+            pass  # Should not raise
+
     @pytest.mark.asyncio
-    async def test_tokens_refill(self):
-        """Test that tokens refill over time."""
-        limiter = RateLimiter(rate=2, per_seconds=1)
-        
-        # Use up tokens
-        await limiter.acquire()
-        await limiter.acquire()
-        
-        # Wait for refill
+    async def test_concurrent_limit_respected(self):
+        """Test that semaphore limits concurrent requests."""
         import asyncio
-        await asyncio.sleep(0.6)
-        
-        # Should have at least 1 token now
-        assert limiter.tokens >= 1
+
+        limiter = RateLimiter(max_concurrent=1)
+        results = []
+
+        async def task(n):
+            async with limiter.acquire():
+                results.append(f"start-{n}")
+                await asyncio.sleep(0.01)
+                results.append(f"end-{n}")
+
+        await asyncio.gather(task(1), task(2))
+        # With max_concurrent=1, tasks must interleave: start1, end1, start2, end2
+        assert results[0] == "start-1" or results[0] == "start-2"
+        # Each start must be immediately followed by its own end (no interleaving)
+        assert results.index("end-1") < results.index("start-2") or results.index("end-2") < results.index("start-1")
 
 
 class TestBaseClient:
@@ -59,30 +61,28 @@ class TestBaseClient:
     @pytest.mark.asyncio
     async def test_retry_on_503(self):
         """Test retry on 503 Service Unavailable."""
+        from ninjaone_jira_integration.clients.base import RetryConfig
+
         call_count = 0
-        
+
         async def mock_request(*args, **kwargs):
             nonlocal call_count
             call_count += 1
-            
-            if call_count < 3:
-                error = httpx.HTTPStatusError(
-                    "Service Unavailable",
-                    request=MagicMock(),
-                    response=MagicMock(status_code=503),
-                )
-                raise error
-            
+
             response = MagicMock()
-            response.status_code = 200
-            response.raise_for_status = MagicMock()
+            response.reason_phrase = "OK" if call_count >= 3 else "Service Unavailable"
+            response.content = b""
+            response.status_code = 200 if call_count >= 3 else 503
             return response
-        
+
         with patch.object(httpx.AsyncClient, 'request', side_effect=mock_request):
-            client = BaseClient(base_url="https://example.com", max_retries=5)
-            
+            client = BaseClient(
+                base_url="https://example.com",
+                retry_config=RetryConfig(max_retries=5, base_delay=0.0),
+            )
+
             await client.request("GET", "/test")
-            
+
             assert call_count == 3  # Failed twice, succeeded on third
 
 
@@ -195,30 +195,32 @@ class TestJiraAssetsClient:
     
     @pytest.mark.asyncio
     async def test_search_by_aql(self):
-        """Test searching objects with AQL."""
+        """Test searching objects with AQL (uses POST to /object/aql)."""
         from ninjaone_jira_integration.clients.jira_assets import JiraAssetsClient
         from pydantic import SecretStr
-        
+
         mock_search_results = {
             "values": [
                 {"id": "1", "objectKey": "ASSET-1"},
                 {"id": "2", "objectKey": "ASSET-2"},
             ]
         }
-        
+
         client = JiraAssetsClient(
             subdomain="testcompany",
             email="user@example.com",
             api_token=SecretStr("my-token"),
             workspace_id="workspace-123",
         )
-        
-        with patch.object(client, 'get') as mock_get:
-            mock_response = MagicMock()
-            mock_response.json.return_value = mock_search_results
-            mock_get.return_value = mock_response
-            
+
+        async def mock_post(*args, **kwargs):
+            response = MagicMock()
+            response.status_code = 200
+            response.json.return_value = mock_search_results
+            return response
+
+        with patch.object(httpx.AsyncClient, 'post', side_effect=mock_post):
             results = await client.search_objects('objectType = "Computer"')
-            
+
             assert len(results) == 2
             assert results[0]["objectKey"] == "ASSET-1"

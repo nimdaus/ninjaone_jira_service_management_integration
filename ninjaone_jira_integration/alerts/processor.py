@@ -80,16 +80,16 @@ class AlertProcessor:
     async def process_alert(
         self,
         alert_id: int,
-        alert: dict[str, Any] | None = None,
+        alert: dict[str, Any],
         dry_run: bool = False,
     ) -> AlertResult:
         """Process a single alert.
-        
+
         Args:
             alert_id: NinjaOne alert ID.
-            alert: Optional alert data (will be fetched if not provided).
+            alert: Alert data from the /v2/alerts list endpoint.
             dry_run: If True, don't actually create issue.
-            
+
         Returns:
             AlertResult with action taken.
         """
@@ -98,7 +98,7 @@ class AlertProcessor:
             existing = await self.mapping_store.get_alert_mapping(alert_id)
             if existing:
                 logger.debug(
-                    "Alert %d already has issue %s",
+                    "Alert %s already has issue %s",
                     alert_id,
                     existing.jira_issue_key,
                 )
@@ -109,11 +109,7 @@ class AlertProcessor:
                     jira_issue_key=existing.jira_issue_key,
                     jira_issue_id=existing.jira_issue_id,
                 )
-            
-            # Fetch alert if not provided
-            if alert is None:
-                alert = await self.ninja_client.get_alert(alert_id)
-            
+
             device_id = alert.get("deviceId")
             
             # Check if this alert type should create issues
@@ -139,40 +135,56 @@ class AlertProcessor:
     
     def _should_create_issue(self, alert: dict[str, Any]) -> bool:
         """Check if an alert should create an issue.
-        
+
         Can be extended to filter by:
         - Alert severity
         - Alert source type
         - Condition type
-        
+
         Args:
             alert: Alert data.
-            
+
         Returns:
             True if an issue should be created.
         """
-        # If severity filter is configured, check it
-        severity = alert.get("severity", "").upper()
+        return self._skip_reason(alert) is None
+
+    def _skip_reason(self, alert: dict[str, Any]) -> str | None:
+        """Return a human-readable reason to skip this alert, or None if it should be processed.
+
+        Mirrors ``_should_create_issue`` but returns a descriptive string so
+        callers can log *why* an alert was skipped rather than just that it was.
+
+        Args:
+            alert: Alert data.
+
+        Returns:
+            Skip reason string, or None if the alert should be processed.
+        """
+        severity = (alert.get("severity") or "").upper()
         min_severity = self.config.issues.min_severity
-        
+
         if min_severity:
             severity_order = ["NONE", "MINOR", "MODERATE", "MAJOR", "CRITICAL"]
             try:
                 alert_level = severity_order.index(severity) if severity in severity_order else 0
-                min_level = severity_order.index(min_severity.upper()) if min_severity.upper() in severity_order else 0
+                min_level = (
+                    severity_order.index(min_severity.upper())
+                    if min_severity.upper() in severity_order
+                    else 0
+                )
                 if alert_level < min_level:
-                    return False
+                    return f"severity {severity!r} is below minimum {min_severity!r}"
             except ValueError:
                 pass  # Unknown severity, allow it
-        
-        # Check source type if configured
+
         source_types = self.config.issues.source_types
         if source_types:
             source_type = alert.get("sourceType", "")
             if source_type not in source_types:
-                return False
-        
-        return True
+                return f"sourceType {source_type!r} not in configured source_types"
+
+        return None
     
     async def _create_issue(
         self,
@@ -192,18 +204,20 @@ class AlertProcessor:
         Returns:
             AlertResult.
         """
-        # Build issue fields
-        summary = self._build_summary(alert)
-        description = self._build_description(alert)
-        additional_fields = self._map_alert_fields(alert)
-        
-        # Get linked asset if device is known
+        # Get linked asset and cached device name if device is known
         jira_asset_id: str | None = None
+        device_name: str | None = None
         if device_id:
             device_mapping = await self.mapping_store.get_device_mapping(device_id)
             if device_mapping:
                 jira_asset_id = device_mapping.jira_asset_id
-        
+                device_name = device_mapping.device_name
+
+        # Build issue fields
+        summary = self._build_summary(alert, device_name=device_name)
+        description = self._build_description(alert, device_name=device_name)
+        additional_fields = self._map_alert_fields(alert)
+
         if dry_run:
             logger.info(
                 "[DRY RUN] Would create issue for alert %d: %s",
@@ -278,22 +292,68 @@ class AlertProcessor:
                 action=AlertAction.FAILED,
                 error=str(e),
             )
-    
-    def _build_summary(self, alert: dict[str, Any]) -> str:
+
+    def build_create_payload(
+        self,
+        alert_id: str,
+        alert: dict[str, Any],
+        device_mapping: Any | None = None,
+    ) -> dict[str, Any]:
+        """Build a Jira issue fields dict for this alert without making any API calls.
+
+        Returns the fields dict ready to pass as one element of create_issues_bulk().
+        The device_mapping (DeviceMapping | None) is used to inject the asset link.
+        """
+        summary = self._build_summary(alert)
+        description = self._build_description(alert)
+        additional_fields = self._map_alert_fields(alert)
+
+        if (
+            device_mapping is not None
+            and device_mapping.jira_asset_key
+            and self.config.issues.asset_field_id
+        ):
+            additional_fields[self.config.issues.asset_field_id] = [
+                {"key": device_mapping.jira_asset_key}
+            ]
+
+        fields: dict[str, Any] = {
+            "project": {"key": self.config.issues.project_key},
+            "issuetype": {"id": self.config.issues.issue_type_id},
+            "summary": summary,
+        }
+
+        if description:
+            fields["description"] = {
+                "type": "doc",
+                "version": 1,
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [{"type": "text", "text": description}],
+                    }
+                ],
+            }
+
+        fields.update(additional_fields)
+        return fields
+
+    def _build_summary(self, alert: dict[str, Any], device_name: str | None = None) -> str:
         """Build issue summary from alert data.
-        
+
         Args:
             alert: Alert data.
-            
+            device_name: Device name from cached mapping (avoids an API call).
+
         Returns:
             Issue summary string.
         """
         template = self.config.issues.summary_template or "[NinjaOne] {message}"
-        
+
         # Available template variables
         variables = {
             "message": alert.get("message", "Unknown Alert"),
-            "device_name": alert.get("deviceName", alert.get("device", {}).get("systemName", "Unknown")),
+            "device_name": device_name or alert.get("deviceName") or "Unknown",
             "severity": alert.get("severity", "Unknown"),
             "source_type": alert.get("sourceType", "Unknown"),
             "condition": alert.get("conditionName", alert.get("message", "")),
@@ -304,30 +364,31 @@ class AlertProcessor:
         except KeyError:
             return template.format_map(variables)
     
-    def _build_description(self, alert: dict[str, Any]) -> str:
+    def _build_description(self, alert: dict[str, Any], device_name: str | None = None) -> str:
         """Build issue description from alert data.
-        
+
         Args:
             alert: Alert data.
-            
+            device_name: Device name from cached mapping.
+
         Returns:
             Issue description string.
         """
         parts = []
-        
+
         # Header
         parts.append("h3. Alert Details")
         parts.append("")
-        
+
         # Alert info
         parts.append(f"*Message:* {alert.get('message', 'N/A')}")
         parts.append(f"*Severity:* {alert.get('severity', 'N/A')}")
         parts.append(f"*Source Type:* {alert.get('sourceType', 'N/A')}")
         parts.append(f"*Condition:* {alert.get('conditionName', 'N/A')}")
         parts.append("")
-        
+
         # Device info
-        device_name = alert.get("deviceName", alert.get("device", {}).get("systemName"))
+        device_name = device_name or alert.get("deviceName")
         if device_name:
             parts.append(f"*Device:* {device_name}")
         
@@ -340,11 +401,16 @@ class AlertProcessor:
         # Timestamps
         created_time = alert.get("createTime", alert.get("timestamp"))
         if created_time:
-            parts.append(f"*Alert Created:* {created_time}")
+            from datetime import datetime, timezone
+            try:
+                dt = datetime.fromtimestamp(float(created_time), tz=timezone.utc)
+                parts.append(f"*Alert Created:* {dt.strftime('%Y-%m-%d %H:%M:%S UTC')}")
+            except (ValueError, TypeError, OSError):
+                parts.append(f"*Alert Created:* {created_time}")
         
         # NinjaOne Reference
         parts.append("")
-        parts.append(f"*NinjaOne Alert ID:* {alert.get('id', 'N/A')}")
+        parts.append(f"*NinjaOne Alert ID:* {alert.get('uid', alert.get('id', 'N/A'))}")
         parts.append(f"*NinjaOne Device ID:* {alert.get('deviceId', 'N/A')}")
         
         return "\n".join(parts)
@@ -359,31 +425,31 @@ class AlertProcessor:
             Dictionary of additional fields.
         """
         fields: dict[str, Any] = {}
-        
+
         # Apply configured field mappings
         for mapping in self.config.issues.field_mappings:
-            source_value = self._get_alert_value(alert, mapping.source)
-            
-            if source_value is None and mapping.default_value is not None:
-                source_value = mapping.default_value
-            
+            source_value = None
+            if mapping.source:
+                source_value = self._get_alert_value(alert, mapping.source)
+
+            if source_value is None and mapping.static_value is not None:
+                source_value = mapping.static_value
+
             if source_value is not None:
-                fields[mapping.jira_field_id] = self._format_field_value(
-                    source_value,
-                    mapping.jira_field_type,
-                )
-        
-        # Set priority based on severity if configured
-        if self.config.issues.severity_to_priority_mapping:
-            severity = alert.get("severity", "").upper()
-            priority_id = self.config.issues.severity_to_priority_mapping.get(severity)
-            if priority_id:
-                fields["priority"] = {"id": priority_id}
-        
-        # Add labels if configured
-        if self.config.issues.default_labels:
-            fields["labels"] = self.config.issues.default_labels
-        
+                fields[mapping.jira_field_id] = source_value
+
+        # Apply JSM option field value mappings (Impact, Urgency, Severity, Priority, etc.)
+        for jsm in self.config.issues.jsm_field_mappings:
+            if not jsm.ninja_source or not jsm.jira_field_id or not jsm.value_map:
+                continue
+            raw = alert.get(jsm.ninja_source, "")
+            jira_value = jsm.value_map.get(str(raw).upper())
+            if jira_value:
+                if jsm.jira_field_id == "priority":
+                    fields[jsm.jira_field_id] = {"name": jira_value}
+                else:
+                    fields[jsm.jira_field_id] = {"value": jira_value}
+
         return fields
     
     def _get_alert_value(self, alert: dict[str, Any], path: str) -> Any:

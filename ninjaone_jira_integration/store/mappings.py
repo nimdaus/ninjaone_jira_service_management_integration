@@ -30,16 +30,17 @@ class DeviceMapping:
     jira_asset_id: str
     jira_asset_key: str | None = None
     serial_number: str | None = None
+    device_name: str | None = None
     created_at: datetime | None = None
     updated_at: datetime | None = None
-    
+
     @classmethod
     def from_row(cls, row: aiosqlite.Row) -> "DeviceMapping":
         """Create from database row.
-        
+
         Args:
             row: Database row.
-            
+
         Returns:
             DeviceMapping instance.
         """
@@ -48,6 +49,7 @@ class DeviceMapping:
             jira_asset_id=row["jira_asset_id"],
             jira_asset_key=row["jira_asset_key"],
             serial_number=row["serial_number"],
+            device_name=row["device_name"] if "device_name" in row.keys() else None,
             created_at=datetime.fromisoformat(row["created_at"]) if row["created_at"] else None,
             updated_at=datetime.fromisoformat(row["updated_at"]) if row["updated_at"] else None,
         )
@@ -63,6 +65,8 @@ class AlertMapping:
     ninja_device_id: int | None = None
     created_at: datetime | None = None
     updated_at: datetime | None = None
+    ninja_update_time: float | None = None
+    resolved_at: datetime | None = None
     
     @classmethod
     def from_row(cls, row: aiosqlite.Row) -> "AlertMapping":
@@ -81,6 +85,8 @@ class AlertMapping:
             ninja_device_id=row["ninja_device_id"],
             created_at=datetime.fromisoformat(row["created_at"]) if row["created_at"] else None,
             updated_at=datetime.fromisoformat(row["updated_at"]) if row["updated_at"] else None,
+            ninja_update_time=dict(row).get("ninja_update_time"),
+            resolved_at=datetime.fromisoformat(dict(row)["resolved_at"]) if dict(row).get("resolved_at") else None,
         )
 
 
@@ -186,13 +192,14 @@ class MappingStore:
         async with self.db.transaction() as conn:
             await conn.execute(
                 """
-                INSERT INTO device_mappings 
-                    (ninja_device_id, jira_asset_id, jira_asset_key, serial_number, updated_at)
-                VALUES (?, ?, ?, ?, datetime('now'))
+                INSERT INTO device_mappings
+                    (ninja_device_id, jira_asset_id, jira_asset_key, serial_number, device_name, updated_at)
+                VALUES (?, ?, ?, ?, ?, datetime('now'))
                 ON CONFLICT(ninja_device_id) DO UPDATE SET
                     jira_asset_id = excluded.jira_asset_id,
                     jira_asset_key = excluded.jira_asset_key,
                     serial_number = excluded.serial_number,
+                    device_name = excluded.device_name,
                     updated_at = datetime('now')
                 """,
                 (
@@ -200,6 +207,7 @@ class MappingStore:
                     mapping.jira_asset_id,
                     mapping.jira_asset_key,
                     mapping.serial_number,
+                    mapping.device_name,
                 ),
             )
         
@@ -329,13 +337,15 @@ class MappingStore:
         async with self.db.transaction() as conn:
             await conn.execute(
                 """
-                INSERT INTO alert_mappings 
-                    (ninja_alert_id, jira_issue_key, jira_issue_id, ninja_device_id, updated_at)
-                VALUES (?, ?, ?, ?, datetime('now'))
+                INSERT INTO alert_mappings
+                    (ninja_alert_id, jira_issue_key, jira_issue_id, ninja_device_id, ninja_update_time, resolved_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, datetime('now'))
                 ON CONFLICT(ninja_alert_id) DO UPDATE SET
                     jira_issue_key = excluded.jira_issue_key,
                     jira_issue_id = excluded.jira_issue_id,
                     ninja_device_id = excluded.ninja_device_id,
+                    ninja_update_time = excluded.ninja_update_time,
+                    resolved_at = excluded.resolved_at,
                     updated_at = datetime('now')
                 """,
                 (
@@ -343,9 +353,11 @@ class MappingStore:
                     mapping.jira_issue_key,
                     mapping.jira_issue_id,
                     mapping.ninja_device_id,
+                    mapping.ninja_update_time,
+                    mapping.resolved_at.isoformat() if mapping.resolved_at else None,
                 ),
             )
-        
+
         logger.debug(
             "Upserted alert mapping: %d -> %s",
             mapping.ninja_alert_id,
@@ -354,6 +366,13 @@ class MappingStore:
         
         return mapping
     
+    async def list_active_alert_mappings(self) -> list[AlertMapping]:
+        """Get all alert mappings that have not been resolved."""
+        rows = await self.db.fetch_all(
+            "SELECT * FROM alert_mappings WHERE resolved_at IS NULL"
+        )
+        return [AlertMapping.from_row(row) for row in rows]
+
     async def delete_alert_mapping(
         self,
         ninja_alert_id: int,

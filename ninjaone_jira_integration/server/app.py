@@ -15,10 +15,12 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from ninjaone_jira_integration.alerts.scheduler import AlertScheduler
 from ninjaone_jira_integration.config import AppConfig, load_config
 from ninjaone_jira_integration.store.db import DatabaseManager
 from ninjaone_jira_integration.server.webhooks import router as webhook_router
 from ninjaone_jira_integration.server.worker import JobWorker
+from ninjaone_jira_integration.sync.scheduler import SyncScheduler
 
 logger = logging.getLogger(__name__)
 
@@ -41,18 +43,30 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     await db.initialize()
     app.state.db = db
     
-    # Start job worker
+    # Start job worker (webhook-triggered jobs)
     worker = JobWorker(config, db)
     await worker.start()
     app.state.worker = worker
-    
+
+    # Start scheduled device sync (polls every N hours, no public IP required)
+    scheduler = SyncScheduler(config, db)
+    await scheduler.start()
+    app.state.scheduler = scheduler
+
+    # Start scheduled alert polling (polls every N minutes)
+    alert_scheduler = AlertScheduler(config, db)
+    await alert_scheduler.start()
+    app.state.alert_scheduler = alert_scheduler
+
     logger.info("Server started successfully")
-    
+
     yield
-    
+
     # Shutdown
     logger.info("Shutting down server")
-    
+
+    await alert_scheduler.stop()
+    await scheduler.stop()
     await worker.stop()
     await db.close()
     

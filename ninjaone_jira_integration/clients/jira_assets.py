@@ -745,7 +745,168 @@ class JiraAssetsClient(BaseClient):
         )
         
         return response.json()
-    
+
+    async def get_transitions(self, issue_key: str) -> list[dict[str, Any]]:
+        """Get available workflow transitions for an issue.
+
+        Args:
+            issue_key: Issue key (e.g., 'PROJ-123').
+
+        Returns:
+            List of transition dicts, each with 'id', 'name', and 'to' keys.
+        """
+        response = await self.get(f"/rest/api/3/issue/{issue_key}/transitions")
+        data = response.json()
+        return data.get("transitions", [])
+
+    async def do_transition(self, issue_key: str, transition_id: str) -> None:
+        """Apply a workflow transition to an issue.
+
+        Args:
+            issue_key: Issue key (e.g., 'PROJ-123').
+            transition_id: Transition ID from get_transitions().
+        """
+        payload = {"transition": {"id": transition_id}}
+        response = await self.post(
+            f"/rest/api/3/issue/{issue_key}/transitions",
+            json=payload,
+        )
+        if response.status_code not in (200, 204):
+            raise APIError(
+                f"Failed to transition issue {issue_key}: {response.status_code}",
+                status_code=response.status_code,
+                response_body=response.text,
+            )
+
+    async def get_project_statuses(
+        self,
+        project_key: str,
+        issue_type_id: str | None = None,
+    ) -> list[dict[str, Any]]:
+        """Get workflow statuses for a project, optionally filtered to one issue type.
+
+        Args:
+            project_key: Project key (e.g., 'PROJ').
+            issue_type_id: If given, return only statuses for this issue type ID.
+
+        Returns:
+            List of status dicts with 'id' and 'name' keys.
+        """
+        response = await self.get(f"/rest/api/3/project/{project_key}/statuses")
+        all_types = response.json()
+        if issue_type_id:
+            for t in all_types:
+                if t.get("id") == issue_type_id:
+                    return t.get("statuses", [])
+            return []
+        # Flatten across all issue types, deduplicated by name
+        seen: set[str] = set()
+        result: list[dict[str, Any]] = []
+        for t in all_types:
+            for s in t.get("statuses", []):
+                if s["name"] not in seen:
+                    seen.add(s["name"])
+                    result.append(s)
+        return result
+
+    async def transition_to_status(
+        self,
+        issue_key: str,
+        target_status: str,
+        max_steps: int = 10,
+    ) -> None:
+        """Walk the workflow to reach target_status, handling multi-hop paths.
+
+        Tries a direct transition first; if not available from the current state,
+        picks a forward step (not revisiting a prior state) and repeats until
+        the target status is reached or max_steps is exhausted.
+
+        Args:
+            issue_key: Issue key (e.g., 'PROJ-123').
+            target_status: Status name to reach (case-insensitive).
+            max_steps: Maximum workflow hops before raising.
+        """
+        visited: set[str] = set()
+        for _ in range(max_steps):
+            resp = await self.get(
+                f"/rest/api/3/issue/{issue_key}",
+                params={"fields": "status"},
+            )
+            current = resp.json()["fields"]["status"]["name"]
+            if current.lower() == target_status.lower():
+                return
+            if current in visited:
+                raise APIError(
+                    f"Workflow loop at {current!r} trying to reach {target_status!r}",
+                    status_code=400,
+                )
+            visited.add(current)
+            transitions = await self.get_transitions(issue_key)
+            # Prefer a direct jump to the target status
+            for t in transitions:
+                if t.get("to", {}).get("name", "").lower() == target_status.lower():
+                    await self.do_transition(issue_key, t["id"])
+                    return
+            # No direct edge — pick a forward step (not revisiting a prior state)
+            forward = [
+                t for t in transitions
+                if t.get("to", {}).get("name") not in visited
+            ]
+            if not forward:
+                raise APIError(
+                    f"No forward path to {target_status!r} from {current!r}",
+                    status_code=400,
+                )
+            await self.do_transition(issue_key, forward[0]["id"])
+        raise APIError(
+            f"Could not reach {target_status!r} within {max_steps} steps",
+            status_code=400,
+        )
+
+    async def create_issues_bulk(
+        self, fields_list: list[dict[str, Any]]
+    ) -> list[dict[str, Any] | None]:
+        """Create multiple issues in a single bulk API call.
+
+        Args:
+            fields_list: List of field dicts. Each dict should contain the same
+                keys as the 'fields' object in a single create_issue call
+                (project, issuetype, summary, description, etc.).
+
+        Returns:
+            List of the same length as fields_list. Each element is either a
+            created issue dict (with 'id' and 'key') or None if that input failed.
+        """
+        issue_updates = [{"fields": f} for f in fields_list]
+        response = await self.post(
+            "/rest/api/3/issue/bulk",
+            json={"issueUpdates": issue_updates},
+        )
+        if response.status_code not in (200, 201):
+            raise APIError(
+                f"Bulk issue creation failed: {response.status_code}",
+                status_code=response.status_code,
+                response_body=response.text,
+            )
+        data = response.json()
+        failed_indices: set[int] = set()
+        for err in data.get("errors", []):
+            idx = err.get("failedElementNumber")
+            if idx is not None:
+                failed_indices.add(idx)
+            logger.error("Bulk issue creation partial error (index %s): %s", idx, err)
+
+        success_issues = data.get("issues", [])
+        result: list[dict[str, Any] | None] = []
+        success_idx = 0
+        for orig_idx in range(len(fields_list)):
+            if orig_idx in failed_indices:
+                result.append(None)
+            else:
+                result.append(success_issues[success_idx] if success_idx < len(success_issues) else None)
+                success_idx += 1
+        return result
+
     async def link_asset_to_issue(
         self,
         issue_key: str,

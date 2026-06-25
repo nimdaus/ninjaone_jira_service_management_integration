@@ -29,6 +29,7 @@ env/
 # IDE
 .idea/
 .vscode/
+.claude/
 *.swp
 *.swo
 *~
@@ -69,3 +70,5 @@ logs/
 # OS
 .DS_Store
 Thumbs.db
+
+config.yaml

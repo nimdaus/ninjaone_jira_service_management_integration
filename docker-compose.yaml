@@ -12,14 +12,15 @@ services:
       # Required: NinjaOne credentials
       - NINJA_CLIENT_ID=${NINJA_CLIENT_ID}
       - NINJA_CLIENT_SECRET=${NINJA_CLIENT_SECRET}
-      
-      # Required: Jira credentials  
+
+      # Required: Jira credentials
+      - JIRA_SUBDOMAIN=${JIRA_SUBDOMAIN}
+      - JIRA_EMAIL=${JIRA_EMAIL}
       - JIRA_API_TOKEN=${JIRA_API_TOKEN}
-      
-      # Optional: Webhook secret
+
+      # Optional
+      - NINJA_BASE_URL=${NINJA_BASE_URL:-https://app.ninjarmm.com}
       - WEBHOOK_SECRET=${WEBHOOK_SECRET:-}
-      
-      # Optional: Log level
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
     healthcheck:
       test: ["CMD", "python", "-c", "import httpx; r = httpx.get('http://localhost:8080/healthz'); r.raise_for_status()"]

@@ -10,7 +10,7 @@ from __future__ import annotations
 import asyncio
 import logging
 import random
-import time
+from contextlib import nullcontext
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -106,11 +106,6 @@ class BaseClient:
         
         self._client: httpx.AsyncClient | None = None
         self._retry_after_tracker = RetryAfterTracker()
-        
-        # Metrics
-        self._request_count = 0
-        self._last_request_time: float = 0.0
-        self._last_success_time: float = 0.0
     
     async def _get_client(self) -> httpx.AsyncClient:
         """Get or create the HTTP client.
@@ -240,20 +235,23 @@ class BaseClient:
                 await self._retry_after_tracker.wait_if_needed()
                 
                 # Apply rate limiting
-                if self.rate_limiter:
-                    async with self.rate_limiter.acquire():
-                        response = await self._do_request(
-                            client, method, path, params, json, data, full_headers
-                        )
-                else:
-                    response = await self._do_request(
-                        client, method, path, params, json, data, full_headers
+                async with (self.rate_limiter.acquire() if self.rate_limiter else nullcontext()):
+                    logger.debug("Request: %s %s", method.upper(), path)
+                    response = await client.request(
+                        method=method,
+                        url=path,
+                        params=params,
+                        json=json,
+                        data=data,
+                        headers=full_headers,
                     )
-                
-                # Record success
-                self._last_request_time = time.time()
-                self._request_count += 1
-                
+                    logger.debug(
+                        "Response: %d %s (%.0f bytes)",
+                        response.status_code,
+                        response.reason_phrase,
+                        len(response.content),
+                    )
+
                 # Check for rate limiting
                 if response.status_code == 429:
                     retry_after = self._parse_retry_after(response)
@@ -314,7 +312,6 @@ class BaseClient:
                     )
                 
                 # Success
-                self._last_success_time = time.time()
                 return response
                 
             except httpx.TimeoutException as e:
@@ -348,50 +345,6 @@ class BaseClient:
         if last_exception:
             raise APIError(f"Request failed after {self.retry_config.max_retries} retries: {last_exception}")
         raise APIError(f"Request failed after {self.retry_config.max_retries} retries")
-    
-    async def _do_request(
-        self,
-        client: httpx.AsyncClient,
-        method: str,
-        path: str,
-        params: dict[str, Any] | None,
-        json_body: dict[str, Any] | None,
-        data: dict[str, Any] | None,
-        headers: dict[str, str],
-    ) -> httpx.Response:
-        """Execute the actual HTTP request.
-        
-        Args:
-            client: HTTP client.
-            method: HTTP method.
-            path: Request path.
-            params: Query parameters.
-            json_body: JSON body.
-            data: Form data.
-            headers: Headers.
-            
-        Returns:
-            HTTP response.
-        """
-        logger.debug("Request: %s %s", method.upper(), path)
-        
-        response = await client.request(
-            method=method,
-            url=path,
-            params=params,
-            json=json_body,
-            data=data,
-            headers=headers,
-        )
-        
-        logger.debug(
-            "Response: %d %s (%.0f bytes)",
-            response.status_code,
-            response.reason_phrase,
-            len(response.content),
-        )
-        
-        return response
     
     async def get(
         self,
@@ -473,13 +426,3 @@ class BaseClient:
         """
         return await self.request("DELETE", path, params=params, headers=headers)
     
-    @property
-    def is_healthy(self) -> bool:
-        """Check if the client has made successful requests recently.
-        
-        Returns:
-            True if a successful request was made in the last 5 minutes.
-        """
-        if self._last_success_time == 0:
-            return True  # No requests made yet
-        return (time.time() - self._last_success_time) < 300

@@ -1,0 +1,16 @@
+{
+  "size": 1,
+  "start": 0,
+  "limit": 50,
+  "isLastPage": true,
+  "_links": {
+    "self": "https://ninjatwo.atlassian.net/rest/servicedeskapi/assets/workspace",
+    "base": "https://ninjatwo.atlassian.net",
+    "context": ""
+  },
+  "values": [
+    {
+      "workspaceId": "666362be-0866-459a-925b-f5eae075844a"
+    }
+  ]
+}

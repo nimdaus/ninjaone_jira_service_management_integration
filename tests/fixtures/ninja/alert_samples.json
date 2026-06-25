@@ -1,0 +1,90 @@
+[
+  {
+    "uid": "2c38a77c-50f9-47dd-9963-e89f830d2210",
+    "deviceId": 10,
+    "message": "'USER - Check for Unauthorized Administrators', evaluation script 'Check for Unauthorized Adminstrators' with output 'Warning: No device-specific admins found.\nDanger! Unauthorized admins found: admin'",
+    "createTime": 1781023410.099173,
+    "updateTime": 1781023410.099173,
+    "sourceType": "CONDITION_SCRIPT_RESULT",
+    "sourceConfigUid": "8c0af78e-b59a-49cc-9435-a12ca9af41d5",
+    "sourceName": "",
+    "subject": "6bdd6bc5-64fc-4058-9aeb-46ebd1efbf3d@8c0af78e-b59a-49cc-9435-a12ca9af41d5@ZDBiM2Y1NTFjYTBmNzFjN2UyM2E4NzUyYTA5NTM0OGRkYzNiYmY1MjkxNzdkMDBjYjVhNWM3MDczN2I0NTMzZg==@NONE@0",
+    "data": {
+      "message": {
+        "code": "agent_cond_script_result",
+        "params": {
+          "conditionConfigUid": "8c0af78e-b59a-49cc-9435-a12ca9af41d5",
+          "condition_name": "USER - Check for Unauthorized Administrators",
+          "script_name": "Check for Unauthorized Adminstrators",
+          "action_name": "Check for Unauthorized Adminstrators",
+          "rc": "0",
+          "output_message": "Warning: No device-specific admins found.\nDanger! Unauthorized admins found: admin",
+          "condition_status": "triggered"
+        }
+      }
+    },
+    "priority": "MEDIUM",
+    "severity": "MAJOR",
+    "conditionName": "Script result condition with input script 'Run Check for Unauthorized Adminstrators' with frequency '0 hour(s) 5 minute(s)', timeout '0 hour(s) 5 minute(s)', result code 'ANY 0', with the following output 'Danger!'",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "635f3584-fc7d-4e3c-a2fe-be23e9b45263",
+    "deviceId": 8,
+    "message": "Disk Volume Free space for 'C:' is less than or equal to 15% from 2026-06-09T16:54:27Z to 2026-06-09T16:54:27Z",
+    "createTime": 1781024106.243235,
+    "updateTime": 1781024106.243235,
+    "sourceType": "CONDITION_AGENT_DISK_FREE_SPACE",
+    "sourceConfigUid": "189dd6ff-5f8f-4f2c-ad42-86104bd5927f",
+    "sourceName": "",
+    "subject": "C:",
+    "data": {
+      "message": {
+        "code": "agent_win_cond_disk_free_le",
+        "params": {
+          "volume": "C:",
+          "unit": "%",
+          "threshold": "15",
+          "start_date": "2026-06-09T16:54:27Z",
+          "end_date": "2026-06-09T16:54:27Z"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Disk free space is less than or equal to 15 % for 15 minutes  Exclude recovery volume for window device(s) Exclude removable disk for window device(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  },
+  {
+    "uid": "8f1533a4-f589-43b3-b612-9f50a784f9fd",
+    "deviceId": 8,
+    "message": "'USER - Check for Unauthorized Administrators', evaluation script 'Check for Unauthorized Adminstrators' with output 'Warning: No device-specific admins found.\nDanger! Unauthorized admins found: AzureAD\\DiegoSiciliani, AzureAD\\LidiaHolloway'",
+    "createTime": 1781023495.267446,
+    "updateTime": 1781023495.267446,
+    "sourceType": "CONDITION_SCRIPT_RESULT",
+    "sourceConfigUid": "8c0af78e-b59a-49cc-9435-a12ca9af41d5",
+    "sourceName": "",
+    "subject": "6bdd6bc5-64fc-4058-9aeb-46ebd1efbf3d@8c0af78e-b59a-49cc-9435-a12ca9af41d5@ZDBiM2Y1NTFjYTBmNzFjN2UyM2E4NzUyYTA5NTM0OGRkYzNiYmY1MjkxNzdkMDBjYjVhNWM3MDczN2I0NTMzZg==@NONE@0",
+    "data": {
+      "message": {
+        "code": "agent_cond_script_result",
+        "params": {
+          "conditionConfigUid": "8c0af78e-b59a-49cc-9435-a12ca9af41d5",
+          "condition_name": "USER - Check for Unauthorized Administrators",
+          "script_name": "Check for Unauthorized Adminstrators",
+          "action_name": "Check for Unauthorized Adminstrators",
+          "rc": "0",
+          "output_message": "Warning: No device-specific admins found.\nDanger! Unauthorized admins found: AzureAD\\DiegoSiciliani, AzureAD\\LidiaHolloway",
+          "condition_status": "triggered"
+        }
+      }
+    },
+    "priority": "MEDIUM",
+    "severity": "MAJOR",
+    "conditionName": "Script result condition with input script 'Run Check for Unauthorized Adminstrators' with frequency '0 hour(s) 5 minute(s)', timeout '0 hour(s) 5 minute(s)', result code 'ANY 0', with the following output 'Danger!'",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  }
+]

@@ -94,13 +94,16 @@ def sample_ninjaone_device() -> dict[str, Any]:
             "manufacturer": "Dell Inc.",
             "model": "XPS 15 9520",
             "biosSerialNumber": "BIOS12345",
-            "memory": {
-                "total": 34359738368,  # 32 GB
-            },
-            "processors": [
-                {"name": "Intel Core i7-12700H", "cores": 14}
-            ],
+            "assetSerialNumber": "ASSET12345",
+            "totalPhysicalMemory": 34359738368,  # 32 GB
+            "numberOfProcessors": 1,
         },
+        "memory": {
+            "capacity": 34359738368,  # 32 GB — top-level, mirrors system.totalPhysicalMemory
+        },
+        "processors": [
+            {"name": "Intel Core i7-12700H", "numberOfCores": 14}
+        ],
         "os": {
             "name": "Microsoft Windows 11 Pro",
             "version": "22H2",
@@ -108,23 +111,27 @@ def sample_ninjaone_device() -> dict[str, Any]:
         },
         "ipAddresses": ["192.168.1.100", "10.0.0.50"],
         "macAddresses": ["AA:BB:CC:DD:EE:FF"],
-        "lastContact": "2024-01-15T10:30:00Z",
+        "lastContact": 1705315800.0,
     }
 
 
 @pytest.fixture
 def sample_ninjaone_alert() -> dict[str, Any]:
-    """Create a sample NinjaOne alert for testing."""
+    """Create a sample NinjaOne alert matching the real API format."""
     return {
-        "id": 67890,
+        "uid": "2c38a77c-50f9-47dd-9963-e89f830d2210",
         "deviceId": 12345,
         "message": "High CPU usage detected",
         "severity": "MAJOR",
         "sourceType": "CONDITION",
         "conditionName": "CPU Threshold Exceeded",
-        "deviceName": "LAPTOP-ABC",
-        "organizationName": "Test Org",
-        "createTime": "2024-01-15T10:30:00Z",
+        "sourceName": "CPU Monitor",
+        "subject": "CPU",
+        "priority": "MEDIUM",
+        "createTime": 1781023410.099173,
+        "updateTime": 1781023410.099173,
+        "conditionHealthStatus": "NEEDS_ATTENTION",
+        "useGlobalHealthStatus": False,
     }
 
 

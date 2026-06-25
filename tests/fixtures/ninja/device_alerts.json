@@ -1,0 +1,27 @@
+[
+  {
+    "uid": "e9ba29b1-e265-45a7-9041-7f2d240a0b70",
+    "deviceId": 3,
+    "message": "Last Patch Condition: No OS patch installed in last 30 days",
+    "createTime": 1782358120.563333,
+    "updateTime": 1782358120.563333,
+    "sourceType": "CONDITION_AGENT_PATCH_LAST_INSTALLED",
+    "sourceConfigUid": "aa294b7a-8a74-45a4-9ee6-deed9e246cf6",
+    "sourceName": "",
+    "subject": "",
+    "data": {
+      "message": {
+        "code": "agent_cond_os_last_patch",
+        "params": {
+          "threshold": "30",
+          "name": "Last Patch Condition"
+        }
+      }
+    },
+    "priority": "NONE",
+    "severity": "NONE",
+    "conditionName": "Device has not installed an Operating System patch in 30 day(s)",
+    "conditionHealthStatus": "NEEDS_ATTENTION",
+    "useGlobalHealthStatus": false
+  }
+]

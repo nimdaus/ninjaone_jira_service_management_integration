@@ -22,6 +22,7 @@ from dotenv import load_dotenv
 from pydantic import SecretStr
 
 from ninjaone_jira_integration.config.models import AppConfig
+from ninjaone_jira_integration.utils import get_nested_value
 
 # Environment variable prefix
 ENV_PREFIX = "NINJA_JIRA_"
@@ -49,10 +50,12 @@ ENV_VAR_MAPPING = {
     "server.webhook.secret": "WEBHOOK_SECRET",
     # Database
     "database.path": "DATABASE_PATH",
-    # Heartbeat
+    # Heartbeat / outbound notifications
+    "heartbeat.enabled": "HEARTBEAT_ENABLED",
     "heartbeat.url": "HEARTBEAT_URL",
     "heartbeat.interval_seconds": "HEARTBEAT_INTERVAL_SECONDS",
     "heartbeat.token": "HEARTBEAT_TOKEN",
+    "heartbeat.notify_on_changes": "HEARTBEAT_NOTIFY_ON_CHANGES",
     # Concurrency
     "concurrency.max_workers": "MAX_WORKERS",
     "concurrency.max_in_flight_jira_requests": "MAX_IN_FLIGHT_JIRA_REQUESTS",
@@ -60,6 +63,13 @@ ENV_VAR_MAPPING = {
     # Logging
     "logging.level": "LOG_LEVEL",
     "logging.format": "LOG_FORMAT",
+    "logging.file": "LOG_FILE",
+    # Schedule (device sync)
+    "schedule.enabled": "SCHEDULE_ENABLED",
+    "schedule.interval_hours": "SCHEDULE_INTERVAL_HOURS",
+    # Alert polling schedule
+    "alert_schedule.enabled": "ALERT_SCHEDULE_ENABLED",
+    "alert_schedule.interval_minutes": "ALERT_SCHEDULE_INTERVAL_MINUTES",
 }
 
 # Known secret paths (never write to config file)
@@ -81,10 +91,16 @@ DEFAULT_CONFIG_PATHS = [
 
 def find_config_file(config_path: str | Path | None = None) -> Path | None:
     """Find configuration file.
-    
+
+    Search order:
+    1. Explicit path (if provided)
+    2. NINJA_JIRA_CONFIG environment variable
+    3. CWD and parent directories (walking up to a .git/pyproject.toml root)
+    4. ~/.config/ninja-jira/config.yaml
+
     Args:
         config_path: Explicit config file path, or None to search defaults.
-        
+
     Returns:
         Path to config file if found, None otherwise.
     """
@@ -93,11 +109,35 @@ def find_config_file(config_path: str | Path | None = None) -> Path | None:
         if path.exists():
             return path
         return None
-    
-    for path in DEFAULT_CONFIG_PATHS:
+
+    # Check environment variable override
+    env_path = os.environ.get("NINJA_JIRA_CONFIG")
+    if env_path:
+        path = Path(env_path)
         if path.exists():
             return path
-    
+
+    # Walk up from CWD looking for config.yaml / config.yml / config.json
+    cwd = Path.cwd()
+    candidate = cwd
+    while True:
+        for name in ("config.yaml", "config.yml", "config.json"):
+            p = candidate / name
+            if p.exists():
+                return p
+        # Stop at a project root marker or filesystem root
+        if (candidate / ".git").exists() or (candidate / "pyproject.toml").exists():
+            break
+        parent = candidate.parent
+        if parent == candidate:
+            break
+        candidate = parent
+
+    # Home directory fallback
+    home_config = Path.home() / ".config" / "ninja-jira" / "config.yaml"
+    if home_config.exists():
+        return home_config
+
     return None
 
 
@@ -122,27 +162,6 @@ def load_dotenv_files(config_file_dir: Path | None = None) -> None:
     if cwd_env.exists() and cwd_env not in loaded_paths:
         load_dotenv(cwd_env, override=True)
         loaded_paths.add(cwd_env)
-
-
-def get_nested_value(data: dict[str, Any], path: str) -> Any | None:
-    """Get a nested value from a dictionary using dot notation.
-    
-    Args:
-        data: Dictionary to search.
-        path: Dot-separated path (e.g., 'ninjaone.client_id').
-        
-    Returns:
-        Value at path, or None if not found.
-    """
-    keys = path.split(".")
-    current = data
-    
-    for key in keys:
-        if not isinstance(current, dict) or key not in current:
-            return None
-        current = current[key]
-    
-    return current
 
 
 def set_nested_value(data: dict[str, Any], path: str, value: Any) -> None:
@@ -209,9 +228,14 @@ def apply_env_overrides(config_data: dict[str, Any]) -> dict[str, Any]:
                     value = int(value)
                 except ValueError:
                     pass
-            elif config_path == "server.port":
+            elif config_path in ("server.port",):
                 try:
                     value = int(value)
+                except ValueError:
+                    pass
+            elif config_path.endswith("_hours") or config_path.endswith("_minutes"):
+                try:
+                    value = float(value)
                 except ValueError:
                     pass
             elif value.lower() in ("true", "false"):
@@ -325,41 +349,3 @@ def save_config(
     path.write_text(content, encoding="utf-8")
 
 
-def get_effective_config_display(config: AppConfig) -> dict[str, Any]:
-    """Get configuration for display with secrets redacted.
-    
-    Args:
-        config: Configuration to display.
-        
-    Returns:
-        Configuration dict with secrets replaced by '[REDACTED]'.
-    """
-    data = config.model_dump(mode="json")
-    
-    for secret_path in SECRET_PATHS:
-        current = data
-        keys = secret_path.split(".")
-        
-        for key in keys[:-1]:
-            if key in current:
-                current = current[key]
-            else:
-                break
-        else:
-            if keys[-1] in current and current[keys[-1]]:
-                current[keys[-1]] = "[REDACTED]"
-    
-    return data
-
-
-def config_from_env_only() -> AppConfig:
-    """Create configuration from environment variables only.
-    
-    Useful for CI/CD and container deployments where all config
-    comes from environment.
-    
-    Returns:
-        AppConfig populated from environment.
-    """
-    load_dotenv()
-    return load_config(config_path=None, cli_overrides=None)

@@ -1,196 +1,203 @@
-# NinjaOne to Jira Service Management Assets Integration
+# NinjaOne → Jira Service Management Assets
 
-A production-ready Python 3.11+ integration service that synchronizes NinjaOne devices into Jira Service Management Assets and creates Jira issues from NinjaOne condition alerts.
+Synchronizes your NinjaOne device inventory into Jira Service Management Assets and creates Jira issues from NinjaOne alerts — with no public-facing server required.
 
-## Features
+## What it does
 
-- **Dual Operation Modes**
-  - CLI for interactive configuration, testing, and batch operations
-  - HTTP server for webhooks and continuous asynchronous processing
+- **Device sync** — Pulls all NinjaOne devices on a schedule and creates or updates matching objects in Jira Assets. Each device role maps to a separate Jira object type with custom attribute mappings.
+- **Alert polling** — Checks for active NinjaOne alerts every few minutes and creates a Jira issue for each one that doesn't already have one. Automatically links the issue to the device's asset.
+- **Dry run mode** — Preview exactly what would be created or changed before writing anything.
 
-- **Device Synchronization**
-  - Full sync of all NinjaOne devices to Jira Assets
-  - Single device sync for targeted updates
-  - Smart matching: persisted ID mapping → serial number search → create new
-  - Diff-based updates: only modifies changed attributes
+## Prerequisites
 
-- **Alert Processing**
-  - Creates Jira issues from NinjaOne condition alerts
-  - Links issues to corresponding device assets
-  - Configurable severity filtering and priority mapping
-  - Deduplication via persistent mapping
-
-- **Enterprise Ready**  
-  - Resilient retry logic with exponential backoff and jitter
-  - Respects `Retry-After` headers from rate limits
-  - SQLite storage with WAL mode for durability
-  - Dead-letter queue for failed jobs
-  - Structured JSON logging with correlation IDs
-  - Health endpoints for container orchestration
+- Python 3.11+ (or Docker)
+- [uv](https://docs.astral.sh/uv/) package manager
+- A NinjaOne account with API credentials (Administration > Apps)
+- A Jira Cloud account with an API token and Assets configured
 
 ## Installation
 
-### From Source
-
 ```bash
-# Clone repository
+# Install uv if you don't have it
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
 git clone https://github.com/yourorg/ninjaone-jira-integration.git
 cd ninjaone-jira-integration
 
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate  # or `.venv\Scripts\activate` on Windows
-
-# Install package
-pip install -e .
+uv sync
 ```
 
-### With Docker
-
-```bash
-docker build -t ninjaone-jira-integration .
-```
+No need to create or activate a virtual environment — prefix commands with `uv run` and uv handles it.
 
 ## Quick Start
 
-### 1. Configure Credentials
+### 1. Set credentials
 
-Create a `.env` file (or set environment variables):
+Create a `.env` file:
 
 ```bash
-# NinjaOne OAuth2 - Create API credentials in Administration > Apps
+# NinjaOne: Administration > Apps > Add API application
 NINJA_CLIENT_ID=your-client-id
 NINJA_CLIENT_SECRET=your-client-secret
 
-# Jira API - Create token at https://id.atlassian.com/manage-profile/security/api-tokens
+# Jira: https://id.atlassian.com/manage-profile/security/api-tokens
 JIRA_API_TOKEN=your-api-token
-
-# Optional: Webhook verification secret
-WEBHOOK_SECRET=your-secret
 ```
 
-### 2. Initialize Configuration
+### 2. Run the setup wizard
 
 ```bash
-python -m ninjaone_jira_integration init --ui
+uv run ninja-jira init --ui
 ```
 
-This will:
-- Test connections to both APIs
-- Discover your Jira Assets workspace
-- Create a `config.yaml` with your settings
+This opens a browser-based wizard that:
+- Tests your NinjaOne and Jira connections
+- Discovers your Jira Assets workspace and schema
+- Walks you through mapping device roles to object types
+- Configures alert-to-issue settings
+- Saves everything to `config.yaml`
 
-### 3. Configure Attribute Mappings
+You can re-run the wizard any time to update your configuration.
 
-Edit `config.yaml` to map NinjaOne device fields to Jira Assets attributes:
+### 3. Test your mappings
 
-```yaml
-assets:
-  object_schema_id: "1"
-  object_type_id: "10"
-  serial_number_attribute_id: "124"
-  
-  attribute_mappings:
-    - jira_attribute_id: "123"
-      jira_attribute_name: "Name"
-      source: "systemName"
-      required: true
-    
-    - jira_attribute_id: "124"
-      jira_attribute_name: "Serial Number"
-      source: "system.serialNumber"
-      transform: "normalize_serial"
-    
-    - jira_attribute_id: "125"
-      jira_attribute_name: "Operating System"
-      source: "os.name"
-```
-
-### 4. Test Mappings
+Before running a full sync, verify that your attribute mappings look right:
 
 ```bash
-python -m ninjaone_jira_integration mapping-test
+# Fetch a sample device and show how it maps to Jira attributes
+uv run ninja-jira mapping-test
+
+# Test with a specific device
+uv run ninja-jira mapping-test --device-id 12345
 ```
 
-This fetches a sample device and shows how your mappings would transform the data.
-
-### 5. Run a Dry Sync
+For alerts, preview how an active alert would become a Jira issue:
 
 ```bash
-python -m ninjaone_jira_integration sync-all --dry-run
+# Fetch a real active alert and preview the issue that would be created
+uv run ninja-jira alert-test
+
+# Test with a specific alert UID
+uv run ninja-jira alert-test --alert-uid abc-123-def
 ```
 
-Review the output to see what would be created/updated.
+Both commands show exactly which filters apply, what values would be written, and why anything would be skipped — without touching Jira.
 
-### 6. Run Full Sync
+### 4. Dry run
 
 ```bash
-python -m ninjaone_jira_integration sync-all
+uv run ninja-jira run --once --dry-run
 ```
 
-### 7. Start Webhook Server (Optional)
+Shows every device and alert that would be created or updated. Nothing is written to Jira.
 
-For real-time updates via NinjaOne webhooks:
+### 5. Run
 
 ```bash
-python -m ninjaone_jira_integration run-server
+# Run once and exit (good for a first-time test or cron)
+uv run ninja-jira run --once
+
+# Run continuously — syncs devices every 6h, polls alerts every 5m
+uv run ninja-jira run
 ```
 
-Configure NinjaOne to send webhooks to `https://your-server:8080/webhook/device` and `/webhook/alert`.
+Runs entirely from your machine. No public URL or open port needed.
 
-## CLI Commands
-
-| Command | Description |
-|---------|-------------|
-| `init` | Interactive configuration setup |
-| `init --ui` | Web-based configuration UI (coming soon) |
-| `mapping-test` | Test attribute mappings with sample device |
-| `sync-all` | Sync all devices |
-| `sync-all --dry-run` | Preview sync without making changes |
-| `sync-device <id>` | Sync a specific device by ID |
-| `run-server` | Start HTTP server for webhooks |
-| `replay-dead-letter` | Requeue failed jobs for retry |
-| `status` | Show statistics and queue status |
+---
 
 ## Configuration
 
-Configuration can be provided via:
-1. CLI flags (highest priority)
-2. Environment variables
-3. `.env` file
-4. `config.yaml` file (lowest priority)
+Configuration is loaded in this priority order:
 
-### Environment Variables
+1. CLI flags
+2. Environment variables / `.env` file
+3. `config.yaml`
 
-| Variable | Description |
-|----------|-------------|
-| `NINJA_CLIENT_ID` | NinjaOne OAuth2 client ID |
-| `NINJA_CLIENT_SECRET` | NinjaOne OAuth2 client secret |
-| `NINJA_BASE_URL` | NinjaOne API URL (default: `https://app.ninjarmm.com`) |
-| `JIRA_SUBDOMAIN` | Jira subdomain (e.g., `mycompany`) |
-| `JIRA_EMAIL` | Jira account email |
-| `JIRA_API_TOKEN` | Jira API token |
-| `JIRA_WORKSPACE_ID` | Jira Assets workspace ID |
-| `WEBHOOK_SECRET` | Shared secret for webhook verification |
-| `LOG_LEVEL` | Logging level (DEBUG, INFO, WARNING, ERROR) |
+### Config file location
 
-### Attribute Mapping
+The CLI searches for `config.yaml` in this order:
+
+1. `--config <path>` flag
+2. `NINJA_JIRA_CONFIG` environment variable
+3. Current directory and parent directories (up to `.git` / `pyproject.toml`)
+4. `~/.config/ninja-jira/config.yaml`
+
+### Sync schedule
+
+```yaml
+# Device sync (default: every 6 hours)
+schedule:
+  enabled: true
+  interval_hours: 6
+
+# Alert polling (default: every 5 minutes)
+alert_schedule:
+  enabled: true
+  interval_minutes: 5
+```
+
+Both schedules run independently. Disable either one if you only need the other.
+
+### Attribute mappings
 
 Map NinjaOne device fields to Jira Assets attributes using dot notation:
 
-- Simple fields: `systemName`, `displayName`
+- Top-level fields: `systemName`, `displayName`
 - Nested objects: `system.serialNumber`, `os.name`
-- Arrays: `ipAddresses[0]`, `disks[0].size`
+- Array indexing: `ipAddresses[0]`, `disks[0].size`
 
-Available transforms:
-- `upper` - Convert to uppercase
-- `lower` - Convert to lowercase  
-- `strip` - Remove whitespace
-- `normalize_serial` - Uppercase, strip, remove common fillers
+```yaml
+assets:
+  schema_id: "1"
+  object_type_mappings:
+    - ninja_role_id: 101
+      ninja_role_name: "Windows Workstation"
+      jira_object_type_id: "200"
+      jira_object_type_name: "Workstation"
+      attribute_mappings:
+        - jira_attribute_id: "123"
+          jira_attribute_name: "Name"
+          source: "systemName"
+          required: true
+          identity_order: 1
 
-### Alert to Issue Mapping
+        - jira_attribute_id: "124"
+          jira_attribute_name: "Serial Number"
+          source: "system.serialNumber"
+          transforms:
+            - normalize_serial
+          identity_order: 2
 
-Configure how alerts become issues:
+        - jira_attribute_id: "125"
+          jira_attribute_name: "Operating System"
+          source: "os.name"
+```
+
+#### NinjaOne Device ID attribute
+
+The wizard includes a **+ Create NinjaOne Device ID Attribute** button on each object type mapping. Clicking it creates a new text attribute called `NinjaOne Device ID` in your Jira Assets object type and pre-configures a mapping from `id` (the NinjaOne device's integer ID). This attribute is used as a secondary identity key — if a device's serial number changes or is missing, the integration can still find the right asset.
+
+The button disappears after it's used (or when loading a config where the attribute already exists). That's intentional: clicking it a second time would fail because Jira requires attribute names to be unique within an object type.
+
+#### Transforms
+
+Applied in order as a pipeline:
+
+| Transform | Description |
+|-----------|-------------|
+| `upper` | UPPERCASE |
+| `lower` | lowercase |
+| `strip` | Trim whitespace |
+| `normalize_serial` | Uppercase + strip + remove known-bad values |
+| `to_string` | Convert to string |
+| `to_integer` | Parse as integer |
+| `to_float` | Parse as float |
+| `to_boolean` | `true`, `yes`, `1`, `on` → `True` |
+| `first_ip` | Extract first IPv4 from string or list |
+| `first_mac` | Extract first MAC address |
+| `bytes_to_gb` | Bytes → GB, 2 decimal places |
+
+### Alert to issue mapping
 
 ```yaml
 issues:
@@ -199,25 +206,90 @@ issues:
   summary_template: "[NinjaOne] {severity}: {device_name} - {message}"
   min_severity: "MODERATE"
   default_labels:
-    - "ninjaone"
-    - "auto-created"
+    - ninjaone
+    - auto-created
   severity_to_priority_mapping:
     CRITICAL: "1"
     MAJOR: "2"
     MODERATE: "3"
 ```
 
-## Docker Deployment
+A few things worth knowing about alert behavior:
 
-### Using Docker Compose
+- **Deduplication**: each alert's UID is stored after a Jira issue is created for it. Re-polling never creates duplicate issues.
+- **Device linking**: if an alert references a device with no Jira asset yet, the integration syncs that device first so the issue can be linked to the correct asset.
+- **Resolved alerts**: alerts that disappear from the NinjaOne active list are not automatically closed in Jira — manage their lifecycle in Jira directly.
+
+### Environment variables
+
+| Variable | Description |
+|----------|-------------|
+| `NINJA_JIRA_CONFIG` | Absolute path to config file |
+| `NINJA_CLIENT_ID` | NinjaOne OAuth2 client ID |
+| `NINJA_CLIENT_SECRET` | NinjaOne OAuth2 client secret |
+| `NINJA_BASE_URL` | NinjaOne API URL (default: `https://app.ninjarmm.com`) |
+| `JIRA_SUBDOMAIN` | Jira subdomain (e.g. `mycompany`) |
+| `JIRA_EMAIL` | Jira account email |
+| `JIRA_API_TOKEN` | Jira API token |
+| `JIRA_WORKSPACE_ID` | Jira Assets workspace ID (auto-discovered if omitted) |
+| `LOG_LEVEL` | `DEBUG`, `INFO`, `WARNING`, `ERROR` (default: `INFO`) |
+| `NINJA_JIRA_LOG_FILE` | Path to write a structured JSON log file |
+| `NINJA_JIRA_SCHEDULE_ENABLED` | `true`/`false` — enable device sync |
+| `NINJA_JIRA_SCHEDULE_INTERVAL_HOURS` | Hours between device syncs |
+| `NINJA_JIRA_ALERT_SCHEDULE_ENABLED` | `true`/`false` — enable alert polling |
+| `NINJA_JIRA_ALERT_SCHEDULE_INTERVAL_MINUTES` | Minutes between alert polls |
+
+---
+
+## CLI Reference
+
+| Command | Description |
+|---------|-------------|
+| `init` | Interactive CLI setup wizard |
+| `init --ui` | Browser-based setup wizard |
+| `mapping-test` | Preview how a sample device maps to Jira attributes |
+| `mapping-test --device-id <id>` | Test with a specific device |
+| `alert-test` | Preview how an active alert becomes a Jira issue |
+| `alert-test --alert-uid <uid>` | Test with a specific alert |
+| `sync-all` | Sync all devices to Jira Assets now |
+| `sync-all --dry-run` | Preview sync without writing |
+| `sync-device <id>` | Sync a single device by NinjaOne ID |
+| `run` | Start continuous device sync + alert polling |
+| `run --once` | Run one sync cycle and exit |
+| `run --dry-run` | Run in preview mode (no writes) |
+| `status` | Show sync statistics and queue status |
+| `replay-dead-letter` | Retry failed jobs |
+
+**Global flags** (must come before the subcommand):
+
+```
+--config / -c    Path to config file
+--verbose / -v   Debug logging
+--log-file       Write structured JSON logs to a file
+```
+
+```bash
+# Correct — global flags go before the subcommand
+uv run ninja-jira --log-file test.log run --once
+uv run ninja-jira --verbose sync-all --dry-run
+
+# Wrong — these will error
+uv run ninja-jira run --once --log-file test.log
+```
+
+---
+
+## Docker
+
+```bash
+docker build -t ninjaone-jira-integration .
+```
 
 ```yaml
 # docker-compose.yaml
 services:
   integration:
     build: .
-    ports:
-      - "8080:8080"
     volumes:
       - ./data:/app/data
       - ./config.yaml:/app/config.yaml:ro
@@ -229,132 +301,151 @@ services:
 ```
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
-### Kubernetes
-
-The server exposes health endpoints:
-- `/healthz` - Liveness probe (always returns 200 if server is running)
-- `/readyz` - Readiness probe (checks database and worker status)
-
-## API Endpoints
-
-When running in server mode:
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/healthz` | GET | Liveness check |
-| `/readyz` | GET | Readiness check with dependency status |
-| `/status` | GET | Detailed statistics and metrics |
-| `/webhook/device` | POST | Device update webhook |
-| `/webhook/alert` | POST | Alert webhook |
-
-## Architecture
-
-```
-┌─────────────────┐    ┌─────────────────┐
-│    NinjaOne     │    │   Jira Cloud    │
-│      API        │    │     APIs        │
-└────────┬────────┘    └────────┬────────┘
-         │                      │
-         │  OAuth2 + REST       │  Basic Auth + REST
-         │                      │
-┌────────┴──────────────────────┴────────┐
-│         Integration Service            │
-├────────────────────────────────────────┤
-│  ┌──────────┐  ┌──────────┐  ┌───────┐ │
-│  │   CLI    │  │  Server  │  │Worker │ │
-│  └────┬─────┘  └────┬─────┘  └───┬───┘ │
-│       │             │            │      │
-│  ┌────┴─────────────┴────────────┴───┐ │
-│  │          Sync Engine              │ │
-│  │   • Device Mapper                 │ │
-│  │   • Identity Resolver             │ │
-│  │   • Diff Computer                 │ │
-│  └───────────────┬───────────────────┘ │
-│                  │                      │
-│  ┌───────────────┴───────────────────┐ │
-│  │      SQLite (WAL mode)            │ │
-│  │   • Device Mappings               │ │
-│  │   • Alert Mappings                │ │
-│  │   • Job Queue                     │ │
-│  └───────────────────────────────────┘ │
-└────────────────────────────────────────┘
-```
-
-## Development
-
-### Setup
-
-```bash
-# Install with dev dependencies
-pip install -e ".[dev]"
-
-# Run linting
-ruff check .
-
-# Run type checking
-mypy ninjaone_jira_integration
-
-# Run tests
-pytest
-```
-
-### Project Structure
-
-```
-ninjaone_jira_integration/
-├── __init__.py          # Package metadata
-├── __main__.py          # Entry point
-├── cli/                 # CLI commands
-├── clients/             # API clients (NinjaOne, Jira)
-├── config/              # Configuration models and loader
-├── store/               # SQLite storage (mappings, jobs)
-├── sync/                # Sync engine (mapper, matching)
-├── alerts/              # Alert processing
-├── server/              # FastAPI webhooks and worker
-├── observability/       # Logging, heartbeat
-└── utils/               # Utilities (secrets, concurrency)
-```
+---
 
 ## Troubleshooting
 
-### Connection Issues
-
+**Connection problems:**
 ```bash
-# Test NinjaOne connection
-python -m ninjaone_jira_integration init  # Will test during setup
+# The setup wizard tests both connections on startup
+uv run ninja-jira init --ui
 
-# Enable debug logging
-python -m ninjaone_jira_integration -v sync-all --dry-run
+# Or enable debug logging on any command
+uv run ninja-jira -v sync-all --dry-run
 ```
 
-### Mapping Issues
-
+**A device isn't mapping correctly:**
 ```bash
-# Test with specific device
-python -m ninjaone_jira_integration mapping-test --device-id 12345
+uv run ninja-jira mapping-test --device-id 12345
 ```
 
-### Failed Jobs
+**An alert isn't creating an issue:**
+```bash
+uv run ninja-jira alert-test --alert-uid <uid>
+```
+
+Shows which filter was applied, what the issue summary and priority would be, and why it might be skipped.
+
+**Failed jobs:**
+```bash
+uv run ninja-jira status
+uv run ninja-jira replay-dead-letter
+```
+
+---
+
+## Development
 
 ```bash
-# View dead-letter jobs
-python -m ninjaone_jira_integration replay-dead-letter
+uv sync --all-extras
 
-# Replay specific job
-python -m ninjaone_jira_integration replay-dead-letter --job-id 123
+uv run ruff check .
+uv run mypy ninjaone_jira_integration
+uv run pytest
 ```
+
+```
+ninjaone_jira_integration/
+├── cli/              # CLI commands
+├── clients/          # API clients (NinjaOne, Jira)
+├── config/           # Configuration models, loader, setup UI
+├── store/            # SQLite storage (mappings, job queue)
+├── sync/             # Device sync engine
+├── alerts/           # Alert processing
+├── server/           # Webhook server (run-server mode)
+└── notifications.py  # Outbound webhook notifications
+```
+
+---
+
+## Advanced / In Progress
+
+The following features are in the codebase but not yet fully tested or production-ready.
+
+### Webhook server (`run-server`)
+
+An HTTP server for real-time processing via NinjaOne webhooks instead of polling. Requires a publicly accessible URL.
+
+```bash
+uv run ninja-jira run-server
+```
+
+Configure NinjaOne to POST to:
+- `https://your-server:8080/webhook/device` — device updates
+- `https://your-server:8080/webhook/alert` — alert events
+
+Health endpoints (for container probes):
+- `GET /healthz` — liveness
+- `GET /readyz` — readiness (checks DB and worker)
+
+> The polling mode (`run` / `run --once`) is the tested, recommended path for most deployments. The webhook server mode is functional but hasn't been hardened for production.
+
+### Outbound notifications (heartbeat + change summaries)
+
+The integration can optionally POST to a URL after each sync cycle and on a heartbeat timer — useful for [Uptime Kuma](https://uptime.kuma.pet/), Betterstack, Slack, or any HTTP receiver.
+
+Configure via the **Notifications** tab in `ninja-jira init --ui`, or manually:
+
+```yaml
+heartbeat:
+  enabled: true
+  url: https://uptime.example.com/api/push/abc123
+  interval_seconds: 60
+  notify_on_changes: true
+  # token: set via HEARTBEAT_TOKEN env var — never stored in config.yaml
+```
+
+Environment variables:
+
+| Variable | Description |
+|----------|-------------|
+| `HEARTBEAT_URL` | Webhook URL (both event types post here) |
+| `HEARTBEAT_TOKEN` | Bearer token sent as `Authorization: Bearer ...` |
+| `HEARTBEAT_INTERVAL_SECONDS` | Seconds between heartbeat pings (default: 60) |
+| `HEARTBEAT_ENABLED` | `true`/`false` |
+
+If no URL is configured the feature is completely silent — no errors, no warnings.
+
+**Payload examples:**
+
+Heartbeat ping:
+```json
+{
+  "event": "heartbeat",
+  "timestamp": "2026-06-24T17:56:32Z",
+  "status": "running",
+  "version": "1.0.0",
+  "runtime": "bare-python",
+  "uptime_seconds": 3600
+}
+```
+
+Change summary (sent after any sync that created or updated records):
+```json
+{
+  "event": "sync_complete",
+  "timestamp": "2026-06-24T18:00:00Z",
+  "runtime": "bare-python",
+  "summary": {
+    "type": "device_sync",
+    "total": 60,
+    "created": 3,
+    "updated": 12,
+    "skipped": 45,
+    "failed": 0,
+    "success_rate": 100.0,
+    "changes": ["win-server-01: updated Serial Number"]
+  }
+}
+```
+
+> The outbound notification system is newly added and hasn't been fully tested end-to-end. The setup UI for it exists in the wizard but treat this as a preview feature.
+
+---
 
 ## License
 
-MIT License - See [LICENSE](LICENSE) for details.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests and linting
-5. Submit a pull request
+MIT — see [LICENSE](LICENSE).

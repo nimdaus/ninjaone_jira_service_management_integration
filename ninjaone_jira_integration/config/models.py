@@ -8,7 +8,7 @@ as SecretStr to prevent accidental logging.
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field, SecretStr, field_validator
 
@@ -300,6 +300,21 @@ class FieldMapping(BaseModel):
     )
 
 
+class JsmFieldMapping(BaseModel):
+    """Maps NinjaOne severity or priority values to a Jira option field (Impact, Urgency, etc.)."""
+
+    jira_field_id: str = Field(description="Jira field ID (e.g. customfield_10040)")
+    jira_field_name: str = Field(default="", description="Field name for display")
+    ninja_source: Literal["severity", "priority"] = Field(
+        default="severity",
+        description="Which NinjaOne alert field to map from",
+    )
+    value_map: dict[str, str] = Field(
+        default_factory=dict,
+        description="NinjaOne value → Jira option value (e.g. {'CRITICAL': 'Extensive / Widespread'})",
+    )
+
+
 class JiraIssueConfig(BaseModel):
     """Jira issue configuration for alert processing."""
     
@@ -319,14 +334,26 @@ class JiraIssueConfig(BaseModel):
         default_factory=list,
         description="Field mappings for issue creation",
     )
-    asset_link_field_id: str = Field(
+    asset_field_id: str = Field(
         default="",
         description="Custom field ID for linking to Assets (if applicable)",
     )
-    
+    min_severity: str | None = Field(
+        default=None,
+        description="Minimum alert severity to create issues for (NONE, MINOR, MODERATE, MAJOR, CRITICAL)",
+    )
+    source_types: list[str] = Field(
+        default_factory=list,
+        description="Restrict issue creation to these NinjaOne sourceType values (empty = all)",
+    )
+    jsm_field_mappings: list[JsmFieldMapping] = Field(
+        default_factory=list,
+        description="Value mappings for JSM option fields (Impact, Urgency, Severity, Priority)",
+    )
+
     # Default templates for issue fields
     summary_template: str = Field(
-        default="[NinjaOne Alert] {alert.message} - {device.systemName}",
+        default="[NinjaOne Alert] {message} - {severity}",
         description="Template for issue summary",
     )
     description_template: str = Field(
@@ -341,6 +368,34 @@ class JiraIssueConfig(BaseModel):
 |Triggered At|{alert.createTime}|
 """,
         description="Template for issue description",
+    )
+    resolve_transition_id: str | None = Field(
+        default=None,
+        description="Jira transition ID to apply when a NinjaOne alert is no longer active (resolved)",
+    )
+    resolve_comment: str = Field(
+        default="NinjaOne alert resolved — this issue was automatically transitioned.",
+        description="Comment to post on the Jira issue when the alert resolves",
+    )
+    retrigger_behavior: Literal["reopen", "new_issue"] = Field(
+        default="new_issue",
+        description="What to do when a resolved NinjaOne alert reappears: reopen the existing issue or create a new one",
+    )
+    reopen_transition_id: str | None = Field(
+        default=None,
+        description="Jira transition ID to apply when reopening an issue for a retriggered alert (retrigger_behavior=reopen)",
+    )
+    reopen_comment: str = Field(
+        default="NinjaOne alert retriggered — condition re-activated.",
+        description="Comment to post when an issue is reopened for a retriggered alert",
+    )
+    resolve_target_status: str | None = Field(
+        default=None,
+        description="Target Jira status name to walk to when an alert resolves (walks multi-hop workflows)",
+    )
+    reopen_target_status: str | None = Field(
+        default=None,
+        description="Target Jira status name to walk to when reopening a retriggered alert",
     )
 
 
@@ -397,6 +452,10 @@ class HeartbeatConfig(BaseModel):
     token: SecretStr | None = Field(
         default=None,
         description="Optional token sent as X-Heartbeat-Token header",
+    )
+    notify_on_changes: bool = Field(
+        default=True,
+        description="Send a webhook notification after each sync/alert-poll run completes",
     )
 
 

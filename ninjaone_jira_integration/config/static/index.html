@@ -14,7 +14,11 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">N</div>
+            <div class="logo">
+                <img src="/static/ninjaOne-icon-blue-green.png" alt="NinjaOne" class="logo-icon">
+                <span class="logo-arrow">→</span>
+                <img src="/static/jirasm.png" alt="Jira Service Management" class="logo-icon">
+            </div>
             <h1>NinjaOne → Jira Integration</h1>
             <p class="subtitle">Configure device sync and asset mapping</p>
         </header>
@@ -23,7 +27,8 @@
             <button class="tab active" data-tab="credentials">1. Credentials</button>
             <button class="tab" data-tab="schema">2. Schema</button>
             <button class="tab" data-tab="mappings">3. Role Mappings</button>
-            <button class="tab" data-tab="review">4. Review</button>
+            <button class="tab" data-tab="alerts">4. Alerts</button>
+            <button class="tab" data-tab="review">5. Review</button>
         </div>
 
         <!-- Tab 1: Credentials -->
@@ -95,6 +100,40 @@
                 <div id="jira-status" class="status"></div>
             </div>
 
+            <div class="card">
+                <h2><span class="icon">🔔</span> Notifications</h2>
+                <p class="description">Send webhook events to an external endpoint — a periodic heartbeat and a summary after each sync or alert poll run.</p>
+                <label class="checkbox" style="margin-top: 8px;">
+                    <input type="checkbox" id="heartbeat-enabled"
+                        onchange="state.notifConfig.enabled = this.checked; document.getElementById('notif-settings').style.display = this.checked ? '' : 'none';">
+                    <span>Enable notifications</span>
+                </label>
+                <div id="notif-settings" style="display:none; margin-top: 16px;">
+                    <div class="form-group">
+                        <label for="heartbeat-url">Webhook URL</label>
+                        <input type="text" id="heartbeat-url" placeholder="https://..."
+                            oninput="state.notifConfig.url = this.value">
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="heartbeat-token">Bearer Token</label>
+                            <input type="password" id="heartbeat-token" placeholder="Optional"
+                                oninput="state.notifConfig.token = this.value">
+                        </div>
+                        <div class="form-group">
+                            <label for="heartbeat-interval">Heartbeat Interval (seconds)</label>
+                            <input type="number" id="heartbeat-interval" value="60" min="10" max="3600"
+                                oninput="state.notifConfig.intervalSeconds = parseInt(this.value) || 60">
+                        </div>
+                    </div>
+                    <label class="checkbox">
+                        <input type="checkbox" id="heartbeat-notify-changes" checked
+                            onchange="state.notifConfig.notifyOnChanges = this.checked">
+                        <span>Send run-completion summary after each sync / alert poll</span>
+                    </label>
+                </div>
+            </div>
+
             <div class="nav-buttons">
                 <span></span>
                 <button class="btn btn-primary" onclick="nextTab('schema')">Next: Schema Selection →</button>
@@ -148,11 +187,188 @@
 
             <div class="nav-buttons">
                 <button class="btn btn-secondary" onclick="prevTab('schema')">← Back</button>
+                <button class="btn btn-primary" onclick="nextTab('alerts')">Next: Alerts →</button>
+            </div>
+        </section>
+
+        <!-- Tab 4: Alerts -->
+        <section id="tab-alerts" class="tab-content">
+            <div class="alert alert-info">
+                <span class="alert-icon">🔔</span>
+                <div class="alert-content">
+                    <strong>Alert → Issue Mapping:</strong> Configure how NinjaOne condition alerts become Jira issues.
+                    This step is optional — skip it if you only need device sync.
+                </div>
+            </div>
+
+            <!-- Section 1: Project & Issue Type -->
+            <div class="card">
+                <h2>
+                    <span class="icon">📁</span>
+                    Jira Project &amp; Issue Type
+                </h2>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="alert-project">Project</label>
+                        <select id="alert-project" onchange="onAlertProjectChange(this)">
+                            <option value="">-- Test Jira connection first --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="alert-issue-type">Issue Type</label>
+                        <select id="alert-issue-type" onchange="onAlertIssueTypeChange(this)">
+                            <option value="">-- Select project first --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Summary & Filtering -->
+            <div class="card">
+                <h2>
+                    <span class="icon">✏️</span>
+                    Summary &amp; Filtering
+                </h2>
+                <div class="form-group">
+                    <label for="alert-summary-template">Summary Template</label>
+                    <input type="text" id="alert-summary-template"
+                        placeholder="[NinjaOne] {severity}: {device_name} - {message}">
+                    <small>Available variables:
+                        <span class="var-chip">{message}</span>
+                        <span class="var-chip">{device_name}</span>
+                        <span class="var-chip">{severity}</span>
+                        <span class="var-chip">{source_type}</span>
+                        <span class="var-chip">{condition}</span>
+                    </small>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="alert-min-severity">Minimum Severity</label>
+                        <select id="alert-min-severity" onchange="state.issueConfig.minSeverity = this.value">
+                            <option value="">-- All severities --</option>
+                            <option value="MINOR">MINOR</option>
+                            <option value="MODERATE">MODERATE</option>
+                            <option value="MAJOR">MAJOR</option>
+                            <option value="CRITICAL">CRITICAL</option>
+                        </select>
+                        <small>Alerts below this severity will be ignored.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Source Types to Include</label>
+                        <div class="tag-input-wrapper">
+                            <div id="source-types-tags" class="tag-chips"></div>
+                            <input type="text" id="source-type-input" class="tag-text-input"
+                                placeholder="e.g. CONDITION (Enter to add)"
+                                onkeydown="handleTagKeydown(event, 'sourceTypes', 'source-type-input', 'source-types-tags')">
+                        </div>
+                        <small>Leave empty to include all source types.</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Field Mappings -->
+            <div class="card">
+                <h2>
+                    <span class="icon">🔗</span>
+                    NinjaOne → Jira Field Mappings
+                </h2>
+                <p class="description">Map NinjaOne alert fields to custom Jira fields. Use this to pass severity, source type, or other alert data into Jira so automation rules or priority matrices can act on them.</p>
+                <div id="alert-field-mappings-list">
+                    <!-- Rendered by renderAlertFieldMappings() -->
+                </div>
+                <button class="btn btn-small btn-secondary" style="margin-top: 8px;" onclick="addAlertFieldMapping()">+ Add Field Mapping</button>
+            </div>
+
+            <!-- Section 3b: JSM Value Mappings -->
+            <div class="card">
+                <h2>
+                    <span class="icon">⚡</span>
+                    JSM Value Mappings
+                </h2>
+                <p class="description">Map NinjaOne severity or priority values to Jira Service Management option fields such as Impact, Urgency, and Severity. Jira option values are loaded automatically once an issue type is selected.</p>
+                <div id="jsm-field-mappings-list">
+                    <!-- Rendered by renderJsmFieldMappings() -->
+                </div>
+                <button class="btn btn-small btn-secondary" style="margin-top: 8px;" onclick="addJsmFieldMapping()">+ Add JSM Mapping</button>
+            </div>
+
+            <!-- Section 4: Asset Linking -->
+            <div class="card">
+                <h2>
+                    <span class="icon">🏷️</span>
+                    Asset Linking
+                </h2>
+                <div class="form-group">
+                    <label for="asset-field-id">Asset Link Field</label>
+                    <select id="asset-field-id" onchange="state.issueConfig.assetFieldId = this.value">
+                        <option value="">— none / skip asset linking —</option>
+                    </select>
+                    <small>Select the Assets object picker custom field for this project. Populated automatically when an issue type is selected above. Optional — leave blank to skip asset linking.</small>
+                </div>
+            </div>
+
+            <!-- Section 5: Alert Resolution -->
+            <div class="card">
+                <h2>
+                    <span class="icon">✅</span>
+                    Alert Resolution
+                </h2>
+                <p class="description">When a NinjaOne alert disappears from the active alerts list, it has resolved. Optionally apply a Jira workflow transition and post a comment.</p>
+
+                <div class="form-group">
+                    <label for="resolve-transition-select">Resolution Target Status</label>
+                    <select id="resolve-transition-select" onchange="state.issueConfig.resolveTargetStatus = this.value">
+                        <option value="">— none / keep current status —</option>
+                    </select>
+                    <small>Populated automatically when an issue type is selected. The integration will walk through intermediate states to reach the target — no direct transition required.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="resolve-comment">Resolution Comment</label>
+                    <input type="text" id="resolve-comment" placeholder="Comment to post on resolution">
+                    <small>Posted before the status transition so business rules on the resolved state cannot block it. Leave blank to skip.</small>
+                </div>
+            </div>
+
+            <!-- Section 6: Alert Retrigger -->
+            <div class="card">
+                <h2>
+                    <span class="icon">🔁</span>
+                    Alert Retrigger
+                </h2>
+                <p class="description">A NinjaOne alert can retrigger — the same alert UID can reappear after having been resolved.</p>
+
+                <div class="form-group">
+                    <label for="retrigger-behavior">Retrigger Behavior</label>
+                    <select id="retrigger-behavior">
+                        <option value="new_issue">Create a new Jira issue</option>
+                        <option value="reopen">Reopen the existing Jira issue</option>
+                    </select>
+                </div>
+
+                <div id="reopen-config-section">
+                    <div class="form-group">
+                        <label for="reopen-transition-select">Reopen Target Status</label>
+                        <select id="reopen-transition-select" onchange="state.issueConfig.reopenTargetStatus = this.value">
+                            <option value="">— select target status —</option>
+                        </select>
+                        <small>Status to walk the issue back to when reopening. If this fails, a new issue will be created instead.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reopen-comment">Reopen Comment</label>
+                        <input type="text" id="reopen-comment" placeholder="Comment to post on reopen">
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="prevTab('mappings')">← Back</button>
                 <button class="btn btn-primary" onclick="nextTab('review')">Next: Review →</button>
             </div>
         </section>
 
-        <!-- Tab 4: Review & Save -->
+        <!-- Tab 5: Review & Save -->
         <section id="tab-review" class="tab-content">
             <div class="card">
                 <h2>
@@ -176,7 +392,7 @@ JIRA_API_TOKEN=your-token</pre>
             </div>
 
             <div class="nav-buttons">
-                <button class="btn btn-secondary" onclick="prevTab('mappings')">← Back</button>
+                <button class="btn btn-secondary" onclick="prevTab('alerts')">← Back</button>
                 <button class="btn btn-secondary" onclick="exportConfig()">Export JSON</button>
                 <button class="btn btn-success" onclick="saveConfig()">
                     <span class="spinner" id="save-spinner"></span>

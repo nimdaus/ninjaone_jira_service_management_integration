@@ -138,28 +138,6 @@ class RateLimiter:
             yield
 
 
-def create_jira_limiter(
-    max_concurrent: int = 2,
-    requests_per_minute: int | None = None,
-) -> RateLimiter:
-    """Create a rate limiter configured for Jira API.
-    
-    Jira Cloud has rate limits that vary by plan and endpoint.
-    This creates a conservative limiter to avoid hitting limits.
-    
-    Args:
-        max_concurrent: Maximum concurrent Jira requests.
-        requests_per_minute: Optional requests per minute limit.
-        
-    Returns:
-        Configured RateLimiter instance.
-    """
-    return RateLimiter(
-        max_concurrent=max_concurrent,
-        requests_per_minute=requests_per_minute,
-    )
-
-
 class RetryAfterTracker:
     """Tracks Retry-After headers from API responses.
     

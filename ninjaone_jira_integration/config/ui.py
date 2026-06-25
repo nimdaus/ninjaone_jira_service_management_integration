@@ -513,7 +513,163 @@ class ConfigUIServer:
             finally:
                 if client:
                     await client.close()
-        
+
+        @app.get("/api/jira/issue-fields")
+        async def get_jira_issue_fields(
+            subdomain: str,
+            email: str,
+            api_token: str,
+            project_key: str,
+            issue_type_id: str,
+        ):
+            """Get available fields for creating issues in a project/issue-type combination."""
+            from ninjaone_jira_integration.clients.jira_assets import JiraAssetsClient
+
+            # Fields the user cannot set during issue creation
+            _NON_SETTABLE = frozenset({
+                "project", "issuetype", "reporter", "created", "updated",
+                "creator", "votes", "watches", "worklog", "comment",
+                "attachment", "subtasks", "issuelinks", "parent",
+            })
+
+            try:
+                client = JiraAssetsClient(
+                    subdomain=subdomain,
+                    email=email,
+                    api_token=SecretStr(api_token),
+                )
+                meta = await client.get_issue_create_metadata(project_key, issue_type_id)
+                await client.close()
+
+                fields: list[dict] = []
+                projects = meta.get("projects") or []
+                if projects:
+                    issue_types = projects[0].get("issuetypes") or []
+                    if issue_types:
+                        raw_fields = issue_types[0].get("fields") or {}
+                        for field_id, field_info in raw_fields.items():
+                            if field_id in _NON_SETTABLE:
+                                continue
+                            schema = field_info.get("schema") or {}
+                            raw_allowed = field_info.get("allowedValues") or []
+                            allowed_values = []
+                            for av in raw_allowed:
+                                label = av.get("value") or av.get("name") or ""
+                                if label:
+                                    allowed_values.append(label)
+                            fields.append({
+                                "id": field_id,
+                                "name": field_info.get("name", field_id),
+                                "schema_type": schema.get("type", ""),
+                                "allowed_values": allowed_values,
+                            })
+                fields.sort(key=lambda f: f["name"])
+                return {"fields": fields}
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=str(e))
+
+        @app.get("/api/jira/project-statuses")
+        async def get_jira_project_statuses(
+            subdomain: str,
+            email: str,
+            api_token: str,
+            project_key: str,
+            issue_type_id: str = "",
+        ):
+            """Get workflow statuses for a Jira project (optionally filtered to one issue type)."""
+            from ninjaone_jira_integration.clients.jira_assets import JiraAssetsClient
+
+            try:
+                client = JiraAssetsClient(
+                    subdomain=subdomain,
+                    email=email,
+                    api_token=SecretStr(api_token),
+                )
+                statuses = await client.get_project_statuses(
+                    project_key, issue_type_id or None
+                )
+                await client.close()
+                normalized = [
+                    {"id": s.get("id", ""), "name": s.get("name", "")}
+                    for s in statuses
+                ]
+                return {"statuses": normalized}
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=str(e))
+
+        @app.get("/api/jira/issue-transitions")
+        async def get_jira_issue_transitions(
+            subdomain: str,
+            email: str,
+            api_token: str,
+            issue_key: str,
+        ):
+            """Get available workflow transitions for a specific Jira issue."""
+            from ninjaone_jira_integration.clients.jira_assets import JiraAssetsClient
+
+            try:
+                client = JiraAssetsClient(
+                    subdomain=subdomain,
+                    email=email,
+                    api_token=SecretStr(api_token),
+                )
+                transitions = await client.get_transitions(issue_key)
+                await client.close()
+
+                normalized = [
+                    {
+                        "id": t.get("id", ""),
+                        "name": t.get("name", ""),
+                        "to_status": (t.get("to") or {}).get("name", ""),
+                    }
+                    for t in transitions
+                ]
+                return {"transitions": normalized}
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=str(e))
+
+        @app.get("/api/jira/projects")
+        async def get_jira_projects(subdomain: str, email: str, api_token: str):
+            """Get all Jira projects accessible with these credentials."""
+            from ninjaone_jira_integration.clients.jira_assets import JiraAssetsClient
+
+            try:
+                client = JiraAssetsClient(
+                    subdomain=subdomain,
+                    email=email,
+                    api_token=SecretStr(api_token),
+                )
+                projects = await client.get_projects()
+                await client.close()
+                normalized = [
+                    {"id": p.get("id", ""), "key": p.get("key", ""), "name": p.get("name", "")}
+                    for p in projects
+                ]
+                return {"projects": normalized}
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=str(e))
+
+        @app.get("/api/jira/issue-types")
+        async def get_jira_issue_types(subdomain: str, email: str, api_token: str, project_key: str):
+            """Get issue types for a Jira project."""
+            from ninjaone_jira_integration.clients.jira_assets import JiraAssetsClient
+
+            try:
+                client = JiraAssetsClient(
+                    subdomain=subdomain,
+                    email=email,
+                    api_token=SecretStr(api_token),
+                )
+                issue_types = await client.get_issue_types(project_key)
+                await client.close()
+                normalized = [
+                    {"id": it.get("id", ""), "name": it.get("name", ""), "description": it.get("description", "")}
+                    for it in issue_types
+                ]
+                return {"issue_types": normalized}
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=str(e))
+
         @app.post("/api/shutdown")
         async def shutdown():
             """Graceful shutdown."""

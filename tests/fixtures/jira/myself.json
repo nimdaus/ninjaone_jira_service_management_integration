@@ -1,0 +1,25 @@
+{
+  "self": "https://ninjatwo.atlassian.net/rest/api/3/user?accountId=70121:cbee5a60-3204-4078-800d-a3e2cf92f8a9",
+  "accountId": "70121:cbee5a60-3204-4078-800d-a3e2cf92f8a9",
+  "accountType": "atlassian",
+  "emailAddress": "joshuaplambert@gmail.com",
+  "avatarUrls": {
+    "48x48": "https://secure.gravatar.com/avatar/041425baf5176236f21e826119eed53b?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJ-6.png",
+    "24x24": "https://secure.gravatar.com/avatar/041425baf5176236f21e826119eed53b?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJ-6.png",
+    "16x16": "https://secure.gravatar.com/avatar/041425baf5176236f21e826119eed53b?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJ-6.png",
+    "32x32": "https://secure.gravatar.com/avatar/041425baf5176236f21e826119eed53b?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJ-6.png"
+  },
+  "displayName": "Josh",
+  "active": true,
+  "timeZone": "America/New_York",
+  "locale": "en_GB",
+  "groups": {
+    "size": 2,
+    "items": []
+  },
+  "applicationRoles": {
+    "size": 2,
+    "items": []
+  },
+  "expand": "groups,applicationRoles"
+}

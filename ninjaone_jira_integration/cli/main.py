@@ -4,6 +4,7 @@ Main CLI entry point.
 Provides commands:
 - init: Interactive configuration setup
 - mapping-test: Test attribute mappings with sample device
+- alert-test: Test alert-to-issue mapping with sample alert
 - sync-all: Full sync of all devices
 - sync-device: Sync a single device
 - run-server: Start the HTTP server
@@ -31,18 +32,34 @@ from ninjaone_jira_integration.config import AppConfig, load_config, save_config
 console = Console()
 
 
-def setup_logging(level: str = "INFO") -> None:
-    """Configure logging with rich handler.
-    
+def setup_logging(level: str = "INFO", log_file: str | None = None) -> None:
+    """Configure logging.
+
+    Uses structured logging (JSON to file, colorized text to console) when
+    a log_file is specified; otherwise falls back to Rich console logging.
+
     Args:
         level: Log level (DEBUG, INFO, WARNING, ERROR).
+        log_file: Optional path to write JSON log file.
     """
-    logging.basicConfig(
+    from ninjaone_jira_integration.observability.logging import setup_structured_logging
+
+    setup_structured_logging(
         level=level.upper(),
-        format="%(message)s",
-        datefmt="[%X]",
-        handlers=[RichHandler(console=console, rich_tracebacks=True)],
+        json_format=bool(log_file),  # JSON only when writing to a file
+        log_file=log_file,
     )
+
+    # When not writing to a file, attach Rich handler for nicer console output
+    if not log_file:
+        root = logging.getLogger()
+        root.handlers = []
+        logging.basicConfig(
+            level=level.upper(),
+            format="%(message)s",
+            datefmt="[%X]",
+            handlers=[RichHandler(console=console, rich_tracebacks=True)],
+        )
 
 
 @click.group()
@@ -58,14 +75,22 @@ def setup_logging(level: str = "INFO") -> None:
     is_flag=True,
     help="Enable verbose output",
 )
+@click.option(
+    "--log-file",
+    "log_file",
+    envvar="NINJA_JIRA_LOG_FILE",
+    default=None,
+    help="Write JSON logs to this file path (in addition to console)",
+)
 @click.pass_context
-def cli(ctx: click.Context, config_path: str | None, verbose: bool) -> None:
+def cli(ctx: click.Context, config_path: str | None, verbose: bool, log_file: str | None) -> None:
     """NinjaOne to Jira Service Management integration CLI."""
     ctx.ensure_object(dict)
     ctx.obj["config_path"] = config_path
     ctx.obj["verbose"] = verbose
-    
-    setup_logging("DEBUG" if verbose else "INFO")
+    ctx.obj["log_file"] = log_file
+
+    setup_logging("DEBUG" if verbose else "INFO", log_file=log_file)
 
 
 @cli.command()
@@ -76,7 +101,7 @@ def cli(ctx: click.Context, config_path: str | None, verbose: bool) -> None:
 )
 @click.option(
     "--port",
-    default=5000,
+    default=8080,
     type=int,
     help="Port for configuration UI server",
 )
@@ -220,7 +245,7 @@ async def _init_interactive(ctx: click.Context, write_secrets: bool) -> None:
         console.print(f"  JIRA_API_TOKEN={jira_api_token[:4]}***")
     
     # Save config
-    save_config(config_data, config_path)
+    save_config(AppConfig.model_validate(config_data), Path(config_path))
     console.print()
     console.print(f"[green]Configuration saved to {config_path}[/green]")
     console.print()
@@ -229,6 +254,35 @@ async def _init_interactive(ctx: click.Context, write_secrets: bool) -> None:
     console.print("2. Configure asset mappings in the config file")
     console.print("3. Run 'mapping-test' to validate mappings")
     console.print("4. Run 'sync-all --dry-run' to preview changes")
+
+
+async def _find_device_for_mapping_test(ninja_client: Any, config: Any) -> dict | None:
+    """Return a device that matches a configured role mapping, or the first device found.
+
+    Scans up to 50 devices. If role mappings are configured, prefers a device whose
+    nodeRoleId has a matching mapping so the preview shows real attribute data.
+    """
+    configured_roles = {m.ninja_role_id for m in config.assets.object_type_mappings if m.enabled}
+    first_device = None
+    scanned = 0
+
+    async for device in ninja_client.get_devices_detailed(page_size=50):
+        if first_device is None:
+            first_device = device
+        if not configured_roles or device.get("nodeRoleId") in configured_roles:
+            return device
+        scanned += 1
+        if scanned >= 50:
+            break
+
+    # No role match found — fall back to first device and warn
+    if first_device and configured_roles:
+        console.print(
+            "[yellow]No device found matching a configured role in the first 50 results. "
+            "Using first available device — pass --device-id to test a specific device.[/yellow]"
+        )
+        console.print()
+    return first_device
 
 
 @cli.command("mapping-test")
@@ -246,10 +300,11 @@ def mapping_test(ctx: click.Context, device_id: int | None) -> None:
 async def _mapping_test(ctx: click.Context, device_id: int | None) -> None:
     """Run mapping test."""
     config = load_config(ctx.obj.get("config_path"))
-    
-    if not config.assets.attribute_mappings:
+
+    has_mappings = config.assets.attribute_mappings or config.assets.has_role_mappings()
+    if not has_mappings:
         console.print("[yellow]No attribute mappings configured.[/yellow]")
-        console.print("Add mappings to the 'assets.attribute_mappings' section of your config.")
+        console.print("Use 'ninja-jira init --ui' to configure mappings, or add them to config.yaml.")
         return
     
     from pydantic import SecretStr
@@ -273,53 +328,162 @@ async def _mapping_test(ctx: click.Context, device_id: int | None) -> None:
         if device_id:
             device = await ninja_client.get_device(device_id)
         else:
-            # Get first device
-            async for device in ninja_client.get_devices_detailed(page_size=1):
-                break
-            else:
+            device = await _find_device_for_mapping_test(ninja_client, config)
+            if device is None:
                 console.print("[red]No devices found in NinjaOne[/red]")
                 return
-        
-        console.print(f"[bold]Sample Device: {device.get('systemName', 'Unknown')} (ID: {device.get('id')})[/bold]")
+
+        role_id = device.get("nodeRoleId")
+        role_mapping = config.assets.get_mapping_for_role(role_id) if role_id else None
+
+        console.print(f"[bold]Device:[/bold] {device.get('systemName', 'Unknown')} (ID: {device.get('id')})")
+        if role_mapping:
+            console.print(
+                f"[bold]Role mapping:[/bold] role {role_id} → "
+                f"{role_mapping.ninja_role_name or role_id} → "
+                f"Jira type {role_mapping.jira_object_type_id} ({role_mapping.jira_object_type_name or ''})"
+            )
+        elif config.assets.has_role_mappings():
+            console.print(
+                f"[yellow]Warning: device role {role_id} has no configured mapping — "
+                f"no attributes will be synced for this device.[/yellow]"
+            )
         console.print()
-        
+
         # Test mappings
         mapper = DeviceMapper(config.assets)
         preview = mapper.get_mapped_preview(device)
-        
-        # Display results
-        table = Table(title="Attribute Mapping Preview")
-        table.add_column("Jira Attribute", style="cyan")
-        table.add_column("Source", style="dim")
-        table.add_column("Original Value")
-        table.add_column("Mapped Value", style="green")
-        table.add_column("Transformed", style="yellow")
-        
-        for item in preview:
-            table.add_row(
-                item.attribute_name,
-                item.source_field,
-                str(item.original_value)[:50] if item.original_value else "-",
-                str(item.value)[:50] if item.value else "-",
-                "✓" if item.transformed else "",
+
+        if not preview:
+            console.print("[yellow]No attributes mapped for this device's role.[/yellow]")
+            console.print(
+                "Configure an object_type_mapping for role ID "
+                f"{role_id} in config.yaml, or pass --device-id with a device "
+                "whose role is already configured."
             )
-        
-        console.print(table)
-        
+        else:
+            # Display results
+            table = Table(title="Attribute Mapping Preview")
+            table.add_column("Jira Attribute", style="cyan")
+            table.add_column("Source", style="dim")
+            table.add_column("Original Value")
+            table.add_column("Mapped Value", style="green")
+            table.add_column("Transformed", style="yellow")
+
+            for item in preview:
+                table.add_row(
+                    item.attribute_name,
+                    item.source_field,
+                    str(item.original_value)[:50] if item.original_value else "-",
+                    str(item.value)[:50] if item.value else "-",
+                    "✓" if item.transformed else "",
+                )
+
+            console.print(table)
+
         # Validate mappings
         from ninjaone_jira_integration.config.validation import validate_all_mappings
-        
-        errors = validate_all_mappings(config.assets.attribute_mappings, device)
-        
+
+        active_mappings = role_mapping.attribute_mappings if role_mapping else config.assets.attribute_mappings
+        errors = validate_all_mappings(active_mappings, device)
+
         if errors:
             console.print()
             console.print("[bold red]Mapping Validation Errors:[/bold red]")
             for error in errors:
                 console.print(f"  • {error.attribute_name}: {error.message}")
-        else:
+        elif preview:
             console.print()
             console.print("[green]✓ All mappings validated successfully[/green]")
         
+    finally:
+        await ninja_client.close()
+
+
+@cli.command("alert-test")
+@click.option(
+    "--alert-uid",
+    default=None,
+    help="Test with a specific alert UID (uses first active alert if omitted)",
+)
+@click.pass_context
+def alert_test(ctx: click.Context, alert_uid: str | None) -> None:
+    """Test alert-to-issue mapping with a sample NinjaOne alert."""
+    asyncio.run(_alert_test(ctx, alert_uid))
+
+
+async def _alert_test(ctx: click.Context, alert_uid: str | None) -> None:
+    from rich.panel import Panel
+    from ninjaone_jira_integration.clients.ninjaone import NinjaOneClient
+    from ninjaone_jira_integration.alerts.processor import build_alert_preview
+
+    config = load_config(ctx.obj.get("config_path"))
+
+    if not config.issues.project_key:
+        console.print("[yellow]No alert-to-issue config found (issues.project_key is empty).[/yellow]")
+        console.print("Use 'ninja-jira init --ui' to configure alert mapping, or edit config.yaml.")
+        return
+
+    ninja_client = NinjaOneClient(
+        base_url=config.ninjaone.base_url,
+        client_id=config.ninjaone.client_id,
+        client_secret=config.ninjaone.client_secret,
+    )
+
+    try:
+        await ninja_client.authenticate()
+
+        alert: dict | None = None
+        if alert_uid:
+            alert = await ninja_client.get_alert(alert_uid)
+        else:
+            async for a in ninja_client.get_alerts(page_size=1):
+                alert = a
+                break
+
+        if alert is None:
+            console.print("[yellow]No active alerts found in NinjaOne.[/yellow]")
+            console.print("Trigger a condition alert or pass --alert-uid to test with a specific alert.")
+            return
+
+        preview = build_alert_preview(alert, config.issues)
+
+        # Alert details panel
+        device_name = (
+            alert.get("deviceName")
+            or (alert.get("device") or {}).get("systemName", "Unknown")
+        )
+        alert_lines = [
+            f"[bold]UID:[/bold]         {alert.get('uid', 'N/A')}",
+            f"[bold]Severity:[/bold]    {alert.get('severity', 'N/A')}",
+            f"[bold]Message:[/bold]     {alert.get('message', 'N/A')}",
+            f"[bold]Source Type:[/bold] {alert.get('sourceType', 'N/A')}",
+            f"[bold]Device:[/bold]      {device_name} (ID: {alert.get('deviceId', 'N/A')})",
+        ]
+        console.print(Panel("\n".join(alert_lines), title="Sample Alert", border_style="blue"))
+        console.print()
+
+        if preview["included"]:
+            # Issue preview panel
+            priority_label = preview["priority_id"] or "(Jira default)"
+            labels_label = ", ".join(preview["labels"]) if preview["labels"] else "(none)"
+            preview_lines = [
+                f"[bold]Summary:[/bold]  {preview['summary']}",
+                f"[bold]Priority:[/bold] {priority_label}",
+                f"[bold]Labels:[/bold]   {labels_label}",
+            ]
+            console.print(Panel("\n".join(preview_lines), title="Issue Preview", border_style="green"))
+            console.print()
+            console.print("[green]✓ This alert WOULD create a Jira issue[/green]")
+        else:
+            console.print(Panel(
+                f"Reason: {preview['filter_reason']}",
+                title="Alert Filtered Out",
+                border_style="yellow",
+            ))
+            console.print()
+            console.print(f"[yellow]✗ This alert would be FILTERED OUT[/yellow]")
+
     finally:
         await ninja_client.close()
 
@@ -468,6 +632,92 @@ async def _sync_device(ctx: click.Context, device_id: int, dry_run: bool) -> Non
         finally:
             await ninja_client.close()
             await jira_client.close()
+
+
+@cli.command("run")
+@click.option(
+    "--dry-run",
+    is_flag=True,
+    help="Preview changes without making them",
+)
+@click.option(
+    "--once",
+    is_flag=True,
+    help="Run a single sync then exit (useful for cron jobs)",
+)
+@click.pass_context
+def run(ctx: click.Context, dry_run: bool, once: bool) -> None:
+    """Start scheduled device sync and alert polling (no public-facing server required).
+
+    Runs two independent schedulers:
+    - Device sync: every schedule.interval_hours (default 6h)
+    - Alert polling: every alert_schedule.interval_minutes (default 5m)
+
+    Use --once to run both immediately and exit (useful for cron jobs).
+    Use --dry-run to preview changes without writing to Jira.
+    """
+    asyncio.run(_run(ctx, dry_run, once))
+
+
+async def _run(ctx: click.Context, dry_run: bool, once: bool) -> None:
+    """Run the scheduled sync and alert polling."""
+    config = load_config(ctx.obj.get("config_path"))
+
+    from ninjaone_jira_integration.alerts.scheduler import AlertScheduler
+    from ninjaone_jira_integration.store.db import DatabaseManager
+    from ninjaone_jira_integration.sync.scheduler import SyncScheduler
+
+    if dry_run:
+        console.print("[bold yellow]DRY RUN MODE - No changes will be made[/bold yellow]")
+        console.print()
+
+    if once:
+        console.print("[bold]Running single device sync and alert poll...[/bold]")
+    else:
+        console.print(
+            f"[bold]Starting scheduled sync (devices every {config.schedule.interval_hours:.1f}h,"
+            f" alerts every {config.alert_schedule.interval_minutes:.1f}m).[/bold]"
+        )
+        console.print("Press Ctrl+C to stop.")
+        console.print()
+
+    async with DatabaseManager(config.database.path) as db:
+        sync_scheduler = SyncScheduler(config, db)
+        alert_scheduler = AlertScheduler(config, db)
+
+        if once:
+            await sync_scheduler.run_once(dry_run=dry_run)
+            await alert_scheduler.run_once(dry_run=dry_run)
+            console.print("[green]Sync and alert poll complete.[/green]")
+        else:
+            await sync_scheduler.start()
+            await alert_scheduler.start()
+
+            if config.heartbeat.url:
+                from ninjaone_jira_integration.notifications import OutboundNotifier
+
+                _notifier = OutboundNotifier(config.heartbeat)
+
+                async def _heartbeat_loop() -> None:
+                    while True:
+                        await _notifier.send_heartbeat()
+                        await asyncio.sleep(config.heartbeat.interval_seconds)
+
+                asyncio.create_task(_heartbeat_loop())
+                logger.info(
+                    "Heartbeat enabled: posting to %s every %ds",
+                    config.heartbeat.url,
+                    config.heartbeat.interval_seconds,
+                )
+
+            try:
+                # Block until interrupted
+                await asyncio.Event().wait()
+            except (KeyboardInterrupt, asyncio.CancelledError):
+                pass
+            finally:
+                await alert_scheduler.stop()
+                await sync_scheduler.stop()
 
 
 @cli.command("run-server")

@@ -352,24 +352,29 @@ class IdentityResolver:
         Returns:
             Tuple of (asset_id, asset_data) or (None, None) on failure.
         """
-        # Map device to attributes
+        # Map device to attributes (role-aware via DeviceMapper)
         attributes = self.mapper.map_device(device)
-        
+
         if not attributes:
             logger.warning(
                 "No attributes mapped for device %d, cannot create asset",
                 device_id,
             )
             return None, None
-        
+
         if dry_run:
             logger.info("[DRY RUN] Would create asset for device %d", device_id)
             return None, None
-        
+
+        # Resolve the correct object type for this device's role
+        role_id = device.get("nodeRoleId")
+        role_mapping = self.config.get_mapping_for_role(role_id) if role_id is not None else None
+        object_type_id = role_mapping.jira_object_type_id if role_mapping else self.config.object_type_id
+
         try:
             # Create the asset
             asset = await self.jira_client.create_object(
-                object_type_id=self.config.object_type_id,
+                object_type_id=object_type_id,
                 attributes=attributes,
             )
             
@@ -389,16 +394,19 @@ class IdentityResolver:
                 jira_asset_id=asset_id,
                 jira_asset_key=asset_key,
                 serial_number=serial_number,
+                device_name=self.mapper.extract_device_name(device),
             )
             await self.mapping_store.upsert_device_mapping(mapping)
             
             return asset_id, asset
             
         except Exception as e:
+            detail = getattr(e, "response_body", None)
             logger.error(
-                "Failed to create asset for device %d: %s",
+                "Failed to create asset for device %d: %s%s",
                 device_id,
                 str(e),
+                f" — {detail}" if detail else "",
             )
             return None, None
     
@@ -421,14 +429,15 @@ class IdentityResolver:
             jira_asset_key: Jira asset key.
         """
         serial_number = self.mapper.extract_serial_number(device)
-        
+
         mapping = DeviceMapping(
             ninja_device_id=device_id,
             jira_asset_id=jira_asset_id,
             jira_asset_key=jira_asset_key,
             serial_number=serial_number,
+            device_name=self.mapper.extract_device_name(device),
         )
-        
+
         await self.mapping_store.upsert_device_mapping(mapping)
         
         logger.debug(

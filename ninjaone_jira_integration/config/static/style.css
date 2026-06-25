@@ -72,17 +72,23 @@ header {
 }
 
 .logo {
-    width: 48px;
-    height: 48px;
-    background: var(--gradient-ninja);
-    border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     margin: 0 auto 16px;
-    font-size: 24px;
-    font-weight: 700;
-    color: white;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+}
+
+.logo-arrow {
+    font-size: 20px;
+    color: var(--text-muted);
+    font-weight: 600;
 }
 
 header h1 {
@@ -517,7 +523,56 @@ small a:hover {
     grid-template-columns: 2fr 2fr 1fr 60px 40px;
     gap: 8px;
     padding: 8px 0;
+    align-items: start;
+}
+
+.transforms-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.transform-item {
+    display: flex;
+    gap: 4px;
     align-items: center;
+}
+
+.transform-item select {
+    flex: 1;
+    min-width: 0;
+}
+
+.btn-add-transform {
+    background: none;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-size: 11px;
+    padding: 2px 6px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.btn-add-transform:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-remove-transform {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 11px;
+    padding: 2px 4px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.btn-remove-transform:hover {
+    color: var(--error);
 }
 
 .mapping-row select,
@@ -765,4 +820,108 @@ tr:hover {
 .tooltip:hover::after {
     opacity: 1;
     visibility: visible;
+}
+
+/* Variable chips (alert summary template hints) */
+.var-chip {
+    display: inline-block;
+    background: rgba(0, 163, 108, 0.15);
+    color: var(--ninja-green-light);
+    border: 1px solid rgba(0, 163, 108, 0.3);
+    border-radius: var(--radius-sm);
+    padding: 1px 6px;
+    font-size: 11px;
+    font-family: 'SF Mono', 'Monaco', 'Menlo', monospace;
+    margin: 2px 2px 0 0;
+}
+
+/* Tag input (source types, default labels) */
+.tag-input-wrapper {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-input);
+    padding: 6px 8px;
+    min-height: 42px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    cursor: text;
+    transition: border-color 0.15s ease;
+}
+
+.tag-input-wrapper:focus-within {
+    border-color: var(--ninja-green);
+    box-shadow: 0 0 0 3px rgba(0, 163, 108, 0.2);
+}
+
+.tag-chips {
+    display: contents;
+}
+
+.tag-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 163, 108, 0.2);
+    color: var(--ninja-green-light);
+    border: 1px solid rgba(0, 163, 108, 0.3);
+    border-radius: 9999px;
+    padding: 2px 8px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.tag-chip button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    opacity: 0.7;
+}
+
+.tag-chip button:hover {
+    opacity: 1;
+}
+
+.tag-text-input {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    flex: 1;
+    min-width: 120px;
+    padding: 2px 4px !important;
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+.tag-text-input:focus {
+    outline: none;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Severity → Priority mapping grid */
+.severity-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.severity-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 12px;
+    align-items: center;
+}
+
+.severity-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }

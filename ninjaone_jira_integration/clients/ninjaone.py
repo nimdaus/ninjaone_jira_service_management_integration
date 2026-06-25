@@ -291,22 +291,10 @@ class NinjaOneClient(BaseClient):
             
             # Get cursor for next page
             last_alert = alerts[-1]
-            cursor = str(last_alert.get("id"))
-            
+            cursor = last_alert.get("uid")
+
             if not cursor:
                 break
-    
-    async def get_alert(self, alert_id: int) -> dict[str, Any]:
-        """Get a single alert by ID.
-        
-        Args:
-            alert_id: NinjaOne alert ID.
-            
-        Returns:
-            Alert details dictionary.
-        """
-        response = await self.get(f"/v2/alert/{alert_id}")
-        return response.json()
     
     async def get_device_alerts(self, device_id: int) -> list[dict[str, Any]]:
         """Get alerts for a specific device.
