@@ -532,7 +532,7 @@ class RetryConfig(BaseModel):
 
 class LoggingConfig(BaseModel):
     """Logging configuration."""
-    
+
     level: str = Field(
         default="INFO",
         description="Log level (DEBUG, INFO, WARNING, ERROR)",
@@ -546,9 +546,39 @@ class LoggingConfig(BaseModel):
     )
 
 
+class ScheduleConfig(BaseModel):
+    """Device sync schedule configuration."""
+
+    enabled: bool = Field(
+        default=True,
+        description="Whether to run the scheduled device sync",
+    )
+    interval_hours: float = Field(
+        default=6.0,
+        ge=0.1,
+        le=168.0,
+        description="Hours between full device syncs",
+    )
+
+
+class AlertScheduleConfig(BaseModel):
+    """Alert polling schedule configuration."""
+
+    enabled: bool = Field(
+        default=True,
+        description="Whether to run the scheduled alert poll",
+    )
+    interval_minutes: float = Field(
+        default=5.0,
+        ge=1.0,
+        le=1440.0,
+        description="Minutes between alert polls",
+    )
+
+
 class AppConfig(BaseModel):
     """Root application configuration."""
-    
+
     ninjaone: NinjaOneConfig = Field(
         default_factory=NinjaOneConfig,
     )
@@ -578,6 +608,12 @@ class AppConfig(BaseModel):
     )
     logging: LoggingConfig = Field(
         default_factory=LoggingConfig,
+    )
+    schedule: ScheduleConfig = Field(
+        default_factory=ScheduleConfig,
+    )
+    alert_schedule: AlertScheduleConfig = Field(
+        default_factory=AlertScheduleConfig,
     )
     
     def is_fully_configured(self) -> bool:
